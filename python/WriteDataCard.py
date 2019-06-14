@@ -429,9 +429,9 @@ if __name__ == '__main__':
                 signalFileName = f
             else:
                 rootFile = rt.TFile(f)                
-                names = [k.GetName() for k in rootFile.GetListOfKeys()]
-                if histoName in names:
-                    myTH1 = rootFile.Get(histoName)
+                obj = rootFile.Get(histoName)
+                if issubclass(obj.__class__, rt.TH1) or issubclass(obj.__class__, rt.TH1):
+                    myTH1 = obj
                     myTH1.Print('v')
 
     w = rt.RooWorkspace("w"+box)

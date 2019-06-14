@@ -285,19 +285,16 @@ if __name__ == '__main__':
         colors = [rt.kBlue+1, rt.kCyan+1, rt.kViolet+1]
         styles = [2, 4, 6]
 
-    print signalFileNames
-    print models
-    print masses
-    print xsecs
 
-
+ 
     myTH1 = None
     for f in args:
         if f.lower().endswith('.root'):
-            rootFile = rt.TFile(f)
-            names = [k.GetName() for k in rootFile.GetListOfKeys()]
-            if histoName in names:
-                myTH1 = rootFile.Get(histoName)
+            rootFile = rt.TFile.Open(f)
+            #names = [k.GetName() for k in rootFile.GetListOfKeys()]
+            obj = rootFile.Get(histoName)
+            if issubclass(obj.__class__, rt.TH1) or issubclass(obj.__class__, rt.TH1):
+                myTH1 = obj
     if myTH1 is None:
         print "give a root file as input"
 
@@ -898,13 +895,16 @@ if __name__ == '__main__':
     if 'PF' in box:
         myRebinnedDensityTH1.SetMaximum(20)
         myRebinnedDensityTH1.SetMinimum(2e-8)
-    elif 'Calo' in box:
+    elif 'CaloDijet' in box:
         myRebinnedDensityTH1.SetMaximum(2e3)
         if w.var('mjj').getMax() > 2037:            
             myRebinnedDensityTH1.SetMaximum(20)
             myRebinnedDensityTH1.SetMinimum(2e-8)
         else:
             myRebinnedDensityTH1.SetMinimum(2e-5)
+    elif 'CaloTrijet' in box:
+        myRebinnedDensityTH1.SetMaximum(2e3)
+        myRebinnedDensityTH1.SetMinimum(2e-5)
     myRebinnedDensityTH1.Draw("axis")
     
     if options.doTriggerFit or options.doSimultaneousFit or options.doSpectrumFit or options.noFit:
@@ -1121,7 +1121,7 @@ if __name__ == '__main__':
         rt.gPad.Modified()
         rt.gPad.Update()
              
-    if 'Calo' in box:
+    if 'CaloDijet' in box:
         # paper
         myRebinnedDensityTH1.GetYaxis().SetTitle('d#sigma/dm_{jj} [pb/TeV]')
         # PAS
@@ -1132,6 +1132,24 @@ if __name__ == '__main__':
         yLab.SetTextSize(0.05)
         yLab.SetTextFont(42)
         xM = 470
+        yLab.DrawLatex(xM, 1000, "10^{6}")
+        yLab.DrawLatex(xM, 100, "10^{5}")
+        yLab.DrawLatex(xM, 10, "10^{4}")
+        yLab.DrawLatex(xM, 1, "10^{3}")
+        yLab.DrawLatex(xM, 0.1, "10^{2}")
+        yLab.DrawLatex(xM, 0.01, "10")
+        yLab.DrawLatex(xM, 0.001, "1")
+        yLab.DrawLatex(xM, 0.0001, "10^{#minus1}")
+    if 'CaloTrijet' in box:
+        # paper
+        myRebinnedDensityTH1.GetYaxis().SetTitle('d#sigma/dm_{jj} [pb/TeV]')
+        myRebinnedDensityTH1.GetYaxis().SetLabelOffset(1)
+        myRebinnedDensityTH1.GetYaxis().SetLabelOffset(1000)
+        yLab = rt.TLatex()
+        yLab.SetTextAlign(32)
+        yLab.SetTextSize(0.05)
+        yLab.SetTextFont(42)
+        xM = 290
         yLab.DrawLatex(xM, 1000, "10^{6}")
         yLab.DrawLatex(xM, 100, "10^{5}")
         yLab.DrawLatex(xM, 10, "10^{4}")
@@ -1231,6 +1249,7 @@ if __name__ == '__main__':
         xLab.SetTextAlign(22)
         xLab.SetTextFont(42)
         xLab.SetTextSize(2*0.05)
+        xLab.DrawLatex(400, -4, "0.4")
         xLab.DrawLatex(600, -4, "0.6")
         xLab.DrawLatex(800, -4, "0.8")
         xLab.DrawLatex(1000, -4, "1")
