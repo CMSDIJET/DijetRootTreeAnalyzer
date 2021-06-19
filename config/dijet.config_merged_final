@@ -1,0 +1,557 @@
+[CaloDijet2015]
+variables = ['mjj[453.,453.,2037.]','th1x[0,0,26]']
+
+histoName = 'h_mjj_HLTpass_HT250_1GeVbin'
+
+variables_range = ['mjj_Low[453.,649.]', 'mjj_Blind[649.,838.]', 'mjj_High[838.,2037.]']
+
+combine_parameters = ['Ntot_bkg_CaloDijet2015[1.e+07]', 'p0_CaloDijet2015[1]', 'p1_CaloDijet2015[-14]', 'p2_CaloDijet2015[13]','p3_CaloDijet2015[1.2]',
+	      'sqrts[13000]','CaloDijet2015_bkg_norm[1]',
+	      'meff_CaloDijet2015[-1]','seff_CaloDijet2015[-1]']		     
+		      
+combine_pdfs = ['RooDijetBinPdf::CaloDijet2015_bkg(th1x,p1_CaloDijet2015,p2_CaloDijet2015,p3_CaloDijet2015,sqrts)',	
+		"EXPR::CaloDijet2015_bkg_unbin('p0_CaloDijet2015*(pow(1-mjj/sqrts,p1_CaloDijet2015)/pow(mjj/sqrts,p2_CaloDijet2015+p3_CaloDijet2015*log(mjj/sqrts)))',mjj,p0_CaloDijet2015,p1_CaloDijet2015,p2_CaloDijet2015,p3_CaloDijet2015,sqrts)",
+		'SUM::extDijetPdf(Ntot_bkg_CaloDijet2015*CaloDijet2015_bkg)']
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+signal_mjj = [453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037]
+signal_th1x = range(0,26+1)
+
+#/////////////////////////////
+## [CaloDijet2016]
+## variables = ['mjj[453.,453.,2037.]','th1x[0,0,26]']
+
+## histoName = 'h_mjj_HLTpass_HT250_1GeVbin'
+
+## #variables_range = ['mjj_Low[453.,649.]', 'mjj_Blind[649.,838.]', 'mjj_High[838.,2037.]'] # blinded window
+## variables_range = ['mjj_Low[453.,2037.]', 'mjj_Blind[453.,2037.]', 'mjj_High[453.,2037.]'] # NOT blinded window
+
+## combine_parameters = ['Ntot_bkg_CaloDijet2016[1.e+07]', 'p0_CaloDijet2016[1]', 'p1_CaloDijet2016[-14]', 'p2_CaloDijet2016[13]','p3_CaloDijet2016[1.2]',
+##	      'sqrts[13000]','CaloDijet2016_bkg_norm[1]',
+##	      'meff_CaloDijet2016[-1]','seff_CaloDijet2016[-1]']		     
+		      
+##combine_pdfs = ['RooDijetBinPdf::CaloDijet2016_bkg(th1x,p1_CaloDijet2016,p2_CaloDijet2016,p3_CaloDijet2016,sqrts)',	
+##		"EXPR::CaloDijet2016_bkg_unbin('p0_CaloDijet2016*(pow(1-mjj/sqrts,p1_CaloDijet2016)/pow(mjj/sqrts,p2_CaloDijet2016+p3_CaloDijet2016*log(mjj/sqrts)))',mjj,p0_CaloDijet2016,p1_CaloDijet2016,p2_CaloDijet2016,p3_CaloDijet2016,sqrts)",
+##		'SUM::extDijetPdf(Ntot_bkg_CaloDijet2016*CaloDijet2016_bkg)']
+
+## #signal and plotting binning
+## #signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+## signal_mjj = [453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037]
+## signal_th1x = range(0,26+1)
+#/////////////////////////////////////////
+[CaloDijet2016]
+variables = ['mjj[489.,489.,2037.]','th1x[0,0,25]']
+
+histoName = 'h_mjj_HLTpass_HT250_1GeVbin'
+
+variables_range = ['mjj_Low[489.,2037.]', 'mjj_Blind[489.,2037.]', 'mjj_High[489.,2037.]'] # NOT blinded window
+
+combine_parameters = ['Ntot_bkg_CaloDijet2016[1.e+06]', 'p0_CaloDijet2016[1]', 'p1_CaloDijet2016[-14]', 'p2_CaloDijet2016[13]','p3_CaloDijet2016[1.2]',
+	      'sqrts[13000]','CaloDijet2016_bkg_norm[1]',
+	      'meff_CaloDijet2016[-1]','seff_CaloDijet2016[-1]']		     
+		      
+combine_pdfs = ['RooDijetBinPdf::CaloDijet2016_bkg(th1x,p1_CaloDijet2016,p2_CaloDijet2016,p3_CaloDijet2016,sqrts)',	
+		"EXPR::CaloDijet2016_bkg_unbin('p0_CaloDijet2016*(pow(1-mjj/sqrts,p1_CaloDijet2016)/pow(mjj/sqrts,p2_CaloDijet2016+p3_CaloDijet2016*log(mjj/sqrts)))',mjj,p0_CaloDijet2016,p1_CaloDijet2016,p2_CaloDijet2016,p3_CaloDijet2016,sqrts)",
+		'SUM::extDijetPdf(Ntot_bkg_CaloDijet2016*CaloDijet2016_bkg)']
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+signal_mjj = [489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037]
+signal_th1x = range(0,25+1)
+
+[CaloDijet20152016]
+variables = ['mjj[453.,453.,2037.]','th1x[0,0,26]']
+
+histoName = 'h_mjj_HLTpass_HT250_1GeVbin'
+
+variables_range = ['mjj_Low[453.,649.]', 'mjj_Blind[649.,838.]', 'mjj_High[838.,2037.]']
+
+combine_parameters = ['Ntot_bkg_CaloDijet20152016[1.e+07]', 'p0_CaloDijet20152016[1]', 'p1_CaloDijet20152016[-14]', 'p2_CaloDijet20152016[13]','p3_CaloDijet20152016[1.2]',
+	      'sqrts[13000]','CaloDijet20152016_bkg_norm[1]',
+	      'meff_CaloDijet20152016[-1]','seff_CaloDijet20152016[-1]']		     
+		      
+combine_pdfs = ['RooDijetBinPdf::CaloDijet20152016_bkg(th1x,p1_CaloDijet20152016,p2_CaloDijet20152016,p3_CaloDijet20152016,sqrts)',	
+		"EXPR::CaloDijet20152016_bkg_unbin('p0_CaloDijet20152016*(pow(1-mjj/sqrts,p1_CaloDijet20152016)/pow(mjj/sqrts,p2_CaloDijet20152016+p3_CaloDijet20152016*log(mjj/sqrts)))',mjj,p0_CaloDijet20152016,p1_CaloDijet20152016,p2_CaloDijet20152016,p3_CaloDijet20152016,sqrts)",
+		'SUM::extDijetPdf(Ntot_bkg_CaloDijet20152016*CaloDijet20152016_bkg)']
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+signal_mjj = [453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037]
+signal_th1x = range(0,26+1)
+
+
+[PFDijet2016]
+variables = ['mjj[1246.,1246.,8152.]','th1x[0,0,46]']
+
+#histoName = 'h_mjj_high_1GeVbin' #h_mjj_high' #control region
+histoName = 'h_mjj_HLTpass_HT800_1GeVbin'
+#histoName = 'mjj_gev' #ICHEP result
+#histoName = 'h_mjj_HLTpass_noTrig' #Moriond result
+#histoName = 'h_mjj_1GeVbin'
+
+variables_range = ['mjj_Low[1246.,8152.]', 'mjj_Blind[1246.,8152.]', 'mjj_High[1246.,8152.]']
+
+combine_parameters = ['Ntot_bkg_PFDijet2016[1.e+06]', 'p0_PFDijet2016[1]', 'p1_PFDijet2016[-14]', 'p2_PFDijet2016[13]','p3_PFDijet2016[1.2]',
+	      'sqrts[13000]','PFDijet2016_bkg_norm[1]',
+	      'meff_PFDijet2016[-1]','seff_PFDijet2016[-1]']		     
+		      
+combine_pdfs = ['RooDijetBinPdf::PFDijet2016_bkg(th1x,p1_PFDijet2016,p2_PFDijet2016,p3_PFDijet2016,sqrts)',	
+		"EXPR::PFDijet2016_bkg_unbin('p0_PFDijet2016*(pow(1-mjj/sqrts,p1_PFDijet2016)/pow(mjj/sqrts,p2_PFDijet2016+p3_PFDijet2016*log(mjj/sqrts)))',mjj,p0_PFDijet2016,p1_PFDijet2016,p2_PFDijet2016,p3_PFDijet2016,sqrts)",
+		'SUM::extDijetPdf(Ntot_bkg_PFDijet2016*PFDijet2016_bkg)']
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+signal_mjj = [1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152]
+signal_th1x = range(0,46+1)
+
+
+[PFDijet2017]
+#variables = ['mjj[1530.,1530.,8752.]','th1x[0,0,42]']
+#variables = ['mjj[1530.,1530.,6328.]','th1x[0,0,34]']
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+
+#histoName = 'h_mjj_high_1GeVbin' #h_mjj_high' #control region
+histoName = 'h_mjj_data_1GeV'
+#histoName = 'mjj_gev' #ICHEP result
+#histoName = 'h_mjj_HLTpass_noTrig' #Moriond result
+#histoName = 'h_mjj_middle_1GeVbin'  #signal region
+#histoName = 'h_mjj_high_1GeVbin'  #control region
+
+#variables_range = ['mjj_Low[1530.,8752.]', 'mjj_Blind[1530.,8752.]', 'mjj_High[1530.,8752.]']
+variables_range = ['mjj_Low[2438.,8752.]', 'mjj_Blind[2438.,8752.]', 'mjj_High[2438.,8752.]']
+
+combine_parameters = ['Ntot_bkg_PFDijet2017[1.e+05]', 'p0_PFDijet2017[1]', 'p1_PFDijet2017[-14]', 'p2_PFDijet2017[13]','p3_PFDijet2017[1.2]',
+	      'sqrts[13000]','PFDijet2017_bkg_norm[1]',
+	      'meff_PFDijet2017[-1]','seff_PFDijet2017[-1]']		     
+		      
+combine_pdfs = ['RooDijetBinPdf::PFDijet2017_bkg(th1x,p1_PFDijet2017,p2_PFDijet2017,p3_PFDijet2017,sqrts)',	
+		"EXPR::PFDijet2017_bkg_unbin('p0_PFDijet2017*(pow(1-mjj/sqrts,p1_PFDijet2017)/pow(mjj/sqrts,p2_PFDijet2017+p3_PFDijet2017*log(mjj/sqrts)))',mjj,p0_PFDijet2017,p1_PFDijet2017,p2_PFDijet2017,p3_PFDijet2017,sqrts)",
+		'SUM::extDijetPdf(Ntot_bkg_PFDijet2017*PFDijet2017_bkg)']
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+#signal_mjj = [1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+signal_mjj = [2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+#signal_mjj = [1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328]
+signal_th1x = range(0,32+1)
+
+
+
+############################################
+####### BTagged analysis 2016 below ########
+############################################
+[PFDijetbb20160mt]
+variables = ['mjj[1246.,1246.,7866.]','th1x[0,0,44]']
+
+histoName = 'h_mjj_btag0_mt'
+
+variables_range = ['mjj_Low[1246.,7866.]', 'mjj_Blind[1246.,7866.]', 'mjj_High[1246.,7866.]']
+
+combine_parameters = ['Ntot_bkg_PFDijetbb20160mt[1.e+06]', 'p0_PFDijetbb20160mt[1]', 'p1_PFDijetbb20160mt[-14]', 'p2_PFDijetbb20160mt[13]','p3_PFDijetbb20160mt[1.2]',
+              'sqrts[13000]','PFDijetbb20160mt_bkg_norm[1]',
+              'meff_PFDijetbb20160mt[-1]','seff_PFDijetbb20160mt[-1]']
+
+combine_pdfs = ['RooDijetBinPdf::PFDijetbb20160mt_bkg(th1x,p1_PFDijetbb20160mt,p2_PFDijetbb20160mt,p3_PFDijetbb20160mt,sqrts)',
+                "EXPR::PFDijetbb20160mt_bkg_unbin('p0_PFDijetbb20160mt*(pow(1-mjj/sqrts,p1_PFDijetbb20160mt)/pow(mjj/sqrts,p2_PFDijetbb20160mt+p3_PFDijetbb20160mt*log(mjj/sqrts)))',mjj,p0_PFDijetbb20160mt,p1_PFDijetbb20160mt,p2_PFDijetbb20160mt,p3_PFDijetbb20160mt,sqrts)",
+                'SUM::extDijetPdf(Ntot_bkg_PFDijetbb20160mt*PFDijetbb20160mt_bkg)']
+
+#signal and plotting binning
+signal_mjj = [1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866]
+signal_th1x = range(0,44+1)
+
+
+[PFDijetbb20161mt]
+variables = ['mjj[1246.,1246.,7866.]','th1x[0,0,44]']
+
+histoName = 'h_mjj_btag1_mt'
+
+variables_range = ['mjj_Low[1246.,7866.]', 'mjj_Blind[1246.,7866.]', 'mjj_High[1246.,7866.]']
+
+combine_parameters = ['Ntot_bkg_PFDijetbb20161mt[1.e+06]', 'p0_PFDijetbb20161mt[1]', 'p1_PFDijetbb20161mt[-14]', 'p2_PFDijetbb20161mt[13]','p3_PFDijetbb20161mt[1.2]',
+              'sqrts[13000]','PFDijetbb20161mt_bkg_norm[1]',
+              'meff_PFDijetbb20161mt[-1]','seff_PFDijetbb20161mt[-1]']
+
+combine_pdfs = ['RooDijetBinPdf::PFDijetbb20161mt_bkg(th1x,p1_PFDijetbb20161mt,p2_PFDijetbb20161mt,p3_PFDijetbb20161mt,sqrts)',
+                "EXPR::PFDijetbb20161mt_bkg_unbin('p0_PFDijetbb20161mt*(pow(1-mjj/sqrts,p1_PFDijetbb20161mt)/pow(mjj/sqrts,p2_PFDijetbb20161mt+p3_PFDijetbb20161mt*log(mjj/sqrts)))',mjj,p0_PFDijetbb20161mt,p1_PFDijetbb20161mt,p2_PFDijetbb20161mt,p3_PFDijetbb20161mt,sqrts)",
+                'SUM::extDijetPdf(Ntot_bkg_PFDijetbb20161mt*PFDijetbb20161mt_bkg)']
+
+#signal and plotting binning
+signal_mjj = [1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866]
+signal_th1x = range(0,44+1)
+
+
+[PFDijetbb20162mt]
+variables = ['mjj[1246.,1246.,7866.]','th1x[0,0,44]']
+
+histoName = 'h_mjj_btag2_mt'
+
+variables_range = ['mjj_Low[1246.,7866.]', 'mjj_Blind[1246.,7866.]', 'mjj_High[1246.,7866.]']
+
+combine_parameters = ['Ntot_bkg_PFDijetbb20162mt[1.e+04]', 'p0_PFDijetbb20162mt[1]', 'p1_PFDijetbb20162mt[-14]', 'p2_PFDijetbb20162mt[13]','p3_PFDijetbb20162mt[1.2]',
+              'sqrts[13000]','PFDijetbb20162mt_bkg_norm[1]',
+              'meff_PFDijetbb20162mt[-1]','seff_PFDijetbb20162mt[-1]']
+
+combine_pdfs = ['RooDijetBinPdf::PFDijetbb20162mt_bkg(th1x,p1_PFDijetbb20162mt,p2_PFDijetbb20162mt,p3_PFDijetbb20162mt,sqrts)',
+                "EXPR::PFDijetbb20162mt_bkg_unbin('p0_PFDijetbb20162mt*(pow(1-mjj/sqrts,p1_PFDijetbb20162mt)/pow(mjj/sqrts,p2_PFDijetbb20162mt+p3_PFDijetbb20162mt*log(mjj/sqrts)))',mjj,p0_PFDijetbb20162mt,p1_PFDijetbb20162mt,p2_PFDijetbb20162mt,p3_PFDijetbb20162mt,sqrts)",
+                'SUM::extDijetPdf(Ntot_bkg_PFDijetbb20162mt*PFDijetbb20162mt_bkg)']
+
+#signal and plotting binning
+signal_mjj = [1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866]
+signal_th1x = range(0,44+1)
+
+
+[PFDijetbb20160mm]
+variables = ['mjj[1246.,1246.,7866.]','th1x[0,0,44]']
+
+histoName = 'h_mjj_btag0_m'
+
+variables_range = ['mjj_Low[1246.,7866.]', 'mjj_Blind[1246.,7866.]', 'mjj_High[1246.,7866.]']
+
+combine_parameters = ['Ntot_bkg_PFDijetbb20160mm[1.e+06]', 'p0_PFDijetbb20160mm[1]', 'p1_PFDijetbb20160mm[-14]', 'p2_PFDijetbb20160mm[13]','p3_PFDijetbb20160mm[1.2]',
+              'sqrts[13000]','PFDijetbb20160mm_bkg_norm[1]',
+              'meff_PFDijetbb20160mm[-1]','seff_PFDijetbb20160mm[-1]']
+
+combine_pdfs = ['RooDijetBinPdf::PFDijetbb20160mm_bkg(th1x,p1_PFDijetbb20160mm,p2_PFDijetbb20160mm,p3_PFDijetbb20160mm,sqrts)',
+                "EXPR::PFDijetbb20160mm_bkg_unbin('p0_PFDijetbb20160mm*(pow(1-mjj/sqrts,p1_PFDijetbb20160mm)/pow(mjj/sqrts,p2_PFDijetbb20160mm+p3_PFDijetbb20160mm*log(mjj/sqrts)))',mjj,p0_PFDijetbb20160mm,p1_PFDijetbb20160mm,p2_PFDijetbb20160mm,p3_PFDijetbb20160mm,sqrts)",
+                'SUM::extDijetPdf(Ntot_bkg_PFDijetbb20160mm*PFDijetbb20160mm_bkg)']
+
+#signal and plotting binning
+signal_mjj = [1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866]
+signal_th1x = range(0,44+1)
+
+
+[PFDijetbb20161mm]
+variables = ['mjj[1246.,1246.,7866.]','th1x[0,0,44]']
+
+histoName = 'h_mjj_btag1_m'
+
+variables_range = ['mjj_Low[1246.,7866.]', 'mjj_Blind[1246.,7866.]', 'mjj_High[1246.,7866.]']
+
+combine_parameters = ['Ntot_bkg_PFDijetbb20161mm[1.e+06]', 'p0_PFDijetbb20161mm[1]', 'p1_PFDijetbb20161mm[-14]', 'p2_PFDijetbb20161mm[13]','p3_PFDijetbb20161mm[1.2]',
+              'sqrts[13000]','PFDijetbb20161mm_bkg_norm[1]',
+              'meff_PFDijetbb20161mm[-1]','seff_PFDijetbb20161mm[-1]']
+
+combine_pdfs = ['RooDijetBinPdf::PFDijetbb20161mm_bkg(th1x,p1_PFDijetbb20161mm,p2_PFDijetbb20161mm,p3_PFDijetbb20161mm,sqrts)',
+                "EXPR::PFDijetbb20161mm_bkg_unbin('p0_PFDijetbb20161mm*(pow(1-mjj/sqrts,p1_PFDijetbb20161mm)/pow(mjj/sqrts,p2_PFDijetbb20161mm+p3_PFDijetbb20161mm*log(mjj/sqrts)))',mjj,p0_PFDijetbb20161mm,p1_PFDijetbb20161mm,p2_PFDijetbb20161mm,p3_PFDijetbb20161mm,sqrts)",
+                'SUM::extDijetPdf(Ntot_bkg_PFDijetbb20161mm*PFDijetbb20161mm_bkg)']
+
+#signal and plotting binning
+signal_mjj = [1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866]
+signal_th1x = range(0,44+1)
+
+
+[PFDijetbb20162mm]
+variables = ['mjj[1246.,1246.,7866.]','th1x[0,0,44]']
+
+histoName = 'h_mjj_btag2_m'
+
+variables_range = ['mjj_Low[1246.,7866.]', 'mjj_Blind[1246.,7866.]', 'mjj_High[1246.,7866.]']
+
+combine_parameters = ['Ntot_bkg_PFDijetbb20162mm[1.e+04]', 'p0_PFDijetbb20162mm[1]', 'p1_PFDijetbb20162mm[-14]', 'p2_PFDijetbb20162mm[13]','p3_PFDijetbb20162mm[1.2]',
+              'sqrts[13000]','PFDijetbb20162mm_bkg_norm[1]',
+              'meff_PFDijetbb20162mm[-1]','seff_PFDijetbb20162mm[-1]']
+
+combine_pdfs = ['RooDijetBinPdf::PFDijetbb20162mm_bkg(th1x,p1_PFDijetbb20162mm,p2_PFDijetbb20162mm,p3_PFDijetbb20162mm,sqrts)',
+                "EXPR::PFDijetbb20162mm_bkg_unbin('p0_PFDijetbb20162mm*(pow(1-mjj/sqrts,p1_PFDijetbb20162mm)/pow(mjj/sqrts,p2_PFDijetbb20162mm+p3_PFDijetbb20162mm*log(mjj/sqrts)))',mjj,p0_PFDijetbb20162mm,p1_PFDijetbb20162mm,p2_PFDijetbb20162mm,p3_PFDijetbb20162mm,sqrts)",
+                'SUM::extDijetPdf(Ntot_bkg_PFDijetbb20162mm*PFDijetbb20162mm_bkg)']
+
+#signal and plotting binning
+signal_mjj = [1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866]
+signal_th1x = range(0,44+1)
+
+
+#MC Based analysis
+
+[PFDijet2016MC]
+
+#variables = ['mjj[2438.,2438., 8152.]','th1x[0,0,31]']
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+
+#histoName = 'h_mjj_high_1GeVbin' #h_mjj_high' #control region
+histoName = 'h_mjj_1GeVbin'
+#histoName = 'h_mjj_HLTpass_HT800_1GeVbin' #Moriond result data histogram
+#histoName = 'h_toy'      # Toy generated by prediction + 3TeV qq shape as generator (0.01pb)
+mcName = 'h_mjj_prediction_1GeVbin'  #QCD histogram 
+#mcName = 'h_mjj_HLTpass_HT250_1GeVbin'
+#mcName = 'Smoothed_CR_fit_scaled' #Smoothed Fit on control region
+mcRatioName = 'h_ratio_MC_1GeVbin'
+
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+variables_range = ['mjj_Low[2438.,8752.]', 'mjj_Blind[2438.,8752.]', 'mjj_High[2438.,8752.]']
+
+combine_parameters = ['meff_PFDijet2016MC[-1]','seff_PFDijet2016MC[-1]','Ntot_bkg_PFDijet2016MC[100803]','sqrts[13000]']		     
+#'Ntot_bkg_PFDijet2016MC[389656]'	#'Ntot_bkg_PFDijet2016MC[1335268]'	        #'Ntot_bkg_PFDijet2016MC[391113]' #95623 for 2016
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+
+signal_mjj = [2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+
+signal_th1x = range(0,32+1)
+
+
+[PFDijet2016MCCR]
+
+#variables = ['mjj[2438.,2438.,8152.]','th1x[0,0,31]']
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+
+histoName = 'h_mjj_high_1GeVbin' #h_mjj_high' #control region
+mcName = 'h_mjj_prediction_1GeVbin'  #QCD histogram 
+#mcName = 'h_mjj_HLTpass_HT250_1GeVbin'
+#mcName = 'Smoothed_CR_fit_scaled' #Smoothed Fit on control region
+mcRatioName = 'h_ratio_MC_1GeVbin'
+
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+variables_range = ['mjj_Low[2438.,8752.]', 'mjj_Blind[2438.,8752.]', 'mjj_High[2438.,8752.]']
+
+combine_parameters = ['meff_PFDijet2016MCCR[-1]','seff_PFDijet2016MCCR[-1]','Ntot_bkg_PFDijet2016MCCR[404423]','sqrts[13000]']		     
+#'Ntot_bkg_PFDijet2016MC[389656]'	#'Ntot_bkg_PFDijet2016MC[1335268]'	       #394337 for 2016
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+
+signal_mjj = [2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+signal_th1x = range(0,32+1)
+
+
+
+
+
+[PFDijet2016MCCRmid]
+
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+#variables = ['mjj[2438.,2438.,8152.]','th1x[0,0,31]']
+
+
+histoName = 'h_mjj_middle_1GeVbin' #h_mjj_high' #control-middle region
+#histoName = 'h_mjj_high_added_shape_1GeVbin' #h_mjj_high' #control region
+mcName = 'h_mjj_prediction_1GeVbin'  #QCD histogram
+mcRatioName = 'h_ratio_MC_middle_1GeVbin' #transfer factor-middle region
+#mcRatioName = 'h_ratio_MCcor_1GeVbin'
+
+
+variables_range = ['mjj_Low[2438.,8752.]', 'mjj_Blind[2438.,8752.]', 'mjj_High[2438.,8752.]']
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+
+
+combine_parameters = ['meff_PFDijet2016MCCRmid[-1]','seff_PFDijet2016MCCRmid[-1]','Ntot_bkg_PFDijet2016MCCRmid[65277]','sqrts[13000]']
+# 'Ntot_bkg_PFDijet2016MC[142072]'	# 'Ntot_bkg_PFDijet2016MC[1335268]'	    # 1485930   #253204
+# Ntot_bkg_PFDijet2016MCCRmid[970485]
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+signal_mjj = [2438, 2546, 2659,2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+
+signal_th1x = range(0,32+1)
+
+
+
+
+
+
+[PFDijet2017MC]
+
+#variables = ['mjj[2438.,2438.,8152.]','th1x[0,0,31]']
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+
+
+
+histoName = 'h_mjj_1GeVbin'  #signal region
+#histoName = 'h_mjj_added_shape_1GeVbin'  #signal region
+mcName      = 'h_mjj_prediction_1GeVbin'  #QCD histogram 
+mcRatioName = 'h_ratio_MC_1GeVbin'
+#mcRatioName = 'h_ratio_MCcor_1GeVbin'
+
+
+variables_range = ['mjj_Low[2438.,8752.]', 'mjj_Blind[2438.,8752.]', 'mjj_High[2438.,8752.]']
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+
+
+combine_parameters = ['meff_PFDijet2017MC[-1]','seff_PFDijet2017MC[-1]','Ntot_bkg_PFDijet2017MC[399729]','sqrts[13000]']
+#'Ntot_bkg_PFDijet2017MC[283206]' from 2438-8152 for 16+17		     
+#'Ntot_bkg_PFDijet2017MC[282508]'	#'Ntot_bkg_PFDijet2017MC[159739]' #from 2438-8152 for 2017	      #  501994   #123498 for 2017   # 219121 for 16+17 #393142 16+17+18
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+signal_mjj = [2438, 2546, 2659,2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+
+signal_th1x = range(0,32+1)
+
+
+
+[PFDijet2017MCCR]
+
+
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+#variables = ['mjj[2438.,2438.,8152.]','th1x[0,0,31]']
+
+
+histoName = 'h_mjj_high_1GeVbin' #h_mjj_high' #control-high region
+#histoName = 'h_mjj_high_added_shape_1GeVbin' #h_mjj_high' #control region
+mcName = 'h_mjj_prediction_1GeVbin'  #QCD histogram
+mcRatioName = 'h_ratio_MC_1GeVbin'
+#mcRatioName = 'h_ratio_MCcor_1GeVbin'
+
+
+variables_range = ['mjj_Low[2438.,8752.]', 'mjj_Blind[2438.,8752.]', 'mjj_High[2438.,8752.]']
+
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+
+
+combine_parameters = ['meff_PFDijet2017MCCR[-1]','seff_PFDijet2017MCCR[-1]','Ntot_bkg_PFDijet2017MCCR[1591405]','sqrts[13000]']
+# 'Ntot_bkg_PFDijet2017MC[892498]'	# 'Ntot_bkg_PFDijet2017MC[1335268]'	    # 1485930 #1580986  16+17+18
+# Ntot_bkg_PFDijet2017MCCR[970485]
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+signal_mjj = [2438, 2546, 2659,2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+
+signal_th1x = range(0,32+1)
+
+
+[PFDijet2017MCCRmid]
+
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+#variables = ['mjj[2438.,2438.,8152.]','th1x[0,0,31]']
+
+
+histoName = 'h_mjj_middle_1GeVbin' #h_mjj_high' #control-middle region
+#histoName = 'h_mjj_high_added_shape_1GeVbin' #h_mjj_high' #control region
+mcName = 'h_mjj_prediction_1GeVbin'  #QCD histogram
+mcRatioName = 'h_ratio_MC_middle_1GeVbin' #transfer factor-middle region
+#mcRatioName = 'h_ratio_MCcor_1GeVbin'
+
+variables_range = ['mjj_Low[2438.,8752.]', 'mjj_Blind[2438.,8752.]', 'mjj_High[2438.,8752.]']
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+
+
+combine_parameters = ['meff_PFDijet2017MCCRmid[-1]','seff_PFDijet2017MCCRmid[-1]','Ntot_bkg_PFDijet2017MCCRmid[256670]','sqrts[13000]']
+# 'Ntot_bkg_PFDijet2017MC[142072]'	# 'Ntot_bkg_PFDijet2017MC[1335268]'	    # 1485930   #253204
+# Ntot_bkg_PFDijet2017MCCRmid[970485]
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+signal_mjj = [2438, 2546, 2659,2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320,7589, 7866, 8152, 8752]
+
+signal_th1x = range(0,32+1)
+
+
+
+
+
+[PFDijet2018MC]
+
+#variables = ['mjj[2438.,2438.,8152.]','th1x[0,0,31]']
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+
+
+histoName = 'h_mjj_1GeVbin'  #signal region
+#histoName = 'h_mjj_added_shape_1GeVbin'  #signal region
+mcName      = 'h_mjj_prediction_1GeVbin'  #QCD histogram 
+mcRatioName = 'h_ratio_MC_1GeVbin'
+#mcRatioName = 'h_ratio_MCcor_1GeVbin'
+
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+
+variables_range = ['mjj_Low[2438., 8752.]', 'mjj_Blind[2438., 8752.]', 'mjj_High[2438., 8752.]']
+
+combine_parameters = ['meff_PFDijet2018MC[-1]','seff_PFDijet2018MC[-1]','Ntot_bkg_PFDijet2018MC[175427]','sqrts[13000]']
+#'Ntot_bkg_PFDijet2018MC[283206]' from 2438-8152 for 16+17		     
+#'Ntot_bkg_PFDijet2018MC[282508]'	#'Ntot_bkg_PFDijet2018MC[159739]' #from 2438-8152 for 2017	      #  501994   #123498 for 2017   # 219121 for 16+17 #393142 16+17+18
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+
+signal_mjj = [2438, 2546, 2659,2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+
+signal_th1x = range(0,32+1)
+
+
+
+[PFDijet2018MCCR]
+
+#variables = ['mjj[2438.,2438.,8152.]','th1x[0,0,31]']
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+
+
+
+histoName = 'h_mjj_high_1GeVbin' #h_mjj_high' #control-high region
+#histoName = 'h_mjj_high_added_shape_1GeVbin' #h_mjj_high' #control region
+mcName = 'h_mjj_prediction_1GeVbin'  #QCD histogram
+mcRatioName = 'h_ratio_MC_1GeVbin'
+#mcRatioName = 'h_ratio_MCcor_1GeVbin'
+
+
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+variables_range = ['mjj_Low[2438., 8752.]', 'mjj_Blind[2438., 8752.]', 'mjj_High[2438., 8752.]']
+
+
+combine_parameters = ['meff_PFDijet2018MCCR[-1]','seff_PFDijet2018MCCR[-1]','Ntot_bkg_PFDijet2018MCCR[688820.]','sqrts[13000]']
+# 'Ntot_bkg_PFDijet2018MC[892498]'	# 'Ntot_bkg_PFDijet2018MC[1335268]'	    # 1485930 #1580986  16+17+18
+# Ntot_bkg_PFDijet2018MCCR[970485]
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+
+signal_mjj = [2438, 2546, 2659,2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+signal_th1x = range(0,32+1)
+
+#signal_mjj = range(2440, 8090+50)
+#signal_th1x = range(0, 113+1)
+
+[PFDijet2018MCCRmid]
+
+#variables = ['mjj[2438.,2438.,8152.]','th1x[0,0,31]']
+variables = ['mjj[2438.,2438.,8752.]','th1x[0,0,32]']
+
+
+
+histoName = 'h_mjj_middle_1GeVbin' #h_mjj_high' #control-middle region
+#histoName = 'h_mjj_high_added_shape_1GeVbin' #h_mjj_high' #control region
+mcName = 'h_mjj_prediction_1GeVbin'  #QCD histogram
+mcRatioName = 'h_ratio_MC_middle_1GeVbin' #transfer factor-middle region
+#mcRatioName = 'h_ratio_MCcor_1GeVbin'
+
+
+#variables_range = ['mjj_Low[2438.,8152.]', 'mjj_Blind[2438.,8152.]', 'mjj_High[2438.,8152.]']
+variables_range = ['mjj_Low[2438., 8752.]', 'mjj_Blind[2438., 8752.]', 'mjj_High[2438., 8752.]']
+
+
+
+combine_parameters = ['meff_PFDijet2018MCCRmid[-1]','seff_PFDijet2018MCCRmid[-1]','Ntot_bkg_PFDijet2018MCCRmid[111765]','sqrts[13000]']
+# 'Ntot_bkg_PFDijet2018MC[142072]'	# 'Ntot_bkg_PFDijet2017MC[1335268]'	    # 1485930   #253204
+# Ntot_bkg_PFDijet2018MCCRmid[970485]
+combine_pdfs = []
+
+#signal and plotting binning
+#signal_mjj = [1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325, 354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607, 1687, 1770, 1856, 1945, 2037, 2132, 2231, 2332, 2438, 2546, 2659, 2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8447, 8752, 9067, 9391, 9726, 10072, 10430, 10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000]
+
+
+signal_mjj = [2438, 2546, 2659,2775, 2895, 3019, 3147, 3279, 3416, 3558, 3704, 3854, 4010, 4171, 4337, 4509, 4686, 4869, 5058, 5253, 5455, 5663, 5877, 6099, 6328, 6564, 6808, 7060, 7320, 7589, 7866, 8152, 8752]
+
+signal_th1x = range(0,32+1)
+
+

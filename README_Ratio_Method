@@ -1,0 +1,204 @@
+
+
+Note: You can choose another cmmsw version with no problem most likely
+
+cmsrel CMSSW_8_1_0 
+cd CMSSW_8_1_0/src
+
+git clone -b Ratio_Method https://github.com/dimkarasav/DijetRootTreeAnalyzer.git CMSDIJET/DijetRootTreeAnalyzer
+git clone -b dijetpdf_81X https://github.com/RazorCMS/HiggsAnalysis-CombinedLimit HiggsAnalysis/CombinedLimit
+
+cd HiggsAnalysis/CombinedLimit
+cmsenv
+scram b -j 4
+
+cd ../../CMSDIJET/DijetRootTreeAnalyzer
+
+
+
+In the directory C_scripts you can find the scripts to create the Ratio method inputs as well as the Data vs prediction plot.
+
+
+The inputs to these scripts are the so called "small trees" which have the same format as the reduced trees but only save the events that pass our selection criteria.
+In principle these codes could run with reduced trees as inputs with minor modifications.
+The MC small trees additionally contain the weight information as an extra variable with respect to the reduced trees.
+
+
+1) Make_MC_histos.C
+
+	Input: 
+	i) MC small tree (or reduced trees with minor modifications)
+	Output:
+	ii)  .root with the histograms of the dijet mass in SR, CRmiddle, CRhigh for MC in 1GeV and the standard dijet binning.
+
+
+
+2) create_Ratio_Method_inputs.C
+
+	Input: 
+	i)Output of step 1.
+	ii) small tree for data
+
+	Output: 
+	 .root with the histograms of the dijet mass in SR, CRmiddle, CRhigh for MC and data in 1GeV and the standard dijet binning.
+	The ratios are also saved. This script requires as input
+
+
+3) Make_RM_Prediction.C
+
+	Inputs:
+	i) Output of step 2.
+	ii) small tree for data.
+
+	Output: .root with the histograms of:
+		i)   the dijet mass in SR, CRmiddle, CRhigh ffor data in 1GeV and the standard dijet binning.
+		ii)  the ratio method prediction in 1GeV and the standard dijet binning
+		iii) SR/CRhigh ratios for data and MC
+		iv)  CRmiddle/CRhigh ratio for MC
+		v)   Double ratio between data and MC for SR/CRhigh
+		vi)  Fit of the double ratio
+
+4) Make_Histo_of_Standard_Fit.C
+
+	(This script requires to enter the integral of the data in the SR at line 92 by hand.)
+	Inputs:
+	i)  .root produced by the BinnedFit.py script (eg DijetFitResults_PFDijet2016.root)
+
+	Outputs: .root with the fit result saved as a histogram (this is only used for plotting purposes in the next step).
+
+
+5) Plot_RM_vs_data.C
+
+Inputs: 
+i) Output of step 3
+ii) Output of step 4
+iii) 3 Signal templates 
+
+Output: 
+
+i) .png and pdf of RM prediction vs Standard Fit vs Data + pulls. Signal templates are also shown.
+
+
+
+=========================== Instructions to calculate limits & significances with the combine tool and make the Brazilian flag plots ================================
+
+Go to the DijetRootTreeAnalyzer directory.
+
+cmsenv
+./bash_scripts/Get_inputs.sh # take signal templates from eos
+
+
+#run for narrow resonances
+./bash_scripts/Ratio_method_limits_significances_simultaneous_fit.sh
+
+#run for wide resonances
+./bash_scripts/Ratio_method_limits_significances_simultaneous_fit_Wide_resonances.sh
+
+Edit these bash scripts to define output directory, resonance mass range , etc..
+
+Note: The limits are produced for rMax=100 for all masses,widths and final states. This value is too large for some cases resulting into wrong values (especially for the observed limits). Make sure by checking the brazilian flag plots that the distributions look healthy or that by changing the rMax value to a smaller value you get the same result.
+
+========================= Stitching results from Fit method && Ratio method =================================== 
+
+In the EXO-19-012 we used two different approaches to estimate the background (Fit method & Ratio method )and hence each method had distinct limit outputs.
+The published results used the fit Method for results up to 3 TeV of resonance mass and the ratio method above that. 
+Each method produces for each final state a .root file (eg. "xsecUL_Asymptotic_qq_PFDijet2017MC.root") with the limit/significance values per resonance mass. 
+
+We use these 2 files from each method and produce a new one with the same format that has the Fit_method results up to 3TeV and the ratio method ones above that and "feed" that into the plotting scripts.
+
+
+Instructions on how to get results with the fit method can be found at README_caloscouting_analysis.md .
+
+
+
+cd C_scripts/
+   
+root -l Stitch_limits.C
+root -l Stitch_significances.C
+
+Edit these scripts to point to the correct directories/files with the fit method and ratio method results and also the output directory with the stitched results.
+
+
+
+=========================== Instructions to make plots for coupling limit & wide resonance limits superimposed ================================
+
+Note: Some input/output directories are hardcoded in these scripts. Edit them to point to the correct directory with the combine outputs.
+
+Note2: If you need the "stiched results" from both the Ratio and the fit method look step above.
+
+cd C_scripts/Wide_resonance_scripts/
+
+
+
+1) Make coupling limit plots for gq and gq'.
+
+root -l Produce_coupling_txt.C 
+
+root -l Coupling_limit_vs_width.C
+python wide_plot_gq.py
+
+root -l Coupling_limit_vs_width_Prime.C 
+python wide_plot_gqPrime.py
+
+
+2) Plot xsec observed limits for various resonance widths
+
+
+root -l AllWidthObs_PlotPFDijetDMV_qq_1D_spin1.C 
+
+root -l AllWidthObs_PlotPFDijetDMV_qq_1D_spin2.C 
+
+ 
+
+=========================== Instructions to make additional published plots ================================
+
+cd C_scripts/
+
+1) Fig 8 - Superimposed significances plot
+
+Superimposed_Significances.C
+
+Inputs:
+ xsecUL_ProfileLikelihood_....root from Fit Method (output of GetCombine.py)
+ xsecUL_ProfileLikelihood_....root from Ratio Method (output of GetCombine.py)
+
+Output: .png + .pdf
+
+
+2) Additonal material : Limit ratios for various widths betweeh Fit method and Ratio method
+
+Superimposing_Ratios_Width_Comparison_spin_1.C 
+Superimposing_Ratios_Width_Comparison_spin_2.C
+
+Inputs: 
+ limits_freq_....root from Fit Method  (output of Plot1DLimit_deta1p1.py)
+ limits_freq_....root from Ratio Method  (output of Plot1DLimit_deta1p1.py)
+
+Output: .png + .pdf
+
+3) Fig 9 - Superimposed signal templates
+
+root -l Signal_shapes_plot_paper.C
+
+4) Fig 4 : SR/CRhigh and CRmiddle/CRhigh and their double ratios
+
+root -l Plot_Ratio_Method_Prediction_new_version.C
+
+By default it produces the SR/CRhigh. Edit the script, replacing the SR histograms with the CRmiddle ones to get CRmiddle/ CRhigh plots.
+
+5) Fig 1 : Delta eta plot
+
+root -l Plot_DeltaEta.C
+
+6) Fig 2 : Superimposed dijet mass of SR,CRmid,CRhigh for data and MC
+
+root -l Plot_Superimposed_SR_CR.C
+
+
+
+
+
+
+
+
+
