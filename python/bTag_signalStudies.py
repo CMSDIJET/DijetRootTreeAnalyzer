@@ -194,8 +194,8 @@ if __name__ == '__main__':
     flavour = options.flavour
     model   = options.model
 
-    print "selected flavour:",flavour
-    print "signal model    :",model
+    print ("selected flavour:",flavour)
+    print ("signal model    :",model)
     ###################################################################
 
     # book histos and graphs
@@ -210,7 +210,7 @@ if __name__ == '__main__':
     elif (model == "gg"):
         sampleNames = sampleNames_gg
     else:
-        print "model unknown"
+        print ("model unknown")
         exit
 
     for mass, sample in sorted(sampleNames.iteritems()):

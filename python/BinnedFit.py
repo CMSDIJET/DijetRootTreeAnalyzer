@@ -86,7 +86,7 @@ def convertSideband(name,w,x):
         if inSideband: sidebandBins.append(iBinX)
 
     sidebandGroups = []
-    for k, g in groupby(enumerate(sidebandBins), lambda (i,x):i-x):
+    for k, g in groupby(enumerate(sidebandBins), lambda i,x:i-x):
         consecutiveBins = map(itemgetter(1), g)
         sidebandGroups.append([consecutiveBins[0],consecutiveBins[-1]+1])
         
@@ -181,7 +181,7 @@ def calculateChi2AndFillResiduals(data_obs_TGraph_,background_hist_,hist_fit_res
         checkInRegions = [xbinCenter>workspace_.var('mjj').getMin(reg) and xbinCenter<workspace_.var('mjj').getMax(reg) for reg in plotRegions]
         if effFit_: checkInRegions = [xbinCenter>workspace_.var('mjj').getMin('Eff') and xbinCenter<workspace_.var('mjj').getMax('Eff')]
         if any(checkInRegions):
-            #print '%i: obs %.0f, exp %.2f, chi2 %.2f'%(bin, value_data* binWidth_current * lumi, value_fit* binWidth_current * lumi, pow(fit_residual,2))
+            #print ('%i: obs %.0f, exp %.2f, chi2 %.2f'%(bin, value_data* binWidth_current * lumi, value_fit* binWidth_current * lumi, pow(fit_residual,2)))
             chi2_PlotRangeAll += pow(fit_residual,2)
             N_PlotRangeAll += 1
             if (value_data > 0):
@@ -285,10 +285,10 @@ if __name__ == '__main__':
         colors = [rt.kBlue+1, rt.kCyan+1, rt.kViolet+1]
         styles = [2, 4, 6]
 
-    print signalFileNames
-    print models
-    print masses
-    print xsecs
+    print (signalFileNames)
+    print (models)
+    print (masses)
+    print (xsecs)
 
 
     myTH1 = None
@@ -299,7 +299,7 @@ if __name__ == '__main__':
             if histoName in names:
                 myTH1 = rootFile.Get(histoName)
     if myTH1 is None:
-        print "give a root file as input"
+        print ("give a root file as input")
 
     w = rt.RooWorkspace("w"+box)
 
@@ -319,7 +319,7 @@ if __name__ == '__main__':
         elif wIn.obj("simNll") != None:
             frIn = wIn.obj("simNll")
                         
-        print "restoring parameters from fit"
+        print ("restoring parameters from fit")
         frIn.Print("V")
         for p in rootTools.RootIterator.RootIterator(frIn.floatParsFinal()):
             w.var(p.GetName()).setVal(p.getVal())
@@ -369,7 +369,7 @@ if __name__ == '__main__':
             tree.Draw('>>elist',cutString,'entrylist')        
             elist = rt.gDirectory.Get('elist')    
             entry = -1
-            print 'trigger cut string:', cutString
+            print ('trigger cut string:', cutString)
             while True:
                 entry = elist.Next()
                 if entry == -1: break
@@ -404,7 +404,7 @@ if __name__ == '__main__':
             eff = effGraph.GetY()[i]
             effUp = effGraph.GetEYhigh()[i]
             effDown = effGraph.GetEYlow()[i]
-            print "eff [%i, %i] = %f (%+f/, %+f)" %(x[i],x[i+1],eff,effUp,-effDown)
+            print ("eff [%i, %i] = %f (%+f/, %+f)" %(x[i],x[i+1],eff,effUp,-effDown))
             if w.var('eff_bin%02d'%(i))!=None:
                 if (eff <= 0 or eff >= 1):
                     w.var('eff_bin%02d'%(i)).setVal(1)
@@ -523,7 +523,7 @@ if __name__ == '__main__':
     signalHistosRebin = []
     signalFiles = []
     for model, mass, xsec, signalFileName in zip(models,masses,xsecs,signalFileNames):
-        print model, mass, xsec, signalFileName
+        print (model, mass, xsec, signalFileName)
         signalFile = rt.TFile.Open(signalFileName)
         signalFiles.append(signalFile)
         names = [k.GetName() for k in signalFile.GetListOfKeys()]
@@ -531,7 +531,7 @@ if __name__ == '__main__':
             d = signalFile.Get(name)
             if isinstance(d, rt.TH1):
                 if name=='h_%s_%i'%(model,float(mass)):
-                    print name
+                    print (name)
                     d.Scale(float(xsec)*lumi/d.Integral())
                     if options.triggerDataFile is not None:
                         if options.doSimultaneousFit:
@@ -572,8 +572,8 @@ if __name__ == '__main__':
         predYield = asimov.weight(rt.RooArgSet(th1x))
         dataYield = dataHist_reduce.weight(rt.RooArgSet(th1x))
         rss += float(predYield-dataYield) * float(predYield-dataYield)
-        print "%i <= mjj < %i; prediction: %.2f; data %i"  % (x[i],x[i+1],predYield,dataYield)
-    print "RSS = ", rss 
+        print ("%i <= mjj < %i; prediction: %.2f; data %i"  % (x[i],x[i+1],predYield,dataYield))
+    print ("RSS = ", rss)
         
     rt.TH1D.SetDefaultSumw2()
     
@@ -584,7 +584,7 @@ if __name__ == '__main__':
     rootFile = rt.TFile.Open(options.outDir + '/' + 'Plots_%s'%box + '.root','recreate')
     tdirectory = rootFile.GetDirectory(options.outDir)
     if tdirectory==None:
-        print "making directory"
+        print ("making directory")
         rootFile.mkdir(options.outDir)
         tdirectory = rootFile.GetDirectory(options.outDir)
         tdirectory.Print('v')
@@ -1114,8 +1114,8 @@ if __name__ == '__main__':
 	                 myRebinnedDensityTH1.GetXaxis().GetXmax(), 20,  "f_h2_log10_x_axis", 509,"-UBS", 0.0);
         bbot.SetTickSize(myRebinnedDensityTH1.GetTickLength("X"))
         btop.SetTickSize(myRebinnedDensityTH1.GetTickLength("X"))
-	bbot.Draw()
-	btop.Draw()
+        bbot.Draw()
+        btop.Draw()
 
         
         rt.gPad.Modified()
@@ -1183,7 +1183,7 @@ if __name__ == '__main__':
         h_fit_residual_vs_mass.GetXaxis().SetNoExponent()
         h_fit_residual_vs_mass.GetXaxis().SetMoreLogLabels()
         if not options.linearX:
-	    h_fit_residual_vs_mass.GetXaxis().SetNdivisions(512,rt.kFALSE)
+            h_fit_residual_vs_mass.GetXaxis().SetNdivisions(512,rt.kFALSE)
         xLab = rt.TLatex()
         xLab.SetTextAlign(22)
         xLab.SetTextFont(42)
@@ -1212,8 +1212,8 @@ if __name__ == '__main__':
 	                 myRebinnedDensityTH1.GetXaxis().GetXmax(), -3.5, "f_h2_log10_x_axis", 509,"UBS", 0.0);
         atop = rt.TGaxis(myRebinnedDensityTH1.GetXaxis().GetXmin(), 3.5,
 	                 myRebinnedDensityTH1.GetXaxis().GetXmax(), 3.5,  "f_h2_log10_x_axis", 509,"-UBS", 0.0);
-	abot.Draw()
-	atop.Draw()
+        abot.Draw()
+        atop.Draw()
         
         rt.gPad.RedrawAxis()
         rt.gPad.Modified()

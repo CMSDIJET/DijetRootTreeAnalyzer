@@ -19,7 +19,7 @@ def getFileName(hybridLimit, massPoint, box, model, lumi,  directory, method, t)
 
 def writeXsecTree(box, model, directory, massPoint, xsecULObs, xsecULExpPlus2, xsecULExpPlus, xsecULExp, xsecULExpMinus, xsecULExpMinus2):
     outputFileName = "%s/xsecUL_%s_%s_%s.root" %(directory, model, massPoint, box)
-    print "INFO: xsec UL values being written to %s"%outputFileName
+    print ("INFO: xsec UL values being written to %s"%outputFileName)
     fileOut = rt.TFile.Open(outputFileName, "recreate")
     
     xsecTree = rt.TTree("xsecTree", "xsecTree")
@@ -49,12 +49,12 @@ def writeXsecTree(box, model, directory, massPoint, xsecULObs, xsecULExpPlus2, x
     xsecTree.Branch("xsecULExp_%s"%box, rt.AddressOf(s,"xsecUL%i"%(ixsecUL+3)),'xsecUL%i/D'%(ixsecUL+3))
     xsecTree.Branch("xsecULExpMinus_%s"%box, rt.AddressOf(s,"xsecUL%i"%(ixsecUL+4)),'xsecUL%i/D'%(ixsecUL+4))
     xsecTree.Branch("xsecULExpMinus2_%s"%box, rt.AddressOf(s,"xsecUL%i"%(ixsecUL+5)),'xsecUL%i/D'%(ixsecUL+5))
-    exec 's.xsecUL%i = xsecULObs[ixsecUL]'%(ixsecUL+0)
-    exec 's.xsecUL%i = xsecULExpPlus2[ixsecUL]'%(ixsecUL+1)
-    exec 's.xsecUL%i = xsecULExpPlus[ixsecUL]'%(ixsecUL+2)
-    exec 's.xsecUL%i = xsecULExp[ixsecUL]'%(ixsecUL+3)
-    exec 's.xsecUL%i = xsecULExpMinus[ixsecUL]'%(ixsecUL+4)
-    exec 's.xsecUL%i = xsecULExpMinus2[ixsecUL]'%(ixsecUL+5)
+    exec ('s.xsecUL%i = xsecULObs[ixsecUL]'%(ixsecUL+0))
+    exec ('s.xsecUL%i = xsecULExpPlus2[ixsecUL]'%(ixsecUL+1))
+    exec ('s.xsecUL%i = xsecULExpPlus[ixsecUL]'%(ixsecUL+2))
+    exec ('s.xsecUL%i = xsecULExp[ixsecUL]'%(ixsecUL+3))
+    exec ('s.xsecUL%i = xsecULExpMinus[ixsecUL]'%(ixsecUL+4))
+    exec ('s.xsecUL%i = xsecULExpMinus2[ixsecUL]'%(ixsecUL+5))
     ixsecUL += 4
 
     xsecTree.Fill()
@@ -107,9 +107,9 @@ if __name__ == '__main__':
 
     haddOutputs = []
 
-    print "===>>>",options.mass
-    print "len(options.mass.split(','))", len(options.mass.split(','))
-    print "list(eval(options.mass))", list(eval(options.mass))
+    print ("===>>>",options.mass)
+    print ("len(options.mass.split(','))", len(options.mass.split(',')))
+    print ("list(eval(options.mass))", list(eval(options.mass)))
 
     if len(options.mass.split(','))==1:
         massIterable = [options.mass]
@@ -118,47 +118,47 @@ if __name__ == '__main__':
     for massPoint in massIterable:
         
 
-        print "MASSPOINT", massPoint
+        print ("MASSPOINT", massPoint)
 
 
         if doSignificance and doHybridNew:
             if not glob.glob(getFileName("higgsCombineSignif",massPoint,boxInput,model,lumi,directory,"HybridNew",0)): continue
-            print "INFO: opening %s"%(getFileName("higgsCombineSignif",massPoint,boxInput,model,lumi,directory,"HybridNew",0))
+            print ("INFO: opening %s"%(getFileName("higgsCombineSignif",massPoint,boxInput,model,lumi,directory,"HybridNew",0)))
             tFile = rt.TFile.Open(getFileName("higgsCombineSignif",massPoint,boxInput,model,lumi,directory,"HybridNew",0))
         elif doHybridNew: 
             if not glob.glob(getFileName("higgsCombineToys",massPoint,boxInput,model,lumi,directory,"HybridNew",0)): continue
-            print "INFO: opening %s"%(getFileName("higgsCombineToys",massPoint,boxInput,model,lumi,directory,"HybridNew",0))
+            print ("INFO: opening %s"%(getFileName("higgsCombineToys",massPoint,boxInput,model,lumi,directory,"HybridNew",0)))
             tFile = rt.TFile.Open(getFileName("higgsCombineToys",massPoint,boxInput,model,lumi,directory,"HybridNew",0))
         elif doSignificance: 
             if not glob.glob(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"ProfileLikelihood",0)): continue
-            print "INFO: opening %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"ProfileLikelihood",0))
+            print ("INFO: opening %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"ProfileLikelihood",0)))
             tFile = rt.TFile.Open(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"ProfileLikelihood",0))
         elif bayes:
             if not glob.glob(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",0)): continue
-            print "INFO: opening %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",0))
+            print ("INFO: opening %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",0)))
             tFile = rt.TFile.Open(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",0))
         else:
             if not glob.glob(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"Asymptotic",0)): continue
-            print "INFO: opening %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"Asymptotic",0))
+            print ("INFO: opening %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"Asymptotic",0)))
             tFile = rt.TFile.Open(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"Asymptotic",0))
 
         try:
             if tFile.InheritsFrom("TFile") is False:
-                print 'tFile.InheritsFrom("TFile") is False'
+                print ('tFile.InheritsFrom("TFile") is False')
                 continue
         except:
-            print 'EXCEPTION'
+            print ('EXCEPTION')
             continue
 
         limit = tFile.Get("limit")
         try:
             if limit.InheritsFrom("TTree") is False: 
-                print 'limit.InheritsFrom("TTree") is False'
+                print ('limit.InheritsFrom("TTree") is False')
                 tFile.cd()
                 tFile.Close()
                 continue
         except:
-            print 'EXCEPTION'
+            print ('EXCEPTION')
             tFile.cd()
             tFile.Close()
             continue
@@ -167,7 +167,7 @@ if __name__ == '__main__':
             tFile.Close()
             continue
         if not (doSignificance or bayes) and limit.GetEntries() < 5: 
-            print 'limit.GetEntries() < 5'
+            print ('limit.GetEntries() < 5')
             tFile.cd()
             tFile.Close()
             continue
@@ -179,7 +179,7 @@ if __name__ == '__main__':
 
         while True:
             if entry == -1: 
-                print 'entry == -1'
+                print ('entry == -1')
                 break
             limit.GetEntry(entry)
                 
@@ -203,13 +203,13 @@ if __name__ == '__main__':
                 os.system("rm -rf %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",123456)))
                 os.system("hadd -f %s %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",123456),getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC","*")))              
             if not glob.glob(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",123456)):
-                print "expected limit file not found"
+                print ("expected limit file not found")
                 limits.reverse()
                 limits.extend([0,0,0,0,0])
                 limits.reverse()
             else:
                 quants = [0.975, 0.84, 0.5, 0.16, 0.025]
-                print "INFO: opening %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",123456))
+                print ("INFO: opening %s"%(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",123456)))
                 tFileExp = rt.TFile.Open(getFileName("higgsCombine",massPoint,boxInput,model,lumi,directory,"MarkovChainMC",123456))
                 explimit = tFileExp.Get("limit")         
                 explimit.Draw('>>elist','','entrylist')
@@ -224,7 +224,7 @@ if __name__ == '__main__':
                     #    explimits.append(refXsec*explimit.limit)      
                     explimits.append(refXsec*explimit.limit)
                     entry = elist.Next()
-                #print explimits
+                #print (explimits)
                 tFileExp.cd()
                 tFileExp.Close()
                 limits.reverse()
@@ -237,8 +237,8 @@ if __name__ == '__main__':
             limits.reverse()
             
         limits.reverse()
-        print massPoint
-        print limits
+        print (massPoint)
+        print (limits)
         
         haddOutput = writeXsecTree(boxInput, model, directory, massPoint, [limits[0]],[limits[1]],[limits[2]],[limits[3]],[limits[4]],[limits[5]])
         haddOutputs.append(haddOutput)

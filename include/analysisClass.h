@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <iomanip>
 #include <memory>
-
+ 
 #include "fastjet/JetDefinition.hh"
 #include "fastjet/ClusterSequence.hh"
 #include "fastjet/Selector.hh"
@@ -38,6 +38,9 @@ public :
 private :
   double bTagEventWeight(const vector<double>& SFsForBTaggedJets, const unsigned int nBTags);
   void fillTriggerPlots(TH1F* h_mjj_HLTpass[], double MJJWide);
+  void fillTriggerPlots_dR1p2(TH1F* h_m4J_HLTpass_dR1p2[], double M4J_AK4);
+  void fillTriggerPlots_dR1p5(TH1F* h_m4J_HLTpass_dR1p5[], double M4J_AK4);
+
 
   ClusterSequencePtr  fjClusterSeq, fjClusterSeq_shift;
   JetDefPtr           fjJetDefinition;

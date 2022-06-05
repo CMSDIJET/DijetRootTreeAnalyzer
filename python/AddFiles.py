@@ -62,11 +62,11 @@ if __name__ == '__main__':
     
     f = open(options.list)
     for i, line in enumerate(f):
-        print line.replace('\n','')
+        print (line.replace('\n',''))
         tchain.Add(line.replace('\n',''))
 
     def project(tree, h, var, cut):
-        print 'projecting var: %s, cut: %s from tree: %s into hist: %s'%(var, cut, tree.GetName(), h.GetName())
+        print ('projecting var: %s, cut: %s from tree: %s into hist: %s'%(var, cut, tree.GetName(), h.GetName()))
         tree.Project(h.GetName(),var,cut)
 
     for hist,var in histoExpr.iteritems():

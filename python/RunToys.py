@@ -173,7 +173,7 @@ def runToys(w,options,cfg,seed):
                 if expected>0 and inFitRange:
                     chi2p_data += ( observed - expected ) * ( observed - expected ) / ( expected )
                 if inFitRange:                    
-                    #print '%i: obs %.0f, exp %.2f, chi2 %.2f'%(iBinX, observed, expected, ( observed - expected ) * ( observed - expected ) / pow(getErrorData(observed,expected),2))
+                    #print ('%i: obs %.0f, exp %.2f, chi2 %.2f'%(iBinX, observed, expected, ( observed - expected ) * ( observed - expected ) / pow(getErrorData(observed,expected),2)))
                     chi2_data += ( observed - expected ) * ( observed - expected ) / pow(getErrorData(observed,expected),2)
                     if observed>0:
                         chi2non0_data += ( observed - expected ) * ( observed - expected ) / pow(getErrorData(observed,expected),2)
@@ -225,10 +225,10 @@ def runToys(w,options,cfg,seed):
             badPars.append(w.var('p0_%s'%options.box).getVal() <= 0)
         if any(badPars):
             nBadPars+=1
-            #print "bad pars toy=%i"%iToy
+            #print ("bad pars toy=%i"%iToy)
             continue
 
-        #print "good pars"                        
+        #print ("good pars")                        
         errorCountBefore = rt.RooMsgService.instance().errorCount()
 
         badVal = False
@@ -238,23 +238,23 @@ def runToys(w,options,cfg,seed):
             pdfVal0 = extDijetPdf.getValV(0) * extDijetPdf.expectedEvents(rt.RooArgSet(th1x))
             if bestFitByBin[iBinX] > 0 and pdfValV/bestFitByBin[iBinX] <= 1e-12:
             #if bestFitByBin[iBinX] > 0 and pdfValV <= 0:
-                #print "bin = %i"%iBinX
-                #print "best fit = %e"%(bestFitByBin[iBinX])
-                #print "pdf valv = %e"%(pdfValV)
-                #print "pdf val0 = %e"%(pdfVal0)
+                #print ("bin = %i"%iBinX)
+                #print ("best fit = %e"%(bestFitByBin[iBinX]))
+                #print ("pdf valv = %e"%(pdfValV))
+                #print ("pdf val0 = %e"%(pdfVal0))
                 badVal = True                
         if badVal:
-            #print "bad val"
+            #print ("bad val")
             continue
         
         errorCountAfter = rt.RooMsgService.instance().errorCount()
         if errorCountAfter > errorCountBefore:            
-            #print "can't evaulate pdf toy=%i"%iToy
+            #print ("can't evaulate pdf toy=%i"%iToy)
             continue
         
         
         errorCountBefore = rt.RooMsgService.instance().errorCount()        
-        #print "start generating toy=%i"%iToy
+        #print ("start generating toy=%i"%iToy)
         if options.noStat:         
             if options.r>-1:
                 w.var('r').setVal(options.r)            
@@ -268,13 +268,13 @@ def runToys(w,options,cfg,seed):
             else:
                 asimov = extDijetPdf.generateBinned(rt.RooArgSet(th1x),rt.RooFit.Name('toy'),rt.RooFit.Extended(True))
 
-        #print "toy entries = %.2f"%asimov.sumEntries()
+        #print ("toy entries = %.2f"%asimov.sumEntries())
         errorCountAfter = rt.RooMsgService.instance().errorCount()
         if errorCountAfter > errorCountBefore:
-            #print "can't generate toy=%i"%iToy
+            #print ("can't generate toy=%i"%iToy)
             continue
 
-        #print "SUCCESS: generated toy=%i"%iToy
+        #print ("SUCCESS: generated toy=%i"%iToy)
 
         pSetSave = pSet
         migrad_status = -1
@@ -360,11 +360,11 @@ def runToys(w,options,cfg,seed):
         #nll_func_toy = extDijetPdf.createNLL(asimov,rt.RooFit.Extended(True))
         #chi2_func_toy = extDijetPdf.createChi2(asimov,rt.RooFit.Extended(True),rt.RooFit.DataError(rt.RooAbsData.Expected))
         
-        #print ''
-        #print "chi2 func:   ", chi2_func_toy.getVal()
-        #print "chi2 by hand  ", chi2_toy
-        #print "nll func:    ", nll_func_toy.getVal()
-        #print "nll by hand: ", nll_toy
+        #print ('')
+        #print ("chi2 func:   ", chi2_func_toy.getVal())
+        #print ("chi2 by hand  ", chi2_toy)
+        #print ("nll func:    ", nll_func_toy.getVal())
+        #print ("nll by hand: ", nll_toy)
             
         value = setattr(s1, 'nll_%s'%options.box, nll_toy)
         value = setattr(s1, 'n2llr_%s'%options.box, n2llr_toy)
@@ -443,4 +443,4 @@ if __name__ == '__main__':
         
     outputName = runToys(w,options,cfg,options.seed)
 
-    print "writing tree to %s"%(outputName)
+    print ("writing tree to %s"%(outputName))

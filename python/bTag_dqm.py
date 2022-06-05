@@ -25,14 +25,14 @@ def customRebin(histo):
         if (bin_boundary>=massMin and firstBin==-1 ):
             massMin = bin_boundary
             firstBin=1
-            #print "FIRST BIN is "+str(massMin)
+            #print ("FIRST BIN is "+str(massMin))
         if (bin_boundary>(massMax+0.0000000001) and lastBin==-1 ):
             massMax = massBins_list[index_bin_boundary-1]
             lastBin=1
-            #print "LAST BIN is "+str(massMax)
+            #print ("LAST BIN is "+str(massMax))
         if (bin_boundary>=massMin and bin_boundary<=massMax):
             massBins_list_actual.append(bin_boundary)
-    #print "===>>> Rebinning: ",histo.GetName(),massBins_list_actual
+    #print ("===>>> Rebinning: ",histo.GetName(),massBins_list_actual)
     massBins = array("d",massBins_list_actual)
     N_massBins = len(massBins)-1
     hNew = histo.Rebin(N_massBins, "hNew", massBins) 
@@ -281,7 +281,7 @@ if __name__ == '__main__':
     doReco = len(recoList) > 0
 
     if not doCalo and not doReco:
-        print "no plots found"
+        print ("no plots found")
         exit
 
     

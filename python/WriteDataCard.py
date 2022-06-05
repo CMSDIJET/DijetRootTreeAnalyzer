@@ -340,7 +340,7 @@ def applyTurnonFunc(hist,effFr,w):
 
     for i in range(1,hist.GetNbinsX()+1):
         w.var('mjj').setVal(hist.GetXaxis().GetBinCenter(i))
-        #print 'mjj = %f, eff = %f'%(hist.GetXaxis().GetBinCenter(i), w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj'))))
+        #print ('mjj = %f, eff = %f'%(hist.GetXaxis().GetBinCenter(i), w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj')))))
         hist_turnon.SetBinContent(i,hist.GetBinContent(i)*w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj'))))
         
     return hist_turnon
@@ -442,7 +442,7 @@ if __name__ == '__main__':
     th1x = w.var('th1x')
     
     if myTH1 is None:
-        print "give a background root file as input"        
+        print ("give a background root file as input")
     
     x = array('d', cfg.getBinning(box)[0]) # mjj binning
         
@@ -476,9 +476,9 @@ if __name__ == '__main__':
         if isinstance(d, rt.TH1):
             #d.SetDirectory(rt.gROOT)
             if name=='h_%s_%i'%(model,massPoint):
-                print "====>>> Before: ", signalXsec,lumi,d.Integral()
+                print ("====>>> Before: ", signalXsec,lumi,d.Integral())
                 d.Scale(signalXsec*lumi)
-                print "====>>> After: ", signalXsec,lumi,d.Integral()
+                print ("====>>> After: ", signalXsec,lumi,d.Integral())
                 if options.trigger:
                     d_turnon = applyTurnonFunc(d,effFrIn,w)
                     name+='_turnon'
@@ -513,7 +513,7 @@ if __name__ == '__main__':
             frIn = wIn.obj("nll_extDijetPdf_data_obs_with_constr")
         elif wIn.obj("simNll") != None:
             frIn = wIn.obj("simNll")
-        print "restoring parameters from fit"
+        print ("restoring parameters from fit")
         if options.trigger:
             effFrIn = wIn.obj("nll_effPdf_triggerData")
             

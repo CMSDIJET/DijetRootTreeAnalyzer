@@ -300,7 +300,7 @@ def writeDataCardMC(box,model,txtfileName,bkgs,paramNames,w):  #this function cr
             lumiString += "\t%.3f"%lumiErrs[i]
         binString+="\n"; processString+="\n"; processNumberString+="\n"; rateString +="\n"; lumiString+="\n"
         datacard+=binString+processString+processNumberString+rateString+divider
-         now nuisances
+        # now nuisances
         datacard+=lumiString
         datacard += "PFDijet2016MC_bkg_stat\tgmN\t1335274\t-\t0.2918187\n"
         for shape in shapes:
@@ -342,7 +342,7 @@ def applyTurnonFunc(hist,effFr,w):  #this function returns a hist weighted with 
 
     for i in range(1,hist.GetNbinsX()+1):
         w.var('mjj').setVal(hist.GetXaxis().GetBinCenter(i))
-        #print 'mjj = %f, eff = %f'%(hist.GetXaxis().GetBinCenter(i), w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj'))))
+        #print ('mjj = %f, eff = %f'%(hist.GetXaxis().GetBinCenter(i), w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj')))))
         hist_turnon.SetBinContent(i,hist.GetBinContent(i)*w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj'))))
         
     return hist_turnon
@@ -444,7 +444,7 @@ if __name__ == '__main__':    #THIS IS THE MAIN FUNCTION WHICH  CALLS THE REST
     th1x = w.var('th1x')               #reads the variable th1x from w
     
     if myTH1 is None:
-        print "give a background root file as input"        
+        print ("give a background root file as input")
     
     x = array('d', cfg.getBinning(box)[0]) # mjj binning   --creates array with binning according to config
         
@@ -478,7 +478,7 @@ if __name__ == '__main__':    #THIS IS THE MAIN FUNCTION WHICH  CALLS THE REST
         if isinstance(d, rt.TH1):
             #d.SetDirectory(rt.gROOT)
             if name=='h_%s_%i'%(model,massPoint):
-                print "====>>> ", signalXsec,lumi,d.Integral()
+                print ("====>>> ", signalXsec,lumi,d.Integral())
                 d.Scale(signalXsec*lumi/d.Integral())
                 if options.trigger:
                     d_turnon = applyTurnonFunc(d,effFrIn,w)
@@ -514,7 +514,7 @@ if __name__ == '__main__':    #THIS IS THE MAIN FUNCTION WHICH  CALLS THE REST
             frIn = wIn.obj("nll_extDijetPdf_data_obs_with_constr")
         elif wIn.obj("simNll") != None:
             frIn = wIn.obj("simNll")
-        print "restoring parameters from fit"
+        print ("restoring parameters from fit")
         if options.trigger:
             effFrIn = wIn.obj("nll_effPdf_triggerData")
             

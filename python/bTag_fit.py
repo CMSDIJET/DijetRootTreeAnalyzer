@@ -52,18 +52,18 @@ lastBin = -1
 index_bin_boundary=-1
 for bin_boundary in massBins_list:
     index_bin_boundary = index_bin_boundary+1
-    #print bin_boundary, massMin, massMax
+    #print (bin_boundary, massMin, massMax)
     if (bin_boundary>=massMin and firstBin==-1 ):
         massMin = bin_boundary
         firstBin=1
-        print "FIRST BIN is "+str(massMin)
+        print ("FIRST BIN is "+str(massMin))
     if (bin_boundary>(massMax+0.0000000001) and lastBin==-1 ):
         massMax = massBins_list[index_bin_boundary-1]
         lastBin=1
-        print "LAST BIN is "+str(massMax)
+        print ("LAST BIN is "+str(massMax))
     if (bin_boundary>=massMin and bin_boundary<=massMax):
         massBins_list_actual.append(bin_boundary)
-print massBins_list_actual
+print (massBins_list_actual)
 massBins = array("d",massBins_list_actual)
 N_massBins = len(massBins)-1
 #########################################################
@@ -143,7 +143,7 @@ def main():
     else:
         dataInt = h_data.Integral(massMin + 1, massMax)
         
-    print "number of events in the fit range:", int(dataInt)
+    print ("number of events in the fit range:", int(dataInt))
 
     h_data_roo = RooDataHist('h_data_roo', 'h_data_roo', RooArgList(mjj), h_data)
     h_data_roo.Print()
@@ -226,15 +226,15 @@ def main():
               + background_noNorm.Integral(float(blindRegionMassMax), float(massMax))
     else:
         int_b = background_noNorm.Integral(float(massMin), float(massMax))
-    print "rescale for background function:", float(int_b)
+    print ("rescale for background function:", float(int_b))
     p0_b = norm_b.getVal() / (int_b*lumi) * num_regions
-    #print "p0_b = " , norm_b.getVal()/int_b , " +" , norm_b.getErrorHi()/int_b , " -" , norm_b.getErrorLo()/int_b
-    print "p0_b = " , p0_b , " +" , norm_b.getErrorHi()/int_b*math.sqrt(num_regions) , " -" , norm_b.getErrorLo()/int_b*math.sqrt(num_regions)
-    print "p1_b = " , p1_b.getVal() , " +" , p1_b.getErrorHi() , " " , p1_b.getErrorLo()
-    print "p2_b = " , p2_b.getVal() , " +" , p2_b.getErrorHi() , " " , p2_b.getErrorLo()
-    print "p3_b = " , p3_b.getVal() , " +" , p3_b.getErrorHi() , " " , p3_b.getErrorLo()
-    print "m_eff =", m_eff.getVal()
-    print "sigma_eff =", sigma_eff.getVal()
+    #print ("p0_b = " , norm_b.getVal()/int_b , " +" , norm_b.getErrorHi()/int_b , " -" , norm_b.getErrorLo()/int_b)
+    print ("p0_b = " , p0_b , " +" , norm_b.getErrorHi()/int_b*math.sqrt(num_regions) , " -" , norm_b.getErrorLo()/int_b*math.sqrt(num_regions))
+    print ("p1_b = " , p1_b.getVal() , " +" , p1_b.getErrorHi() , " " , p1_b.getErrorLo())
+    print ("p2_b = " , p2_b.getVal() , " +" , p2_b.getErrorHi() , " " , p2_b.getErrorLo())
+    print ("p3_b = " , p3_b.getVal() , " +" , p3_b.getErrorHi() , " " , p3_b.getErrorLo())
+    print ("m_eff =", m_eff.getVal())
+    print ("sigma_eff =", sigma_eff.getVal())
 
     background = TF1("background","( [0]*TMath::Power(1-x/%.1f,[1]) ) / ( TMath::Power(x/%.1f,[2]+[3]*log(x/%.1f)) )"%(sqrtS,sqrtS,sqrtS),float(massMin),float(massMax))
     background.SetParameter(0,p0_b)
@@ -258,8 +258,8 @@ def main():
     for i in range(0,g_data.GetN()):
         N = g_data.GetY()[i]
         binWidth = g_data.GetEXlow()[i] + g_data.GetEXhigh()[i]
-        #print str(g_data.GetX()[i])+" "+
-        print str(g_data.GetX()[i]-g_data.GetEXlow()[i])+" "+str(g_data.GetX()[i]+g_data.GetEXhigh()[i])+" "+str(N) 
+        #print (str(g_data.GetX()[i])+" "+)
+        print (str(g_data.GetX()[i]-g_data.GetEXlow()[i])+" "+str(g_data.GetX()[i]+g_data.GetEXhigh()[i])+" "+str(N))
 
         L = 0
         if N!=0:
@@ -320,9 +320,9 @@ def convertFunctionToHisto(background_,name_,N_massBins_,massBins_):
         xbinHigh = massBins_[bin+1]
         binWidth_current = xbinHigh - xbinLow
         value = background_.Integral(xbinLow , xbinHigh) / binWidth_current
-        print "{0}: {1} {2} {3} {4}".format(massBins_[bin], xbinLow, xbinHigh,
+        print ("{0}: {1} {2} {3} {4}".format(massBins_[bin], xbinLow, xbinHigh,
                                             background_.Integral(xbinLow, xbinHigh),
-                                            value)
+                                            value))
         background_hist_.SetBinContent(bin+1,value)
 
     return background_hist_
@@ -330,7 +330,7 @@ def convertFunctionToHisto(background_,name_,N_massBins_,massBins_):
 
 def calculateChi2AndFillResiduals(data_obs_TGraph_,background_hist_,hist_fit_residual_vsMass_,prinToScreen_=0):
     
-    print "-- "+str(background_hist_.GetName())
+    print ("-- "+str(background_hist_.GetName()))
 
     N_massBins_ = data_obs_TGraph_.GetN()
 
@@ -345,10 +345,10 @@ def calculateChi2AndFillResiduals(data_obs_TGraph_,background_hist_,hist_fit_res
     N_PlotRangeMinNumEvents = 0 
 
     if(prinToScreen_):
-        print ""
-        print ""
-        print "======== Number of events / GeV (data, errors, fit, residuals) ========"            
-        print ""
+        print ("")
+        print ("")
+        print ("======== Number of events / GeV (data, errors, fit, residuals) ========")
+        print ("")
 
     for bin in range (0,N_massBins_):
 
@@ -398,7 +398,7 @@ def calculateChi2AndFillResiduals(data_obs_TGraph_,background_hist_,hist_fit_res
                     N_PlotRangeMinNumEvents += 1
     
         if(prinToScreen_):
-            print str(xbinLow)+" "+str(xbinHigh)+" "+str(binWidth_current)+" : "+str(value_data)+" "+str(value_data * binWidth_current * lumi)+" - "+str(err_low_data)+" + "+str(err_high_data)+" fit: "+str(value_fit)+" fit residual: "+str(fit_residual) 
+            print (str(xbinLow)+" "+str(xbinHigh)+" "+str(binWidth_current)+" : "+str(value_data)+" "+str(value_data * binWidth_current * lumi)+" - "+str(err_low_data)+" + "+str(err_high_data)+" fit: "+str(value_fit)+" fit residual: "+str(fit_residual))
 
     #==================
     # Calculate chi2/ndf
@@ -415,10 +415,10 @@ def calculateChi2AndFillResiduals(data_obs_TGraph_,background_hist_,hist_fit_res
     chi2_ndf_PlotRangeNonZero = chi2_PlotRangeNonZero / ndf_PlotRangeNonZero
     chi2_ndf_PlotRangeMinNumEvents = chi2_PlotRangeMinNumEvents / ndf_PlotRangeMinNumEvents
 
-    print "chi2/ndf FullRangeAll : %.8f / %d = %.2f" % ( chi2_FullRangeAll , ndf_FullRangeAll , chi2_ndf_FullRangeAll ) 
-    print "chi2/ndf PlotRangeAll : %.1f / %d = %.2f" % ( chi2_PlotRangeAll , ndf_PlotRangeAll , chi2_ndf_PlotRangeAll ) 
-    print "chi2/ndf PlotRangeNonZero : %.1f / %d = %.2f" % ( chi2_PlotRangeNonZero , ndf_PlotRangeNonZero , chi2_ndf_PlotRangeNonZero ) 
-    print "chi2/ndf PlotRangeMinNumEvents : %.1f / %d = %.2f" % ( chi2_PlotRangeMinNumEvents , ndf_PlotRangeMinNumEvents , chi2_ndf_PlotRangeMinNumEvents ) 
+    print ("chi2/ndf FullRangeAll : %.8f / %d = %.2f" % ( chi2_FullRangeAll , ndf_FullRangeAll , chi2_ndf_FullRangeAll ))
+    print ("chi2/ndf PlotRangeAll : %.1f / %d = %.2f" % ( chi2_PlotRangeAll , ndf_PlotRangeAll , chi2_ndf_PlotRangeAll ))
+    print ("chi2/ndf PlotRangeNonZero : %.1f / %d = %.2f" % ( chi2_PlotRangeNonZero , ndf_PlotRangeNonZero , chi2_ndf_PlotRangeNonZero ))
+    print ("chi2/ndf PlotRangeMinNumEvents : %.1f / %d = %.2f" % ( chi2_PlotRangeMinNumEvents , ndf_PlotRangeMinNumEvents , chi2_ndf_PlotRangeMinNumEvents ))
 
     return [chi2_FullRangeAll, ndf_FullRangeAll, chi2_PlotRangeAll, ndf_PlotRangeAll, chi2_PlotRangeNonZero, ndf_PlotRangeNonZero, chi2_PlotRangeMinNumEvents, ndf_PlotRangeMinNumEvents]
 

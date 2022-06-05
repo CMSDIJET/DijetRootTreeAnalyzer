@@ -51,7 +51,7 @@ class Config(object):
             if workspace.var(var_name):
                 workspace.var(var_name).setRange(range_name, a.getMin(), a.getMax())
             else:
-                print "WARNING:: No variable found for range '%s'" % name
+                print ("WARNING:: No variable found for range '%s'" % name)
         return workspace
     
     def getRCuts(self, box):

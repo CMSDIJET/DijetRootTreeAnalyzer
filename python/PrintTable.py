@@ -28,7 +28,7 @@ if __name__ == '__main__':
         expected[model] = expectedLimit
 
     for i,mass in enumerate(gluinoMassArray):
-        print '%i & %e & %e & %e & %e & %e & %e\\\\'%(mass, observed[models[0]][i], expected[models[0]][i], observed[models[1]][i], expected[models[1]][i], observed[models[2]][i], expected[models[2]][i])
-        #print '%.1f & %e & %e & %e & %e & %e & %e\\\\'%(mass/1000., observed[models[0]][i], expected[models[0]][i], observed[models[1]][i], expected[models[1]][i], observed[models[2]][i], expected[models[2]][i])
+        print ('%i & %e & %e & %e & %e & %e & %e\\\\'%(mass, observed[models[0]][i], expected[models[0]][i], observed[models[1]][i], expected[models[1]][i], observed[models[2]][i], expected[models[2]][i]))
+        #print ('%.1f & %e & %e & %e & %e & %e & %e\\\\'%(mass/1000., observed[models[0]][i], expected[models[0]][i], observed[models[1]][i], expected[models[1]][i], observed[models[2]][i], expected[models[2]][i]))
 
         

@@ -51,9 +51,9 @@ if __name__ == '__main__':
     f1.SetLineColor(rt.kRed)
 
     turnon.Fit(f1,'r')
-    print '0',f1.GetParameter(0)
-    print '1',f1.GetParameter(1)
-    print '2',f1.GetParameter(2)
+    print ('0',f1.GetParameter(0))
+    print ('1',f1.GetParameter(1))
+    print ('2',f1.GetParameter(2))
     rt.gStyle.SetOptFit(0)
 
     

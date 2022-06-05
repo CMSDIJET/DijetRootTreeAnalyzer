@@ -8,7 +8,7 @@ from optparse import OptionParser
 def getThyXsecDict():    
     thyXsecDict = {}
     xsecFiles = ['data/all_lowmass_lhc13TeV.txt','data/rsg_gg_lhc13TeV.txt','data/S8_13TeV_narrow.txt','data/string_total_13TeV.txt','data/axi_lhc13TeV_NLO.txt','data/dm_xsec.txt','data/Zprimebb_xsec.txt','data/dmbb_xsec.txt']
-    print xsecFiles
+    print (xsecFiles)
     for xsecFile in xsecFiles:
         moreThyModels = []
         f = open(xsecFile)
@@ -74,12 +74,12 @@ def getHybridCLsArrays(directory, model, Box, bayes):
         gluinoMassArray.append(xsecTree.mass)
         gluinoMassArray_er.append(0.0)
         
-        exec 'xsecULObs = xsecTree.xsecULObs_%s'%Box
-        exec 'xsecULExp = xsecTree.xsecULExp_%s'%Box
-        exec 'xsecULExpPlus = xsecTree.xsecULExpPlus_%s'%Box
-        exec 'xsecULExpMinus = xsecTree.xsecULExpMinus_%s'%Box
-        exec 'xsecULExpPlus2 = xsecTree.xsecULExpPlus2_%s'%Box
-        exec 'xsecULExpMinus2 = xsecTree.xsecULExpMinus2_%s'%Box
+        exec ('xsecULObs = xsecTree.xsecULObs_%s'%Box)
+        exec ('xsecULExp = xsecTree.xsecULExp_%s'%Box)
+        exec ('xsecULExpPlus = xsecTree.xsecULExpPlus_%s'%Box)
+        exec ('xsecULExpMinus = xsecTree.xsecULExpMinus_%s'%Box)
+        exec ('xsecULExpPlus2 = xsecTree.xsecULExpPlus2_%s'%Box)
+        exec ('xsecULExpMinus2 = xsecTree.xsecULExpMinus2_%s'%Box)
 
             
             
@@ -146,16 +146,16 @@ def getHybridCLsArraysRSG(directory, Box):
         if entry == -1: break
         xsecTreersg.GetEntry(entry)
         
-	mass = xsecTreersg.mass
+        mass = xsecTreersg.mass
         gluinoMassArray.append(xsecTreersg.mass)
         gluinoMassArray_er.append(0.0)
         
-        exec 'xsecULObs_rsg = xsecTreersg.xsecULObs_%s'%Box
-        exec 'xsecULExp_rsg = xsecTreersg.xsecULExp_%s'%Box
-        exec 'xsecULExpPlus_rsg = xsecTreersg.xsecULExpPlus_%s'%Box
-        exec 'xsecULExpMinus_rsg = xsecTreersg.xsecULExpMinus_%s'%Box
-        exec 'xsecULExpPlus2_rsg = xsecTreersg.xsecULExpPlus2_%s'%Box
-        exec 'xsecULExpMinus2_rsg = xsecTreersg.xsecULExpMinus2_%s'%Box
+        exec ('xsecULObs_rsg = xsecTreersg.xsecULObs_%s'%Box)
+        exec ('xsecULExp_rsg = xsecTreersg.xsecULExp_%s'%Box)
+        exec ('xsecULExpPlus_rsg = xsecTreersg.xsecULExpPlus_%s'%Box)
+        exec ('xsecULExpMinus_rsg = xsecTreersg.xsecULExpMinus_%s'%Box)
+        exec ('xsecULExpPlus2_rsg = xsecTreersg.xsecULExpPlus2_%s'%Box)
+        exec ('xsecULExpMinus2_rsg = xsecTreersg.xsecULExpMinus2_%s'%Box)
         
             
             
@@ -236,24 +236,24 @@ def getHybridCLsArraysRSG_average(directory, Box):
         if entry == -1: break
         xsecTreeqq.GetEntry(entry)
         
-	mass = xsecTreeqq.mass
+        mass = xsecTreeqq.mass
         gluinoMassArray.append(xsecTreeqq.mass)
         gluinoMassArray_er.append(0.0)
         
-        exec 'xsecULObs_qq = xsecTreeqq.xsecULObs_%s'%Box
-        exec 'xsecULExp_qq = xsecTreeqq.xsecULExp_%s'%Box
-        exec 'xsecULExpPlus_qq = xsecTreeqq.xsecULExpPlus_%s'%Box
-        exec 'xsecULExpMinus_qq = xsecTreeqq.xsecULExpMinus_%s'%Box
-        exec 'xsecULExpPlus2_qq = xsecTreeqq.xsecULExpPlus2_%s'%Box
-        exec 'xsecULExpMinus2_qq = xsecTreeqq.xsecULExpMinus2_%s'%Box
+        exec ('xsecULObs_qq = xsecTreeqq.xsecULObs_%s'%Box)
+        exec ('xsecULExp_qq = xsecTreeqq.xsecULExp_%s'%Box)
+        exec ('xsecULExpPlus_qq = xsecTreeqq.xsecULExpPlus_%s'%Box)
+        exec ('xsecULExpMinus_qq = xsecTreeqq.xsecULExpMinus_%s'%Box)
+        exec ('xsecULExpPlus2_qq = xsecTreeqq.xsecULExpPlus2_%s'%Box)
+        exec ('xsecULExpMinus2_qq = xsecTreeqq.xsecULExpMinus2_%s'%Box)
         
-	xsecTreegg.GetEntry(entry)
-        exec 'xsecULObs_gg = xsecTreegg.xsecULObs_%s'%Box
-        exec 'xsecULExp_gg = xsecTreegg.xsecULExp_%s'%Box
-        exec 'xsecULExpPlus_gg = xsecTreegg.xsecULExpPlus_%s'%Box
-        exec 'xsecULExpMinus_gg = xsecTreegg.xsecULExpMinus_%s'%Box
-        exec 'xsecULExpPlus2_gg = xsecTreegg.xsecULExpPlus2_%s'%Box
-        exec 'xsecULExpMinus2_gg = xsecTreegg.xsecULExpMinus2_%s'%Box
+        xsecTreegg.GetEntry(entry)
+        exec ('xsecULObs_gg = xsecTreegg.xsecULObs_%s'%Box)
+        exec ('xsecULExp_gg = xsecTreegg.xsecULExp_%s'%Box)
+        exec ('xsecULExpPlus_gg = xsecTreegg.xsecULExpPlus_%s'%Box)
+        exec ('xsecULExpMinus_gg = xsecTreegg.xsecULExpMinus_%s'%Box)
+        exec ('xsecULExpPlus2_gg = xsecTreegg.xsecULExpPlus2_%s'%Box)
+        exec ('xsecULExpMinus2_gg = xsecTreegg.xsecULExpMinus2_%s'%Box)
 
             
             
@@ -322,12 +322,12 @@ def getSignificanceArrays(directory, model, Box):
         gluinoMassArray.append(xsecTree.mass)
         gluinoMassArray_er.append(0.0)
         
-        exec 'xsecULObs = xsecTree.xsecULObs_%s'%Box
-        exec 'xsecULExp = xsecTree.xsecULExp_%s'%Box
-        exec 'xsecULExpPlus = xsecTree.xsecULExpPlus_%s'%Box
-        exec 'xsecULExpMinus = xsecTree.xsecULExpMinus_%s'%Box
-        exec 'xsecULExpPlus2 = xsecTree.xsecULExpPlus2_%s'%Box
-        exec 'xsecULExpMinus2 = xsecTree.xsecULExpMinus2_%s'%Box
+        exec ('xsecULObs = xsecTree.xsecULObs_%s'%Box)
+        exec ('xsecULExp = xsecTree.xsecULExp_%s'%Box)
+        exec ('xsecULExpPlus = xsecTree.xsecULExpPlus_%s'%Box)
+        exec ('xsecULExpMinus = xsecTree.xsecULExpMinus_%s'%Box)
+        exec ('xsecULExpPlus2 = xsecTree.xsecULExpPlus2_%s'%Box)
+        exec ('xsecULExpMinus2 = xsecTree.xsecULExpMinus2_%s'%Box)
 
             
             
@@ -580,29 +580,29 @@ if __name__ == '__main__':
     sig_xsec = {}
     N_g_xsec = {}
     xsec_gr_nom = {}
-    print thyModelsToDraw
+    print (thyModelsToDraw)
     for thyModel in thyModelsToDraw:        
         mass_xsec[thyModel] = array('d')
         sig_xsec[thyModel] = array('d')
-        for mg in sorted(thyXsecDict[thyModel].keys()):
-	  if options.model =="gg_qg_qq":
-	    mass_xsec[thyModel].append(mg)
+        for mg in sorted(thyXsecDict[thyModel].keys()): 
+          if options.model =="gg_qg_qq":
+            mass_xsec[thyModel].append(mg)
             sig_xsec[thyModel].append(thyXsecDict[thyModel][mg])
 
-	  elif "Axigluon" in thyModel and mg>=1200:
-	    mass_xsec[thyModel].append(mg)
+          elif "Axigluon" in thyModel and mg>=1200:
+            mass_xsec[thyModel].append(mg)
             sig_xsec[thyModel].append(thyXsecDict[thyModel][mg])
-	  elif thyModel=="S8" and mg>=1300:
-	    mass_xsec[thyModel].append(mg)
+          elif thyModel=="S8" and mg>=1300:
+            mass_xsec[thyModel].append(mg)
             sig_xsec[thyModel].append(thyXsecDict[thyModel][mg])
-	  elif thyModel=="q*" and mg>=1300:
-	    mass_xsec[thyModel].append(mg)
+          elif thyModel=="q*" and mg>=1300:
+            mass_xsec[thyModel].append(mg)
             sig_xsec[thyModel].append(thyXsecDict[thyModel][mg])
           elif thyModel=="String" and mg>=3000:
-	    mass_xsec[thyModel].append(mg)
+            mass_xsec[thyModel].append(mg)
             sig_xsec[thyModel].append(thyXsecDict[thyModel][mg])
-	  elif not(thyModel=="S8" or thyModel=="q*" or thyModel=="String"  or "Axigluon" in thyModel):
-	    mass_xsec[thyModel].append(mg)
+          elif not(thyModel=="S8" or thyModel=="q*" or thyModel=="String"  or "Axigluon" in thyModel):
+            mass_xsec[thyModel].append(mg)
             sig_xsec[thyModel].append(thyXsecDict[thyModel][mg])
 
 
@@ -643,20 +643,20 @@ if __name__ == '__main__':
 
     for Box in Boxes:
         for model in models:
-	    if not 'rsg' in model:
-	        if len(models)>1:
+            if not 'rsg' in model:
+                if len(models)>1:
                     #directory =  options.outDir+'/%s_IntermediateRange'%model
                     directory =  options.outDir+'/%s'%model
                 if options.doSignificance:
                     gluinoMassArray[(Box,model)], gluinoMassArray_er[(Box,model)], observedLimit[(Box,model)], observedLimit_er[(Box,model)], expectedLimit[(Box,model)], expectedLimit_minus1sigma[(Box,model)], expectedLimit_plus1sigma[(Box,model)], expectedLimit_minus2sigma[(Box,model)], expectedLimit_plus2sigma[(Box,model)] = getSignificanceArrays(directory, model, Box)
                 else:        
                     gluinoMassArray[(Box,model)], gluinoMassArray_er[(Box,model)], observedLimit[(Box,model)], observedLimit_er[(Box,model)], expectedLimit[(Box,model)], expectedLimit_minus1sigma[(Box,model)], expectedLimit_plus1sigma[(Box,model)], expectedLimit_minus2sigma[(Box,model)], expectedLimit_plus2sigma[(Box,model)] = getHybridCLsArrays(directory, model, Box, options.bayes)
-	    elif model=="rsgAverage":
+            elif model=="rsgAverage":
                     gluinoMassArray[(Box,model)], gluinoMassArray_er[(Box,model)], observedLimit[(Box,model)], observedLimit_er[(Box,model)], expectedLimit[(Box,model)], expectedLimit_minus1sigma[(Box,model)], expectedLimit_plus1sigma[(Box,model)], expectedLimit_minus2sigma[(Box,model)], expectedLimit_plus2sigma[(Box,model)] = getHybridCLsArraysRSG_average(directory,  Box)
-	    elif model=="rsg":
+            elif model=="rsg":
                     gluinoMassArray[(Box,model)], gluinoMassArray_er[(Box,model)], observedLimit[(Box,model)], observedLimit_er[(Box,model)], expectedLimit[(Box,model)], expectedLimit_minus1sigma[(Box,model)], expectedLimit_plus1sigma[(Box,model)], expectedLimit_minus2sigma[(Box,model)], expectedLimit_plus2sigma[(Box,model)] = getHybridCLsArraysRSG(directory,  Box)
             
-	    nPoints = len(observedLimit[(Box,model)])
+            nPoints = len(observedLimit[(Box,model)])
 
             gr_observedLimit[(Box,model)] = rt.TGraph(nPoints, gluinoMassArray[(Box,model)], observedLimit[(Box,model)])
             gr_observedLimit[(Box,model)].SetMarkerColor(1)
@@ -827,7 +827,7 @@ if __name__ == '__main__':
     if not options.doSignificance:
         if options.cl==0.90:
           leg.SetHeader("90% CL limits")
-	elif options.cl==0.95:
+        elif options.cl==0.95:
           leg.SetHeader("95% CL limits")
 
     if len(models)==1:
@@ -910,7 +910,7 @@ if __name__ == '__main__':
             h_limit.GetXaxis().SetTitle('RS Graviton mass [TeV]')
         else:
             h_limit.GetXaxis().SetTitle('Resonance mass [TeV]')
-	h_limit.GetXaxis().SetLabelOffset(1000)
+        h_limit.GetXaxis().SetLabelOffset(1000)
         #h_fit_residual_vs_mass.GetXaxis().SetNoExponent()
         #h_fit_residual_vs_mass.GetXaxis().SetMoreLogLabels()    
         xLab = rt.TLatex()
@@ -920,18 +920,18 @@ if __name__ == '__main__':
         xLab.SetTextSize(0.05)
         if options.doSignificance:
             yOffset = -0.138
-	    xOffset = -0.138
+            xOffset = -0.138
         else:
             #yOffset = 6.5e-5 # for 1e-4 min
             #yOffset = 5.25e-6 # for 1e-5 min
             yOffset = 5.25e-8 # for 1e-5 min
-	    xOffset = 0.000005
+            xOffset = 0.000005
         for i in range(1,10):
             if i*1000>=options.massMin:
                 xLab.DrawLatex(i*1000, xOffset, "%g"%i)
 
     else:
-        print "++++++++ not PF in Box ++++++++++++++"
+        print ("++++++++ not PF in Box ++++++++++++++")
         if 'rsg' in model:
             h_limit.GetXaxis().SetTitle('RS Graviton mass [GeV]')
         else:
@@ -956,24 +956,24 @@ if __name__ == '__main__':
         lab.SetTextSize(0.035)
         lab.SetTextFont(42)
         lab.SetTextColor(rt.kGray+2)
-	if options.model=="gg_qg_qq":
+        if options.model=="gg_qg_qq":
           lab.SetTextAlign(33)
           lab.DrawLatex(1600-10,6e4,"#leftarrow")
           lab.SetTextAlign(13)
           lab.DrawLatex(1600+10,6e4,"#rightarrow") 
           lab.SetTextAlign(23)
-	  lab.DrawLatex(1600-400,3.5e4,"Low")
-	  lab.DrawLatex(1600-400,1.2e4,"mass")
+          lab.DrawLatex(1600-400,3.5e4,"Low")
+          lab.DrawLatex(1600-400,1.2e4,"mass")
           lab.DrawLatex(1600+400,3.5e4,"High")
           lab.DrawLatex(1600+400,1.2e4,"mass")
-	else:
+        else:
           lab.SetTextAlign(33)
           lab.DrawLatex(1600-10,7e2,"#leftarrow")
           lab.SetTextAlign(13)
           lab.DrawLatex(1600+10,7e2,"#rightarrow") 
           lab.SetTextAlign(23)
-	  lab.DrawLatex(1600-400,5e2,"Low")
-	  lab.DrawLatex(1600-400,2e2,"mass")
+          lab.DrawLatex(1600-400,5e2,"Low")
+          lab.DrawLatex(1600-400,2e2,"mass")
           lab.DrawLatex(1600+400,5e2,"High")
           lab.DrawLatex(1600+400,2e2,"mass")
 

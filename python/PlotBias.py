@@ -193,7 +193,7 @@ if __name__ == '__main__':
     xsecTree = None
     rDict = {}
     if options.asymptoticFile is not None:
-        print "INFO: Input ref xsec file!"
+        print ("INFO: Input ref xsec file!")
         asymptoticRootFile = rt.TFile.Open(options.asymptoticFile,"READ")
         xsecTree = asymptoticRootFile.Get("xsecTree")        
         xsecTree.Draw('>>elist','','entrylist')
@@ -207,7 +207,7 @@ if __name__ == '__main__':
     else:        
         for massPoint in massIterable(options.mass):   
             rDict[int(massPoint)] = options.r
-    print rDict
+    print (rDict)
 
     
     c = rt.TCanvas('c','c',500,400)    

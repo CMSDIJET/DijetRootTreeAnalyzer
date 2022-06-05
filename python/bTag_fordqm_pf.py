@@ -57,14 +57,14 @@ if __name__ == '__main__':
     
     ###################################################################
 
-    print treeName
+    print (treeName)
     tchain = rt.TChain(treeName)
     for i, line in enumerate(inputData):
         tchain.Add(line)
 
 
     nEntries = tchain.GetEntries()
-    print 'Number of entries: ', nEntries
+    print ('Number of entries: ', nEntries)
 
     # Book histos
              #bins,min,max
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     for i in xrange(nEntries):
     #for i in xrange(300000):
         if i%100000 == 0:
-            print "analyzing event: ",i
+            print ("analyzing event: ",i)
 
         tchain.GetEntry(i)
 

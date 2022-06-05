@@ -145,11 +145,11 @@ def DrawSignals(hist_dict, box, smooth, rsg):
       hist.GetXaxis().SetTitle("Dijet mass [TeV]")
       hist.GetYaxis().SetTitle("Normalized yield / TeV")
       if j==0:
-	leg.AddEntry(hist,label[key],"l")
+        leg.AddEntry(hist,label[key],"l")
       if i==0:
-	hist.Draw("c")
+        hist.Draw("c")
       else:
-	hist.Draw("c same")
+        hist.Draw("c same")
       xLab = TLatex()
       xLab.SetTextAlign(22)
       xLab.SetTextSize(0.05)
@@ -342,20 +342,20 @@ if __name__ == '__main__':
       hist_mass_list_qg_rebin[i].SetBinContent(jj,hist_mass_list_qg_rebin[i].GetBinContent(jj)/binning3)
       hist_mass_list_gg_rebin[i].SetBinContent(jj,hist_mass_list_gg_rebin[i].GetBinContent(jj)/binning3)
       if options.rsg:
-	hist_mass_list_rsg_rebin[i].SetBinContent(jj,hist_mass_list_rsg_rebin[i].GetBinContent(jj)/binning3)
+        hist_mass_list_rsg_rebin[i].SetBinContent(jj,hist_mass_list_rsg_rebin[i].GetBinContent(jj)/binning3)
     
     if "PF" in options.box:
       hist_mass_list_qq_rebin[i].Smooth(50)
       hist_mass_list_qg_rebin[i].Smooth(50)
       hist_mass_list_gg_rebin[i].Smooth(50)
       if options.rsg:
-	hist_mass_list_rsg_rebin[i].Smooth(50)
+        hist_mass_list_rsg_rebin[i].Smooth(50)
     elif "Calo" in options.box:
       hist_mass_list_qq_rebin[i].Smooth(30)
       hist_mass_list_qg_rebin[i].Smooth(30)
       hist_mass_list_gg_rebin[i].Smooth(30)
       if options.rsg:
-	hist_mass_list_rsg_rebin[i].Smooth(30)
+        hist_mass_list_rsg_rebin[i].Smooth(30)
    
    ###########################
     #hist_mass_list_qq[i].Rebin(40)

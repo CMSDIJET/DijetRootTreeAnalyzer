@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     effFile = rt.TFile(options.eff)
 
-    print "signal model    :",model
+    print ("signal model    :",model)
     ###################################################################                                                                                                                                        
 
     #outFile
@@ -79,7 +79,7 @@ if __name__ == '__main__':
     elif (model == "gg"):
         sampleNames = sampleNames_gg
     else:
-        print "model unknown"
+        print ("model unknown")
         exit
 
     for mass, sample in sorted(sampleNames.iteritems()):

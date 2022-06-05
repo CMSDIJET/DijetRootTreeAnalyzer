@@ -1,11 +1,11 @@
 COMP=g++
 FLAGS = -std=c++17 -Wno-attributes -O0 -g
-#FLAGS += -DUSE_EXAMPLE
 FLAGS += -DSAVE_ALL_HISTOGRAMS 
-# FLAGS += -DCREATE_OPT_CUT_FILE
 ROOTLIBS = `root-config --glibs --cflags` -lMinuit 
 scram = $(shell cd ${CMSSW_BASE}; scram tool tag $(1) $(2))
-INC= -I.. -I. -I./include  -I${CLHEP}/include -I${CMSSW_RELEASE_BASE}/src -I$(call scram,boost,INCLUDE) -I$(call scram,fastjet,INCLUDE)
+#INC= -I.. -I. -I./include  -I${CLHEP}/include -I${CMSSW_RELEASE_BASE}/src -I /cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.67.0/include -I /cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.0/include
+#INC= -I.. -I. -I./include  -I${CLHEP}/include -I${CMSSW_RELEASE_BASE}/src -I$(call scram,boost,INCLUDE) -I$(call scram,fastjet,INCLUDE)
+INC= -I.. -I. -I./include  -I${CLHEP}/include -I${CMSSW_RELEASE_BASE}/src -I$(call scram,boost,BOOST_BASE)/include -I$(call scram,fastjet,FASTJET_BASE)/include -I$(call scram,fmt,FMT_BASE)/include
 ROOTINC= -I${ROOTSYS}/include
 LIBS= -L.  ${ROOTLIBS} -L${CLHEP}/lib
 SRC= ./src

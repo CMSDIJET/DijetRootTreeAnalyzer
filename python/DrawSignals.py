@@ -128,11 +128,11 @@ def DrawSignals(hist_dict):
       hist.GetXaxis().SetTitle("Dijet mass [TeV]")
       hist.GetYaxis().SetTitle("Normalized yield / TeV")
       if j==0:
-	leg.AddEntry(hist,label[key],"l")
+        leg.AddEntry(hist,label[key],"l")
       if i==0:
-	hist.Draw("")
+        hist.Draw("")
       else:
-	hist.Draw("same")
+        hist.Draw("same")
       xLab = TLatex()
       xLab.SetTextAlign(22)
       xLab.SetTextSize(0.05)

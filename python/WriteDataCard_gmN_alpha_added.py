@@ -265,7 +265,7 @@ def writeDataCardMC(box,model,txtfileName,bkgs,paramNames,w,x,useRooParametricHi
                         lumiErrs = [1.027 for sig in model.split('p')]
                 elif '2016' in box:
                         lumiErrs = [1.062 for sig in model.split('p')]        #number of lumi's error 
-		elif '2017' in box:
+                elif '2017' in box:
                         lumiErrs = [1.062 for sig in model.split('p')]        #number of lumi's error          
         else:                                  #does all the above only once since there is only 1 signal 
                 rates = [w.data("%s_%s"%(box,model)).sumEntries()]#rates=prediction's total entries (rates is an array)
@@ -274,7 +274,7 @@ def writeDataCardMC(box,model,txtfileName,bkgs,paramNames,w,x,useRooParametricHi
                         lumiErrs = [1.027]
                 elif '2016' in box:
                         lumiErrs = [1.062]   
-		elif '2017' in box:
+                elif '2017' in box:
                         lumiErrs = [1.062]            
         if not useRooParametricHist:
             rates.extend([w.var('Ntot_%s_%s'%(bkg,box)).getVal() for bkg in bkgs])#extends array 'rates' and stores the value of parameters with "Ntot_" name
@@ -285,7 +285,7 @@ def writeDataCardMC(box,model,txtfileName,bkgs,paramNames,w,x,useRooParametricHi
                 lumiErrs.extend([1.027 for bkg in bkgs])
         elif '2016' in box:
                 lumiErrs.extend([1.000 for bkg in bkgs])
-	elif '2017' in box:
+        elif '2017' in box:
                 lumiErrs.extend([1.000 for bkg in bkgs])
         divider = "------------------------------------------------------------\n"
         datacard = "imax 1 number of channels\n" + \
@@ -367,7 +367,7 @@ def applyTurnonFunc(hist,effFr,w):  #this function returns a hist weighted with 
 
     for i in range(1,hist.GetNbinsX()+1):
         w.var('mjj').setVal(hist.GetXaxis().GetBinCenter(i))
-        #print 'mjj = %f, eff = %f'%(hist.GetXaxis().GetBinCenter(i), w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj'))))
+        #print ('mjj = %f, eff = %f'%(hist.GetXaxis().GetBinCenter(i), w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj')))))
         hist_turnon.SetBinContent(i,hist.GetBinContent(i)*w.function('effFunc').getVal(rt.RooArgSet(w.var('mjj'))))
         
     return hist_turnon
@@ -473,7 +473,7 @@ if __name__ == '__main__':    #THIS IS THE MAIN FUNCTION WHICH  CALLS THE REST
     th1x = w.var('th1x')               #reads the variable th1x from w
     
     if myTH1 is None:
-        print "give a background root file as input"        
+        print ("give a background root file as input")
     
     x = array('d', cfg.getBinning(box)[0]) # mjj binning   --creates array with binning according to config
         
@@ -509,7 +509,7 @@ if __name__ == '__main__':    #THIS IS THE MAIN FUNCTION WHICH  CALLS THE REST
         if isinstance(d, rt.TH1):
             #d.SetDirectory(rt.gROOT)
             if name=='h_%s_%i'%(model,massPoint):
-                print "====>>> ", signalXsec,lumi,d.Integral()
+                print ("====>>> ", signalXsec,lumi,d.Integral())
                 d.Scale(signalXsec*lumi/d.Integral())
                 if options.trigger:
                     d_turnon = applyTurnonFunc(d,effFrIn,w)
@@ -545,7 +545,7 @@ if __name__ == '__main__':    #THIS IS THE MAIN FUNCTION WHICH  CALLS THE REST
             frIn = wIn.obj("nll_extDijetPdf_data_obs_with_constr")
         elif wIn.obj("simNll") != None:
             frIn = wIn.obj("simNll")
-        print "restoring parameters from fit"
+        print ("restoring parameters from fit")
         if options.trigger:
             effFrIn = wIn.obj("nll_effPdf_triggerData")
             
@@ -754,7 +754,7 @@ if __name__ == '__main__':    #THIS IS THE MAIN FUNCTION WHICH  CALLS THE REST
             for iBinX in range(1,myRealTH1.GetNbinsX()+1):
             
                 if mcHist_th1x.GetBinContent(iBinX) > 0: 
-                    print 'mcstat bin %i percent uncertainty: %f%%'%(iBinX,mcHist_th1x.GetBinError(iBinX)*100./mcHist_th1x.GetBinContent(iBinX))
+                    print ('mcstat bin %i percent uncertainty: %f%%'%(iBinX,mcHist_th1x.GetBinError(iBinX)*100./mcHist_th1x.GetBinContent(iBinX)))
                 myRealTH1mcstatUp = mcHist_th1x.Clone('hist_mcstat%iUp'%iBinX) # clone the original histogram
                 myRealTH1mcstatUp.SetBinContent(iBinX, mcHist_th1x.GetBinContent(iBinX)+mcHist_th1x.GetBinError(iBinX)) # set only bin iBinX to (Nominal+Error) to get "Up" prediction
                 predHistUp = rt.RooDataHist("%s_bkg_mcstat%iUp"%(box,iBinX), "%s_bkg_mcstat%iUp"%(box,iBinX), rt.RooArgList(th1x), rt.RooFit.Import(myRealTH1mcstatUp))
@@ -784,14 +784,14 @@ if __name__ == '__main__':    #THIS IS THE MAIN FUNCTION WHICH  CALLS THE REST
                 expB = 2.5E-03 # from fit of CR
                 mjjBin = mjjLow + (1./expB) *(rt.TMath.Log(expB * mjjBinWidth) - rt.TMath.Log(1. - rt.TMath.Exp(-1. * expB * mjjBinWidth)))
                 w.factory('mjjBin%i[%f]'%(iBinX,mjjBin))
-                #print mjjCen, mjjBin
+                #print (mjjCen, mjjBin)
                 #w.factory('mcRatioBin%i[%f]'%(iBinX,myRealMCRatio.GetBinContent(iBinX)))
                 w.factory('mcRatioBin%i[%f]'%(iBinX,myMCRatio.GetBinContent(myMCRatio.FindBin(mjjBin))))
                 w.factory('crBin%i[%f,%f,%f]'%(iBinX,myRealCR.GetBinContent(iBinX),0,myRealCR.GetBinContent(iBinX)+myRealCR.GetBinError(iBinX)*50.))
                 w.factory("expr::bin%iFunc('(@0+@1*(@2/@3)**4)*@4*@5*@6',beta,slope,mjjBin%i,sqrts,mcRatioBin%i,crBin%i,epsilon)"%(iBinX,iBinX,iBinX,iBinX))
 
                 binFunctions.add(w.function('bin%iFunc'%iBinX))
-                print iBinX, w.var('beta').getVal(), w.var('beta').getError(), w.var('slope').getVal(), w.var('mjjBin%i'%iBinX).getVal(), myMCRatio.GetBinContent(myMCRatio.FindBin(mjjBin)), myRealCR.GetBinContent(iBinX), w.function('bin%iFunc'%iBinX).getVal(), myRealTH1.GetBinContent(iBinX)
+                print (iBinX, w.var('beta').getVal(), w.var('beta').getError(), w.var('slope').getVal(), w.var('mjjBin%i'%iBinX).getVal(), myMCRatio.GetBinContent(myMCRatio.FindBin(mjjBin)), myRealCR.GetBinContent(iBinX), w.function('bin%iFunc'%iBinX).getVal(), myRealTH1.GetBinContent(iBinX))
             rph = rt.RooParametricHist('%s_bkg'%box,'%s_bkg'%box,th1x,binFunctions,myRealTH1)
             rph_norm = rt.RooAddition('%s_bkg_norm'%box,'%s_bkg_norm'%box,binFunctions)
             rootTools.Utils.importToWS(w,rph)

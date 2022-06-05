@@ -139,6 +139,6 @@ def scream(message):
 					  3: 'Lies, damned lies, and statistics',
 					  4: 'Speak severely to your little boy and beat him '\
 					  'when he sneezes'}
-	print "\n** %s\n** %s%s%s\n" % (random_phrases[i], BLUE, message,
-									RESETCOLOR)
+	print ("\n** %s\n** %s%s%s\n" % (random_phrases[i], BLUE, message,
+									RESETCOLOR))
 	sys.exit(0)

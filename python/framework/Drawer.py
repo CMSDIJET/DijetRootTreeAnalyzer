@@ -6,7 +6,7 @@ class Drawer():
     """Class to draw overlayed histos for data and signals"""
 
     def __init__(self, hData, hSignal):
-        print "Drawer::init"
+        print ("Drawer::init")
 
         self._hData = hData
         self._hSignal = hSignal
@@ -26,12 +26,12 @@ class Drawer():
             for histo in self._sigHistos[sample]:
                 integral = histo.Integral()
                 if integral > 0:
-                    print opts[1]*lumi/integral
+                    print (opts[1]*lumi/integral)
                     histo.Scale(opts[1]*lumi/integral)
 
 
     def loopfile(self, infile):
-        print "Drawer::loopfile",infile
+        print ("Drawer::loopfile",infile)
         hlist = []
         rootFile = rt.TFile(infile)
         hnames = [k.GetName() for k in rootFile.GetListOfKeys()]
@@ -43,18 +43,18 @@ class Drawer():
         return hlist
     
     def setStyle(self):
-        print "Drawer::setStyle"
+        print ("Drawer::setStyle")
         setTDRStyle.setTDRStyle()
 
         
         
 
     def addRatioBox(self, histo):
-        print "Drawer::addRatioBox"
+        print ("Drawer::addRatioBox")
 
 
     def printPlots(self, outPath):
-        print "Drawer::printCanvas"
+        print ("Drawer::printCanvas")
         self.setStyle()
 
         for it,dataplot in enumerate(self._dataHistos["data"]):

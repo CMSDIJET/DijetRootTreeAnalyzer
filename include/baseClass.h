@@ -1,6 +1,7 @@
 #ifndef baseClass_h
 #define baseClass_h
 
+#include <TObjString.h>
 #include "rootNtupleClass.h"
 #include "jsonParser.h"
 #include "pileupReweighter.h"

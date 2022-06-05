@@ -18,7 +18,7 @@ def massIterable(massList):
     return massIterableList
         
 def exec_me(command,dryRun=True):
-    print command
+    print (command)
     if not dryRun: os.system(command)
         
 def writeBashScript(options,massPoint,iJob=0):
@@ -179,7 +179,7 @@ def main(options,args):
             paramDict = {}
             for p in rootTools.RootIterator.RootIterator(frIn.floatParsFinal()):
                 paramDict[p.GetName()] = [p.getVal(), p.getError()]
-            print "grabbing parameter ranges +-%gsigma for bayesian"%NSIGMA
+            print ("grabbing parameter ranges +-%gsigma for bayesian"%NSIGMA)
     
 
         signalSys = ''

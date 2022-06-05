@@ -114,22 +114,22 @@ class Ntuple:
 		
 		# check that root file exists
 		if not os.path.exists(filename):
-			print "** Ntuple *** "\
-			      "root file %s not found" % filename
+			print ("** Ntuple *** "\
+			      "root file %s not found" % filename)
 			sys.exit(0)
 
 		# ------------------------------------
 		# open root file
 		# ------------------------------------
-		print "reading root file\t--> %s" % filename
+		print ("reading root file\t--> %s" % filename)
 		
 		self.file = TFile(self.filename)
 		self.tree = self.file.Get(self.treename)
 		tree = self.tree
 		
 		if tree == None:
-			print "** Ntuple *** Tree is non-cooperative"\
-				  " - perhaps the name is wrong?"
+			print ("** Ntuple *** Tree is non-cooperative"\
+				  " - perhaps the name is wrong?")
 			sys.exit(0)
 
 		# get names of variables from root file
@@ -139,7 +139,7 @@ class Ntuple:
 
 		# print variables
 		self.vars = []
-		print "variables:"
+		print ("variables:")
 		for i in xrange(nbranches):
 			# get the ith branch (aka variable)
 			bname = branches[i].GetName()			
@@ -152,13 +152,13 @@ class Ntuple:
 				# Get all leaves associated with this branch
 				leaves = branches[i].GetListOfLeaves()
 				if leaves == None:
-					print "No leaves found!"
+					print ("No leaves found!")
 					sys.exit(0)
 
 				# Assume one leaf/branch
 				leaf = leaves[0]
 				if leaf == None:
-					print "No leaf found"
+					print ("No leaf found")
 					sys.exit(0)
 					
 				leafname = leaf.GetName()
@@ -176,7 +176,7 @@ class Ntuple:
 				
 			# store type and variable name
 			self.vars.append( (tname, bname, maxcount) )
-			print "\t%4d\t%-12s\t%-32s\t%d" % (i, tname, bname, maxcount)
+			print ("\t%4d\t%-12s\t%-32s\t%d" % (i, tname, bname, maxcount))
 		nlen = len(self.vars)
 
 		# create a map of variable name to column number

@@ -18,7 +18,7 @@ if __name__ == '__main__':
     histoList = {}
     for i, line in enumerate(f):
         if i == 0:
-            print 'Creating list of histos from file',line.replace('\n','')
+            print ('Creating list of histos from file',line.replace('\n',''))
             rootFile = rt.TFile.Open(line.replace('\n',''))
             for k in rootFile.GetListOfKeys():
                 obj = rootFile.Get(k.GetName())
@@ -26,9 +26,9 @@ if __name__ == '__main__':
                     histoList[k.GetName()] = obj
                     histoList[k.GetName()].SetDirectory(0)
 
-            #print 'list of histograms',histoList
+            #print ('list of histograms',histoList)
         else:
-            print 'Summing',line.replace('\n','')
+            print ('Summing',line.replace('\n',''))
             rootFile = rt.TFile.Open(line.replace('\n',''))
             for n,h in histoList.iteritems():
                 myh = rootFile.Get(n)
