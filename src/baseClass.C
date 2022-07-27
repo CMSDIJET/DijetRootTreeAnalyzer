@@ -1678,7 +1678,7 @@ void baseClass::getHltMap(char* fileName) {
 
   STDOUT("getHltMap: " << fileName);
   TFile *f = TFile::Open(fileName);
-  TH1F* triggerNames = (TH1F*)f->Get("dijets/TriggerNames");
+  /*TH1F* triggerNames = (TH1F*)f->Get("dijets/TriggerNames");
 
   if(!triggerNames)
     {
@@ -1688,6 +1688,6 @@ void baseClass::getHltMap(char* fileName) {
 
   for (int ii=1; ii<=triggerNames->GetNbinsX();++ii)
     triggerMap_[triggerNames->GetXaxis()->GetBinLabel(ii)] = ii-1;
-
+*/
   return;
 }
