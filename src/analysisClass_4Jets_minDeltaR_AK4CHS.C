@@ -68,9 +68,9 @@ analysisClass::analysisClass(string * inputList, string * cutFile, string * tree
     std::string L2Path = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L2Relative_AK4PFchs.txt";
     std::string L3Path = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L3Absolute_AK4PFchs.txt";
 
-    std::string L1DATAPath = "data/Fall17_17Nov2017_V6_DATA/Fall17_17Nov2017F_V6_DATA_L1FastJet_AK4PFchs.txt";
-    std::string L2DATAPath = "data/Fall17_17Nov2017_V6_DATA/Fall17_17Nov2017F_V6_DATA_L2Relative_AK4PFchs.txt"; 
-    std::string L3DATAPath = "data/Fall17_17Nov2017_V6_DATA/Fall17_17Nov2017F_V6_DATA_L3Absolute_AK4PFchs.txt";
+    std::string L1DATAPath = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L1FastJet_AK4PFchs.txt";
+    std::string L2DATAPath = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L2Relative_AK4PFchs.txt"; 
+    std::string L3DATAPath = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L3Absolute_AK4PFchs.txt";
     std::string L2L3ResidualPath = "data/Fall17_17Nov2017_V6_DATA/Fall17_17Nov2017F_V6_DATA_L2L3Residual_AK4PFchs.txt";
     
     unc = new JetCorrectionUncertainty("data/Fall17_17Nov2017_V6_MC/Fall17_17Nov2017_V6_MC_Uncertainty_AK4PFchs.txt");
