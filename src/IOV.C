@@ -12,7 +12,7 @@ void IOV::add(string id, int runmin, int runmax, bool isdata) {
       if (it->first > runmin) assert(it->first > runmax);
     }
     
-    const char *s;
+    char *s;
     const char *dir = "data/Fall17_17Nov2017_V6_DATA/";
     const char *tag = "Fall17_17Nov2017";
     const char *dtype = "_V6_DATA";
@@ -21,13 +21,13 @@ void IOV::add(string id, int runmin, int runmax, bool isdata) {
     const char *dtype = "V3_DATA";*/
     const char *a = _algo.c_str();
 
-    s = Form("%s%s%s%s_L1FastJet_%s.txt",dir,tag,id.c_str(),dtype,a); cout<<s<<endl<<flush;
+    sprintf(s,"%s%s%s%s_L1FastJet_%s.txt",dir,tag,id.c_str(),dtype,a); cout<<s<<endl<<flush;
     JetCorrectorParameters *par_l1 = new JetCorrectorParameters(s);
-    s = Form("%s%s%s%s_L2Relative_%s.txt",dir,tag,id.c_str(),dtype,a); cout<<s<<endl<<flush;
+    sprintf(s,"%s%s%s%s_L2Relative_%s.txt",dir,tag,id.c_str(),dtype,a); cout<<s<<endl<<flush;
     JetCorrectorParameters *par_l2 = new JetCorrectorParameters(s);
-    s = Form("%s%s%s%s_L3Absolute_%s.txt",dir,tag,id.c_str(),dtype,a); cout<<s<<endl<<flush;
+    sprintf(s,"%s%s%s%s_L3Absolute_%s.txt",dir,tag,id.c_str(),dtype,a); cout<<s<<endl<<flush;
     JetCorrectorParameters *par_l3 = new JetCorrectorParameters(s);
-    s = Form("%s%s%s%s_L2L3Residual_%s.txt",dir,tag,id.c_str(),dtype,a); cout<<s<<endl<<flush;
+    sprintf(s,"%s%s%s%s_L2L3Residual_%s.txt",dir,tag,id.c_str(),dtype,a); cout<<s<<endl<<flush;
     JetCorrectorParameters *par_l2l3res = new JetCorrectorParameters(s);
     vector<JetCorrectorParameters> vpar;
     vpar.push_back(*par_l1);
