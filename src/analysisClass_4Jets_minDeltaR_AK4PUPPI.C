@@ -64,16 +64,17 @@ analysisClass::analysisClass(string * inputList, string * cutFile, string * tree
     
     JetCorrector_data = new FactorizedJetCorrector(); // Will be filled later
            
-    std::string L1Path = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L1FastJet_AK4PUPPI.txt";
-    std::string L2Path = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L2Relative_AK4PUPPI.txt";
-    std::string L3Path = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L3Absolute_AK4PUPPI.txt";
+    std::string L1Path = "data/Winter22Run3/Winter22Run3_V1_L1FastJet_AK4PFPuppi.txt";
+    std::string L2Path = "data/Winter22Run3/Winter22Run3_V1_L2Relative_AK4PFPuppi.txt";
+    std::string L3Path = "data/Winter22Run3/Winter22Run3_V1_L3Absolute_AK4PFPuppi.txt";
 
-    std::string L1DATAPath = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L1FastJet_AK4PUPPI.txt";
-    std::string L2DATAPath = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L2Relative_AK4PUPPI.txt"; 
-    std::string L3DATAPath = "data/Run3Winter22_Flat2018QCD_MC/Run3Winter22_L3Absolute_AK4PUPPI.txt";
-    std::string L2L3ResidualPath = "data/Fall17_17Nov2017_V6_DATA/Fall17_17Nov2017F_V6_DATA_L2L3Residual_AK4PFchs.txt";
-    
-    unc = new JetCorrectionUncertainty("data/Fall17_17Nov2017_V6_MC/Fall17_17Nov2017_V6_MC_Uncertainty_AK4PFchs.txt");
+    std::string L1DATAPath = "data/Winter22Run3/Winter22Run3_V1_L1FastJet_AK4PFPuppi.txt";
+    std::string L2DATAPath = "data/Winter22Run3/Winter22Run3_V1_L2Relative_AK4PFPuppi.txt"; 
+    std::string L3DATAPath = "data/Winter22Run3/Winter22Run3_V1_L3Absolute_AK4PFPuppi.txt";
+    //std::string L2L3ResidualPath = "data/Winter22Run3/Winter22Run3_RunC_V2_DATA_L2L3Residual_AK4PFPuppi.txt";
+        std::string L2L3ResidualPath = "data/Winter22Run3/Winter22Run3_RunC_V2_DATA_L2Residual_AK4PFPuppi.txt";
+
+    unc = new JetCorrectionUncertainty("data/Winter22Run3/Winter22Run3_V1_Uncertainty_AK4PFPuppi.txt");
 
  
     L1Par = new JetCorrectorParameters(L1Path);
@@ -139,7 +140,7 @@ void analysisClass::Loop()
 
      if (ientry < 0) break;
      nb = fChain->GetEntry(jentry);   nbytes += nb;
-     if(jentry < 10 || jentry%20000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
+     if(jentry < 10 || jentry%200000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
      // if (Cut(ientry) < 0) continue;
 
      ////////////////////// User's code starts here ///////////////////////
@@ -621,6 +622,17 @@ void analysisClass::Loop()
      }
 
 
+     //Noise filters
+     fillVariableWithValue("passFilter_goodVertices",passFilter_goodVertices);
+     fillVariableWithValue("passFilter_globalSuperTightHalo2016",passFilter_globalSuperTightHalo2016);
+     fillVariableWithValue("passFilter_HBHENoise",passFilter_HBHENoise);
+     fillVariableWithValue("passFilter_HBHENoiseIso",passFilter_HBHENoiseIso);
+     fillVariableWithValue("passFilter_EcalDeadCellTriggerPrimitive",passFilter_EcalDeadCellTriggerPrimitive);
+     fillVariableWithValue("passFilter_BadPFMuon",passFilter_BadPFMuon);
+     fillVariableWithValue("passFilter_BadChargedCandidate",passFilter_BadChargedCandidate);
+     fillVariableWithValue("passFilter_eeBadSc",passFilter_eeBadSc);
+
+
      //Evaluate cuts (but do not apply them)
      evaluateCuts();
      
@@ -632,3 +644,4 @@ void analysisClass::Loop()
 
    std::cout << "analysisClass::Loop() ends" <<std::endl;   
 }
+

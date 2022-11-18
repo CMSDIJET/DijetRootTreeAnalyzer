@@ -1,22 +1,5 @@
-#JSON data/json/Cert_246908-260627_13TeV_PromptReco_Collisions15_25ns_JSON_Silver.txt
-#JSON data/json/Cert_271036-273450_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt
-#JSON data/json/Cert_271036-273730_13TeV_PromptReco_Collisions16_JSON.txt
-#JSON data/json/Cert_271036-274421_13TeV_PromptReco_Collisions16_JSON.txt
-#JSON data/json/Cert_271036-275125_13TeV_PromptReco_Collisions16_JSON.txt #round5 topup
-#JSON data/json/Cert_271036-275783_13TeV_PromptReco_Collisions16_JSON_NoL1T.txt #round6 topup
-#JSON data/json/Cert_271036-276097_13TeV_PromptReco_Collisions16_JSON_NoL1T_8Jul16.txt #round7 topup
-#JSON data/json/Cert_271036-276811_13TeV_PromptReco_Collisions16_JSON_22Jul16_ICHEP.txt #round8 topup
-#JSON data/json/Cert_271036-278808_13TeV_PromptReco_Collisions16_JSON_NoL1T_19Aug16.txt #fall16 round1 full
-#JSON data/json/Cert_271036-279931_13TeV_PromptReco_Collisions16_JSON_NoL1T_9Sep16_fall16_round2.txt #fall16 round2 topup
-#JSON data/json/Cert_271036-283685_13TeV_PromptReco_Collisions16_JSON_NoL1T_28Oct16.txt #moriond16 v0 33/fb promptreco
-#JSON data/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt #ReReco JSON
-#JSON data/json/processedLumis_JetHT_Run2017C_PromptReco-v1.txt
-###JSON data/json/processedLumis_JetHT_Run2017B-17Nov2017-v1.txt
-#JSON data/json/processedLumis_JetHT_Run2017C-17Nov2017-v1.txt
-#JSON data/json/processedLumis_JetHT_Run2017D-17Nov2017-v1.txt
-#JSON data/json/processedLumis_JetHT_Run2017F-17Nov2017-v1.txt
-#JSON data/json/processedLumis_SingleMuon_Run2017D-17Nov2017-v1.txt
-#JSON data/json/processedLumis_JetHT_Run2017B-17Nov2017-v1.txt
+JSON data/json/Cert_Collisions2022_355100_361580_Golden.json
+#
 #############################     Example of file with list of cuts
 #
 #
@@ -93,6 +76,14 @@ passHLT_AK8PFJet500     -inf           +inf                -	        -	        1
 passHLT_AK8PFJet550     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passHLT_CaloJet500_NoJetID       	       -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passHLT_CaloJet550_NoJetID       	       -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_goodVertices	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_globalSuperTightHalo2016	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_HBHENoise	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_HBHENoiseIso     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_EcalDeadCellTriggerPrimitive	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_BadPFMuon	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_BadChargedCandidate	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_eeBadSc	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 run		     -inf	    +inf		-		-		1	50  0 100000	  SAVE
 event		     -inf	    +inf		-		-		1	50  0 100000	  SAVE
 lumi		     -inf	    +inf		-		-		1	50  0 10000	  SAVE
