@@ -1,4 +1,4 @@
-JSON data/json/Cert_Collisions2022_355100_362760_Golden.json
+JSON data/json/Cert_Collisions2022_355100_362760_Muon.json
 #
 #############################     Example of file with list of cuts
 #
@@ -24,12 +24,38 @@ pt2Cut				80		-		-		-		-1
 pt3Cut			        80		-		-		-		-1
 pt4Cut			        30		-		-		-		-1
 ptCut				80		-		-		-		-1
+DetaJJforTrig                   1.1             -               -               -               -1
+MasymmetryforTrig               0.1             -               -               -               -1
+DeltaR1_forTrig                 2.0             -               -               -               -1
+DeltaR2_forTrig                 2.0             -               -               -               -1
+pTAK4PUPPI_j1_forTrig           80              -               -               -               -1
+pTAK4PUPPI_j2_forTrig           80              -               -               -               -1
+pTAK4PUPPI_j3_forTrig           80              -               -               -               -1
+pTAK4PUPPI_j4_forTrig           80              -               -               -               -1
+etaAK4PUPPI_j1_forTrig         -2.5             2.5             -               -               -1
+etaAK4PUPPI_j2_forTrig         -2.5             2.5             -               -               -1
+etaAK4PUPPI_j3_forTrig         -2.5             2.5             -               -               -1
+etaAK4PUPPI_j4_forTrig         -2.5             2.5             -               -               -1
+alpha_forTrig                   0.10            -               -               -               -1
+alpha1_forTrig                  0.10            0.12            -               -               -1
+alpha2_forTrig                  0.12            0.14            -               -               -1
+alpha3_forTrig                  0.14            0.16            -               -               -1
+alpha4_forTrig                  0.16            0.18            -               -               -1
+alpha5_forTrig                  0.18            0.20            -               -               -1
+alpha6_forTrig                  0.20            0.22            -               -               -1
+alpha7_forTrig                  0.22            0.24            -               -               -1
+alpha8_forTrig                  0.24            0.26            -               -               -1
+alpha9_forTrig                  0.26            0.28            -               -               -1
+alpha10_forTrig                 0.28            0.30            -               -               -1
+alpha11_forTrig                 0.30            0.32            -               -               -1
+alpha12_forTrig                 0.32            0.34            -               -               -1
+alpha13_forTrig                 0.34            -               -               -               -1
 # turn on/off on-the-fly JECs (value1 0: off, 1: on)
 useJECs				1               -               -               -               -1
 # turn on/off the removal of JEC 
 noJECs                          0               -               -               -               -1
 # turn on/off shift JECs (value1 0: off, 1: on, value2: sign of the shifting. The value is taken from a txt file with JEC uncertainties) 
-shiftJECs                      0             -1.0               -               -               -1		
+shiftJECs                       0               -1.0            -               -               -1		
 # CSV discriminator values for btagged analysis
 #
 #
@@ -82,6 +108,7 @@ passFilter_HBHENoise	     -inf           +inf                -	        -	       
 passFilter_HBHENoiseIso     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_EcalDeadCellTriggerPrimitive	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_BadPFMuon	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_BadPFMuonDz	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_BadChargedCandidate	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_eeBadSc	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 run		     -inf	    +inf		-		-		1	50  0 100000	  SAVE
@@ -98,7 +125,8 @@ DeltaPhiJJAK4PUPPI        -inf           +inf                -              -   
 DeltaEtaJJAK4PUPPI        -inf           +inf                -               -               1       100 0. 3.         SAVE
 DeltaRAK4PUPPI_First      -inf             +inf               -              -             1        100   0. 10000     SAVE
 DeltaRAK4PUPPI_Second      -inf          +inf                -               -              1       100  0. 10000       SAVE
-Nak4puppi               -inf           +inf                -               -               1       100 0 100         SAVE  
+Nak4puppi               -inf           +inf                -               -               1       100 0 100         SAVE 
+nJet               -inf           +inf                -               -               1       100 0 100         SAVE  
 pTAK4PUPPI_j1	     -inf	    +inf		-	        -	        1	500 0 5000        SAVE
 etaAK4PUPPI_j1            -inf           +inf                -               -               1       50  -2.5 2.5      SAVE
 ETA_AK4PUPPI_1                 -inf         +inf                 -              -                1        50 -7    7       SAVE
@@ -173,6 +201,7 @@ Dijet_MassAK4PUPPI_2  	     -inf           +inf                -               -
 FourjetMassAK4PUPPI  	     -inf           +inf                -               -               1       1000 0 10000      SAVE	
 MasymmetryAK4PUPPI         -inf             +inf                -            -                  1       1000 0 10000      SAVE
 MaverageAK4PUPPI           -inf             +inf               -                -               1       1000  0 10000      SAVE
+alphaAK4PUPPI           -inf             +inf               -                -               1       1000  0 10000      SAVE
 DDR_AK4PUPPI        -inf             +inf                -            -                  1       1000 0 10000      SAVE
 DeltaR_AK4PUPPI        -inf             +inf                -            -                  1       1000 0 10000      SAVE
 DeltaAK4PUPPI_1         -inf             +inf                -            -                  1       1000 0 10000      SAVE

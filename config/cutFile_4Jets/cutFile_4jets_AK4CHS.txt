@@ -1,4 +1,4 @@
-JSON data/json/Cert_Collisions2022_355100_361580_Golden.json
+JSON data/json/Cert_Collisions2022_355100_362760_Golden.json
 #
 #############################     Example of file with list of cuts
 #
