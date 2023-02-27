@@ -218,8 +218,8 @@ void TriggerEfficiency_4jets_alphabins(char era[1024], int alphabin)
 
 
    char cname1[1024], cname2[1024];
-   sprintf(cname1,"2022_PromptReco/plots/Nominator_vs_Denominator_2022_PromptReco_era%s_alpha%d.png",era,alphabin);
-   sprintf(cname2,"2022_PromptReco/plots/Nominator_vs_Denominator_2022_PromptReco_era%s_alpha%d.pdf",era,alphabin);
+   sprintf(cname1,"2022_PromptReco/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alpha%d.png",era,alphabin);
+   sprintf(cname2,"2022_PromptReco/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alpha%d.pdf",era,alphabin);
 
    c1->SaveAs(cname1);
    c1->SaveAs(cname2);
