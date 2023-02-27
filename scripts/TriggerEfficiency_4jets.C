@@ -203,8 +203,8 @@ void TriggerEfficiency_4jets(char era[1024])
 
 
    char cname1[1024], cname2[1024];
-   sprintf(cname1,"2022_PromptReco/plots/Nominator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.png",era);
-   sprintf(cname2,"2022_PromptReco/plots/Nominator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.pdf",era);
+   sprintf(cname1,"2022_PromptReco/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.png",era);
+   sprintf(cname2,"2022_PromptReco/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.pdf",era);
 
    c1->SaveAs(cname1);
    c1->SaveAs(cname2);
