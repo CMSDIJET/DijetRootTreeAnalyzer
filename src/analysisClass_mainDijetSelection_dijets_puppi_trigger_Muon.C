@@ -199,18 +199,19 @@ void analysisClass::Loop()
      10798, 11179, 11571, 11977, 12395, 12827, 13272, 13732, 14000};
 
    
+   //char* HLTname[50]    = {"noTrig","PFHT1050","PFJet550","Mu50", "AK8PFJet550","CaloJet550","AllJet","PFHT1050_not_OR_from_others","PFJet550_not_OR_from_others","AK8PFJet550_not_OR_from_others","CaloJet550_not_OR_from_others","PFHT1050_OR_AK8PFJet550","PFHT1050_OR_PFJet550","PFHT1050_OR_CaloJet550"};
+
+   char* HLTname[50] = {"noTrig", "PFHT1050", "PFJet550", "Mu50", "AK8PFJet550", "CaloJet550", "Mu50_AllJet"};
+
+   char name_histoHLT[50];
+   TH1F* h_mjj_HLTpass[50];  //14
+
   
 
-
-
- char* HLTname[50]    = {"noTrig","PFHT1050","PFJet550","Mu50", "AK8PFJet550","CaloJet550","AllJet","PFHT1050_not_OR_from_others","PFJet550_not_OR_from_others","AK8PFJet550_not_OR_from_others","CaloJet550_not_OR_from_others","PFHT1050_OR_AK8PFJet550","PFHT1050_OR_PFJet550","PFHT1050_OR_CaloJet550"};
-
-
-   TH1F* h_mjj_HLTpass[14];
-   TH1F* h_mjj_HLTpass_bb[14];
-   char name_histoHLT[50];
    char name_histoHLT_bb[50];
-   for (int i=0; i<14; i++){  
+   TH1F* h_mjj_HLTpass_bb[14]; 
+      
+   for (int i=0; i<7; i++){  //<14
      sprintf(name_histoHLT,"h_mjj_HLTpass_%s",HLTname[i]);
      h_mjj_HLTpass[i]= new TH1F(name_histoHLT,"",103,massBoundaries);
 
@@ -247,12 +248,12 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
    ////// these lines may need to be updated.                                 /////    
    Long64_t nbytes = 0, nb = 0;
    for (Long64_t jentry=0; jentry<nentries;jentry++) { //event loop
-   //for (Long64_t jentry=0; jentry<1000;jentry++) {
+   //for (Long64_t jentry=0; jentry<100000;jentry++) {
    //for (Long64_t jentry=0; jentry<nentries;jentry=jentry+10) {   //takes every 10th en
      Long64_t ientry = LoadTree(jentry);
      if (ientry < 0) break;
      nb = fChain->GetEntry(jentry);   nbytes += nb;
-     if(jentry < 10 || jentry%1000000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
+     if(jentry < 10 || jentry%100000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
      // if (Cut(ientry) < 0) continue;
 
      ////////////////////// User's code starts here ///////////////////////
@@ -770,9 +771,37 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
      fillVariableWithValue("passFilter_BadPFMuon",passFilter_BadPFMuon);
      fillVariableWithValue("passFilter_BadChargedCandidate",passFilter_BadChargedCandidate);
      fillVariableWithValue("passFilter_eeBadSc",passFilter_eeBadSc);
+  
 
      // Evaluate cuts (but do not apply them)
      evaluateCuts();
+
+     bool fullAnalysis = ( passedCut("PassJSON")
+			   && passedCut("nVtx") 
+			   && passedCut("IdTight_j1")
+			   && passedCut("IdTight_j2")
+                           && getVariableValue("pTWJ_j1")  > getPreCutValue1("pT_PUPPI_WJ1_forTrig")
+                           && getVariableValue("pTWJ_j2")  > getPreCutValue1("pT_PUPPI_WJ2_forTrig") 
+                           && getVariableValue("etaWJ_j1") > getPreCutValue1("eta_PUPPI_WJ1_forTrig")
+                           && getVariableValue("etaWJ_j1") < getPreCutValue2("eta_PUPPI_WJ1_forTrig")
+                           && getVariableValue("etaWJ_j2") > getPreCutValue1("eta_PUPPI_WJ2_forTrig")
+                           && getVariableValue("etaWJ_j2") < getPreCutValue2("eta_PUPPI_WJ2_forTrig")  
+                           && getVariableValue("deltaETAjj")    < getPreCutValue1("Deta_WJJforTrig"));
+        
+    
+     if (fullAnalysis)
+     {
+	 h_mjj_HLTpass[0] -> Fill(MJJWide); //noTrig
+	 if(getVariableValue("passHLT_PFHT1050") == 1 && getVariableValue("passHLT_Mu50") == 1)            h_mjj_HLTpass[1] -> Fill(MJJWide);
+	 if(getVariableValue("passHLT_PFJet550") == 1 && getVariableValue("passHLT_Mu50") == 1)            h_mjj_HLTpass[2] -> Fill(MJJWide);
+	 if(getVariableValue("passHLT_Mu50") == 1)               					   h_mjj_HLTpass[3] -> Fill(MJJWide);
+	 if(getVariableValue("passHLT_AK8PFJet550") == 1 && getVariableValue("passHLT_Mu50") == 1) 	   h_mjj_HLTpass[4] -> Fill(MJJWide);
+	 if(getVariableValue("passHLT_CaloJet550_NoJetID") == 1  && getVariableValue("passHLT_Mu50") == 1) h_mjj_HLTpass[5] -> Fill(MJJWide);	
+
+ 	 if( (getVariableValue("passHLT_PFHT1050") == 1 || getVariableValue("passHLT_PFJet550") == 1 ||  getVariableValue("passHLT_AK8PFJet550") == 1 || getVariableValue("passHLT_CaloJet550_NoJetID") == 1)  && getVariableValue("passHLT_Mu50") == 1)            h_mjj_HLTpass[6] -> Fill(MJJWide);
+     }
+
+
  
      // optional call to fill a skim with the full content of the input roottuple
      //if( passedCut("nJetFinal") ) fillSkimTree();
