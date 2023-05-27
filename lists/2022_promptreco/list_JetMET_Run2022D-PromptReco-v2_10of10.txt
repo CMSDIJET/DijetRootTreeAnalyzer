@@ -1,0 +1,11 @@
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_127.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_128.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_129.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_130.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_131.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_132.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_133.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_134.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_135.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_136.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET/crab_JetMET__Run2022D-PromptReco-v2__MINIAOD/230217_183359/0000/JetMET__Run2022D-PromptReco-v2__MINIAOD_137.root

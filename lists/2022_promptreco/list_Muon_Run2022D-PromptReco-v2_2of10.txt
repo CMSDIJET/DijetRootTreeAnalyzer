@@ -1,0 +1,13 @@
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_14.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_15.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_16.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_17.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_18.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_19.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_20.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_21.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_22.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_23.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_24.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_25.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/Muon/crab_Muon__Run2022D-PromptReco-v2__MINIAOD/230217_184739/0000/Muon__Run2022D-PromptReco-v2__MINIAOD_26.root
