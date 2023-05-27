@@ -1,0 +1,400 @@
+dependent_variables:
+- header:
+    name: Event yield
+  values:
+  - value: 5274.0
+  - value: 4303.0
+  - value: 3056.0
+  - value: 2350.0
+  - value: 1774.0
+  - value: 1304.0
+  - value: 1026.0
+  - value: 748.0
+  - value: 521.0
+  - value: 379.0
+  - value: 317.0
+  - value: 225.0
+  - value: 147.0
+  - value: 133.0
+  - value: 100.0
+  - value: 62.0
+  - value: 54.0
+  - value: 40.0
+  - value: 27.0
+  - value: 20.0
+  - value: 8.0
+  - value: 9.0
+  - value: 7.0
+  - value: 2.0
+  - value: 1.0
+  - value: 2.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+  - value: 0.0
+- header:
+    name: Cross-section
+    units: pb/TeV
+  values:
+  - errors:
+    - asymerror:
+        minus: -0.00662606
+        plus: 0.00671793
+      label: Total
+    value: 0.481204
+  - errors:
+    - asymerror:
+        minus: -0.00576872
+        plus: 0.00585734
+      label: Total
+    value: 0.378419
+  - errors:
+    - asymerror:
+        minus: -0.00469184
+        plus: 0.00477749
+      label: Total
+    value: 0.259379
+  - errors:
+    - asymerror:
+        minus: -0.00397559
+        plus: 0.00405846
+      label: Total
+    value: 0.192734
+  - errors:
+    - asymerror:
+        minus: -0.00334146
+        plus: 0.00342175
+      label: Total
+    value: 0.140749
+  - errors:
+    - asymerror:
+        minus: -0.00277427
+        plus: 0.00285217
+      label: Total
+    value: 0.100192
+  - errors:
+    - asymerror:
+        minus: -0.00236133
+        plus: 0.00243621
+      label: Total
+    value: 0.075647
+  - errors:
+    - asymerror:
+        minus: -0.00197616
+        plus: 0.00204975
+      label: Total
+    value: 0.054058
+  - errors:
+    - asymerror:
+        minus: -0.00157131
+        plus: 0.00164168
+      label: Total
+    value: 0.0358766
+  - errors:
+    - asymerror:
+        minus: -0.0013152
+        plus: 0.00138453
+      label: Total
+    value: 0.025615
+  - errors:
+    - asymerror:
+        minus: -0.0011495
+        plus: 0.00121592
+      label: Total
+    value: 0.0204767
+  - errors:
+    - asymerror:
+        minus: -0.000943189
+        plus: 0.00100822
+      label: Total
+    value: 0.0141581
+  - errors:
+    - asymerror:
+        minus: -0.000736667
+        plus: 0.000800009
+      label: Total
+    value: 0.00894161
+  - errors:
+    - asymerror:
+        minus: -0.000678025
+        plus: 0.000739449
+      label: Total
+    value: 0.00782906
+  - errors:
+    - asymerror:
+        minus: -0.000569312
+        plus: 0.000629197
+      label: Total
+    value: 0.00570255
+  - errors:
+    - asymerror:
+        minus: -0.000434244
+        plus: 0.000493063
+      label: Total
+    value: 0.00342845
+  - errors:
+    - asymerror:
+        minus: -0.000390313
+        plus: 0.000447228
+      label: Total
+    value: 0.00287708
+  - errors:
+    - asymerror:
+        minus: -0.000323744
+        plus: 0.000379223
+      label: Total
+    value: 0.00205613
+  - errors:
+    - asymerror:
+        minus: -0.000258168
+        plus: 0.000312987
+      label: Total
+    value: 0.00134987
+  - errors:
+    - asymerror:
+        minus: -0.000215792
+        plus: 0.000269909
+      label: Total
+    value: 0.000973236
+  - errors:
+    - asymerror:
+        minus: -0.000129535
+        plus: 0.000184598
+      label: Total
+    value: 0.000374322
+  - errors:
+    - asymerror:
+        minus: -0.00013345
+        plus: 0.000186348
+      label: Total
+    value: 0.000408034
+  - errors:
+    - asymerror:
+        minus: -0.000113513
+        plus: 0.000165788
+      label: Total
+    value: 0.000307801
+  - errors:
+    - asymerror:
+        minus: -5.48222e-05
+        plus: 0.000111947
+      label: Total
+    value: 8.48752e-05
+  - errors:
+    - asymerror:
+        minus: -3.41149e-05
+        plus: 9.48315e-05
+      label: Total
+    value: 4.12388e-05
+  - errors:
+    - asymerror:
+        minus: -5.15268e-05
+        plus: 0.000105218
+      label: Total
+    value: 7.97734e-05
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 6.95169e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 6.73779e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 6.5043e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 6.31668e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 6.13957e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 5.91833e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 5.73742e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 5.56724e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 5.38471e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 5.21376e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 5.05334e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 4.88427e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 4.74321e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 4.59395e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 4.45379e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 4.30777e-05
+      label: Total
+    value: 0
+  - errors:
+    - asymerror:
+        minus: -0
+        plus: 4.17101e-05
+      label: Total
+    value: 0
+independent_variables:
+- header:
+    name: Four-jet mass
+    units: GeV
+  values:
+  - high: 1687.0
+    low: 1607.0
+  - high: 1770.0
+    low: 1687.0
+  - high: 1856.0
+    low: 1770.0
+  - high: 1945.0
+    low: 1856.0
+  - high: 2037.0
+    low: 1945.0
+  - high: 2132.0
+    low: 2037.0
+  - high: 2231.0
+    low: 2132.0
+  - high: 2332.0
+    low: 2231.0
+  - high: 2438.0
+    low: 2332.0
+  - high: 2546.0
+    low: 2438.0
+  - high: 2659.0
+    low: 2546.0
+  - high: 2775.0
+    low: 2659.0
+  - high: 2895.0
+    low: 2775.0
+  - high: 3019.0
+    low: 2895.0
+  - high: 3147.0
+    low: 3019.0
+  - high: 3279.0
+    low: 3147.0
+  - high: 3416.0
+    low: 3279.0
+  - high: 3558.0
+    low: 3416.0
+  - high: 3704.0
+    low: 3558.0
+  - high: 3854.0
+    low: 3704.0
+  - high: 4010.0
+    low: 3854.0
+  - high: 4171.0
+    low: 4010.0
+  - high: 4337.0
+    low: 4171.0
+  - high: 4509.0
+    low: 4337.0
+  - high: 4686.0
+    low: 4509.0
+  - high: 4869.0
+    low: 4686.0
+  - high: 5058.0
+    low: 4869.0
+  - high: 5253.0
+    low: 5058.0
+  - high: 5455.0
+    low: 5253.0
+  - high: 5663.0
+    low: 5455.0
+  - high: 5877.0
+    low: 5663.0
+  - high: 6099.0
+    low: 5877.0
+  - high: 6328.0
+    low: 6099.0
+  - high: 6564.0
+    low: 6328.0
+  - high: 6808.0
+    low: 6564.0
+  - high: 7060.0
+    low: 6808.0
+  - high: 7320.0
+    low: 7060.0
+  - high: 7589.0
+    low: 7320.0
+  - high: 7866.0
+    low: 7589.0
+  - high: 8152.0
+    low: 7866.0
+  - high: 8447.0
+    low: 8152.0
+  - high: 8752.0
+    low: 8447.0
+  - high: 9067.0
+    low: 8752.0

@@ -1,0 +1,4 @@
+set param_card mass  9936661 8.400000e+03
+set param_card decay 9936661 3.616302e+01
+set param_card mass 9936662 2.100000e+03
+set param_card decay 9936662 1.965245e+01

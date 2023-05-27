@@ -1,0 +1,410 @@
+---
+comment: "A data-driven search for pairs of dijet resonances with identical mass \
+\ is conducted in final states with at least four jets, and results are presented \
+\ for both resonant and non-resonant production modes. The search uses $138~\\mathrm{fb}^{-1}$ of \
+\ integrated luminosity collected by the CMS detector in proton-proton collisions at \
+\ $\\sqrt{s}=13~\\mathrm{TeV}$. Distributions of the four-jet mass above $1.6~\\mathrm{TeV}$, and \
+\ average dijet mass above $0.35~\\mathrm{TeV}$, are fit with functions to determine the backgrounds. \
+\ Model independent limits, at 95$\\%$ confidence level, are reported on the production \
+\ cross section of four-jet and dijet resonances.  These first LHC limits on resonant \
+\ pair production at high mass, are applied to a signal model of diquarks that decay \
+\ into pairs of vector-like quarks, excluding diquark masses below $7.6~\\mathrm{TeV}$ for a \
+\ particular model scenario. There are two events on the tail of the distributions, \
+\ with a four-jet mass of $8~\\mathrm{TeV}$ and an average dijet mass of $2~\\mathrm{TeV}$, resulting in a \
+\ local significance of 3.9 standard deviations and a global significance of 1.6 \
+\ standard deviations if interpreted as a signal. The non-resonant search excludes \
+\ pair production of top squarks with masses between 0.50 and 0.52 $\\mathrm{TeV}$, and between \
+\ 0.58 and 0.77 $\\mathrm{TeV}$, for supersymmetric R-parity-violating decays to quark pairs, \
+\ significantly extending previous limits. Here, the most significant signal hypothesis \
+\ occurs at an average dijet mass of $0.95~\\mathrm{TeV}$, for which the local significance is 3.6 \
+\ standard deviations and the global significance is 2.5 standard deviations."
+data_license:
+  description: The content can be shared and adapted but you must             give
+    appropriate credit and cannot restrict access to others.
+  name: cc-by-4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+---
+additional_resources:
+- description: Image file
+  location: Figure_10.png
+- description: Thumbnail image file
+  location: thumb_Figure_10.png
+data_file: cross_section_limits_alpha0p25.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.25$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 10.
+name: Cross-section limits - $M(X)/M(Y) = 0.25$ 
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p11.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.11$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.11$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p13.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.13$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.13$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p15.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.15$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.15$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p17.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.17$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.17$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p19.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.19$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.19$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p21.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.21$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.21$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p23.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.23$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.23$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p27.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.27$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.27$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p29.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.29$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.29$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p31.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.31$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.31$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p33.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.33$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.33$
+---
+additional_resources:
+- description: Image file
+  location: Figure_9.png
+- description: Thumbnail image file
+  location: thumb_Figure_9.png
+data_file: cross_section_limits_alpha0p42.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for resonant production of paired dijet resonances decaying
+  to a quark-gluon pair, with $M(X)/M(Y) = 0.42$. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the scalar diquark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 9.
+name: Cross-section limits - $M(X)/M(Y) = 0.42$
+---
+additional_resources:
+- description: Image file
+  location: Figure_11.png
+- description: Thumbnail image file
+  location: thumb_Figure_11.png
+data_file: cross_section_limits_nonres.yaml
+description: The observed 95% CL upper limits on the product of the cross section,
+  branching fraction, and acceptance for the non-resonant production of top squark pairs in the
+  RPV SUSY decay scenario. The corresponding
+  expected limits and their variations at the 1 and 2 standard deviation levels are also shown. Limits are compared to the top squark model cross section.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> X X --> (JET JET) (JET JET)
+location: Data from Figure 11.
+name: Cross-section limits - non resonant scenario 
+---
+additional_resources:
+- description: Image file
+  location: Figure_6.png
+- description: Thumbnail image file
+  location: thumb_Figure_6.png
+data_file: m4j_spectrum_alphabins.yaml
+description: Observed differential four-jet mass spectrum within three of the thirteen $\\alpha$
+  bins of the resonant search. The cross-section is calculated by dividing the event yield by the bin width and luminosity.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 6.
+name: 'Differential four-jet mass spectrum '
+---
+additional_resources:
+- description: Image file
+  location: Figure_14.png
+- description: Thumbnail image file
+  location: thumb_Figure_14.png
+data_file: m4j_spectrum_incl.yaml
+description: Observed differential four-jet mass spectrum for all $\\alpha$ bins together. The cross-section is calculated by dividing the event yield by 
+  the bin width and luminosity.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> Y --> X X --> (JET JET) (JET JET)
+location: Data from Figure 14.
+name: 'Differential four-jet mass spectrum  - inclusive '
+---
+additional_resources:
+- description: Image file
+  location: Figure_8.png
+- description: Thumbnail image file
+  location: thumb_Figure_8.png
+data_file: m2j_spectrum_alphabins.yaml
+description: Observed differential average dijet mass spectrum within three $\\alpha$
+  bins of the non-resonant search. The cross-section is calculated by dividing the event yield by the bin width and luminosity.
+keywords:
+- name: observables
+  values:
+  - DSIG/DM
+- name: cmenergies
+  values:
+  - 13000
+- name: reactions
+  values:
+  - P P --> X X --> (JET JET) (JET JET)
+location: Data from Figure 8.
+name: 'Differential average dijet mass spectrum '
