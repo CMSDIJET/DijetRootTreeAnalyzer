@@ -1,0 +1,10 @@
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_81.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_82.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_83.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_84.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_85.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_86.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_87.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_88.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_89.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v3__MINIAOD/230529_164251/0000/JetMET0__Run2023C-PromptReco-v3__MINIAOD_90.root

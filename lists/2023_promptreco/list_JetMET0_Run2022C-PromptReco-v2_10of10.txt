@@ -1,0 +1,9 @@
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_73.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_74.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_75.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_76.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_77.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_78.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_79.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_80.root
+/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/big_trees/data/promptReco/JetMET0/crab_JetMET0__Run2023C-PromptReco-v2__MINIAOD/230529_163248/0000/JetMET0__Run2023C-PromptReco-v2__MINIAOD_81.root
