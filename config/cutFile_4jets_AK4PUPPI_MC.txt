@@ -1,4 +1,3 @@
-JSON data/json/Cert_Collisions2023_366442_368453_Golden.json
 #
 #############################     Example of file with list of cuts
 #
@@ -49,8 +48,8 @@ shiftJECs                      0             -1.0               -               
 # groups of same-level cuts have passed or failed.
 #
 #VariableName	      minValue1(<) maxValue1(>=)	minValue2(<)	maxValue2(>=)	level	histoNbinsMinMax  OptionalFlag
-#------------	      ------------ -------------	------------	-------------	-----	----------------  ------------
-PassJSON              0.5           1                   -               -               0       2 -0.5 1.5        SAVE  
+#------------	      ------------ -------------	------------	-------------	-----	----------------  ------------ 
+PassJSON              0.5           1                   -               -               0       2 -0.5 1.5        SAVE 
 nVtx                  0             +inf                -               -               1       50  0 50	  SAVE
 IdTightAK4PUPPI_j1            0.5          1.5                 -               -               1       2  0 2.	  	  SAVE
 IdTightAK4PUPPI_j2           0.5         1.5                 -               -               1       2  0 2.	  	  SAVE
@@ -93,7 +92,6 @@ metSig		     -inf           +inf                -               -               
 METoverHTAK4PUPPI	     -inf	    +inf		-		-		1	1000 0 10000      SAVE
 HTAK4PUPPI                -inf           +inf                -               -               1       500 0 10000       SAVE
 ptHat                -inf           +inf                -               -               1       500 0 10000       SAVE
-weight                -inf           +inf                -               -               1       500 0 10000       SAVE
 DeltaPhiJJAK4PUPPI        -inf           +inf                -              -                1      200   -3.15  3.15  SAVE
 DeltaEtaJJAK4PUPPI        -inf           +inf                -               -               1       100 0. 3.         SAVE
 DeltaRAK4PUPPI_First      -inf             +inf               -              -             1        100   0. 10000     SAVE
