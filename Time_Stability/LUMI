@@ -1,4 +1,0 @@
-setenv PATH $HOME/.local/bin:/afs/cern.ch/cms/lumi/brilconda-1.0.3/bin:$PATH
-pip install --install-option="--prefix=$HOME/.local" brilws
-setenv PATH $HOME/.local/bin:/afs/cern.ch/cms/lumi/brilconda-1.0.3/bin:$PATH
-brilcalc lumi -i file.json -u /pb  --normtag /afs/cern.ch/user/l/lumipro/public/normtag_file/normtag_DATACERT.json > & Cert_v1.txt &

@@ -33,16 +33,16 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
 
   TH2F *METoverHT_vsRun;
   TH2F *FourjetMass_vsRun, *Maverage_vsRun, *alpha_vsRun, *Masymmetry_vsRun, *DeltaEtaJJ_vsRun, *DeltaPhiJJ_vsRun, *DeltaR1_vsRun, *DeltaR2_vsRun;
-  TH2F *pT_vsRun, *eta_vsRun, *phi_vsRun, *CHF_vsRun, *NHF_vsRun, *NEMF_vsRun; 
+  TH2F *pT_vsRun, *eta_vsRun, *phi_vsRun, *CHF_vsRun, *NHF_vsRun, *NEMF_vsRun, *CEMF_vsRun, *CM_vsRun, *NM_vsRun; 
 
   TH2F *METoverHT_vsNvtx;
   TH2F *FourjetMass_vsNvtx, *Maverage_vsNvtx, *alpha_vsNvtx, *Masymmetry_vsNvtx, *DeltaEtaJJ_vsNvtx, *DeltaPhiJJ_vsNvtx, *DeltaR1_vsNvtx, *DeltaR2_vsNvtx;
-  TH2F *pT_vsNvtx, *eta_vsNvtx, *phi_vsNvtx, *CHF_vsNvtx, *NHF_vsNvtx, *NEMF_vsNvtx;
+  TH2F *pT_vsNvtx, *eta_vsNvtx, *phi_vsNvtx, *CHF_vsNvtx, *NHF_vsNvtx, *NEMF_vsNvtx, *CEMF_vsNvtx, *CM_vsNvtx, *NM_vsNvtx;
 
   TH1F *Run;
  
   int run_start = 355374;
-  int run_end   = 362104;
+  int run_end   = 368453;
   int nbins     = run_end-run_start;
 
   Run = new TH1F ("Run","",nbins, run_start, run_end);
@@ -62,6 +62,9 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
   CHF_vsRun = new TH2F ("CHF_vsRun","",nbins, run_start, run_end, 60,0,1.2);
   NHF_vsRun = new TH2F ("NHF_vsRun","",nbins, run_start, run_end, 60,0,1.2);
   NEMF_vsRun = new TH2F ("NEMF_vsRun","",nbins, run_start, run_end, 60,0,1.2);
+  CEMF_vsRun = new TH2F ("CEMF_vsRun","",nbins, run_start, run_end, 60,0,1.2);
+  CM_vsRun = new TH2F ("CM_vsRun","",nbins, run_start, run_end, 100,0,100);
+  NM_vsRun = new TH2F ("NM_vsRun","",nbins, run_start, run_end, 100,0,100);
 
   METoverHT_vsNvtx = new TH2F ("METoverHT_vsNvtx","",100, 0, 100,100,0,1);
   FourjetMass_vsNvtx = new TH2F ("FourjetMass_vsNvtx","",100, 0, 100, nMassBins,massBoundaries);
@@ -78,24 +81,39 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
   CHF_vsNvtx = new TH2F ("CHF_vsNvtx","",100, 0, 100, 60,0,1.2);
   NHF_vsNvtx = new TH2F ("NHF_vsNvtx","",100, 0, 100, 60,0,1.2);
   NEMF_vsNvtx = new TH2F ("NEMF_vsNvtx","",100, 0, 100, 60,0,1.2);
-
+  CEMF_vsNvtx = new TH2F ("CEMF_vsNvtx","",100, 0, 100, 60,0,1.2);
+  CM_vsNvtx = new TH2F ("CM_vsNvtx","",100, 0, 100, 100,0,100);
+  NM_vsNvtx = new TH2F ("NM_vsNvtx","",100, 0, 100, 100,0,100);
 
    /////////initialize variables
 
   double run, lumi, event, weight, nVtx, PassJSON;
   double FourjetMass, Maverage, Masymmetry, DeltaEtaJJ, DeltaPhiJJ, DeltaR_First, DeltaR_Second, alpha, METoverHT;
   double pTj1, pTj2, pTj3, pTj4, etaj1, etaj2, etaj3, etaj4, phij1, phij2, phij3, phij4;
-  double chargedHadEnFrac_j1, chargedHadEnFrac_j2, chargedHadEnFrac_j3, chargedHadEnFrac_j4, neutrElectromFrac_j1, neutrElectromFrac_j2, neutrElectromFrac_j3, neutrElectromFrac_j4, neutrHadEnFrac_j1, neutrHadEnFrac_j2, neutrHadEnFrac_j3, neutrHadEnFrac_j4;
+  double chargedHadEnFrac_j1, chargedHadEnFrac_j2, chargedHadEnFrac_j3, chargedHadEnFrac_j4, neutrElectromFrac_j1, neutrElectromFrac_j2, neutrElectromFrac_j3, neutrElectromFrac_j4, neutrHadEnFrac_j1, neutrHadEnFrac_j2, neutrHadEnFrac_j3, neutrHadEnFrac_j4, chargedElectromFrac_j1, chargedElectromFrac_j2, chargedElectromFrac_j3, chargedElectromFrac_j4;
+  double chargedMult_j1, chargedMult_j2, chargedMult_j3, chargedMult_j4, neutrMult_j1, neutrMult_j2, neutrMult_j3, neutrMult_j4;
 
   TChain *tree_data = new TChain("rootTupleTree/tree");
 
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/Winter22Run3_FullJECs/JetHT__Run2022B-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/Winter22Run3_FullJECs/JetHT__Run2022C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/Winter22Run3_FullJECs/JetMET__Run2022C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/Winter22Run3_FullJECs/JetMET__Run2022D-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/Winter22Run3_FullJECs/JetMET__Run2022D-PromptReco-v2__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/Winter22Run3_FullJECs/JetMET__Run2022E-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/Winter22Run3_FullJECs/JetMET__Run2022F-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetHT__Run2022C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022D-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022D-PromptReco-v2__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022E-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022F-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022G-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023B-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023C-PromptReco-v2__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023C-PromptReco-v3__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023C-PromptReco-v4__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023B-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023C-PromptReco-v2__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023C-PromptReco-v3__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023C-PromptReco-v4__AK4PUPPI_reduced_skim.root");
+
 
   tree_data->SetBranchAddress("run",&run);
   tree_data->SetBranchAddress("lumi",&lumi);
@@ -132,6 +150,18 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
   tree_data->SetBranchAddress("neutrHadEnFracAK4PUPPI_j2",&neutrHadEnFrac_j2);
   tree_data->SetBranchAddress("neutrHadEnFracAK4PUPPI_j3",&neutrHadEnFrac_j3);
   tree_data->SetBranchAddress("neutrHadEnFracAK4PUPPI_j4",&neutrHadEnFrac_j4);
+  tree_data->SetBranchAddress("chargedElectromFracAK4PUPPI_j1",&chargedElectromFrac_j1);
+  tree_data->SetBranchAddress("chargedElectromFracAK4PUPPI_j2",&chargedElectromFrac_j2);
+  tree_data->SetBranchAddress("chargedElectromFracAK4PUPPI_j3",&chargedElectromFrac_j3);
+  tree_data->SetBranchAddress("chargedElectromFracAK4PUPPI_j4",&chargedElectromFrac_j4);
+  tree_data->SetBranchAddress("chargedMultAK4PUPPI_j1",&chargedMult_j1);
+  tree_data->SetBranchAddress("chargedMultAK4PUPPI_j2",&chargedMult_j2);
+  tree_data->SetBranchAddress("chargedMultAK4PUPPI_j3",&chargedMult_j3);
+  tree_data->SetBranchAddress("chargedMultAK4PUPPI_j4",&chargedMult_j4);
+  tree_data->SetBranchAddress("neutrMultAK4PUPPI_j1",&neutrMult_j1);
+  tree_data->SetBranchAddress("neutrMultAK4PUPPI_j2",&neutrMult_j2);
+  tree_data->SetBranchAddress("neutrMultAK4PUPPI_j3",&neutrMult_j3);
+  tree_data->SetBranchAddress("neutrMultAK4PUPPI_j4",&neutrMult_j4);
   tree_data->SetBranchAddress("nVtx",&nVtx);
   tree_data->SetBranchAddress("PassJSON",&PassJSON);
 
@@ -146,8 +176,8 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
 
 	alpha=Maverage/FourjetMass; 
       
- 	//if(FourjetMass>1607 && Masymmetry<0.1 && DeltaEtaJJ<1.1 && DeltaR_First<2.0 && DeltaR_Second<2.0 && alpha>0.1 && ( (doJSON==0) || (doJSON==1 && PassJSON==1) ) )
- 	if(FourjetMass>1607 && DeltaEtaJJ<1.1 && ( (doJSON==0) || (doJSON==1 && PassJSON==1) ) )
+ 	if(FourjetMass>1607 && Masymmetry<0.1 && DeltaEtaJJ<1.1 && DeltaR_First<2.0 && DeltaR_Second<2.0 && alpha>0.1 && ( (doJSON==0) || (doJSON==1 && PassJSON==1) ) )
+ 	//if(FourjetMass>1607 && DeltaEtaJJ<1.1 && ( (doJSON==0) || (doJSON==1 && PassJSON==1) ) )
 	{
 		Run->Fill(run);
 
@@ -184,6 +214,18 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
 		NHF_vsRun->Fill(run, neutrHadEnFrac_j2);
 		NHF_vsRun->Fill(run, neutrHadEnFrac_j3);
 		NHF_vsRun->Fill(run, neutrHadEnFrac_j4);
+		CEMF_vsRun->Fill(run, chargedElectromFrac_j1);
+		CEMF_vsRun->Fill(run, chargedElectromFrac_j2);
+		CEMF_vsRun->Fill(run, chargedElectromFrac_j3);
+		CEMF_vsRun->Fill(run, chargedElectromFrac_j4);
+		CM_vsRun->Fill(run, chargedMult_j1);
+		CM_vsRun->Fill(run, chargedMult_j2);
+		CM_vsRun->Fill(run, chargedMult_j3);
+		CM_vsRun->Fill(run, chargedMult_j4);
+		NM_vsRun->Fill(run, neutrMult_j1);
+		NM_vsRun->Fill(run, neutrMult_j2);
+		NM_vsRun->Fill(run, neutrMult_j3);
+		NM_vsRun->Fill(run, neutrMult_j4);
 
 
 		FourjetMass_vsNvtx->Fill(nVtx, FourjetMass);
@@ -219,13 +261,25 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
 		NHF_vsNvtx->Fill(nVtx, neutrHadEnFrac_j2);
 		NHF_vsNvtx->Fill(nVtx, neutrHadEnFrac_j3);
 		NHF_vsNvtx->Fill(nVtx, neutrHadEnFrac_j4);
+		CEMF_vsNvtx->Fill(nVtx, chargedElectromFrac_j1);
+		CEMF_vsNvtx->Fill(nVtx, chargedElectromFrac_j2);
+		CEMF_vsNvtx->Fill(nVtx, chargedElectromFrac_j3);
+		CEMF_vsNvtx->Fill(nVtx, chargedElectromFrac_j4);
+		CM_vsNvtx->Fill(nVtx, chargedMult_j1);
+		CM_vsNvtx->Fill(nVtx, chargedMult_j2);
+		CM_vsNvtx->Fill(nVtx, chargedMult_j3);
+		CM_vsNvtx->Fill(nVtx, chargedMult_j4);
+		NM_vsNvtx->Fill(nVtx, neutrMult_j1);
+		NM_vsNvtx->Fill(nVtx, neutrMult_j2);
+		NM_vsNvtx->Fill(nVtx, neutrMult_j3);
+		NM_vsNvtx->Fill(nVtx, neutrMult_j4);
 
     	}
   } 
 
   TFile *foutput;
-  if(doJSON==0) foutput =  new TFile("output_4jets/Run2022BCDEF_29p8fb-1_stability_onlyMassAndDeltaEtaCut.root","RECREATE");
-  if(doJSON==1) foutput =  new TFile("output_4jets/Run2022BCDEF_29p8fb-1_stability_onlyMassAndDeltaEtaCut_cert.root","RECREATE");
+  if(doJSON==0) foutput =  new TFile("output_4jets/Runs_2022CDEFG_2023BC_47p11fb-1_stability.root","RECREATE");
+  if(doJSON==1) foutput =  new TFile("output_4jets/Runs_2022CDEFG_2023BC_47p11fb-1_stability_cert.root","RECREATE");
 
   foutput->cd();
    
@@ -246,6 +300,9 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
   CHF_vsRun->Write();
   NHF_vsRun->Write();
   NEMF_vsRun->Write();
+  CEMF_vsRun->Write();
+  CM_vsRun->Write();
+  NM_vsRun->Write();
 
   FourjetMass_vsNvtx->Write();
   Maverage_vsNvtx->Write();
@@ -262,6 +319,9 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
   CHF_vsNvtx->Write();
   NHF_vsNvtx->Write();
   NEMF_vsNvtx->Write();
+  CEMF_vsNvtx->Write();
+  CM_vsNvtx->Write();
+  NM_vsNvtx->Write();
 
   foutput->Close();
 
