@@ -20,11 +20,11 @@
 
 void create_small_stitched_tree_MC(){
 
-    float lumi = 35182;
+    float lumi = 35084;
 	
-    double cross_section[10] = {445800.0, 113700.0, 7589.0, 626.4, 178.6, 30.57, 8.92, 0.8103, 0.1148, 0.007542}; 
-    char PtHatBin[10][50] = {"120to170" , "170to300" , "300to470" , "470to600" , "600to800" , "800to1000" , "1000to1400", "1400to1800", "1800to2400", "2400to3200"}; 
-    long double weight[10];
+    double cross_section[11] = {471100.0, 118400.0, 7823.0, 648.2, 186.9, 32.293, 9.4183, 0.84265, 0.114943, 0.00682981, 0.000165445}; 
+    char PtHatBin[11][50] = {"120to170" , "170to300" , "300to470" , "470to600" , "600to800" , "800to1000" , "1000to1400", "1400to1800", "1800to2400", "2400to3200", "3200toInf"}; 
+    long double weight[11];
 	
 	  
     double DDR_AK4PUPPI, DeltaAK4PUPPI_1, DeltaAK4PUPPI_2, DeltaEtaJJAK4PUPPI, DeltaPhiJJAK4PUPPI, DeltaRAK4PUPPI_First, DeltaRAK4PUPPI_Second, DeltaR_AK4PUPPI, DeltaRapidityAK4PUPPI, Dijet_MassAK4PUPPI_1, Dijet_MassAK4PUPPI_2, ETA_AK4PUPPI_1, ETA_AK4PUPPI_2, FourjetMassAK4PUPPI, HTAK4PUPPI, IdTightAK4PUPPI_j1, IdTightAK4PUPPI_j2, IdTightAK4PUPPI_j3, IdTightAK4PUPPI_j4, MET, METoverHTAK4PUPPI, MasymmetryAK4PUPPI, MaverageAK4PUPPI, Nak4puppi, PTAK4PUPPI_firstcomb_1, PTAK4PUPPI_firstcomb_2, PTAK4PUPPI_secondcomb_1, PTAK4PUPPI_secondcomb_2, RapidityAK4PUPPI_1, RapidityAK4PUPPI_2, chargedElectromFracAK4PUPPI_j1, chargedElectromFracAK4PUPPI_j2, chargedElectromFracAK4PUPPI_j3, chargedElectromFracAK4PUPPI_j4, chargedHadEnFracAK4PUPPI_j1, chargedHadEnFracAK4PUPPI_j2, chargedHadEnFracAK4PUPPI_j3, chargedHadEnFracAK4PUPPI_j4, chargedMultAK4PUPPI_j1, chargedMultAK4PUPPI_j2, chargedMultAK4PUPPI_j3, chargedMultAK4PUPPI_j4, eleEnFractAK4PUPPI_j1, eleEnFractAK4PUPPI_j2, eleEnFractAK4PUPPI_j3, eleEnFractAK4PUPPI_j4, etaAK4PUPPI_j1, etaAK4PUPPI_j2, etaAK4PUPPI_j3, etaAK4PUPPI_j4, event, jetJecAK4PUPPI_j1, jetJecAK4PUPPI_j2, jetJecAK4PUPPI_j3, jetJecAK4PUPPI_j4, jetJecUncAK4PUPPI_j1, jetJecUncAK4PUPPI_j2, jetJecUncAK4PUPPI_j3, jetJecUncAK4PUPPI_j4, LS, metSig, muEnFractAK4PUPPI_j1, muEnFractAK4PUPPI_j2, muEnFractAK4PUPPI_j3, muEnFractAK4PUPPI_j4, nVtx, neutrElectromFracAK4PUPPI_j1, neutrElectromFracAK4PUPPI_j2, neutrElectromFracAK4PUPPI_j3, neutrElectromFracAK4PUPPI_j4, neutrHadEnFracAK4PUPPI_j1, neutrHadEnFracAK4PUPPI_j2, neutrHadEnFracAK4PUPPI_j3, neutrHadEnFracAK4PUPPI_j4, neutrMultAK4PUPPI_j1, neutrMultAK4PUPPI_j2, neutrMultAK4PUPPI_j3, neutrMultAK4PUPPI_j4, pTAK4PUPPI_j1, pTAK4PUPPI_j2, pTAK4PUPPI_j3, pTAK4PUPPI_j4, passFilter_BadChargedCandidate, passFilter_BadPFMuon, passFilter_EcalDeadCellTriggerPrimitive, passFilter_HBHENoise, passFilter_HBHENoiseIso, passFilter_eeBadSc, passFilter_globalSuperTightHalo2016, passFilter_goodVertices, phiAK4PUPPI_j1, phiAK4PUPPI_j2, phiAK4PUPPI_j3, phiAK4PUPPI_j4, photonEnFracAK4PUPPI_j1, photonEnFracAK4PUPPI_j2, photonEnFracAK4PUPPI_j3, photonEnFracAK4PUPPI_j4, photonMultAK4PUPPI_j1, photonMultAK4PUPPI_j2, photonMultAK4PUPPI_j3, photonMultAK4PUPPI_j4, run, trueVtx, w; 
@@ -33,8 +33,8 @@ void create_small_stitched_tree_MC(){
 
     TFile *fout;
 
-    //fout = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/QCDMC/Run3Summer22/Summer22Run3_V1_JECs/Stitched_QCD_PT-120to3200_TuneCP5_13p6TeV_pythia8__Run3Summer22MiniAODv3-124X_mcRun3_2022_realistic_v12_ext1-v2__AK4PUPPI_35p182fb-1_reduced_skim.root","recreate");
-fout = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/QCDMC/Run3Summer22EE/Summer22EERun3_V1_JECs/Stitched_QCD_PT-120to3200_TuneCP5_13p6TeV_pythia8__Run3Summer22EEMiniAODv3-124X_mcRun3_2022_realistic_postEE_v1_ext1-v2__AK4PUPPI_35p182fb-1_reduced_skim.root","recreate");
+    //fout = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/QCDMC/Run3Summer22/Summer22Run3_V1_JECs/Stitched_QCD_PT-120toInf_TuneCP5_13p6TeV_pythia8__Run3Summer22MiniAODv3-124X_mcRun3_2022_realistic_v12_ext1-v2__AK4PUPPI_35084pb-1_new_reduced_skim.root","recreate");
+    fout = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/QCDMC/Run3Summer22EE/Summer22EERun3_V1_JECs/Stitched_QCD_PT-120toInf_TuneCP5_13p6TeV_pythia8__Run3Summer22EEMiniAODv3-124X_mcRun3_2022_realistic_postEE_v1_ext1-v2__AK4PUPPI_35084pb-1_new_reduced_skim.root","recreate");
 
     TTree t1("tree","tree");
 
@@ -150,7 +150,7 @@ fout = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets
 
     TFile *f1;
     TTree *tree;
-    for(int fl=0; fl<10; fl++) 
+    for(int fl=0; fl<11; fl++) 
     { 
     		char input_directory[300];
 		//strcpy(input_directory,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/QCDMC/Run3Summer22/Summer22Run3_V1_JECs/QCD_PT-");
@@ -178,7 +178,7 @@ fout = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets
 
     cout << " Total number of events: " << Ntotal << endl;
 	
-    for(Int_t fl=0; fl<10; fl++)  
+    for(Int_t fl=0; fl<11; fl++)  
     {  
 		char input_directory[300];
 		//strcpy(input_directory,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/QCDMC/Run3Summer22/Summer22Run3_V1_JECs/QCD_PT-");
