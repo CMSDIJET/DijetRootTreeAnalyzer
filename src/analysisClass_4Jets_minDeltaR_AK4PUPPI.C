@@ -264,7 +264,7 @@ void analysisClass::Loop()
      {
 	 int passJetID = ( jetNhfAK8->at(ijet)<0.99 && jetNemfAK8->at(ijet)<0.9 && chMultAK8->at(ijet)+neMultAK8->at(ijet)>1 && jetMufAK8->at(ijet)<0.8 && jetChfAK8->at(ijet)>0.01 && chMultAK8->at(ijet)>0 && jetCemfAK8->at(ijet)<0.8 );
 
-         JetID.push_back(passJetID);
+         JetID->push_back(passJetID);
      }
 
 
