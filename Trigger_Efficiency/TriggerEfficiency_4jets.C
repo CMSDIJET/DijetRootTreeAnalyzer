@@ -24,7 +24,7 @@ void TriggerEfficiency_4jets(char era[1024])
    double scale = 1.0; //makes sense only for the unprescaled trigger
 
    char txtname[1024];
-   sprintf(txtname,"2022_PromptReco_new/textfiles/trig_2022_PromptReco_era%s_alphagt0p1.txt",era);
+   sprintf(txtname,"2022_PromptReco/textfiles/trig_2022_PromptReco_era%s_alphagt0p1.txt",era);
    ofstream textfile(txtname);
 
   
@@ -34,7 +34,7 @@ void TriggerEfficiency_4jets(char era[1024])
 
    char fnameJetMET[1024], fnameMuon[1024];
    sprintf(fnameJetMET,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/trigger_efficiency/2022_PromptReco/JetMET_Run2022%s-PromptReco.root",era);
-   sprintf(fnameMuon,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/trigger_efficiency/2022_PromptReco/new/Muon_Run2022%s-PromptReco.root",era);
+   sprintf(fnameMuon,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/trigger_efficiency/2022_PromptReco/Muon_Run2022%s-PromptReco.root",era);
 
    TFile *fJetMET = TFile::Open(fnameJetMET,"READ");
    TFile *fMuon = TFile::Open(fnameMuon,"READ");
@@ -126,10 +126,11 @@ void TriggerEfficiency_4jets(char era[1024])
 
    char eraleg[1024];
    //sprintf(eraleg,"Run2022%s, 8 fb^{-1} (13.6 TeV)",era);
-   sprintf(eraleg,"Run2022%s, 27 fb^{-1} (13.6 TeV)",era);
+   //sprintf(eraleg,"Run2022%s, 27 fb^{-1} (13.6 TeV)",era);
+   sprintf(eraleg,"2022, 35.08 fb^{-1} (13.6 TeV)");
 
    //TPaveText *lumi = new TPaveText(0.644,0.94,0.834,0.98,"NDC");
-   TPaveText *lumi = new TPaveText(0.627,0.94,0.827,0.98,"NDC");
+   TPaveText *lumi = new TPaveText(0.67,0.94,0.87,0.98,"NDC");
    lumi->SetFillColor(0);
    lumi->SetBorderSize(0);
    lumi->SetTextFont(42);
@@ -205,8 +206,8 @@ void TriggerEfficiency_4jets(char era[1024])
 
 
    char cname1[1024], cname2[1024];
-   sprintf(cname1,"2022_PromptReco_new/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.png",era);
-   sprintf(cname2,"2022_PromptReco_new/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.pdf",era);
+   sprintf(cname1,"2022_PromptReco/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.png",era);
+   sprintf(cname2,"2022_PromptReco/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.pdf",era);
 
    c1->SaveAs(cname1);
    c1->SaveAs(cname2);
@@ -244,15 +245,15 @@ void TriggerEfficiency_4jets(char era[1024])
    leg1->Draw();
    leg2->Draw();
 
-   sprintf(cname1,"2022_PromptReco_new/plots/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.png",era);
-   sprintf(cname2,"2022_PromptReco_new/plots/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.pdf",era);
+   sprintf(cname1,"2022_PromptReco/plots/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.png",era);
+   sprintf(cname2,"2022_PromptReco/plots/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.pdf",era);
 
    c2->SaveAs(cname1);
    c2->SaveAs(cname2);
  
   
    char foutname[1023];
-   sprintf(foutname,"2022_PromptReco_new/rootfiles/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.root",era);
+   sprintf(foutname,"2022_PromptReco/rootfiles/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.root",era);
    TFile *fout = new TFile(foutname,"RECREATE");
    fout->cd(); 
    h_Muon[0]->Write();
