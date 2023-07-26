@@ -271,9 +271,8 @@ void analysisClass::Loop()
      }
 
 
-
-    // Create JetID vector for every jet in the event (do not use the existing jetID vector from the big trees)
-     std::vector<int> *JetID = 0;
+     // Create JetID vector for every jet in the event (do not use the existing jetID vector from the big trees)
+     std::vector<int> *JetID = new std::vector<int>;
 
      for(size_t ijet=0; ijet<no_jets_ak8; ++ijet)
      {
@@ -281,7 +280,6 @@ void analysisClass::Loop()
 
          JetID->push_back(passJetID);
      }
-
 
 
      //#############################################################

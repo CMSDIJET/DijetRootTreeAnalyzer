@@ -256,14 +256,12 @@ void analysisClass::Loop()
      }
 
 
-
      // Create JetID vector for every jet in the event (do not use the existing jetID vector from the big trees)
-     std::vector<int> *JetID = 0;
+     std::vector<int> *JetID = new std::vector<int>;
 
      for(size_t ijet=0; ijet<no_jets_ak8; ++ijet)
      {
 	 int passJetID = ( jetNhfAK8->at(ijet)<0.99 && jetNemfAK8->at(ijet)<0.9 && chMultAK8->at(ijet)+neMultAK8->at(ijet)>1 && jetMufAK8->at(ijet)<0.8 && jetChfAK8->at(ijet)>0.01 && chMultAK8->at(ijet)>0 && jetCemfAK8->at(ijet)<0.8 );
-
          JetID->push_back(passJetID);
      }
 
@@ -303,7 +301,7 @@ void analysisClass::Loop()
  		 if(fabs(jetEtaAK8->at(sortedJetIdx[2])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[2]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[2]]/jetJecAK8->at(sortedJetIdx[2]))*jetPtAK8->at(sortedJetIdx[2]) > getPreCutValue1("pt2Cut")){
 
  		    if(fabs(jetEtaAK8->at(sortedJetIdx[3])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[3]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[3]]/jetJecAK8->at(sortedJetIdx[3]))*jetPtAK8->at(sortedJetIdx[3]) > getPreCutValue1("pt3Cut")){
- 			
+		
 		 	  ak8j1.SetPtEtaPhiM( (jecFactors[sortedJetIdx[0]]/jetJecAK8->at(sortedJetIdx[0])) *jetPtAK8->at(sortedJetIdx[0])
 				     ,jetEtaAK8->at(sortedJetIdx[0])
 				     ,jetPhiAK8->at(sortedJetIdx[0])
