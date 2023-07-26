@@ -64,17 +64,17 @@ analysisClass::analysisClass(string * inputList, string * cutFile, string * tree
     
     JetCorrector_data = new FactorizedJetCorrector(); // Will be filled later
            
-    std::string L1Path = "data/Winter22Run3/Winter22Run3_V1_L1FastJet_AK4PFPuppi.txt";
-    std::string L2Path = "data/Winter22Run3/Winter22Run3_V1_L2Relative_AK4PFPuppi.txt";
-    std::string L3Path = "data/Winter22Run3/Winter22Run3_V1_L3Absolute_AK4PFPuppi.txt";
+    std::string L1Path = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L1FastJet_AK4PFPuppi.txt";
+    std::string L2Path = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L2Relative_AK4PFPuppi.txt";
+    std::string L3Path = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L3Absolute_AK4PFPuppi.txt";
 
-    std::string L1DATAPath = "data/Winter22Run3/Winter22Run3_V1_L1FastJet_AK4PFPuppi.txt";
-    std::string L2DATAPath = "data/Winter22Run3/Winter22Run3_V1_L2Relative_AK4PFPuppi.txt"; 
-    std::string L3DATAPath = "data/Winter22Run3/Winter22Run3_V1_L3Absolute_AK4PFPuppi.txt";
-    //std::string L2L3ResidualPath = "data/Winter22Run3/Winter22Run3_RunC_V2_DATA_L2L3Residual_AK4PFPuppi.txt";
-        std::string L2L3ResidualPath = "data/Winter22Run3/Winter22Run3_RunC_V2_DATA_L2Residual_AK4PFPuppi.txt";
+    std::string L1DATAPath = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L1FastJet_AK4PFPuppi.txt";
+    std::string L2DATAPath = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L2Relative_AK4PFPuppi.txt"; 
+    std::string L3DATAPath = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L3Absolute_AK4PFPuppi.txt";
+    std::string L2L3ResidualPath = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L2L3Residual_AK4PFPuppi.txt";
 
-    unc = new JetCorrectionUncertainty("data/Winter22Run3/Winter22Run3_V1_Uncertainty_AK4PFPuppi.txt");
+    unc = new JetCorrectionUncertainty("data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_Uncertainty_AK4PFPuppi.txt");
+
 
  
     L1Par = new JetCorrectorParameters(L1Path);
@@ -140,7 +140,7 @@ void analysisClass::Loop()
 
      if (ientry < 0) break;
      nb = fChain->GetEntry(jentry);   nbytes += nb;
-     if(jentry < 10 || jentry%200000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
+     if(jentry < 10 || jentry%500000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
      // if (Cut(ientry) < 0) continue;
 
      ////////////////////// User's code starts here ///////////////////////
@@ -256,6 +256,18 @@ void analysisClass::Loop()
      }
 
 
+
+     // Create JetID vector for every jet in the event (do not use the existing jetID vector from the big trees)
+     std::vector<int> *JetID = 0;
+
+     for(size_t ijet=0; ijet<no_jets_ak8; ++ijet)
+     {
+	 int passJetID = ( jetNhfAK8->at(ijet)<0.99 && jetNemfAK8->at(ijet)<0.9 && chMultAK8->at(ijet)+neMultAK8->at(ijet)>1 && jetMufAK8->at(ijet)<0.8 && jetChfAK8->at(ijet)>0.01 && chMultAK8->at(ijet)>0 && jetCemfAK8->at(ijet)<0.8 );
+
+         JetID.push_back(passJetID);
+     }
+
+
      //#############################################################
      //########## NOTE: from now on sortedJetIdx[ijet] should be used
      //#############################################################
@@ -273,7 +285,7 @@ void analysisClass::Loop()
 	  //     << endl;
 
 	 //////////////cout << "id Tight jet" << sortedJetIdx[1] << " = " << idTAK8->at(sortedJetIdx[1]) << endl;
-	 if(fabs(jetEtaAK8->at(sortedJetIdx[ijet])) < getPreCutValue1("jetFidRegion") && idTAK8->at(sortedJetIdx[ijet]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[ijet]]/jetJecAK8->at(sortedJetIdx[ijet]))*jetPtAK8->at(sortedJetIdx[ijet]) > getPreCutValue1("ptCut"))
+	 if(fabs(jetEtaAK8->at(sortedJetIdx[ijet])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[ijet]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[ijet]]/jetJecAK8->at(sortedJetIdx[ijet]))*jetPtAK8->at(sortedJetIdx[ijet]) > getPreCutValue1("ptCut"))
 	 {
 	     Nak8 += 1;
 	     HTak8 += (jecFactors[sortedJetIdx[ijet]]/jetJecAK8->at(sortedJetIdx[ijet]))*jetPtAK8->at(sortedJetIdx[ijet]);
@@ -284,13 +296,13 @@ void analysisClass::Loop()
      //AK8 jets
      if(no_jets_ak8>=4){
 
-	 if(fabs(jetEtaAK8->at(sortedJetIdx[0])) < getPreCutValue1("jetFidRegion") && idTAK8->at(sortedJetIdx[0]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[0]]/jetJecAK8->at(sortedJetIdx[0]))*jetPtAK8->at(sortedJetIdx[0]) > getPreCutValue1("pt0Cut")){
+	 if(fabs(jetEtaAK8->at(sortedJetIdx[0])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[0]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[0]]/jetJecAK8->at(sortedJetIdx[0]))*jetPtAK8->at(sortedJetIdx[0]) > getPreCutValue1("pt0Cut")){
 
-	     if(fabs(jetEtaAK8->at(sortedJetIdx[1])) < getPreCutValue1("jetFidRegion") && idTAK8->at(sortedJetIdx[1]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[1]]/jetJecAK8->at(sortedJetIdx[1]))*jetPtAK8->at(sortedJetIdx[1]) > getPreCutValue1("pt1Cut")){
+	     if(fabs(jetEtaAK8->at(sortedJetIdx[1])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[1]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[1]]/jetJecAK8->at(sortedJetIdx[1]))*jetPtAK8->at(sortedJetIdx[1]) > getPreCutValue1("pt1Cut")){
 
- 		 if(fabs(jetEtaAK8->at(sortedJetIdx[2])) < getPreCutValue1("jetFidRegion") && idTAK8->at(sortedJetIdx[2]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[2]]/jetJecAK8->at(sortedJetIdx[2]))*jetPtAK8->at(sortedJetIdx[2]) > getPreCutValue1("pt2Cut")){
+ 		 if(fabs(jetEtaAK8->at(sortedJetIdx[2])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[2]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[2]]/jetJecAK8->at(sortedJetIdx[2]))*jetPtAK8->at(sortedJetIdx[2]) > getPreCutValue1("pt2Cut")){
 
- 		    if(fabs(jetEtaAK8->at(sortedJetIdx[3])) < getPreCutValue1("jetFidRegion") && idTAK8->at(sortedJetIdx[3]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[3]]/jetJecAK8->at(sortedJetIdx[3]))*jetPtAK8->at(sortedJetIdx[3]) > getPreCutValue1("pt3Cut")){
+ 		    if(fabs(jetEtaAK8->at(sortedJetIdx[3])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[3]) == getPreCutValue1("tightJetID") && (jecFactors[sortedJetIdx[3]]/jetJecAK8->at(sortedJetIdx[3]))*jetPtAK8->at(sortedJetIdx[3]) > getPreCutValue1("pt3Cut")){
  			
 		 	  ak8j1.SetPtEtaPhiM( (jecFactors[sortedJetIdx[0]]/jetJecAK8->at(sortedJetIdx[0])) *jetPtAK8->at(sortedJetIdx[0])
 				     ,jetEtaAK8->at(sortedJetIdx[0])
@@ -486,14 +498,12 @@ void analysisClass::Loop()
 
      if( AK8jets.size() >=4 ){//4-jets analysis 
 
-       fillVariableWithValue("IdTightAK4PUPPI_j1",idTAK8->at(sortedJetIdx[0]));
+       fillVariableWithValue("IdTightAK4PUPPI_j1",JetID->at(sortedJetIdx[0]));
        fillVariableWithValue("pTAK4PUPPI_j1", AK8jets[0].Pt());
        fillVariableWithValue("etaAK4PUPPI_j1", AK8jets[0].Eta());
        fillVariableWithValue("phiAK4PUPPI_j1", AK8jets[0].Phi());
        fillVariableWithValue("jetJecAK4PUPPI_j1", jecFactors[sortedJetIdx[0]] );
-       fillVariableWithValue("jetJecUncAK4PUPPI_j1", jecUncertainty[sortedJetIdx[0]]);       
-       fillVariableWithValue("jetCSVAK4PUPPI_j1", jetCSVAK8->at(sortedJetIdx[0]));
-       fillVariableWithValue("jetHflavourAK4PUPPI_j1",hFlavourAK8->at(sortedJetIdx[0]));
+       fillVariableWithValue("jetJecUncAK4PUPPI_j1", jecUncertainty[sortedJetIdx[0]]);    
        fillVariableWithValue("neutrHadEnFracAK4PUPPI_j1", jetNhfAK8->at(sortedJetIdx[0]));
        fillVariableWithValue("chargedHadEnFracAK4PUPPI_j1", jetChfAK8->at(sortedJetIdx[0]));
        fillVariableWithValue("photonEnFracAK4PUPPI_j1", jetPhfAK8->at(sortedJetIdx[0]));
@@ -505,14 +515,12 @@ void analysisClass::Loop()
        fillVariableWithValue("neutrMultAK4PUPPI_j1", neMultAK8->at(sortedJetIdx[0]));
        fillVariableWithValue("photonMultAK4PUPPI_j1", phoMultAK8->at(sortedJetIdx[0]));
      
-       fillVariableWithValue("IdTightAK4PUPPI_j2",idTAK8->at(sortedJetIdx[1]));
+       fillVariableWithValue("IdTightAK4PUPPI_j2",JetID->at(sortedJetIdx[1]));
        fillVariableWithValue("pTAK4PUPPI_j2", AK8jets[1].Pt() );
        fillVariableWithValue("etaAK4PUPPI_j2", AK8jets[1].Eta());
        fillVariableWithValue("phiAK4PUPPI_j2", AK8jets[1].Phi());
        fillVariableWithValue("jetJecAK4PUPPI_j2", jecFactors[sortedJetIdx[1]]); 
        fillVariableWithValue("jetJecUncAK4PUPPI_j2", jecUncertainty[sortedJetIdx[1]] );
-       fillVariableWithValue("jetCSVAK4PUPPI_j2", jetCSVAK8->at(sortedJetIdx[1]) );
-       fillVariableWithValue("jetHflavourAK4PUPPI_j2",hFlavourAK8->at(sortedJetIdx[1]));
        fillVariableWithValue("neutrHadEnFracAK4PUPPI_j2", jetNhfAK8->at(sortedJetIdx[1]));
        fillVariableWithValue("chargedHadEnFracAK4PUPPI_j2", jetChfAK8->at(sortedJetIdx[1]));
        fillVariableWithValue("photonEnFracAK4PUPPI_j2", jetPhfAK8->at(sortedJetIdx[1]));
@@ -524,14 +532,12 @@ void analysisClass::Loop()
        fillVariableWithValue("neutrMultAK4PUPPI_j2", neMultAK8->at(sortedJetIdx[1]));
        fillVariableWithValue("photonMultAK4PUPPI_j2", phoMultAK8->at(sortedJetIdx[1]));
 
-       fillVariableWithValue("IdTightAK4PUPPI_j3",idTAK8->at(sortedJetIdx[2]));
+       fillVariableWithValue("IdTightAK4PUPPI_j3",JetID->at(sortedJetIdx[2]));
        fillVariableWithValue("pTAK4PUPPI_j3", AK8jets[2].Pt() );
        fillVariableWithValue("etaAK4PUPPI_j3", AK8jets[2].Eta());
        fillVariableWithValue("phiAK4PUPPI_j3", AK8jets[2].Phi());
        fillVariableWithValue("jetJecAK4PUPPI_j3", jecFactors[sortedJetIdx[2]]); 
        fillVariableWithValue("jetJecUncAK4PUPPI_j3", jecUncertainty[sortedJetIdx[2]] );
-       fillVariableWithValue("jetCSVAK4PUPPI_j3", jetCSVAK8->at(sortedJetIdx[2]) );
-       fillVariableWithValue("jetHflavourAK4PUPPI_j3",hFlavourAK8->at(sortedJetIdx[2]));
        fillVariableWithValue("neutrHadEnFracAK4PUPPI_j3", jetNhfAK8->at(sortedJetIdx[2]));
        fillVariableWithValue("chargedHadEnFracAK4PUPPI_j3", jetChfAK8->at(sortedJetIdx[2]));
        fillVariableWithValue("photonEnFracAK4PUPPI_j3", jetPhfAK8->at(sortedJetIdx[2]));
@@ -543,14 +549,12 @@ void analysisClass::Loop()
        fillVariableWithValue("neutrMultAK4PUPPI_j3", neMultAK8->at(sortedJetIdx[2]));
        fillVariableWithValue("photonMultAK4PUPPI_j3", phoMultAK8->at(sortedJetIdx[2]));
             
-       fillVariableWithValue("IdTightAK4PUPPI_j4",idTAK8->at(sortedJetIdx[3]));
+       fillVariableWithValue("IdTightAK4PUPPI_j4",JetID->at(sortedJetIdx[3]));
        fillVariableWithValue("pTAK4PUPPI_j4", AK8jets[3].Pt() );
        fillVariableWithValue("etaAK4PUPPI_j4", AK8jets[3].Eta());
        fillVariableWithValue("phiAK4PUPPI_j4", AK8jets[3].Phi());
        fillVariableWithValue("jetJecAK4PUPPI_j4", jecFactors[sortedJetIdx[3]]); 
        fillVariableWithValue("jetJecUncAK4PUPPI_j4", jecUncertainty[sortedJetIdx[3]] );
-       fillVariableWithValue("jetCSVAK4PUPPI_j4", jetCSVAK8->at(sortedJetIdx[3]) );
-       fillVariableWithValue("jetHflavourAK4PUPPI_j4",hFlavourAK8->at(sortedJetIdx[3]));
        fillVariableWithValue("neutrHadEnFracAK4PUPPI_j4", jetNhfAK8->at(sortedJetIdx[3]));
        fillVariableWithValue("chargedHadEnFracAK4PUPPI_j4", jetChfAK8->at(sortedJetIdx[3]));
        fillVariableWithValue("photonEnFracAK4PUPPI_j4", jetPhfAK8->at(sortedJetIdx[3]));
@@ -629,8 +633,11 @@ void analysisClass::Loop()
      fillVariableWithValue("passFilter_HBHENoiseIso",passFilter_HBHENoiseIso);
      fillVariableWithValue("passFilter_EcalDeadCellTriggerPrimitive",passFilter_EcalDeadCellTriggerPrimitive);
      fillVariableWithValue("passFilter_BadPFMuon",passFilter_BadPFMuon);
+     fillVariableWithValue("passFilter_BadPFMuonDz",passFilter_BadPFMuonDz);
      fillVariableWithValue("passFilter_BadChargedCandidate",passFilter_BadChargedCandidate);
      fillVariableWithValue("passFilter_eeBadSc",passFilter_eeBadSc);
+     fillVariableWithValue("passFilter_ecalBadCalib",passFilter_ecalBadCalib);
+     fillVariableWithValue("passFilter_hfNoisyHits",passFilter_hfNoisyHits);
 
 
      //Evaluate cuts (but do not apply them)
