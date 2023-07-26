@@ -60,18 +60,18 @@ void plot_variables_vs_time_4jets_Run3(char var[1024])
    char yaxistitle[1024];
    double ymin, ymax, ymaxlab;
 
-   if(strcmp(var,"NHF")==0) {sprintf(yaxistitle,"Mean NHF of the 4 leading jets");  ymin = 0; ymax = 0.5; ymaxlab = 0.3;}
-   if(strcmp(var,"NEMF")==0) {sprintf(yaxistitle,"Mean NEMF of the 4 leading jets");  ymin = 0.15; ymax = 0.7; ymaxlab = 0.5;}
-   if(strcmp(var,"CHF")==0) {sprintf(yaxistitle,"Mean CHF of the 4 leading jets");  ymin = 0.1; ymax = 1.; ymaxlab = 0.6;}
+   if(strcmp(var,"NHF")==0) {sprintf(yaxistitle,"Mean NHF of the 4 leading jets");  ymin = 0; ymax = 0.2; ymaxlab = 0.16;}
+   if(strcmp(var,"NEMF")==0) {sprintf(yaxistitle,"Mean NEMF of the 4 leading jets");  ymin = 0.15; ymax = 0.45; ymaxlab = 0.4;}
+   if(strcmp(var,"CHF")==0) {sprintf(yaxistitle,"Mean CHF of the 4 leading jets");  ymin = 0.5; ymax = 0.8; ymaxlab = 0.75;}
    if(strcmp(var,"CEMF")==0) {sprintf(yaxistitle,"Mean CEMF of the 4 leading jets");  ymin = 0; ymax = 1; ymaxlab = 0.3;}
-   if(strcmp(var,"CM")==0) {sprintf(yaxistitle,"Mean charged multiplicity of the 4 leading jets");  ymin = 10; ymax = 50; ymaxlab = 30;}
-   if(strcmp(var,"NM")==0) {sprintf(yaxistitle,"Mean neutral multiplicity of the 4 leading jets");  ymin = 5; ymax = 35; ymaxlab = 22;}
+   if(strcmp(var,"CM")==0) {sprintf(yaxistitle,"Mean charged multiplicity of the 4 leading jets");  ymin = 14; ymax = 30; ymaxlab = 27;}
+   if(strcmp(var,"NM")==0) {sprintf(yaxistitle,"Mean neutral multiplicity of the 4 leading jets");  ymin = 5; ymax = 20; ymaxlab = 17;}
 
 
    char name[1000];
 
    TFile *inf; 
-   inf = TFile::Open("output_4jets/Runs_2022CDEFG_2023BC_47p01fb-1_stability_cert.root");
+   inf = TFile::Open("output_4jets/Runs_2022CDEFG_2023BC_52p67fb-1_stability_cert.root");
  
 
    TH2D *h2d;
@@ -97,10 +97,10 @@ void plot_variables_vs_time_4jets_Run3(char var[1024])
    cms->SetBorderSize(0);
    cms->SetFillColor(0);
 
-   TPaveText *lumileg = new TPaveText(0.664,0.92,0.864,0.96,"NDC");
+   TPaveText *lumileg = new TPaveText(0.655,0.92,0.855,0.96,"NDC");
    lumileg->SetFillColor(0);
    lumileg->SetBorderSize(0);
-   lumileg->AddText("47 fb^{-1} (13.6 TeV)");
+   lumileg->AddText("52.67 fb^{-1} (13.6 TeV)");
    lumileg->SetTextFont(42);
    lumileg->SetTextSize(0.045);
    lumileg->Draw();
@@ -111,7 +111,7 @@ void plot_variables_vs_time_4jets_Run3(char var[1024])
       
    //Read file per trigger - luminosity per run 
 
-   sprintf(name,"Cert_Run3_47fb-1.txt");
+   sprintf(name,"Cert_Run3_52p67fb-1.txt");
    ifstream txtFile;
    txtFile.open(name);
       
@@ -184,12 +184,13 @@ void plot_variables_vs_time_4jets_Run3(char var[1024])
    hbig->SetLineColor(kBlack);
    hbig->Draw("pe1");
 
-   TLegend *leg1 = new TLegend(0.16,0.71,0.16,0.86,"");
+   //TLegend *leg1 = new TLegend(0.16,0.71,0.16,0.86,"");
+   TLegend *leg1 = new TLegend(0.25,0.83,0.25,0.88,"");
    leg1->SetTextSize(0.04);
    leg1->SetBorderSize(0);
-   leg1->AddEntry((TObject*)0,"Paired dijet analysis","");
-   leg1->AddEntry((TObject*)0,"4 leading AK4 jets","");
-   leg1->AddEntry((TObject*)0,"|#eta| < 2.5, p_{T} > 80 GeV","");
+   leg1->AddEntry((TObject*)0,"Paired dijet analysis, all cuts applied","");
+   //leg1->AddEntry((TObject*)0,"4 leading AK4 jets","");
+   //leg1->AddEntry((TObject*)0,"|#eta| < 2.5, p_{T} > 80 GeV","");
    leg1->Draw();
 
    TLegend *leg2 = new TLegend(0.55,0.67,0.55,0.87,"");
@@ -201,7 +202,7 @@ void plot_variables_vs_time_4jets_Run3(char var[1024])
    leg2->AddEntry((TObject*)0,"Mass asymmetry < 0.1","");
    leg2->AddEntry((TObject*)0,"#Delta R_{1,2} < 2","");
    leg2->AddEntry((TObject*)0,"#alpha > 0.1","");
-   leg2->Draw();
+   //leg2->Draw();
 
    cms->Draw();
    lumileg->Draw();
@@ -227,7 +228,7 @@ void plot_variables_vs_time_4jets_Run3(char var[1024])
    l4->SetLineColor(kRed);
    l4->Draw("same");
 
-   TLine *l5 = new TLine(341,ymin,341,ymaxlab*1.2); //341
+   TLine *l5 = new TLine(341,ymin,341,0.95*ymax); //341
    l5->SetLineWidth(3);
    l5->SetLineColor(kGreen+2);
    l5->Draw("same");
@@ -242,34 +243,42 @@ void plot_variables_vs_time_4jets_Run3(char var[1024])
    l7->SetLineColor(kOrange+1);
    l7->Draw("same");
 
+
+   TLine *horl = new TLine(0,0.3,484,0.3);
+   horl->SetLineWidth(4);
+   horl->SetLineColor(kBlue+1);
+   horl->SetLineStyle(kDashed);
+   horl->Draw("same");
+
+
    TLatex *latex1 = new TLatex();
    latex1->SetTextFont(42);
    latex1->SetTextColor(kGreen+2);
-   latex1->DrawLatex(370,ymaxlab*1.1,"2023");
-   latex1->DrawLatex(130,ymaxlab*1.1,"2022");
+   latex1->DrawLatex(370,0.405,"2023");
+   latex1->DrawLatex(130,0.405,"2022");
 
    TLatex *latex2 = new TLatex();
    latex2->SetTextFont(42);
    latex2->SetTextColor(kRed);
    latex2->SetTextSize(0.04);
-   latex2->DrawLatex(45,0.9*ymaxlab,"C");
-   latex2->DrawLatex(125,0.9*ymaxlab,"D");
-   latex2->DrawLatex(170,0.9*ymaxlab,"E");
-   latex2->DrawLatex(250,0.9*ymaxlab,"F");
-   latex2->DrawLatex(325,0.9*ymaxlab,"G");
-   latex2->DrawLatex(345,0.9*ymaxlab,"B");
-   latex2->DrawLatex(380,0.9*ymaxlab,"C");
+   latex2->DrawLatex(45,0.95*ymaxlab,"C");
+   latex2->DrawLatex(125,0.95*ymaxlab,"D");
+   latex2->DrawLatex(170,0.95*ymaxlab,"E");
+   latex2->DrawLatex(250,0.95*ymaxlab,"F");
+   latex2->DrawLatex(325,0.95*ymaxlab,"G");
+   latex2->DrawLatex(345,0.95*ymaxlab,"B");
+   latex2->DrawLatex(380,0.95*ymaxlab,"C");
    latex2->SetTextSize(0.03);
-   latex2->DrawLatex(370,0.8*ymaxlab,"v1v2v3");
+   latex2->DrawLatex(370,0.93*ymaxlab,"v1v2v3");
    latex2->SetTextSize(0.04);
-   latex2->DrawLatex(425,0.9*ymaxlab,"C");
+   latex2->DrawLatex(440,0.95*ymaxlab,"C");
    latex2->SetTextSize(0.03);
-   latex2->DrawLatex(425,0.8*ymaxlab,"v4");
+   latex2->DrawLatex(440,0.93*ymaxlab,"v4");
 
    char cname1[1024], cname2[1024];
 
-   sprintf(cname1,"output_4jets/plots/4jets_%s_vs_run_2022CDEFG_2023BC_47p01fb-1.png",var);
-   sprintf(cname2,"output_4jets/plots/4jets_%s_vs_run_2022CDEFG_2023BC_47p01fb-1.pdf",var);
+   sprintf(cname1,"output_4jets/plots_52p67fb-1/4jets_%s_vs_run_2022CDEFG_2023BC_52p67fb-1.png",var);
+   sprintf(cname2,"output_4jets/plots_52p67fb-1/4jets_%s_vs_run_2022CDEFG_2023BC_52p67fb-1.pdf",var);
 
    c->SaveAs(cname1);
    c->SaveAs(cname2);

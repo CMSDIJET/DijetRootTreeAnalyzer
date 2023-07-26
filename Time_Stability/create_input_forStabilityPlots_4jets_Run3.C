@@ -42,7 +42,7 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
   TH1F *Run;
  
   int run_start = 355374;
-  int run_end   = 368453;
+  int run_end   = 368823;
   int nbins     = run_end-run_start;
 
   Run = new TH1F ("Run","",nbins, run_start, run_end);
@@ -87,7 +87,7 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
 
    /////////initialize variables
 
-  double run, lumi, event, weight, nVtx, PassJSON;
+  double run, lumi, event, weight, nVtx, PassJSON, passFilter_BadPFMuon, passFilter_EcalDeadCellTriggerPrimitive, passFilter_eeBadSc, passFilter_globalSuperTightHalo2016, passFilter_goodVertices;
   double FourjetMass, Maverage, Masymmetry, DeltaEtaJJ, DeltaPhiJJ, DeltaR_First, DeltaR_Second, alpha, METoverHT;
   double pTj1, pTj2, pTj3, pTj4, etaj1, etaj2, etaj3, etaj4, phij1, phij2, phij3, phij4;
   double chargedHadEnFrac_j1, chargedHadEnFrac_j2, chargedHadEnFrac_j3, chargedHadEnFrac_j4, neutrElectromFrac_j1, neutrElectromFrac_j2, neutrElectromFrac_j3, neutrElectromFrac_j4, neutrHadEnFrac_j1, neutrHadEnFrac_j2, neutrHadEnFrac_j3, neutrHadEnFrac_j4, chargedElectromFrac_j1, chargedElectromFrac_j2, chargedElectromFrac_j3, chargedElectromFrac_j4;
@@ -95,24 +95,24 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
 
   TChain *tree_data = new TChain("rootTupleTree/tree");
 
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetHT__Run2022C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022D-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022D-PromptReco-v2__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022E-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022F-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jan2023_forSync/JetMET__Run2022G-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jul2023_withL2L3Residuals/JetHT__Run2022C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jul2023_withL2L3Residuals/JetMET__Run2022C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jul2023_withL2L3Residuals/JetMET__Run2022D-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jul2023_withL2L3Residuals/JetMET__Run2022D-PromptReco-v2__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jul2023_withL2L3Residuals/JetMET__Run2022E-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jul2023_withL2L3Residuals/JetMET__Run2022F-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2022/Jul2023_withL2L3Residuals/JetMET__Run2022G-PromptReco-v1__AK4PUPPI_reduced_skim.root");
   
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023B-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023C-PromptReco-v2__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023C-PromptReco-v3__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET0__Run2023C-PromptReco-v4__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023B-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023C-PromptReco-v2__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023C-PromptReco-v3__AK4PUPPI_reduced_skim.root");
-  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/Winter23Prompt23_V1_MC/JetMET1__Run2023C-PromptReco-v4__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET0__Run2023B-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET0__Run2023C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET0__Run2023C-PromptReco-v2__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET0__Run2023C-PromptReco-v3__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET0__Run2023C-PromptReco-v4__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET1__Run2023B-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET1__Run2023C-PromptReco-v1__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET1__Run2023C-PromptReco-v2__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET1__Run2023C-PromptReco-v3__AK4PUPPI_reduced_skim.root");
+  tree_data->Add("root:://eoscms///eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/reduced_trees/data/promptReco/2023/JEC_Winter23Prompt23_RunC_V2_DATA/JetMET1__Run2023C-PromptReco-v4__AK4PUPPI_reduced_skim.root");
 
 
   tree_data->SetBranchAddress("run",&run);
@@ -164,6 +164,11 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
   tree_data->SetBranchAddress("neutrMultAK4PUPPI_j4",&neutrMult_j4);
   tree_data->SetBranchAddress("nVtx",&nVtx);
   tree_data->SetBranchAddress("PassJSON",&PassJSON);
+  //tree_data->SetBranchAddress("passFilter_BadPFMuon",&passFilter_BadPFMuon);
+  //tree_data->SetBranchAddress("passFilter_EcalDeadCellTriggerPrimitive",&passFilter_EcalDeadCellTriggerPrimitive);
+  //tree_data->SetBranchAddress("passFilter_eeBadSc",&passFilter_eeBadSc);
+  //tree_data->SetBranchAddress("passFilter_globalSuperTightHalo2016",&passFilter_globalSuperTightHalo2016);
+  //tree_data->SetBranchAddress("passFilter_goodVertices",&passFilter_goodVertices);
 
   Int_t nentries_data = (Int_t)tree_data->GetEntries();
   std::cout << "Data: Number of entries =  " << nentries_data << std::endl;
@@ -176,7 +181,8 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
 
 	alpha=Maverage/FourjetMass; 
       
- 	if(FourjetMass>1607 && Masymmetry<0.1 && DeltaEtaJJ<1.1 && DeltaR_First<2.0 && DeltaR_Second<2.0 && alpha>0.1 && ( (doJSON==0) || (doJSON==1 && PassJSON==1) ) )
+ 	//if(passFilter_BadPFMuon==1 && passFilter_EcalDeadCellTriggerPrimitive==1 && passFilter_eeBadSc==1 && passFilter_globalSuperTightHalo2016==1 && passFilter_goodVertices==1 && FourjetMass>1607 && Masymmetry<0.1 && DeltaEtaJJ<1.1 && DeltaR_First<2.0 && DeltaR_Second<2.0 && alpha>0.1 && ( (doJSON==0) || (doJSON==1 && PassJSON==1) ) )
+	if(FourjetMass>1607 && Masymmetry<0.1 && DeltaEtaJJ<1.1 && DeltaR_First<2.0 && DeltaR_Second<2.0 && alpha>0.1 && ( (doJSON==0) || (doJSON==1 && PassJSON==1) ) )
  	//if(FourjetMass>1607 && DeltaEtaJJ<1.1 && ( (doJSON==0) || (doJSON==1 && PassJSON==1) ) )
 	{
 		Run->Fill(run);
@@ -278,8 +284,8 @@ void create_input_forStabilityPlots_4jets_Run3(Int_t doJSON)
   } 
 
   TFile *foutput;
-  if(doJSON==0) foutput =  new TFile("output_4jets/Runs_2022CDEFG_2023BC_47p11fb-1_stability.root","RECREATE");
-  if(doJSON==1) foutput =  new TFile("output_4jets/Runs_2022CDEFG_2023BC_47p11fb-1_stability_cert.root","RECREATE");
+  if(doJSON==0) foutput =  new TFile("output_4jets/Runs_2022CDEFG_2023BC_52p67fb-1_stability.root","RECREATE");
+  if(doJSON==1) foutput =  new TFile("output_4jets/Runs_2022CDEFG_2023BC_52p67fb-1_stability_cert.root","RECREATE");
 
   foutput->cd();
    

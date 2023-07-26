@@ -59,9 +59,9 @@ void plot_xsec_4jets_Run3()
    char name[1000],dirname[1000];
 
    TFile *inf; 
-   inf = TFile::Open("output_4jets/Runs_2022CDEFG_2023BC_47p01fb-1_stability_cert.root");
+   inf = TFile::Open("output_4jets/Runs_2022CDEFG_2023BC_52p67fb-1_stability_cert.root");
 
-   double yaxismin(0.),yaxismax(1000.); TString titly="Cross Section [pb]";TString titlx="Run index";
+   double yaxismin(0.),yaxismax(1000.); TString titly="Four-jet cross section [pb]";TString titlx="Run index";
 
    TH1F *h, *h_all, *hbig;  
 
@@ -81,10 +81,10 @@ void plot_xsec_4jets_Run3()
    cms->SetBorderSize(0);
    cms->SetFillColor(0);
 
-   TPaveText *lumileg = new TPaveText(0.664,0.92,0.864,0.96,"NDC");
+   TPaveText *lumileg = new TPaveText(0.655,0.92,0.855,0.96,"NDC");
    lumileg->SetFillColor(0);
    lumileg->SetBorderSize(0);
-   lumileg->AddText("47 fb^{-1} (13.6 TeV)");
+   lumileg->AddText("52.67 fb^{-1} (13.6 TeV)");
    lumileg->SetTextFont(42);
    lumileg->SetTextSize(0.045);
    lumileg->Draw();
@@ -95,7 +95,7 @@ void plot_xsec_4jets_Run3()
    int NRuns(0);
       
 
-   sprintf(name,"Cert_Run3_47fb-1.txt");
+   sprintf(name,"Cert_Run3_52p67fb-1.txt");
    ifstream txtFile;
    txtFile.open(name);
    double lumi;
@@ -156,39 +156,46 @@ void plot_xsec_4jets_Run3()
 
    h_all->Draw("");
 
-   double m,s,sm,ss;
+   //double m,s,sm,ss;
 
-   WeightedMean(hbig,m,s,sm,ss,1);// 2 to fit with pol1	 
+   //WeightedMean(hbig,m,s,sm,ss,1);// 2 to fit with pol1	 
 
-   for(Int_t jj=1;jj<hbig->GetNbinsX();jj++)
+   //for(Int_t jj=1;jj<hbig->GetNbinsX();jj++)
+   //{
+     //    double value = hbig->GetBinContent(jj);
+      //   double diff = TMath::Abs(value-m);
+         //if((diff/m)>0.05) cout << " % change " << diff/m << " jj " << jj <<  " run " << RUN_NUMBERS[jj] << endl;
+   //}
+
+   for(int i=0;i<hbig->GetNbinsX();i++)
    {
-         double value = hbig->GetBinContent(jj);
-         double diff = TMath::Abs(value-m);
-         if((diff/m)>0.05) cout << " % change " << diff/m << " jj " << jj <<  " run " << RUN_NUMBERS[jj] << endl;
+	if(hbig->GetBinError(i)>1.5) hbig->SetBinContent(i,-1.);
    }
-
+   
 	 
    hbig->GetXaxis()->SetTitle(titlx);
    hbig->GetYaxis()->SetTitle(titly);
 
-   hbig->GetXaxis()->SetTitleSize(0.04);
-   hbig->GetYaxis()->SetTitleSize(0.04);
-   hbig->GetYaxis()->SetTitleOffset(1.1);
+   hbig->GetXaxis()->SetTitleSize(0.05);
+   hbig->GetYaxis()->SetTitleSize(0.05);
+   hbig->GetYaxis()->SetTitleOffset(0.8);
+   hbig->GetXaxis()->SetTitleOffset(0.9);
 	 
    hbig->SetStats(0);
    //hbig->GetYaxis()->SetRangeUser(0.,2.*m+2.*s); // 5
-   hbig->GetYaxis()->SetRangeUser(0.,16.);
+   hbig->GetYaxis()->SetRangeUser(0.,8.);
    hbig->SetMarkerStyle(8);
    hbig->SetMarkerColor(kBlack);
    hbig->SetLineColor(kBlack);
    hbig->Draw("pe1");
 
-   TLegend *leg1 = new TLegend(0.16,0.71,0.16,0.86,"");
+   //TLegend *leg1 = new TLegend(0.16,0.71,0.16,0.86,"");
+   TLegend *leg1 = new TLegend(0.25,0.83,0.25,0.88,"");
    leg1->SetTextSize(0.04);
    leg1->SetBorderSize(0);
-   leg1->AddEntry((TObject*)0,"Paired dijet analysis","");
-   leg1->AddEntry((TObject*)0,"4 leading AK4 jets","");
-   leg1->AddEntry((TObject*)0,"|#eta| < 2.5, p_{T} > 80 GeV","");
+   leg1->AddEntry((TObject*)0,"Paired dijet analysis, all cuts applied","");
+   //leg1->AddEntry((TObject*)0,"4 leading AK4 jets","");
+   //leg1->AddEntry((TObject*)0,"|#eta| < 2.5, p_{T} > 80 GeV","");
    leg1->Draw();
 
    TLegend *leg2 = new TLegend(0.55,0.67,0.55,0.87,"");
@@ -200,63 +207,69 @@ void plot_xsec_4jets_Run3()
    leg2->AddEntry((TObject*)0,"Mass asymmetry < 0.1","");
    leg2->AddEntry((TObject*)0,"#Delta R_{1,2} < 2","");
    leg2->AddEntry((TObject*)0,"#alpha > 0.1","");
-   leg2->Draw();
+   //leg2->Draw();
 
    cms->Draw();
    lumileg->Draw();
 
 
-   TLine *l1 = new TLine(107,0,107,10); //107 91
+   TLine *l1 = new TLine(107,0,107,6); //107 91
    l1->SetLineWidth(3);
    l1->SetLineColor(kRed);
    l1->Draw("same");
 
-   TLine *l2 = new TLine(152,0,152,10); //152  136
+   TLine *l2 = new TLine(152,0,152,6); //152  136
    l2->SetLineWidth(3);
    l2->SetLineColor(kRed);
    l2->Draw("same");
 
-   TLine *l3 = new TLine(203,0,203,10); //203  179
+   TLine *l3 = new TLine(203,0,203,6); //203  179
    l3->SetLineWidth(3);
    l3->SetLineColor(kRed);
    l3->Draw("same");
 
-   TLine *l4 = new TLine(320,0,320,10); //321  292
+   TLine *l4 = new TLine(320,0,320,6); //321  292
    l4->SetLineWidth(3);
    l4->SetLineColor(kRed);
    l4->Draw("same");
 
-   TLine *l5 = new TLine(341,0,341,12); //342  312
+   TLine *l5 = new TLine(341,0,341,7); //342  312
    l5->SetLineWidth(3);
    l5->SetLineColor(kGreen+2);
    l5->Draw("same");
 
-   TLine *l6 = new TLine(362,0,362,10); //363 330
+   TLine *l6 = new TLine(362,0,362,6); //363 330
    l6->SetLineWidth(3);
    l6->SetLineColor(kRed);
    l6->Draw("same");
 
+   TLine *horl = new TLine(0,2.25,484,2.25);
+   horl->SetLineWidth(4);
+   horl->SetLineColor(kBlue+1);
+   horl->SetLineStyle(kDashed);
+   horl->Draw("same");
+
    TLatex *latex1 = new TLatex();
    latex1->SetTextFont(42);
    latex1->SetTextColor(kGreen+2);
-   latex1->DrawLatex(370,10.5,"2023"); //345
-   latex1->DrawLatex(130,10.5,"2022");
+   latex1->DrawLatex(370,6.6,"2023"); //345
+   latex1->DrawLatex(130,6.6,"2022");
 
    TLatex *latex2 = new TLatex();
    latex2->SetTextFont(42);
    latex2->SetTextColor(kRed);
    latex2->SetTextSize(0.04);
-   latex2->DrawLatex(45,9,"C"); //40
-   latex2->DrawLatex(125,9,"D"); //107
-   latex2->DrawLatex(170,9,"E"); //153
-   latex2->DrawLatex(250,9,"F"); //230
-   latex2->DrawLatex(325,9,"G"); //295
-   latex2->DrawLatex(345,9,"B"); //315
-   latex2->DrawLatex(400,9,"C"); //370
+   latex2->DrawLatex(45,5.4,"C"); //40
+   latex2->DrawLatex(125,5.4,"D"); //107
+   latex2->DrawLatex(170,5.4,"E"); //153
+   latex2->DrawLatex(250,5.4,"F"); //230
+   latex2->DrawLatex(325,5.4,"G"); //295
+   latex2->DrawLatex(345,5.4,"B"); //315
+   latex2->DrawLatex(420,5.4,"C"); //370
 
 
-   c->SaveAs("output_4jets/plots/4jets_xsec_vs_run_2022CDEFG_2023BC_47p01fb-1.png");
-   c->SaveAs("output_4jets/plots/4jets_xsec_vs_run_2022CDEFG_2023BC_47p01fb-1.pdf");
+   c->SaveAs("output_4jets/plots_52p67fb-1/4jets_xsec_vs_run_2022CDEFG_2023BC_52p67fb-1.png");
+   c->SaveAs("output_4jets/plots_52p67fb-1/4jets_xsec_vs_run_2022CDEFG_2023BC_52p67fb-1.pdf");
 
 
 }
