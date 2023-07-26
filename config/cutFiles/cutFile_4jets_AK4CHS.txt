@@ -1,4 +1,4 @@
-JSON data/json/Cert_Collisions2022_355100_361580_Golden.json
+JSON data/json/Cert_Collisions2022_355100_362760_Golden.json
 #
 #############################     Example of file with list of cuts
 #
@@ -30,7 +30,6 @@ useJECs				1               -               -               -               -1
 noJECs                          0               -               -               -               -1
 # turn on/off shift JECs (value1 0: off, 1: on, value2: sign of the shifting. The value is taken from a txt file with JEC uncertainties) 
 shiftJECs                      0             -1.0               -               -               -1		
-# CSV discriminator values for btagged analysis
 #
 #
 #--------------------------------- Cuts (level 0,1,2,3 ... n) below --------------------------------------------
@@ -56,10 +55,6 @@ IdTightAK4CHS_j1            0.5          1.5                 -               -  
 IdTightAK4CHS_j2           0.5         1.5                 -               -               1       2  0 2.	  	  SAVE
 IdTightAK4CHS_j3          0.5         1.5                 -               -               1       2  0 2.	  	  SAVE
 IdTightAK4CHS_j4           0.5         1.5                 -               -               1       2  0 2.	  	  SAVE
-jetHflavourAK4CHS_j1	     -inf           +inf                -               -               1       100  0 100        SAVE
-jetHflavourAK4CHS_j2	     -inf           +inf                -               -               1       100  0 100        SAVE
-jetHflavourAK4CHS_j3	     -inf           +inf                -               -               1       100  0 100        SAVE
-jetHflavourAK4CHS_j4	     -inf           +inf                -               -               1       100  0 100        SAVE
 # no cut on these variables, just want to save histograms
 passHLT_PFHT780	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passHLT_PFHT890	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
@@ -82,8 +77,11 @@ passFilter_HBHENoise	     -inf           +inf                -	        -	       
 passFilter_HBHENoiseIso     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_EcalDeadCellTriggerPrimitive	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_BadPFMuon	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_BadPFMuonDz	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_BadChargedCandidate	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_eeBadSc	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_ecalBadCalib	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_hfNoisyHits	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 run		     -inf	    +inf		-		-		1	50  0 100000	  SAVE
 event		     -inf	    +inf		-		-		1	50  0 100000	  SAVE
 lumi		     -inf	    +inf		-		-		1	50  0 10000	  SAVE
@@ -118,7 +116,6 @@ neutrMultAK4CHS_j1         -inf	    +inf		-		-		1	100 0 100         SAVE
 photonMultAK4CHS_j1        -inf	    +inf		-		-		1	100 0 100         SAVE 
 jetJecAK4CHS_j1            -inf        +inf                -               -               1       90  0 3           SAVE
 jetJecUncAK4CHS_j1         -inf        +inf                -               -               1       90  0 3           SAVE
-jetCSVAK4CHS_j1	     -inf           +inf                -               -               1       100 0 1           SAVE
 pTAK4CHS_j2	     -inf	    +inf		-	        -	        1	500 0 5000        SAVE
 etaAK4CHS_j2            -inf           +inf                -               -               1       50  -2.5 2.5      SAVE
 phiAK4CHS_j2  	     -inf           +inf                -               -               1       200 -3.15 3.15    SAVE
@@ -135,7 +132,6 @@ neutrMultAK4CHS_j2         -inf	    +inf		-		-		1	100 0 100         SAVE
 photonMultAK4CHS_j2        -inf	    +inf		-		-		1	100 0 100         SAVE 
 jetJecAK4CHS_j2            -inf        +inf                -               -               1       90  0 3           SAVE
 jetJecUncAK4CHS_j2         -inf        +inf                -               -               1       90  0 3           SAVE
-jetCSVAK4CHS_j2         -inf           +inf                -               -               1       100 0 1           SAVE
 pTAK4CHS_j3	     -inf	    +inf		-	        -	        1	500 0 5000        SAVE
 etaAK4CHS_j3            -inf           +inf                -               -               1       50  -2.5 2.5      SAVE
 phiAK4CHS_j3  	     -inf           +inf                -               -               1       200 -3.15 3.15    SAVE
@@ -151,7 +147,6 @@ neutrMultAK4CHS_j3         -inf	    +inf		-		-		1	100 0 100         SAVE
 photonMultAK4CHS_j3        -inf	    +inf		-		-		1	100 0 100         SAVE 
 jetJecAK4CHS_j3            -inf        +inf                -               -               1       90  0 3           SAVE
 jetJecUncAK4CHS_j3         -inf        +inf                -               -               1       90  0 3           SAVE
-jetCSVAK4CHS_j3         -inf           +inf                -               -               1       100 0 1           SAVE
 pTAK4CHS_j4	     -inf	    +inf		-	        -	        1	500 0 5000        SAVE
 etaAK4CHS_j4            -inf           +inf                -               -               1       50  -2.5 2.5      SAVE
 phiAK4CHS_j4  	     -inf           +inf                -               -               1       200 -3.15 3.15    SAVE
@@ -167,7 +162,6 @@ neutrMultAK4CHS_j4         -inf	    +inf		-		-		1	100 0 100         SAVE
 photonMultAK4CHS_j4        -inf	    +inf		-		-		1	100 0 100         SAVE 
 jetJecAK4CHS_j4            -inf        +inf                -               -               1       90  0 3           SAVE
 jetJecUncAK4CHS_j4         -inf        +inf                -               -               1       90  0 3           SAVE
-jetCSVAK4CHS_j4         -inf           +inf                -               -               1       100 0 1           SAVE
 Dijet_MassAK4CHS_1  	     -inf           +inf                -               -               1       1000 0 10000      SAVE	
 Dijet_MassAK4CHS_2  	     -inf           +inf                -               -               1       1000 0 10000      SAVE	
 FourjetMassAK4CHS  	     -inf           +inf                -               -               1       1000 0 10000      SAVE	
