@@ -248,7 +248,7 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
    ////// these lines may need to be updated.                                 /////    
    Long64_t nbytes = 0, nb = 0;
    for (Long64_t jentry=0; jentry<nentries;jentry++) { //event loop
-   //for (Long64_t jentry=0; jentry<100000;jentry++) {
+   //for (Long64_t jentry=0; jentry<10000;jentry++) {
    //for (Long64_t jentry=0; jentry<nentries;jentry=jentry+10) {   //takes every 10th en
      Long64_t ientry = LoadTree(jentry);
      if (ientry < 0) break;
@@ -374,6 +374,14 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
 	   }
        }
 
+   // Create JetID vector for every jet in the event (do not use the existing jetID vector from the big trees)
+     std::vector<int> *JetID = new std::vector<int>;
+
+     for(size_t ijet=0; ijet<no_jets_AK8; ++ijet)
+     {
+	 int passJetID = ( jetNhfAK8->at(ijet)<0.99 && jetNemfAK8->at(ijet)<0.9 && chMultAK8->at(ijet)+neMultAK8->at(ijet)>1 && jetMufAK8->at(ijet)<0.8 && jetChfAK8->at(ijet)>0.01 && chMultAK8->at(ijet)>0 && jetCemfAK8->at(ijet)<0.8 );
+         JetID->push_back(passJetID);
+     }
 
      //#############################################################
      //########## NOTE: from now on sortedJetIdx[ijet] should be used
@@ -401,7 +409,7 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
 
 	 //////////////cout << "id Tight jet" << sortedJetIdx[1] << " = " << idTAK8->at(sortedJetIdx[1]) << endl;
 	 if(fabs(jetEtaAK8->at(sortedJetIdx[ijet])) < getPreCutValue1("jetFidRegion")
-	    && idTAK8->at(sortedJetIdx[ijet]) == getPreCutValue1("tightJetID") && jetCemfAK8->at(sortedJetIdx[ijet]) < 0.8
+	    && JetID->at(sortedJetIdx[ijet]) == getPreCutValue1("tightJetID") 
 	    && (jecFactors[sortedJetIdx[ijet]]/jetJecAK8->at(sortedJetIdx[ijet]))*jetPtAK8->at(sortedJetIdx[ijet]) > getPreCutValue1("ptCut"))
 	   {
 	     NAK8 += 1;
@@ -417,7 +425,7 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
        for(size_t j=0; j<no_jets_AK8; ++j)
        {
 	 if( !(jetEtaAK8->at(sortedJetIdx[j]) < getPreCutValue1("jetFidRegion")
-	       && idTAK8->at(sortedJetIdx[j]) == getPreCutValue1("tightJetID") && jetCemfAK8->at(sortedJetIdx[j]) < 0.8 ) ) continue;
+	       && JetID->at(sortedJetIdx[j]) == getPreCutValue1("tightJetID") ) ) continue;
 
 	 double rescale = (jecFactors[sortedJetIdx[j]]/jetJecAK8->at(sortedJetIdx[j]));
 
@@ -456,10 +464,10 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
 
        if(no_jets_AK8>=2)
 	 {
-	   if(fabs(jetEtaAK8->at(sortedJetIdx[0])) < getPreCutValue1("jetFidRegion")  &&  jetCemfAK8->at(sortedJetIdx[0]) < 0.8 && idTAK8->at(sortedJetIdx[0]) == getPreCutValue1("tightJetID")
+	   if(fabs(jetEtaAK8->at(sortedJetIdx[0])) < getPreCutValue1("jetFidRegion")  &&  JetID->at(sortedJetIdx[0]) == getPreCutValue1("tightJetID")
 	      && (jecFactors[sortedJetIdx[0]]/jetJecAK8->at(sortedJetIdx[0]))*jetPtAK8->at(sortedJetIdx[sortedJetIdx[0]]) > getPreCutValue1("pt0Cut"))
 	     {
-	       if(fabs(jetEtaAK8->at(sortedJetIdx[1])) < getPreCutValue1("jetFidRegion") && jetCemfAK8->at(sortedJetIdx[1]) < 0.8 && idTAK8->at(sortedJetIdx[1]) == getPreCutValue1("tightJetID")
+	       if(fabs(jetEtaAK8->at(sortedJetIdx[1])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[1]) == getPreCutValue1("tightJetID")
 		  && (jecFactors[sortedJetIdx[1]]/jetJecAK8->at(sortedJetIdx[1]))*jetPtAK8->at(sortedJetIdx[1]) > getPreCutValue1("pt1Cut"))
 		 {
 		   TLorentzVector jet1, jet2, jet1_shift, jet2_shift;
@@ -481,7 +489,7 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
 		       TLorentzVector currentJet;
 		       
 		       if(fabs(jetEtaAK8->at(sortedJetIdx[ijet])) < getPreCutValue1("jetFidRegion") 
-			  && idTAK8->at(sortedJetIdx[ijet]) == getPreCutValue1("tightJetID") && jetCemfAK8->at(sortedJetIdx[ijet]) < 0.8
+			  && JetID->at(sortedJetIdx[ijet]) == getPreCutValue1("tightJetID") 
 			  && (jecFactors[sortedJetIdx[ijet]]/jetJecAK8->at(sortedJetIdx[ijet]))*jetPtAK8->at(sortedJetIdx[ijet]) > getPreCutValue1("ptCut"))
 			 {
 			   TLorentzVector currentJet, currentJet_shift;
@@ -557,10 +565,10 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
        //cout << "eta j1 " << jetEtaAK8->at(sortedJetIdx[0]) << endl;
        //cout << "pt j1 " << (jecFactors[sortedJetIdx[0]]/jetJecAK8->at(sortedJetIdx[0])) *jetPtAK8->at(sortedJetIdx[0]) << endl;
        {
-	 if(fabs(jetEtaAK8->at(sortedJetIdx[0])) < getPreCutValue1("jetFidRegion") && jetCemfAK8->at(sortedJetIdx[0]) < 0.8 && idTAK8->at(sortedJetIdx[0]) == getPreCutValue1("tightJetID")
+	 if(fabs(jetEtaAK8->at(sortedJetIdx[0])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[0]) == getPreCutValue1("tightJetID")
 	    && (jecFactors[sortedJetIdx[0]]/jetJecAK8->at(sortedJetIdx[0]))*jetPtAK8->at(sortedJetIdx[0]) > getPreCutValue1("pt0Cut"))
 	   {
-	     if(fabs(jetEtaAK8->at(sortedJetIdx[1])) < getPreCutValue1("jetFidRegion")  && jetCemfAK8->at(sortedJetIdx[1]) < 0.8 &&  idTAK8->at(sortedJetIdx[1]) == getPreCutValue1("tightJetID")
+	     if(fabs(jetEtaAK8->at(sortedJetIdx[1])) < getPreCutValue1("jetFidRegion") && JetID->at(sortedJetIdx[1]) == getPreCutValue1("tightJetID")
 		&& (jecFactors[sortedJetIdx[1]]/jetJecAK8->at(sortedJetIdx[1]))*jetPtAK8->at(sortedJetIdx[1]) > getPreCutValue1("pt1Cut"))
 	       {
 		 //cout << "filling AK8j1 and AK8j2" << endl;
@@ -611,7 +619,7 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
      if( AK8jets.size() >=1 ){
        //cout << "AK8jets.size() " <<  AK8jets.size() << endl;
        //cout << "IdTight_j1 : " << idTAK8->at(sortedJetIdx[0]) << endl;
-       fillVariableWithValue( "IdTight_j1",idTAK8->at(sortedJetIdx[0]));
+       fillVariableWithValue( "IdTight_j1",JetID->at(sortedJetIdx[0]));
        fillVariableWithValue( "pTAK8_j1", AK8jets[0].Pt());
        fillVariableWithValue( "etaAK8_j1", AK8jets[0].Eta());
        fillVariableWithValue( "phiAK8_j1", AK8jets[0].Phi());
@@ -621,8 +629,8 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
        fillVariableWithValue( "jetJecAK8_j1", jecFactors[sortedJetIdx[0]] );
        fillVariableWithValue( "jetJecUncAK8_j1", jecUncertainty[sortedJetIdx[0]] );
        
-       fillVariableWithValue( "jetCSVAK8_j1", jetCSVAK8->at(sortedJetIdx[0]) );
-       fillVariableWithValue("jetHflavour_j1",hFlavourAK8->at(sortedJetIdx[0]));
+       //fillVariableWithValue( "jetCSVAK8_j1", jetCSVAK8->at(sortedJetIdx[0]) );
+       //fillVariableWithValue("jetHflavour_j1",hFlavourAK8->at(sortedJetIdx[0]));
 
        //jetID
        fillVariableWithValue( "neutrHadEnFrac_j1", jetNhfAK8->at(sortedJetIdx[0]));
@@ -638,15 +646,15 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
      }
      if( AK8jets.size() >=2 ){
        //cout << "IdTight_j2 : " << idTAK8->at(sortedJetIdx[1]) << endl << endl;
-       fillVariableWithValue( "IdTight_j2",idTAK8->at(sortedJetIdx[1]));
+       fillVariableWithValue( "IdTight_j2",JetID->at(sortedJetIdx[1]));
        fillVariableWithValue( "pTAK8_j2", AK8jets[1].Pt() );
        fillVariableWithValue( "etaAK8_j2", AK8jets[1].Eta());
        fillVariableWithValue( "phiAK8_j2", AK8jets[1].Phi());
        //fillVariableWithValue( "jetPtAK8matchCaloJet_j2", jetPtAK8matchCaloJet->at(sortedJetIdx[1]));
        fillVariableWithValue( "jetJecAK8_j2", jecFactors[sortedJetIdx[1]]); 
        fillVariableWithValue( "jetJecUncAK8_j2", jecUncertainty[sortedJetIdx[1]] );
-       fillVariableWithValue( "jetCSVAK8_j2", jetCSVAK8->at(sortedJetIdx[1]) );
-       fillVariableWithValue("jetHflavour_j2",hFlavourAK8->at(sortedJetIdx[1]));
+       //fillVariableWithValue( "jetCSVAK8_j2", jetCSVAK8->at(sortedJetIdx[1]) );
+       //fillVariableWithValue("jetHflavour_j2",hFlavourAK8->at(sortedJetIdx[1]));
 
        //jetID
        fillVariableWithValue( "neutrHadEnFrac_j2", jetNhfAK8->at(sortedJetIdx[1]));
@@ -769,9 +777,12 @@ TH1F* h_CEMF_test1 = new TH1F("h_CEMF_test1", "h_CEMF_test1", 50, 0, 1.0);
      fillVariableWithValue("passFilter_HBHENoiseIso",passFilter_HBHENoiseIso);
      fillVariableWithValue("passFilter_EcalDeadCellTriggerPrimitive",passFilter_EcalDeadCellTriggerPrimitive);
      fillVariableWithValue("passFilter_BadPFMuon",passFilter_BadPFMuon);
+     fillVariableWithValue("passFilter_BadPFMuonDz",passFilter_BadPFMuonDz);
      fillVariableWithValue("passFilter_BadChargedCandidate",passFilter_BadChargedCandidate);
      fillVariableWithValue("passFilter_eeBadSc",passFilter_eeBadSc);
-  
+     fillVariableWithValue("passFilter_ecalBadCalib",passFilter_ecalBadCalib);
+     fillVariableWithValue("passFilter_hfNoisyHits",passFilter_hfNoisyHits);  
+
 
      // Evaluate cuts (but do not apply them)
      evaluateCuts();
@@ -1020,7 +1031,7 @@ h_CEMF_test2->Fill(jetCemfAK8->at(sortedJetIdx[1]));
    } // End loop over events
 
    //////////write histos 
-   for (int i=0; i<14; i++){//
+   for (int i=0; i<7; i++){//
      h_mjj_HLTpass[i]->Write();
      h_mjj_HLTpass_bb[i]->Write();
    }

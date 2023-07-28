@@ -87,8 +87,8 @@ weight	             -inf           +inf                -               -        
 evtBweight_m         -inf           +inf                -               -               1       1000 0 1          SAVE
 evtBweight_t	     -inf           +inf                -               -               1       1000 0 1          SAVE
 evtBweight_mt	     -inf           +inf                -               -               1       1000 0 1          SAVE
-jetHflavour_j1	     -inf           +inf                -               -               1       100  0 100        SAVE
-jetHflavour_j2	     -inf           +inf                -               -               1       100  0 100        SAVE
+#jetHflavour_j1	     -inf           +inf                -               -               1       100  0 100        SAVE
+#jetHflavour_j2	     -inf           +inf                -               -               1       100  0 100        SAVE
 
 mjj_shiftJEC         -inf           +inf                -               -               1       10000 0 10000      SAVE
 # no cut on these variables, just want to save histograms
@@ -113,8 +113,11 @@ passFilter_HBHENoise	     -inf           +inf                -	        -	       
 passFilter_HBHENoiseIso     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_EcalDeadCellTriggerPrimitive	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_BadPFMuon	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_BadPFMuonDz	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_BadChargedCandidate	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 passFilter_eeBadSc	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_ecalBadCalib	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
+passFilter_hfNoisyHits	     -inf           +inf                -	        -	        1       2  0 2.	  	  SAVE
 run		     -inf	    +inf		-		-		1	50  0 100000	  SAVE
 event		     -inf	    +inf		-		-		1	50  0 100000	  SAVE
 lumi		     -inf	    +inf		-		-		1	50  0 10000	  SAVE
@@ -145,7 +148,7 @@ photonMult_j1        -inf	    +inf		-		-		1	100 0 100         SAVE
 jetPtAK8matchCaloJet_j1 -inf        +inf                 -	        -	        1	500 0 5000        SAVE
 jetJecAK8_j1            -inf        +inf                -               -               1       90  0 3           SAVE
 jetJecUncAK8_j1         -inf        +inf                -               -               1       90  0 3           SAVE
-jetCSVAK8_j1	     -inf           +inf                -               -               1       100 0 1           SAVE
+#jetCSVAK8_j1	     -inf           +inf                -               -               1       100 0 1           SAVE
 pTAK8_j2	     -inf	    +inf		-	        -	        1	500 0 5000        SAVE
 etaAK8_j2            -inf           +inf                -               -               1       50  -2.5 2.5      SAVE
 phiAK8_j2  	     -inf           +inf                -               -               1       200 -3.15 3.15    SAVE
@@ -165,7 +168,7 @@ photonMult_j2        -inf	    +inf		-		-		1	100 0 100         SAVE
 jetPtAK8matchCaloJet_j2 -inf        +inf                 -	        -	        1	500 0 5000        SAVE
 jetJecAK8_j2            -inf        +inf                -               -               1       90  0 3           SAVE
 jetJecUncAK8_j2         -inf        +inf                -               -               1       90  0 3           SAVE
-jetCSVAK8_j2         -inf           +inf                -               -               1       100 0 1           SAVE
+#jetCSVAK8_j2         -inf           +inf                -               -               1       100 0 1           SAVE
 CosThetaStarWJ	     -inf           +inf   		-		-		1	200 -1 1  	  SAVE	
 CosThetaStarAK8	     -inf           +inf   		-		-		1	200 -1 1  	  SAVE
 Dijet_MassAK8  	     -inf           +inf                -               -               1       1000 0 10000      SAVE	
