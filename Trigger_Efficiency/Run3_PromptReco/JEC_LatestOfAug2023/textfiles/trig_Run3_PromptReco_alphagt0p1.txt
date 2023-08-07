@@ -1,0 +1,207 @@
+Mass =  [1 - 3] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [3 - 6] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [6 - 10] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [10 - 16] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [16 - 23] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [23 - 31] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [31 - 40] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [40 - 50] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [50 - 61] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [61 - 74] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [74 - 88] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [88 - 103] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [103 - 119] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [119 - 137] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [137 - 156] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [156 - 176] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [176 - 197] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [197 - 220] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [220 - 244] , Numerator = 0 , Denominator = 1 , Trig. Efficiency = 0 , errorL = -1 , errorU = 0.659 , Inefficiency = 1
+Mass =  [244 - 270] , Numerator = 0 , Denominator = 1 , Trig. Efficiency = 0 , errorL = -1 , errorU = 0.659 , Inefficiency = 1
+Mass =  [270 - 296] , Numerator = 0 , Denominator = 3 , Trig. Efficiency = 0 , errorL = -1 , errorU = 0.301 , Inefficiency = 1
+Mass =  [296 - 325] , Numerator = 0 , Denominator = 8 , Trig. Efficiency = 0 , errorL = -1 , errorU = 0.126 , Inefficiency = 1
+Mass =  [325 - 354] , Numerator = 0 , Denominator = 13 , Trig. Efficiency = 0 , errorL = -1 , errorU = 0.079 , Inefficiency = 1
+Mass =  [354 - 386] , Numerator = 0 , Denominator = 102 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [386 - 419] , Numerator = 1 , Denominator = 395 , Trig. Efficiency = 0.00253165 , errorL = 0.00252844 , errorU = 0.00252844 , Inefficiency = 0.997468
+Mass =  [419 - 453] , Numerator = 1 , Denominator = 1043 , Trig. Efficiency = 0.000958773 , errorL = 0.000958313 , errorU = 0.000958313 , Inefficiency = 0.999041
+Mass =  [453 - 489] , Numerator = 0 , Denominator = 2034 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [489 - 526] , Numerator = 1 , Denominator = 2846 , Trig. Efficiency = 0.00035137 , errorL = 0.000351309 , errorU = 0.000351309 , Inefficiency = 0.999649
+Mass =  [526 - 565] , Numerator = 2 , Denominator = 3713 , Trig. Efficiency = 0.000538648 , errorL = 0.000380779 , errorU = 0.000380779 , Inefficiency = 0.999461
+Mass =  [565 - 606] , Numerator = 0 , Denominator = 4237 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [606 - 649] , Numerator = 6 , Denominator = 4778 , Trig. Efficiency = 0.00125576 , errorL = 0.000512338 , errorU = 0.000512338 , Inefficiency = 0.998744
+Mass =  [649 - 693] , Numerator = 8 , Denominator = 4481 , Trig. Efficiency = 0.00178532 , errorL = 0.000630641 , errorU = 0.000630641 , Inefficiency = 0.998215
+Mass =  [693 - 740] , Numerator = 20 , Denominator = 4615 , Trig. Efficiency = 0.00433369 , errorL = 0.000966941 , errorU = 0.000966941 , Inefficiency = 0.995666
+Mass =  [740 - 788] , Numerator = 41 , Denominator = 4182 , Trig. Efficiency = 0.00980392 , errorL = 0.00152359 , errorU = 0.00152359 , Inefficiency = 0.990196
+Mass =  [788 - 838] , Numerator = 68 , Denominator = 3845 , Trig. Efficiency = 0.0176853 , errorL = 0.00212561 , errorU = 0.00212561 , Inefficiency = 0.982315
+Mass =  [838 - 890] , Numerator = 148 , Denominator = 3503 , Trig. Efficiency = 0.0422495 , errorL = 0.00339873 , errorU = 0.00339873 , Inefficiency = 0.95775
+Mass =  [890 - 944] , Numerator = 249 , Denominator = 3103 , Trig. Efficiency = 0.0802449 , errorL = 0.00487701 , errorU = 0.00487701 , Inefficiency = 0.919755
+Mass =  [944 - 1000] , Numerator = 389 , Denominator = 2593 , Trig. Efficiency = 0.150019 , errorL = 0.00701256 , errorU = 0.00701256 , Inefficiency = 0.849981
+Mass =  [1000 - 1058] , Numerator = 545 , Denominator = 2340 , Trig. Efficiency = 0.232906 , errorL = 0.00873789 , errorU = 0.00873789 , Inefficiency = 0.767094
+Mass =  [1058 - 1118] , Numerator = 807 , Denominator = 1931 , Trig. Efficiency = 0.417918 , errorL = 0.011224 , errorU = 0.011224 , Inefficiency = 0.582082
+Mass =  [1118 - 1181] , Numerator = 958 , Denominator = 1661 , Trig. Efficiency = 0.576761 , errorL = 0.0121229 , errorU = 0.0121229 , Inefficiency = 0.423239
+Mass =  [1181 - 1246] , Numerator = 1014 , Denominator = 1415 , Trig. Efficiency = 0.716608 , errorL = 0.01198 , errorU = 0.01198 , Inefficiency = 0.283392
+Mass =  [1246 - 1313] , Numerator = 975 , Denominator = 1162 , Trig. Efficiency = 0.839071 , errorL = 0.0107799 , errorU = 0.0107799 , Inefficiency = 0.160929
+Mass =  [1313 - 1383] , Numerator = 901 , Denominator = 968 , Trig. Efficiency = 0.930785 , errorL = 0.00815806 , errorU = 0.00815806 , Inefficiency = 0.0692149
+Mass =  [1383 - 1455] , Numerator = 746 , Denominator = 777 , Trig. Efficiency = 0.960103 , errorL = 0.00702132 , errorU = 0.00702132 , Inefficiency = 0.039897
+Mass =  [1455 - 1530] , Numerator = 646 , Denominator = 660 , Trig. Efficiency = 0.978788 , errorL = 0.00560873 , errorU = 0.00560873 , Inefficiency = 0.0212121
+Mass =  [1530 - 1607] , Numerator = 515 , Denominator = 521 , Trig. Efficiency = 0.988484 , errorL = 0.00467437 , errorU = 0.00467437 , Inefficiency = 0.0115163
+Mass =  [1607 - 1687] , Numerator = 423 , Denominator = 423 , Trig. Efficiency = 1 , errorL = 0 , errorU = 0 , Inefficiency = 0
+Mass =  [1687 - 1770] , Numerator = 339 , Denominator = 339 , Trig. Efficiency = 1 , errorL = 0 , errorU = 0 , Inefficiency = 0
+Mass =  [1770 - 1856] , Numerator = 269 , Denominator = 269 , Trig. Efficiency = 1 , errorL = 0 , errorU = 0 , Inefficiency = 0
+Mass =  [1856 - 1945] , Numerator = 227 , Denominator = 227 , Trig. Efficiency = 1 , errorL = 0 , errorU = 0 , Inefficiency = 0
+Mass =  [1945 - 2037] , Numerator = 182 , Denominator = 182 , Trig. Efficiency = 1 , errorL = 0 , errorU = 0 , Inefficiency = 0
+Mass =  [2037 - 2132] , Numerator = 143 , Denominator = 143 , Trig. Efficiency = 1 , errorL = 0 , errorU = 0 , Inefficiency = 0
+Mass =  [2132 - 2231] , Numerator = 99 , Denominator = 99 , Trig. Efficiency = 1 , errorL = 0.011 , errorU = 0 , Inefficiency = 0
+Mass =  [2231 - 2332] , Numerator = 92 , Denominator = 92 , Trig. Efficiency = 1 , errorL = 0.012 , errorU = 0 , Inefficiency = 0
+Mass =  [2332 - 2438] , Numerator = 60 , Denominator = 60 , Trig. Efficiency = 1 , errorL = 0.018 , errorU = 0 , Inefficiency = 0
+Mass =  [2438 - 2546] , Numerator = 67 , Denominator = 67 , Trig. Efficiency = 1 , errorL = 0.016 , errorU = 0 , Inefficiency = 0
+Mass =  [2546 - 2659] , Numerator = 40 , Denominator = 40 , Trig. Efficiency = 1 , errorL = 0.027 , errorU = 0 , Inefficiency = 0
+Mass =  [2659 - 2775] , Numerator = 31 , Denominator = 31 , Trig. Efficiency = 1 , errorL = 0.034 , errorU = 0 , Inefficiency = 0
+Mass =  [2775 - 2895] , Numerator = 31 , Denominator = 31 , Trig. Efficiency = 1 , errorL = 0.034 , errorU = 0 , Inefficiency = 0
+Mass =  [2895 - 3019] , Numerator = 24 , Denominator = 24 , Trig. Efficiency = 1 , errorL = 0.044 , errorU = 0 , Inefficiency = 0
+Mass =  [3019 - 3147] , Numerator = 15 , Denominator = 15 , Trig. Efficiency = 1 , errorL = 0.069 , errorU = 0 , Inefficiency = 0
+Mass =  [3147 - 3279] , Numerator = 9 , Denominator = 9 , Trig. Efficiency = 1 , errorL = 0.113 , errorU = 0 , Inefficiency = 0
+Mass =  [3279 - 3416] , Numerator = 6 , Denominator = 6 , Trig. Efficiency = 1 , errorL = 0.164 , errorU = 0 , Inefficiency = 0
+Mass =  [3416 - 3558] , Numerator = 9 , Denominator = 9 , Trig. Efficiency = 1 , errorL = 0.113 , errorU = 0 , Inefficiency = 0
+Mass =  [3558 - 3704] , Numerator = 4 , Denominator = 4 , Trig. Efficiency = 1 , errorL = 0.236 , errorU = 0 , Inefficiency = 0
+Mass =  [3704 - 3854] , Numerator = 5 , Denominator = 5 , Trig. Efficiency = 1 , errorL = 0.193 , errorU = 0 , Inefficiency = 0
+Mass =  [3854 - 4010] , Numerator = 2 , Denominator = 2 , Trig. Efficiency = 1 , errorL = 0.416 , errorU = 0 , Inefficiency = 0
+Mass =  [4010 - 4171] , Numerator = 3 , Denominator = 3 , Trig. Efficiency = 1 , errorL = 0.301 , errorU = 0 , Inefficiency = 0
+Mass =  [4171 - 4337] , Numerator = 1 , Denominator = 1 , Trig. Efficiency = 1 , errorL = 0.659 , errorU = 0 , Inefficiency = 0
+Mass =  [4337 - 4509] , Numerator = 3 , Denominator = 3 , Trig. Efficiency = 1 , errorL = 0.301 , errorU = 0 , Inefficiency = 0
+Mass =  [4509 - 4686] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [4686 - 4869] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [4869 - 5058] , Numerator = 1 , Denominator = 1 , Trig. Efficiency = 1 , errorL = 0.659 , errorU = 0 , Inefficiency = 0
+Mass =  [5058 - 5253] , Numerator = 1 , Denominator = 1 , Trig. Efficiency = 1 , errorL = 0.659 , errorU = 0 , Inefficiency = 0
+Mass =  [5253 - 5455] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [5455 - 5663] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [5663 - 5877] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [5877 - 6099] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [6099 - 6328] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [6328 - 6564] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [6564 - 6808] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [6808 - 7060] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [7060 - 7320] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [7320 - 7589] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [7589 - 7866] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [7866 - 8152] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [8152 - 8447] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [8447 - 8752] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [8752 - 9067] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [9067 - 9391] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [9391 - 9726] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [9726 - 10072] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [10072 - 10430] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [10430 - 10798] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [10798 - 11179] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [11179 - 11571] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [11571 - 11977] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [11977 - 12395] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [12395 - 12827] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [12827 - 13272] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [13272 - 13732] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+Mass =  [13732 - 14000] , Numerator = 0 , Denominator = 0 , Trig. Efficiency = 0 , errorL = 0 , errorU = 0 , Inefficiency = 1
+For JetMET dataset: 
+Mass = [1 - 3] , N = 0 , 1/sqrt(N) = 0
+Mass = [3 - 6] , N = 0 , 1/sqrt(N) = 0
+Mass = [6 - 10] , N = 0 , 1/sqrt(N) = 0
+Mass = [10 - 16] , N = 0 , 1/sqrt(N) = 0
+Mass = [16 - 23] , N = 0 , 1/sqrt(N) = 0
+Mass = [23 - 31] , N = 0 , 1/sqrt(N) = 0
+Mass = [31 - 40] , N = 0 , 1/sqrt(N) = 0
+Mass = [40 - 50] , N = 0 , 1/sqrt(N) = 0
+Mass = [50 - 61] , N = 0 , 1/sqrt(N) = 0
+Mass = [61 - 74] , N = 0 , 1/sqrt(N) = 0
+Mass = [74 - 88] , N = 0 , 1/sqrt(N) = 0
+Mass = [88 - 103] , N = 0 , 1/sqrt(N) = 0
+Mass = [103 - 119] , N = 0 , 1/sqrt(N) = 0
+Mass = [119 - 137] , N = 0 , 1/sqrt(N) = 0
+Mass = [137 - 156] , N = 0 , 1/sqrt(N) = 0
+Mass = [156 - 176] , N = 0 , 1/sqrt(N) = 0
+Mass = [176 - 197] , N = 0 , 1/sqrt(N) = 0
+Mass = [197 - 220] , N = 0 , 1/sqrt(N) = 0
+Mass = [220 - 244] , N = 1 , 1/sqrt(N) = 1
+Mass = [244 - 270] , N = 0 , 1/sqrt(N) = 0
+Mass = [270 - 296] , N = 2 , 1/sqrt(N) = 0.707107
+Mass = [296 - 325] , N = 1 , 1/sqrt(N) = 1
+Mass = [325 - 354] , N = 1 , 1/sqrt(N) = 1
+Mass = [354 - 386] , N = 1 , 1/sqrt(N) = 1
+Mass = [386 - 419] , N = 2 , 1/sqrt(N) = 0.707107
+Mass = [419 - 453] , N = 5 , 1/sqrt(N) = 0.447214
+Mass = [453 - 489] , N = 4 , 1/sqrt(N) = 0.5
+Mass = [489 - 526] , N = 14 , 1/sqrt(N) = 0.267261
+Mass = [526 - 565] , N = 30 , 1/sqrt(N) = 0.182574
+Mass = [565 - 606] , N = 96 , 1/sqrt(N) = 0.102062
+Mass = [606 - 649] , N = 235 , 1/sqrt(N) = 0.0652328
+Mass = [649 - 693] , N = 525 , 1/sqrt(N) = 0.0436436
+Mass = [693 - 740] , N = 1158 , 1/sqrt(N) = 0.0293864
+Mass = [740 - 788] , N = 2429 , 1/sqrt(N) = 0.0202902
+Mass = [788 - 838] , N = 4674 , 1/sqrt(N) = 0.014627
+Mass = [838 - 890] , N = 9259 , 1/sqrt(N) = 0.0103925
+Mass = [890 - 944] , N = 16797 , 1/sqrt(N) = 0.00771586
+Mass = [944 - 1000] , N = 28812 , 1/sqrt(N) = 0.00589133
+Mass = [1000 - 1058] , N = 45458 , 1/sqrt(N) = 0.00469024
+Mass = [1058 - 1118] , N = 63521 , 1/sqrt(N) = 0.00396772
+Mass = [1118 - 1181] , N = 78280 , 1/sqrt(N) = 0.00357416
+Mass = [1181 - 1246] , N = 82268 , 1/sqrt(N) = 0.00348646
+Mass = [1246 - 1313] , N = 77508 , 1/sqrt(N) = 0.00359192
+Mass = [1313 - 1383] , N = 68265 , 1/sqrt(N) = 0.00382737
+Mass = [1383 - 1455] , N = 56442 , 1/sqrt(N) = 0.00420919
+Mass = [1455 - 1530] , N = 45819 , 1/sqrt(N) = 0.00467172
+Mass = [1530 - 1607] , N = 35780 , 1/sqrt(N) = 0.00528664
+Mass = [1607 - 1687] , N = 27822 , 1/sqrt(N) = 0.00599523
+Mass = [1687 - 1770] , N = 21827 , 1/sqrt(N) = 0.00676866
+Mass = [1770 - 1856] , N = 16831 , 1/sqrt(N) = 0.00770806
+Mass = [1856 - 1945] , N = 13178 , 1/sqrt(N) = 0.00871115
+Mass = [1945 - 2037] , N = 10168 , 1/sqrt(N) = 0.00991704
+Mass = [2037 - 2132] , N = 7838 , 1/sqrt(N) = 0.0112953
+Mass = [2132 - 2231] , N = 5943 , 1/sqrt(N) = 0.0129717
+Mass = [2231 - 2332] , N = 4589 , 1/sqrt(N) = 0.0147619
+Mass = [2332 - 2438] , N = 3543 , 1/sqrt(N) = 0.0168002
+Mass = [2438 - 2546] , N = 2792 , 1/sqrt(N) = 0.0189253
+Mass = [2546 - 2659] , N = 2095 , 1/sqrt(N) = 0.0218478
+Mass = [2659 - 2775] , N = 1549 , 1/sqrt(N) = 0.0254082
+Mass = [2775 - 2895] , N = 1105 , 1/sqrt(N) = 0.0300828
+Mass = [2895 - 3019] , N = 899 , 1/sqrt(N) = 0.0333519
+Mass = [3019 - 3147] , N = 646 , 1/sqrt(N) = 0.0393445
+Mass = [3147 - 3279] , N = 487 , 1/sqrt(N) = 0.0453143
+Mass = [3279 - 3416] , N = 392 , 1/sqrt(N) = 0.0505076
+Mass = [3416 - 3558] , N = 291 , 1/sqrt(N) = 0.058621
+Mass = [3558 - 3704] , N = 208 , 1/sqrt(N) = 0.0693375
+Mass = [3704 - 3854] , N = 150 , 1/sqrt(N) = 0.0816497
+Mass = [3854 - 4010] , N = 119 , 1/sqrt(N) = 0.0916698
+Mass = [4010 - 4171] , N = 69 , 1/sqrt(N) = 0.120386
+Mass = [4171 - 4337] , N = 44 , 1/sqrt(N) = 0.150756
+Mass = [4337 - 4509] , N = 42 , 1/sqrt(N) = 0.154303
+Mass = [4509 - 4686] , N = 29 , 1/sqrt(N) = 0.185695
+Mass = [4686 - 4869] , N = 15 , 1/sqrt(N) = 0.258199
+Mass = [4869 - 5058] , N = 19 , 1/sqrt(N) = 0.229416
+Mass = [5058 - 5253] , N = 14 , 1/sqrt(N) = 0.267261
+Mass = [5253 - 5455] , N = 4 , 1/sqrt(N) = 0.5
+Mass = [5455 - 5663] , N = 3 , 1/sqrt(N) = 0.57735
+Mass = [5663 - 5877] , N = 0 , 1/sqrt(N) = 0
+Mass = [5877 - 6099] , N = 0 , 1/sqrt(N) = 0
+Mass = [6099 - 6328] , N = 1 , 1/sqrt(N) = 1
+Mass = [6328 - 6564] , N = 1 , 1/sqrt(N) = 1
+Mass = [6564 - 6808] , N = 0 , 1/sqrt(N) = 0
+Mass = [6808 - 7060] , N = 0 , 1/sqrt(N) = 0
+Mass = [7060 - 7320] , N = 0 , 1/sqrt(N) = 0
+Mass = [7320 - 7589] , N = 0 , 1/sqrt(N) = 0
+Mass = [7589 - 7866] , N = 0 , 1/sqrt(N) = 0
+Mass = [7866 - 8152] , N = 0 , 1/sqrt(N) = 0
+Mass = [8152 - 8447] , N = 0 , 1/sqrt(N) = 0
+Mass = [8447 - 8752] , N = 0 , 1/sqrt(N) = 0
+Mass = [8752 - 9067] , N = 0 , 1/sqrt(N) = 0
+Mass = [9067 - 9391] , N = 0 , 1/sqrt(N) = 0
+Mass = [9391 - 9726] , N = 0 , 1/sqrt(N) = 0
+Mass = [9726 - 10072] , N = 0 , 1/sqrt(N) = 0
+Mass = [10072 - 10430] , N = 0 , 1/sqrt(N) = 0
+Mass = [10430 - 10798] , N = 0 , 1/sqrt(N) = 0
+Mass = [10798 - 11179] , N = 0 , 1/sqrt(N) = 0
+Mass = [11179 - 11571] , N = 0 , 1/sqrt(N) = 0
+Mass = [11571 - 11977] , N = 0 , 1/sqrt(N) = 0
+Mass = [11977 - 12395] , N = 0 , 1/sqrt(N) = 0
+Mass = [12395 - 12827] , N = 0 , 1/sqrt(N) = 0
+Mass = [12827 - 13272] , N = 0 , 1/sqrt(N) = 0
+Mass = [13272 - 13732] , N = 0 , 1/sqrt(N) = 0
+Mass = [13732 - 14000] , N = 0 , 1/sqrt(N) = 0

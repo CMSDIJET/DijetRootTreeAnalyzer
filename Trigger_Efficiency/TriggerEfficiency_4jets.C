@@ -24,7 +24,9 @@ void TriggerEfficiency_4jets(char era[1024])
    double scale = 1.0; //makes sense only for the unprescaled trigger
 
    char txtname[1024];
-   sprintf(txtname,"2022_PromptReco/textfiles/trig_2022_PromptReco_era%s_alphagt0p1.txt",era);
+   //sprintf(txtname,"2022_PromptReco/JEC_Winter22Run3_RunCD_V2_DATA_and_Summer22EEPrompt22_RunFG_V1_DATA/textfiles/trig_Run%s_PromptReco_alphagt0p1.txt",era);
+   //sprintf(txtname,"2023_PromptReco/JEC_Winter23Prompt23_RunC_V2_DATA/textfiles/trig_Run%s_PromptReco_alphagt0p1.txt",era);
+   sprintf(txtname,"Run3_PromptReco/JEC_LatestOfAug2023/textfiles/trig_Run%s_PromptReco_alphagt0p1.txt",era);
    ofstream textfile(txtname);
 
   
@@ -33,8 +35,8 @@ void TriggerEfficiency_4jets(char era[1024])
 
 
    char fnameJetMET[1024], fnameMuon[1024];
-   sprintf(fnameJetMET,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/trigger_efficiency/2022_PromptReco/JetMET_Run2022%s-PromptReco.root",era);
-   sprintf(fnameMuon,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/trigger_efficiency/2022_PromptReco/Muon_Run2022%s-PromptReco.root",era);
+   sprintf(fnameJetMET,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/trigger_efficiency/Aug2023/JetMET__Run%s-PromptReco__AK4PUPPI.root",era);
+   sprintf(fnameMuon,"root://eoscms//eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run3/trigger_efficiency/Aug2023/Muon__Run%s-PromptReco__AK4PUPPI.root",era);
 
    TFile *fJetMET = TFile::Open(fnameJetMET,"READ");
    TFile *fMuon = TFile::Open(fnameMuon,"READ");
@@ -125,12 +127,21 @@ void TriggerEfficiency_4jets(char era[1024])
    cms->SetFillColor(0);
 
    char eraleg[1024];
-   //sprintf(eraleg,"Run2022%s, 8 fb^{-1} (13.6 TeV)",era);
-   //sprintf(eraleg,"Run2022%s, 27 fb^{-1} (13.6 TeV)",era);
-   sprintf(eraleg,"2022, 35.08 fb^{-1} (13.6 TeV)");
+   if(strcmp(era,"2022CDEFG")==0)
+   {
+   	sprintf(eraleg,"2022, 35.08 fb^{-1} (13.6 TeV)");
+   }
+   else if(strcmp(era,"2023BCD")==0)
+   {
+   	sprintf(eraleg,"2023, 27.14 fb^{-1} (13.6 TeV)");
+   }
+   else if(strcmp(era,"3")==0)
+   {
+   	sprintf(eraleg,"62.22 fb^{-1} (13.6 TeV)");
+   }
 
-   //TPaveText *lumi = new TPaveText(0.644,0.94,0.834,0.98,"NDC");
-   TPaveText *lumi = new TPaveText(0.67,0.94,0.87,0.98,"NDC");
+   //TPaveText *lumi = new TPaveText(0.67,0.94,0.87,0.98,"NDC");
+   TPaveText *lumi = new TPaveText(0.71,0.94,0.91,0.98,"NDC");
    lumi->SetFillColor(0);
    lumi->SetBorderSize(0);
    lumi->SetTextFont(42);
@@ -206,8 +217,12 @@ void TriggerEfficiency_4jets(char era[1024])
 
 
    char cname1[1024], cname2[1024];
-   sprintf(cname1,"2022_PromptReco/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.png",era);
-   sprintf(cname2,"2022_PromptReco/plots/Numerator_vs_Denominator_2022_PromptReco_era%s_alphagt0p1.pdf",era);
+   //sprintf(cname1,"2022_PromptReco/JEC_Winter22Run3_RunCD_V2_DATA_and_Summer22EEPrompt22_RunFG_V1_DATA/plots/Numerator_vs_Denominator_Run%s_PromptReco_alphagt0p1.png",era);
+   //sprintf(cname2,"2022_PromptReco/JEC_Winter22Run3_RunCD_V2_DATA_and_Summer22EEPrompt22_RunFG_V1_DATA/plots/Numerator_vs_Denominator_Run%s_PromptReco_alphagt0p1.pdf",era);
+   //sprintf(cname1,"2023_PromptReco/JEC_Winter23Prompt23_RunC_V2_DATA/plots/Numerator_vs_Denominator_Run%s_PromptReco_alphagt0p1.png",era);
+   //sprintf(cname2,"2023_PromptReco/JEC_Winter23Prompt23_RunC_V2_DATA/plots/Numerator_vs_Denominator_Run%s_PromptReco_alphagt0p1.pdf",era);
+   sprintf(cname1,"Run3_PromptReco/JEC_LatestOfAug2023/plots/Numerator_vs_Denominator_Run%s_PromptReco_alphagt0p1.png",era);
+   sprintf(cname2,"Run3_PromptReco/JEC_LatestOfAug2023/plots/Numerator_vs_Denominator_Run%s_PromptReco_alphagt0p1.pdf",era);
 
    c1->SaveAs(cname1);
    c1->SaveAs(cname2);
@@ -245,15 +260,21 @@ void TriggerEfficiency_4jets(char era[1024])
    leg1->Draw();
    leg2->Draw();
 
-   sprintf(cname1,"2022_PromptReco/plots/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.png",era);
-   sprintf(cname2,"2022_PromptReco/plots/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.pdf",era);
+   //sprintf(cname1,"2022_PromptReco/JEC_Winter22Run3_RunCD_V2_DATA_and_Summer22EEPrompt22_RunFG_V1_DATA/plots/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.png",era);
+   //sprintf(cname2,"2022_PromptReco/JEC_Winter22Run3_RunCD_V2_DATA_and_Summer22EEPrompt22_RunFG_V1_DATA/plots/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.pdf",era);
+   //sprintf(cname1,"2023_PromptReco/JEC_Winter23Prompt23_RunC_V2_DATA/plots/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.png",era);
+   //sprintf(cname2,"2023_PromptReco/JEC_Winter23Prompt23_RunC_V2_DATA/plots/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.pdf",era);
+   sprintf(cname1,"Run3_PromptReco/JEC_LatestOfAug2023/plots/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.png",era);
+   sprintf(cname2,"Run3_PromptReco/JEC_LatestOfAug2023/plots/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.pdf",era);
 
    c2->SaveAs(cname1);
    c2->SaveAs(cname2);
  
   
    char foutname[1023];
-   sprintf(foutname,"2022_PromptReco/rootfiles/TriggerEfficiency_2022_PromptReco_era%s_alphagt0p1.root",era);
+   //sprintf(foutname,"2022_PromptReco/JEC_Winter22Run3_RunCD_V2_DATA_and_Summer22EEPrompt22_RunFG_V1_DATA/rootfiles/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.root",era);
+   //sprintf(foutname,"2023_PromptReco/JEC_Winter23Prompt23_RunC_V2_DATA/rootfiles/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.root",era);
+   sprintf(foutname,"Run3_PromptReco/JEC_LatestOfAug2023/rootfiles/TriggerEfficiency_Run%s_PromptReco_alphagt0p1.root",era);
    TFile *fout = new TFile(foutname,"RECREATE");
    fout->cd(); 
    h_Muon[0]->Write();
