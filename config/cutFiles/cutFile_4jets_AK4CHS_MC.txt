@@ -90,6 +90,7 @@ metSig		     -inf           +inf                -               -               
 METoverHTAK4CHS	     -inf	    +inf		-		-		1	1000 0 10000      SAVE
 HTAK4CHS                -inf           +inf                -               -               1       500 0 10000       SAVE
 ptHat                -inf           +inf                -               -               1       500 0 10000       SAVE
+weight                -inf           +inf                -               -               1       500 0 10000       SAVE
 DeltaPhiJJAK4CHS        -inf           +inf                -              -                1      200   -3.15  3.15  SAVE
 DeltaEtaJJAK4CHS        -inf           +inf                -               -               1       100 0. 3.         SAVE
 DeltaRAK4CHS_First      -inf             +inf               -              -             1        100   0. 10000     SAVE

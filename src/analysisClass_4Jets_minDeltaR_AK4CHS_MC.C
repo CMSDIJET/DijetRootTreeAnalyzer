@@ -64,16 +64,16 @@ analysisClass::analysisClass(string * inputList, string * cutFile, string * tree
     
     JetCorrector_data = new FactorizedJetCorrector(); // Will be filled later
            
-    std::string L1Path = "data/Summer22Run3_V1_MC/Summer22Run3_V1_MC_L1FastJet_AK4PFchs.txt";
-    std::string L2Path = "data/Summer22Run3_V1_MC/Summer22Run3_V1_MC_L2Relative_AK4PFchs.txt";
-    std::string L3Path = "data/Summer22Run3_V1_MC/Summer22Run3_V1_MC_L3Absolute_AK4PFchs.txt";
+    std::string L1Path = "data/Summer20UL18_MC/Summer20UL18_L1FastJet_AK4PFchs_SemiSimple.txt";
+    std::string L2Path = "data/Summer20UL18_MC/Summer20UL18_L2Relative_AK4PFchs_SemiSimple.txt";
+    std::string L3Path = "data/Summer20UL18_MC/Summer20UL18_L3Absolute_AK4PFchs.txt";
 
-    std::string L1DATAPath = "data/Summer22Run3_V1_MC/Summer22Run3_V1_MC_L1FastJet_AK4PFchs.txt";
-    std::string L2DATAPath = "data/Summer22Run3_V1_MC/Summer22Run3_V1_MC_L2Relative_AK4PFchs.txt"; 
-    std::string L3DATAPath = "data/Summer22Run3_V1_MC/Summer22Run3_V1_MC_L3Absolute_AK4PFchs.txt";
+    std::string L1DATAPath = "data/Summer20UL18_MC/Summer20UL18_L1FastJet_AK4PFchs_SemiSimple.txt";
+    std::string L2DATAPath = "data/Summer20UL18_MC/Summer20UL18_L2Relative_AK4PFchs_SemiSimple.txt"; 
+    std::string L3DATAPath = "data/Summer20UL18_MC/Summer20UL18_L3Absolute_AK4PFchs.txt";
     //std::string L2L3ResidualPath = "data/Winter22Run3/Winter22Run3_RunC_V2_DATA_L2Residual_AK4PFPuppi.txt";
 
-    unc = new JetCorrectionUncertainty("data/Winter22Run3/Winter22Run3_V1_Uncertainty_AK4PFchs.txt");
+    unc = new JetCorrectionUncertainty("data/Summer20UL18_MC/Summer20UL18_Uncertainty_AK4PFchs.txt");
  
     L1Par = new JetCorrectorParameters(L1Path);
     L2Par = new JetCorrectorParameters(L2Path);
@@ -138,7 +138,7 @@ void analysisClass::Loop()
 
      if (ientry < 0) break;
      nb = fChain->GetEntry(jentry);   nbytes += nb;
-     if(jentry < 10 || jentry%200000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
+     if(jentry < 10 || jentry%20000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
      // if (Cut(ientry) < 0) continue;
 
      ////////////////////// User's code starts here ///////////////////////
@@ -260,7 +260,7 @@ void analysisClass::Loop()
 
      for(size_t ijet=0; ijet<no_jets_ak4; ++ijet)
      {
-	 int passJetID = ( jetNhfAK4->at(ijet)<0.99 && jetNemfAK4->at(ijet)<0.9 && chMultAK4->at(ijet)+neMultAK4->at(ijet)>1 && jetMufAK4->at(ijet)<0.8 && jetChfAK4->at(ijet)>0.01 && chMultAK4->at(ijet)>0 && jetCemfAK4->at(ijet)<0.8 );
+	 int passJetID = ( jetNhfAK4->at(ijet)<0.9 && jetNemfAK4->at(ijet)<0.9 && chMultAK4->at(ijet)+neMultAK4->at(ijet)>1 && jetMufAK4->at(ijet)<0.8 && jetChfAK4->at(ijet)>0 && chMultAK4->at(ijet)>0 && jetCemfAK4->at(ijet)<0.8 );
 
          JetID->push_back(passJetID);
      }
@@ -601,7 +601,7 @@ void analysisClass::Loop()
      fillVariableWithValue("METoverHTAK4CHS",METoverHTAK4);
      fillVariableWithValue("HTAK4CHS",HTak4);
      fillVariableWithValue("ptHat",ptHat);
-     //fillVariableWithValue("weight",weight);
+     fillVariableWithValue("weight",weight);
 
      //triggers
      for(unsigned int i=0; i<triggerName->size(); i++){
