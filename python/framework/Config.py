@@ -1,4 +1,4 @@
-import ConfigParser, os
+import configparser, os
 import ROOT as rt
 
 class Config(object):
@@ -6,7 +6,7 @@ class Config(object):
     def __init__(self, fileName):
         if not os.path.exists(fileName):
             raise IOError("File not found: '%s'" % fileName)
-        self.config = ConfigParser.ConfigParser()
+        self.config = configparser.ConfigParser()
         self.config.read(fileName)
     
     def __checkBox(self, box):
@@ -23,7 +23,8 @@ class Config(object):
     
     def has_option(self, box, var):
         result = False
-        if self.config.has_option(box, var) or self.config.defaults().has_key(var):
+        #if self.config.has_option(box, var) or self.config.defaults().has_key(var):
+        if self.config.has_option(box, var) or var in self.config.defaults():
             result = True
         return result
     

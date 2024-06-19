@@ -15,7 +15,7 @@ class RootIterator(object):
             self.iter = None
     def __iter__(self):
         return self
-    def next(self):
+    def __next__(self):
         n = self.iter.Next()
         if n is None or not n:
             raise StopIteration()
