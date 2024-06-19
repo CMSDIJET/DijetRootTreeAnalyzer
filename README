@@ -3,36 +3,31 @@ Introduction:
 -------------
 
 This package provides all the relevant scripts that are used to create reduced ntuples for the 
-paired dijet analysis (narrow and wide resonance search, run3 processing), as well as perform 
+paired dijet analysis (narrow and wide resonance search, run2 and run3 processing), perform 
 various studies for the analysis (bias studies, data/MC comparisons, signal shapes, interpolation, 
-trigger efficiency, run with screens or condor, noise filters, jet veto maps etc).
+trigger efficiency, run with screens or condor, noise filters, jet veto maps etc) and perform background
+or signal plus background fits, produce datacards, extract limits and significances.
 
-To run reduced ntuples setup in CMSSW_13_0_16 (or any CMSSW_13_X_Y). Most of the studies can be 
-performed in this CMSSW as well.
-
-However, to use Combine in order to perform fits, create datacards, calculate limits/significances etc
-you will need to setup in CMSSW_10_2_13 (you can git clone the master branch instead of this one and
-just copy the relevant config files, fitting python scripts etc). For example, to perform bias studies
-setup in CMSSW_10_2_13 the master branch and copy there the Bias_Studies/ folder.
+The newest HiggsCombine v10 version is built for CMSSW_14_1_0_pre4, so all the above can be done there.
 
 Instructions:
 -------------
 
 1) Environment setup:
-    cmsrel CMSSW_13_0_16
-    cd CMSSW_13_0_16/src/ 
+    mkdir 4jets/
+    cd 4jets/
+    cmsrel CMSSW_14_1_0_pre4
+    cd CMSSW_14_1_0_pre4/src/ 
     cmsenv	   
 
 2) Download the code:
     git clone -b PairedDijetAnalysis https://github.com/CMSDIJET/DijetRootTreeAnalyzer.git CMSDIJET/DijetRootTreeAnalyzer
 
 3) Compile:
-    cd CMSSW_13_0_16/src/ 
+    cd CMSSW_14_1_0_pre4/src/ 
     scram b -j 8
     
-    This gives no errors. If, however, you want to setup the master branch in eg CMSSW_10_2_13
-    this will give errors, but you can ignore them since the compiling with "make" to run the
-    reduced trees works fine. 
+    This should give no errors.
 
 3) Go inside:
     cd CMSDIJET/DijetRootTreeAnalyzer
@@ -41,12 +36,12 @@ Instructions:
 Important READMEs:
 ------------------
 
-How to run big (see DijetRootTreeMaker code, Run3_130X branch) and reduced ntuples:
+How to run big (see DijetRootTreeMaker code, Run3_140X branch) and reduced ntuples:
 https://github.com/izisopou/READMEs/blob/main/README_SetupDijetAnalysis.txt
 
 How to perform bkg and signal+bkg fits in Combine with envelope method, calculate limits,
-significances, plot DNLL, generate toys, perform GOF studyies:  
-https://github.com/izisopou/READMEs/blob/main/README_4jets_Combine.txt
+significances, plot DNLL, generate toys, perform GOF studyies, plot limits and significances:  
+https://github.com/izisopou/READMEs/blob/main/README_4jets_Combine_el9.txt
 
 How to perform signal interpolation studies:
 https://github.com/izisopou/READMEs/blob/main/README_SignalShapesInterpolation.txt
@@ -63,6 +58,7 @@ https://github.com/izisopou/READMEs/blob/main/README_plot_contours.txt
 https://github.com/izisopou/READMEs/blob/main/README_create_gridpack_lhe_root_files.txt
 https://github.com/izisopou/READMEs/blob/main/README_edmpickevents.txt
 https://github.com/izisopou/READMEs/blob/main/README_fireworks.txt
+https://github.com/izisopou/READMEs/blob/main/README_Combine_Changes_Python2to3.txt
 
 
 
