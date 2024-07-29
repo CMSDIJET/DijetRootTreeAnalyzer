@@ -730,8 +730,8 @@ if __name__ == '__main__':
             else:
                 if len(models)==1:
                     gr_expectedLimit[(Box,model)].Draw("c same")#edw
-                #for thyModel in thyModelsToDraw:
-                #    xsec_gr_nom[thyModel].Draw("c same")
+                for thyModel in thyModelsToDraw: #DRAW SIGNAL XSEC
+                    xsec_gr_nom[thyModel].Draw("c same")
                 gr_observedLimit[(Box,model)].Draw("lp SAME")
 
             gr_expectedLimit1sigma[(Box,model)].SetLineStyle(2)
@@ -876,9 +876,9 @@ if __name__ == '__main__':
     if not options.doSignificance:
         leg.SetHeader("95% CL limits")
         leg_SigProc.SetHeader("Y #rightarrow XX #rightarrow (jj)(jj)")
-        leg_alpha.SetHeader("M(X) / M(Y) = %.2f"%(alphatrue))
+        leg_alpha.SetHeader("M_{X} / M_{Y} = %.2f"%(alphatrue))
         leg_alpha.SetTextSize(0.035)
-        leg_width.SetHeader("#Gamma / M(Y) = %.1f %%"%(width*100.))
+        leg_width.SetHeader("#Gamma / M_{Y} = %.2f %%"%(width*100.))
         leg_width.SetTextSize(0.035)
 	#leg_arxiv.SetHeader("#splitline{y_{uu}=0.4, y_{#chi}=0.6}{arXiv:1810.09429}")
         leg_arxiv.SetHeader("y_{uu} = 0.4, y_{#chi} = 0.6")
@@ -904,7 +904,7 @@ if __name__ == '__main__':
     leg_SigProc.Draw("SAME")
     leg_alpha.Draw("SAME")
     leg_width.Draw("SAME")
-    #leg_arxiv.Draw("SAME")
+    leg_arxiv.Draw("SAME")
     
     if len(thyModelsToDraw)>0 and not options.doSignificance:        
         if options.model =="gg_qg_qq" and options.box=="CaloDijet2016_PFDijet2016":
@@ -948,7 +948,7 @@ if __name__ == '__main__':
                     pass
             else:
                 legThyModel.AddEntry(xsec_gr_nom[thyModel],legendLabel[thyModel],'l')
-        #legThyModel.Draw("same") #EDW
+        legThyModel.Draw("same") #DRAW SIGNAL XSEC LEGEND
         #try:
             #legThyModel2.Draw("same")
         #except:
