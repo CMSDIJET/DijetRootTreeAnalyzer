@@ -15,7 +15,7 @@ ROOT.gROOT.SetBatch(ROOT.kTRUE)
 
 plot.ModTDRStyle(width=700, l=0.13)
 ROOT.gStyle.SetNdivisions(510, "XYZ")
-ROOT.gStyle.SetMarkerSize(0.5)
+ROOT.gStyle.SetMarkerSize(0.7)
 
 NAMECOUNTER = 0
 
@@ -47,6 +47,8 @@ def BuildScan(scan, param, files, color, yvals, ycut):
         if graph.GetY()[i] == 0.0:
             bestfit = graph.GetX()[i]
     graph.SetMarkerColor(color)
+    graph.SetLineColor(color)
+    graph.SetLineWidth(3)
     spline = ROOT.TSpline3("spline3", graph)
     global NAMECOUNTER
     func_method = partial(Eval, spline)
@@ -54,7 +56,7 @@ def BuildScan(scan, param, files, color, yvals, ycut):
     func._method = func_method
     NAMECOUNTER += 1
     func.SetLineColor(color)
-    func.SetLineWidth(2)
+    func.SetLineWidth(3)
     assert bestfit is not None
     crossings = {}
     cross_1sig = None
@@ -143,7 +145,8 @@ if args.others is not None:
 canv = ROOT.TCanvas(args.output, args.output)
 pads = plot.OnePad()
 main_scan["graph"].SetMarkerColor(1)
-main_scan["graph"].Draw("AP")
+main_scan["graph"].SetLineWidth(3)
+main_scan["graph"].Draw("AL")
 
 axishist = plot.GetAxisHist(pads[0])
 
@@ -152,25 +155,27 @@ axishist.SetMaximum(args.y_max)
 axishist.GetYaxis().SetTitle("- 2 #Delta ln L")
 axishist.GetXaxis().SetTitle("%s [10^{-2} pb]" % fixed_name)
 
-new_min = axishist.GetXaxis().GetXmin()
-new_max = axishist.GetXaxis().GetXmax()
-mins = []
-maxs = []
-for other in other_scans:
-    mins.append(other["graph"].GetX()[0])
-    maxs.append(other["graph"].GetX()[other["graph"].GetN() - 1])
+#new_min = axishist.GetXaxis().GetXmin()
+#new_max = axishist.GetXaxis().GetXmax()
+#mins = []
+#maxs = []
+#for other in other_scans:
+#    mins.append(other["graph"].GetX()[0])
+#    maxs.append(other["graph"].GetX()[other["graph"].GetN() - 1])
 
-if len(other_scans) > 0:
-    if min(mins) < main_scan["graph"].GetX()[0]:
-        new_min = min(mins) - (main_scan["graph"].GetX()[0] - new_min)
-    if max(maxs) > main_scan["graph"].GetX()[main_scan["graph"].GetN() - 1]:
-        new_max = max(maxs) + (new_max - main_scan["graph"].GetX()[main_scan["graph"].GetN() - 1])
-    axishist.GetXaxis().SetLimits(new_min, new_max)
+#if len(other_scans) > 0:
+#    if min(mins) < main_scan["graph"].GetX()[0]:
+#        new_min = min(mins) - (main_scan["graph"].GetX()[0] - new_min)
+#    if max(maxs) > main_scan["graph"].GetX()[main_scan["graph"].GetN() - 1]:
+#        new_max = max(maxs) + (new_max - main_scan["graph"].GetX()[main_scan["graph"].GetN() - 1])
+#    axishist.GetXaxis().SetLimits(new_min, new_max)
 
 for other in other_scans:
-    if args.breakdown is not None:
-        other["graph"].SetMarkerSize(0.4)
-    other["graph"].Draw("PSAME")
+    #if args.breakdown is not None:
+    #    other["graph"].SetMarkerSize(0.4)
+    #other["graph"].Draw("PSAME")
+    other["graph"].Draw("LSAME")
+
 
 line = ROOT.TLine()
 line.SetLineColor(16)
@@ -184,16 +189,16 @@ for yval in yvals:
             if cr["valid_hi"]:
                 line.DrawLine(cr["hi"], 0, cr["hi"], yval)
 
-vertical_line = ROOT.TLine(0.0,0.0,0.0,13.5)
+vertical_line = ROOT.TLine(0.0,0.0,0.0,17)
 vertical_line.SetLineColor(16)
 vertical_line.Draw("same")
 
 #main_scan["func"].Draw("same")
-for other in other_scans:
-    if args.breakdown is not None:
-        other["func"].SetLineStyle(2)
-        other["func"].SetLineWidth(2)
-    other["func"].Draw("SAME")
+#for other in other_scans:
+#    if args.breakdown is not None:
+#        other["func"].SetLineStyle(2)
+#        other["func"].SetLineWidth(3)
+#    other["func"].Draw("SAME")
 
 
 box = ROOT.TBox(axishist.GetXaxis().GetXmin(), 0.625 * args.y_max, axishist.GetXaxis().GetXmax(), args.y_max)
@@ -205,7 +210,7 @@ crossings = main_scan["crossings"]
 val_nom = main_scan["val"]
 val_2sig = main_scan["val_2sig"]
 
-textfit = "%s = %.3f{}^{#plus %.3f}_{#minus %.3f} #times 10^{-2} pb" % (fixed_name, val_nom[0], val_nom[1], abs(val_nom[2]))
+textfit = "%s = %.5f{}^{#plus %.5f}_{#minus %.5f} #times 10^{-2} pb" % (fixed_name, val_nom[0], val_nom[1], abs(val_nom[2]))
 
 
 #pt = ROOT.TPaveText(0.59, 0.82 - len(other_scans) * 0.08, 0.95, 0.91, "NDCNB")
@@ -215,7 +220,7 @@ pt.AddText(textfit)
 
 if args.breakdown is None:
     for i, other in enumerate(other_scans):
-        textfit = "#color[%s]{%s = %.3f{}^{#plus %.3f}_{#minus %.3f} #times 10^{-2} pb}" % (
+        textfit = "#color[%s]{%s = %.5f{}^{#plus %.5f}_{#minus %.5f} #times 10^{-2} pb}" % (
             other_scans_opts[i][2],
             fixed_name,
             other["val"][0],
@@ -255,7 +260,7 @@ if args.breakdown is not None:
         else:
             hi = v_hi[i]
             lo = v_lo[i]
-        textfit += "{}^{#plus %.3f}_{#minus %.3f}(%s) #times 10^{-2} pb" % (hi, abs(lo), br)
+        textfit += "{}^{#plus %.5f}_{#minus %.5f}(%s) #times 10^{-2} pb" % (hi, abs(lo), br)
     pt.AddText(textfit)
 
 
@@ -276,7 +281,7 @@ if len(other_scans) >= 3:
     legend = ROOT.TLegend(0.46, 0.73, 0.95, 0.83, "", "NBNDC")
     legend.SetNColumns(2)
 
-signal_leg = ROOT.TPaveText(0.55,0.835,0.95,0.935,"NDC")
+signal_leg = ROOT.TPaveText(0.52,0.835,0.92,0.935,"NDC")
 signal_leg.AddText("S #rightarrow #chi#chi #rightarrow (ug)(ug)")
 signal_leg.AddText("M_{S} = %.0f GeV, M_{#chi} = %.0f GeV" % (args.Suu, args.Chi))
 signal_leg.SetBorderSize(0)
