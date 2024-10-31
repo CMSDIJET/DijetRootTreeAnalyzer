@@ -37,10 +37,10 @@ if (alpha_true==0.33) sprintf(alpha_true_name,"0p33");
 if (alpha_true==0.42) sprintf(alpha_true_name,"0p42");
 
 char fname_W0p015[1024], fname_W0p05[1024], fname_W0p1[1024], fname_W0p0043[1024];
-sprintf(fname_W0p0043, "output/Narrow_Resonances_Run2/combine_rootfiles_alpha%s/significances/signif_qq_pfdijetrun2_alpha%s_W-0p0043.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p015, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/significances/signif_qq_pfdijetrun2_alpha%s_W-0p015.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p05, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/significances/signif_qq_pfdijetrun2_alpha%s_W-0p05.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p1, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/significances/signif_qq_pfdijetrun2_alpha%s_W-0p1.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p0043, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/asympt_significances/signif_qq_pfdijetrun2_alpha%s_W-0p0043_AsymptOnly.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p015, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/asympt_significances/signif_qq_pfdijetrun2_alpha%s_W-0p015_AsymptOnly.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p05, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/asympt_significances/signif_qq_pfdijetrun2_alpha%s_W-0p05_AsymptOnly.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p1, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/asympt_significances/signif_qq_pfdijetrun2_alpha%s_W-0p1_AsymptOnly.root", alpha_true_name, alpha_true_name);
 
 
 TFile *f_W0p0043 = new TFile(fname_W0p0043,"read");
@@ -159,7 +159,9 @@ l2sigma->Draw("same");
 l3sigma->Draw("same");
 l4sigma->Draw("same");
 
-TLegend *leg = new TLegend(0.20,0.62,0.50,0.87);
+//TLegend *leg = new TLegend(0.20,0.62,0.50,0.87);
+//TLegend *leg = new TLegend(0.55,0.62,0.85,0.87);
+TLegend *leg = new TLegend(0.4,0.62,0.70,0.87);
 leg->SetFillColor(0);
 leg->SetBorderSize(1);
 leg->SetTextSize(0.035);
@@ -172,8 +174,8 @@ leg->AddEntry(g_W0p1, "#Gamma / M_{Y} = 10 %", "LP");
 leg->Draw("same");
 
 char cname1[1024], cname2[1024];
-sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/SignificanceVsMassVsWidth_alpha%s.png",alpha_true_name);
-sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/SignificanceVsMassVsWidth_alpha%s.pdf",alpha_true_name);
+sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/significances/AsymptSignificanceVsMassVsWidth_alpha%s.png",alpha_true_name);
+sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/significances/AsymptSignificanceVsMassVsWidth_alpha%s.pdf",alpha_true_name);
 
 c->SaveAs(cname1);
 c->SaveAs(cname2);

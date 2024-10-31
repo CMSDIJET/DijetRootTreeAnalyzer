@@ -19,7 +19,7 @@
 #include "TMath.h"
 #include "TLatex.h"
 
-void Plot_Bkg_Fits(){
+void Plot_Bkg_Fits(int nPars, int alphabin){
 
 double massBoundaries[104] = {1, 3, 6, 10, 16, 23, 31, 40, 50, 61, 74, 88, 103, 119, 137, 156, 176, 197, 220, 244, 270, 296, 325,
      354, 386, 419, 453, 489, 526, 565, 606, 649, 693, 740, 788, 838, 890, 944, 1000, 1058, 1118, 1181, 1246, 1313, 1383, 1455, 1530, 1607,
@@ -32,81 +32,42 @@ double startit	     = 1607;
 double endit	     = 9067;
 	  
 
-double sig_low_narrow_obs_limit = 0.00726744186*0.154751; //2200GeV: 0.154751 0.527643 0.135375
-double sig_middle_narrow_obs_limit = 0.000145348837*0.151117; //5000GeV: 0.151117 0.559577 0.131209
-double sig_high_narrow_obs_limit = 4.36046512e-05*0.134966; //8600GeV: 0.134966 0.527608 0.141253
+char fname_data[1024], fname_FitDijet[1024], fname_FitAtlas[1024], fname_FitModDijet[1024], fname_QCD[1024];
 
-double sig_low_wide_obs_limit = 0.00726744186*0.24281; //2200GeV: 0.24281 0.35949 0.143907
-double sig_middle_wide_obs_limit = 0.000145348837*0.196577; //5000GeV: 0.196577 0.360129 0.180064
-double sig_high_wide_obs_limit = 4.36046512e-05*0.0777101; //8600GeV: 0.0777101 0.184978 0.177426
-	
+if(alphabin!=0)
+{
+    sprintf(fname_data, "Fitting/%dParFits/HISTOS_4J_AlldataRun2_SR_alphabin%d.root", nPars, alphabin);
+    sprintf(fname_FitDijet, "Fitting/%dParFits/DijetFitResult_PFDijetRun2_4J_alphabin%d_Dijet.root", nPars, alphabin);
+    sprintf(fname_FitAtlas, "Fitting/%dParFits/DijetFitResult_PFDijetRun2_4J_alphabin%d_PowExp.root", nPars, alphabin);
+    sprintf(fname_FitModDijet, "Fitting/%dParFits/DijetFitResult_PFDijetRun2_4J_alphabin%d_ModDijet.root", nPars, alphabin);
+    sprintf(fname_QCD, "Fitting/%dParFits/QCD2017_Standardcuts_M4Jgt1p6_nobreak_alpha%d.root", nPars, alphabin);
+}
+else
+{
+    sprintf(fname_data, "Fitting/%dParFits/HISTOS_4J_AlldataRun2_SR_alphagt0p1.root", nPars);
+    sprintf(fname_FitDijet, "Fitting/%dParFits/DijetFitResult_PFDijet2017_4J_alphagt0p1_Dijet.root", nPars);
+    sprintf(fname_FitAtlas, "Fitting/%dParFits/DijetFitResult_PFDijetRun2_4J_alphagt0p1_PowExp.root", nPars);
+    sprintf(fname_FitModDijet, "Fitting/%dParFits/DijetFitResult_PFDijet2017_4J_alphagt0p1_ModDijet.root", nPars);
+    sprintf(fname_QCD, "Fitting/%dParFits/QCD2017_Standardcuts_M4Jgt1p5_nobreak_alphagt0p1.root", nPars);    
+}
+
+
 //Fetch data, MC and fits		
-TFile *f_data = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run2/data_histos/HISTOS_4J_AlldataRun2_SR_alphabin7.root");
-TFile *f_Fit_atlas = new TFile("/afs/cern.ch/user/i/izisopou/public/EXO-21-010/EXO-21-010-Plotting-Scripts/Figure_007/DijetFitResult_PFDijet2017_4J_alphabin7_atlas_test.root");
-TFile *f_Fit_dijet = new TFile("/afs/cern.ch/user/i/izisopou/public/EXO-21-010/EXO-21-010-Plotting-Scripts/Figure_007/DijetFitResult_PFDijet2017_4J_alphabin7_dijet_test.root");
-TFile *f_Fit_moddijet = new TFile("/afs/cern.ch/user/i/izisopou/public/EXO-21-010/EXO-21-010-Plotting-Scripts/Figure_007/DijetFitResult_PFDijet2017_4J_alphabin7_moddijet_test.root");
-TFile *f_MC = new TFile("/afs/cern.ch/user/i/izisopou/public/EXO-21-010/EXO-21-010-Plotting-Scripts/Figure_007/QCD2017_Standardcuts_M4Jgt1p6_nobreak_alpha7.root");
+TFile *f_data = new TFile(fname_data, "read");
+TFile *f_Fit_dijet = new TFile(fname_FitDijet, "read");
+TFile *f_Fit_atlas = new TFile(fname_FitAtlas, "read");
+TFile *f_Fit_moddijet = new TFile(fname_FitModDijet, "read");
+TFile *f_MC = new TFile(fname_QCD, "read");
 
-TH1D *Standard_Fit_unbinned_atlas = (TH1D*)(f_Fit_atlas->Get("Bkg_fit_unbinned"));  //1GeV histogram of Standard Fit
 TH1D *Standard_Fit_unbinned_dijet = (TH1D*)(f_Fit_dijet->Get("Bkg_fit_unbinned"));  //1GeV histogram of Standard Fit
+TH1D *Standard_Fit_unbinned_atlas = (TH1D*)(f_Fit_atlas->Get("Bkg_fit_unbinned"));  //1GeV histogram of Standard Fit
 TH1D *Standard_Fit_unbinned_moddijet = (TH1D*)(f_Fit_moddijet->Get("Bkg_fit_unbinned"));  //1GeV histogram of Standard Fit
 TH1D *h_data = (TH1D*)(f_data->Get("h_FourjetMass"));
 TH1D *h_MC = (TH1D*)(f_MC->Get("h_FourjetMass"));
 
-
-
-
-//Fetch narrow signal histos
-TFile *f_sig_low_narrow = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run2/Narrow_Resonance_Search/signals_13bins/alpha0p25/nominal/ResonanceShapes_Suu2200_Chi550_SR_alphabin7.root");
-TH1D *h_sig_low_narrow_1GeV = (TH1D*)(f_sig_low_narrow->Get("h_FourjetMass1GeV"));   
-h_sig_low_narrow_1GeV->Scale(sig_low_narrow_obs_limit*lumi);  
-
-TFile *f_sig_middle_narrow = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run2/Narrow_Resonance_Search/signals_13bins/alpha0p25/nominal/ResonanceShapes_Suu5000_Chi1250_SR_alphabin7.root");
-TH1D *h_sig_middle_narrow_1GeV = (TH1D*)(f_sig_middle_narrow->Get("h_FourjetMass1GeV"));   
-h_sig_middle_narrow_1GeV->Scale(sig_middle_narrow_obs_limit*lumi); 
-
-TFile *f_sig_high_narrow = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run2/Narrow_Resonance_Search/signals_13bins/alpha0p25/nominal/ResonanceShapes_Suu8600_Chi2150_SR_alphabin7.root");
-TH1D *h_sig_high_narrow_1GeV = (TH1D*)(f_sig_high_narrow->Get("h_FourjetMass1GeV"));   
-h_sig_high_narrow_1GeV->Scale(sig_high_narrow_obs_limit*lumi);
-
-
-TH1D *h_sig_low_narrow = new TH1D("h_sig_low_narrow","",103,massBoundaries); 
-TH1D *h_sig_middle_narrow = new TH1D("h_sig_middle_narrow","",103,massBoundaries); 
-TH1D *h_sig_high_narrow = new TH1D("h_sig_high_narrow","",103,massBoundaries); 
-
-//rebinning 1GeV shapes to standard binning
-for(int i=0; i<h_sig_low_narrow_1GeV->GetNbinsX(); i++)
-{
-	double val   = h_sig_low_narrow_1GeV->GetBinContent(i);
-	double xval  = h_sig_low_narrow_1GeV->GetBinCenter(i);
-	h_sig_low_narrow->Fill(xval,val);
-	
-	val   = h_sig_middle_narrow_1GeV->GetBinContent(i);
-	xval  = h_sig_middle_narrow_1GeV->GetBinCenter(i);
-	h_sig_middle_narrow->Fill(xval,val);
-	
-	val   = h_sig_high_narrow_1GeV->GetBinContent(i);
-	xval  = h_sig_high_narrow_1GeV->GetBinCenter(i);
-	h_sig_high_narrow->Fill(xval,val);
-}
-
-//Fetch wide signal histos
-TFile *f_sig_low_wide = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run2/Wide_Resonance_Search/signal_histos/alpha0p25/ResonanceShapes_NOMINAL_Suu-Diquark_W-0p1_S-2200_chi-550_alphabin7.root");
-TH1D *h_sig_low_wide  = (TH1D*)(f_sig_low_wide->Get("h_FourjetMass"));   
-h_sig_low_wide->Scale(sig_low_wide_obs_limit*lumi);  
-
-TFile *f_sig_middle_wide = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run2/Wide_Resonance_Search/signal_histos/alpha0p25/ResonanceShapes_NOMINAL_Suu-Diquark_W-0p1_S-5000_chi-1250_alphabin7.root");
-TH1D *h_sig_middle_wide  = (TH1D*)(f_sig_middle_wide->Get("h_FourjetMass"));   
-h_sig_middle_wide->Scale(sig_middle_wide_obs_limit*lumi); 
-
-TFile *f_sig_high_wide = new TFile("/eos/cms/store/group/phys_exotica/dijet/Dijet13TeV/ilias/4jets_Run2/Wide_Resonance_Search/signal_histos/alpha0p25/ResonanceShapes_NOMINAL_Suu-Diquark_W-0p1_S-8600_chi-2150_alphabin7.root");
-TH1D *h_sig_high_wide  = (TH1D*)(f_sig_high_wide->Get("h_FourjetMass"));   
-h_sig_high_wide->Scale(sig_high_wide_obs_limit*lumi);
-
-
-	    
-TH1D *Standard_Fit_atlas = new TH1D("Standard_Fit_atlas","",103,massBoundaries);  
+   
 TH1D *Standard_Fit_dijet = new TH1D("Standard_Fit_dijet","",103,massBoundaries);
+TH1D *Standard_Fit_atlas = new TH1D("Standard_Fit_atlas","",103,massBoundaries);  
 TH1D *Standard_Fit_moddijet = new TH1D("Standard_Fit_moddijet","",103,massBoundaries); 
 
 //rebinning 1GeV Standard Fit to standard binning
@@ -124,21 +85,11 @@ for(int i=0; i<Standard_Fit_unbinned_atlas->GetNbinsX(); i++)
 }
 
 
-
 //Define pull histos		        
-TH1D *pull_Fit_atlas = (TH1D*)(h_data->Clone());
-TH1D *pull_Fit_dijet = (TH1D*)(h_data->Clone()); 
+TH1D *pull_Fit_dijet = (TH1D*)(h_data->Clone());
+TH1D *pull_Fit_atlas = (TH1D*)(h_data->Clone()); 
 TH1D *pull_Fit_moddijet = (TH1D*)(h_data->Clone()); 
 TH1D *pull_MC = (TH1D*)(h_data->Clone());
-
-TH1D *pull_sig_low_narrow = (TH1D*)(Standard_Fit_atlas->Clone());
-TH1D *pull_sig_middle_narrow = (TH1D*)(Standard_Fit_atlas->Clone());
-TH1D *pull_sig_high_narrow = (TH1D*)(Standard_Fit_atlas->Clone());
-
-TH1D *pull_sig_low_wide = (TH1D*)(Standard_Fit_atlas->Clone());
-TH1D *pull_sig_middle_wide = (TH1D*)(Standard_Fit_atlas->Clone());
-TH1D *pull_sig_high_wide = (TH1D*)(Standard_Fit_atlas->Clone());
-
 
 h_data->SetMarkerStyle(8);
 h_data->SetLineColor(1);
@@ -172,22 +123,15 @@ for(int i=0; i<Standard_Fit_atlas->GetNbinsX(); i++)
 	h_data->SetBinContent(i,1000*h_data->GetBinContent(i)/((h_data->GetBinLowEdge(i+1)-h_data->GetBinLowEdge(i))*lumi));
 	h_data->SetBinError(i,1000*h_data->GetBinError(i)/((h_data->GetBinLowEdge(i+1)-h_data->GetBinLowEdge(i))*lumi));
 
-	h_sig_low_narrow->SetBinContent(i,1000*h_sig_low_narrow->GetBinContent(i)/((h_sig_low_narrow->GetBinLowEdge(i+1)-h_sig_low_narrow->GetBinLowEdge(i))*lumi));
-        h_sig_middle_narrow->SetBinContent(i,1000*h_sig_middle_narrow->GetBinContent(i)/((h_sig_middle_narrow->GetBinLowEdge(i+1)-h_sig_middle_narrow->GetBinLowEdge(i))*lumi));
-        h_sig_high_narrow->SetBinContent(i,1000*h_sig_high_narrow->GetBinContent(i)/((h_sig_high_narrow->GetBinLowEdge(i+1)-h_sig_high_narrow->GetBinLowEdge(i))*lumi));
-        
-        h_sig_low_wide->SetBinContent(i,1000*h_sig_low_wide->GetBinContent(i)/((h_sig_low_wide->GetBinLowEdge(i+1)-h_sig_low_wide->GetBinLowEdge(i))*lumi));
-        h_sig_middle_wide->SetBinContent(i,1000*h_sig_middle_wide->GetBinContent(i)/((h_sig_middle_wide->GetBinLowEdge(i+1)-h_sig_middle_wide->GetBinLowEdge(i))*lumi));
-        h_sig_high_wide->SetBinContent(i,1000*h_sig_high_wide->GetBinContent(i)/((h_sig_high_wide->GetBinLowEdge(i+1)-h_sig_high_wide->GetBinLowEdge(i))*lumi));
 }
 
 //creating pulls and calculate chi square for the two methods: 
 double  chi_square_Fit_atlas = 0;
-int     NDF_Fit_atlas = -3;  // 3 parameter function is used for Standard Fit	  
+int     NDF_Fit_atlas = -nPars;    
 double  chi_square_Fit_dijet = 0;
-int	NDF_Fit_dijet = -3;  //     
+int	NDF_Fit_dijet = -nPars;       
 double  chi_square_Fit_moddijet = 0;
-int	NDF_Fit_moddijet = -3;  // 
+int	NDF_Fit_moddijet = -nPars;   
 
 TGraphAsymmErrors *h_datag = new TGraphAsymmErrors(h_data);
 	
@@ -229,12 +173,6 @@ for(Int_t i=1;i<=h_data->GetNbinsX();i++)
         double Fit_dijet_cont       = Standard_Fit_dijet->GetBinContent(i);
         double Fit_moddijet_cont    = Standard_Fit_moddijet->GetBinContent(i);
         double MC_cont    = h_MC->GetBinContent(i);
-	double sig_low_narrow_cont = h_sig_low_narrow->GetBinContent(i);
-	double sig_middle_narrow_cont = h_sig_middle_narrow->GetBinContent(i);
-	double sig_high_narrow_cont = h_sig_high_narrow->GetBinContent(i);
-	double sig_low_wide_cont = h_sig_low_wide->GetBinContent(i);
-	double sig_middle_wide_cont = h_sig_middle_wide->GetBinContent(i);
-	double sig_high_wide_cont = h_sig_high_wide->GetBinContent(i);
 	
 	if(edata>0)
 	{ 
@@ -249,26 +187,19 @@ for(Int_t i=1;i<=h_data->GetNbinsX();i++)
                 
                 pull_MC->SetBinContent(i,(-MC_cont+data_cont)/edata);
                 
-		pull_sig_low_narrow->SetBinContent(i,sig_low_narrow_cont/edata);
-		pull_sig_middle_narrow->SetBinContent(i,sig_middle_narrow_cont/edata);
-		pull_sig_high_narrow->SetBinContent(i,sig_high_narrow_cont/edata);
-		
-		pull_sig_low_wide->SetBinContent(i,sig_low_wide_cont/edata);
-		pull_sig_middle_wide->SetBinContent(i,sig_middle_wide_cont/edata);
-		pull_sig_high_wide->SetBinContent(i,sig_high_wide_cont/edata);
 		
 		
 		if(m4j>=startit && m4j<= endit)
 		{	
 			
-			chi_square_Fit_atlas = chi_square_Fit_atlas + pull_Fit_atlas->GetBinContent(i)*pull_Fit_atlas->GetBinContent(i);
-			NDF_Fit_atlas        = NDF_Fit_atlas + 1 ;
+			if(data_cont!=0) chi_square_Fit_atlas = chi_square_Fit_atlas + pull_Fit_atlas->GetBinContent(i)*pull_Fit_atlas->GetBinContent(i);
+			if(data_cont!=0) NDF_Fit_atlas        = NDF_Fit_atlas + 1 ;
 
-                        chi_square_Fit_dijet = chi_square_Fit_dijet + pull_Fit_dijet->GetBinContent(i)*pull_Fit_dijet->GetBinContent(i);
-                        NDF_Fit_dijet        = NDF_Fit_dijet + 1 ;
+                        if(data_cont!=0) chi_square_Fit_dijet = chi_square_Fit_dijet + pull_Fit_dijet->GetBinContent(i)*pull_Fit_dijet->GetBinContent(i);
+                        if(data_cont!=0) NDF_Fit_dijet        = NDF_Fit_dijet + 1 ;
 
-                        chi_square_Fit_moddijet = chi_square_Fit_moddijet + pull_Fit_moddijet->GetBinContent(i)*pull_Fit_moddijet->GetBinContent(i);
-                        NDF_Fit_moddijet        = NDF_Fit_moddijet + 1 ;                          
+                        if(data_cont!=0) chi_square_Fit_moddijet = chi_square_Fit_moddijet + pull_Fit_moddijet->GetBinContent(i)*pull_Fit_moddijet->GetBinContent(i);
+                        if(data_cont!=0) NDF_Fit_moddijet        = NDF_Fit_moddijet + 1 ;                          
 		}
 	}
 
@@ -285,96 +216,38 @@ for(Int_t i=1;i<=h_data->GetNbinsX();i++)
 }
 
 
-h_sig_low_narrow->GetXaxis()->SetRangeUser(startit,3416);
-h_sig_low_narrow->SetLineStyle(1);
-h_sig_low_narrow->SetLineColor(kBlue);
-h_sig_low_narrow->SetLineWidth(2);		
-pull_sig_low_narrow->GetXaxis()->SetRangeUser(startit,3416);
-pull_sig_low_narrow->SetLineStyle(1);
-pull_sig_low_narrow->SetLineColor(kBlue);
-pull_sig_low_narrow->SetLineWidth(3);
-
-//h_sig_middle_narrow->GetXaxis()->SetRangeUser(startit,endit);
-h_sig_middle_narrow->SetLineStyle(2);
-h_sig_middle_narrow->SetLineColor(kBlue);	
-h_sig_middle_narrow->SetLineWidth(2);
-//pull_sig_middle_narrow->GetXaxis()->SetRangeUser(startit,endit);
-pull_sig_middle_narrow->SetLineStyle(2);
-pull_sig_middle_narrow->SetLineColor(kBlue);
-pull_sig_middle_narrow->SetLineWidth(3);	
-	
-h_sig_high_narrow->GetXaxis()->SetRangeUser(2546,endit);
-h_sig_high_narrow->SetLineColor(kOrange+1);
-h_sig_high_narrow->SetLineStyle(1);
-h_sig_high_narrow->SetLineWidth(2);	
-pull_sig_high_narrow->GetXaxis()->SetRangeUser(2546,endit);
-pull_sig_high_narrow->SetLineStyle(1);
-pull_sig_high_narrow->SetLineColor(kOrange+1);
-pull_sig_high_narrow->SetLineWidth(3);        
-	
-
-
-
-h_sig_low_wide->GetXaxis()->SetRangeUser(startit,3416);
-h_sig_low_wide->SetLineStyle(1);
-h_sig_low_wide->SetLineColor(kCyan-3);
-h_sig_low_wide->SetLineWidth(2);		
-pull_sig_low_wide->GetXaxis()->SetRangeUser(startit,3416);
-pull_sig_low_wide->SetLineStyle(1);
-pull_sig_low_wide->SetLineColor(kCyan-3);
-pull_sig_low_wide->SetLineWidth(3);
-
-//h_sig_middle_wide->GetXaxis()->SetRangeUser(startit,endit);
-h_sig_middle_wide->SetLineStyle(2);
-h_sig_middle_wide->SetLineColor(kViolet);	
-h_sig_middle_wide->SetLineWidth(2);
-//pull_sig_middle_wide->GetXaxis()->SetRangeUser(startit,endit);
-pull_sig_middle_wide->SetLineStyle(2);
-pull_sig_middle_wide->SetLineColor(kViolet);
-pull_sig_middle_wide->SetLineWidth(3);	
-	
-h_sig_high_wide->GetXaxis()->SetRangeUser(2546,endit);
-h_sig_high_wide->SetLineColor(kYellow-6);
-h_sig_high_wide->SetLineStyle(1);
-h_sig_high_wide->SetLineWidth(2);	
-pull_sig_high_wide->GetXaxis()->SetRangeUser(2546,endit);
-pull_sig_high_wide->SetLineStyle(1);
-pull_sig_high_wide->SetLineColor(kYellow-6);
-pull_sig_high_wide->SetLineWidth(3); 
-
-
-Standard_Fit_atlas->SetLineColor(2);
-Standard_Fit_atlas->SetMarkerColor(2);
+Standard_Fit_atlas->SetLineColor(kRed+1);
+Standard_Fit_atlas->SetMarkerColor(kRed+1);
 Standard_Fit_atlas->GetXaxis()->SetRangeUser(startit,endit);
 Standard_Fit_atlas->GetYaxis()->SetRangeUser(0.00000000015,10000.);
 
-Standard_Fit_dijet->SetLineColor(4);
-Standard_Fit_dijet->SetMarkerColor(4);
+Standard_Fit_dijet->SetLineColor(kBlue-3);
+Standard_Fit_dijet->SetMarkerColor(kBlue-3);
 Standard_Fit_dijet->GetXaxis()->SetRangeUser(startit,endit);
 Standard_Fit_dijet->GetYaxis()->SetRangeUser(0.00000000015,10000.);
         
-Standard_Fit_moddijet->SetLineColor(2);
-Standard_Fit_moddijet->SetMarkerColor(2);
+Standard_Fit_moddijet->SetLineColor(kGreen+2);
+Standard_Fit_moddijet->SetMarkerColor(kGreen+2);
 Standard_Fit_moddijet->GetXaxis()->SetRangeUser(startit,endit);
 Standard_Fit_moddijet->GetYaxis()->SetRangeUser(0.00000000015,10000.);
 
-h_MC->SetLineColor(5);
-h_MC->SetMarkerColor(5);
+h_MC->SetLineColor(kViolet);
+h_MC->SetMarkerColor(kViolet);
 h_MC->GetXaxis()->SetRangeUser(startit,endit);
 h_MC->GetYaxis()->SetRangeUser(0.00000000015,10000.);
 
-pull_Fit_atlas->SetLineColor(2);
-pull_Fit_atlas->SetMarkerColor(2);
+pull_Fit_atlas->SetLineColor(kRed+1);
+pull_Fit_atlas->SetMarkerColor(kRed+1);
 pull_Fit_atlas->GetXaxis()->SetRangeUser(startit,endit);
 pull_Fit_atlas->GetYaxis()->SetRangeUser(-3.3,3.3);
 
-pull_Fit_dijet->SetLineColor(4);  
-pull_Fit_dijet->SetMarkerColor(4);
+pull_Fit_dijet->SetLineColor(kBlue-3);  
+pull_Fit_dijet->SetMarkerColor(kBlue-3);
 pull_Fit_dijet->GetXaxis()->SetRangeUser(startit,endit);
 pull_Fit_dijet->GetYaxis()->SetRangeUser(-3.3,3.3);
 
-pull_Fit_moddijet->SetLineColor(2);  
-pull_Fit_moddijet->SetMarkerColor(2);
+pull_Fit_moddijet->SetLineColor(kGreen+2);  
+pull_Fit_moddijet->SetMarkerColor(kGreen+2);
 pull_Fit_moddijet->GetXaxis()->SetRangeUser(startit,endit);
 pull_Fit_moddijet->GetYaxis()->SetRangeUser(-3.3,3.3);
        
@@ -417,11 +290,10 @@ pad1r->cd()->SetTicky(1);
 Standard_Fit_atlas->SetYTitle("d#sigma/dm_{4j} [pb/TeV]");
 Standard_Fit_atlas->GetYaxis()->SetTitleSize(0.07); //0.07
 Standard_Fit_atlas->GetYaxis()->SetLabelSize(0.06);
-Standard_Fit_atlas->GetYaxis()->SetTitleOffset(0.97);
+Standard_Fit_atlas->GetYaxis()->SetTitleOffset(1.1);
 Standard_Fit_atlas->SetFillColor(0); 
 Standard_Fit_atlas->SetLineWidth(2);
-Standard_Fit_atlas->SetLineColor(2);
-Standard_Fit_atlas->SetLineStyle(3);
+Standard_Fit_atlas->SetLineStyle(1);
 Standard_Fit_atlas->Draw("l hist");
 
 Standard_Fit_dijet->SetYTitle("d#sigma/dm_{4j} [pb/TeV]");
@@ -429,9 +301,8 @@ Standard_Fit_dijet->GetYaxis()->SetTitleSize(0.07); //0.07
 Standard_Fit_dijet->GetYaxis()->SetLabelSize(0.06);
 Standard_Fit_dijet->GetYaxis()->SetTitleOffset(0.9);
 Standard_Fit_dijet->SetFillColor(0);
-Standard_Fit_dijet->SetLineWidth(2);
-Standard_Fit_dijet->SetLineColor(2); 
-Standard_Fit_dijet->SetLineStyle(2);
+Standard_Fit_dijet->SetLineWidth(2); 
+Standard_Fit_dijet->SetLineStyle(1);
 Standard_Fit_dijet->Draw("l hist same");
 
 Standard_Fit_moddijet->SetYTitle("d#sigma/dm_{4j} [pb/TeV]");
@@ -440,7 +311,6 @@ Standard_Fit_moddijet->GetYaxis()->SetLabelSize(0.06);
 Standard_Fit_moddijet->GetYaxis()->SetTitleOffset(0.9);
 Standard_Fit_moddijet->SetFillColor(0);
 Standard_Fit_moddijet->SetLineWidth(2);
-Standard_Fit_moddijet->SetLineColor(2); 
 Standard_Fit_moddijet->SetLineStyle(1);
 Standard_Fit_moddijet->Draw("l hist same");
 
@@ -450,59 +320,78 @@ h_MC->GetYaxis()->SetLabelSize(0.06);
 h_MC->GetYaxis()->SetTitleOffset(0.9);
 h_MC->SetFillColor(0);
 h_MC->SetLineWidth(2);
-h_MC->SetLineColor(3);
 h_MC->Scale(h_data->Integral()/h_MC->Integral());
 h_MC->Draw("hist same ][");
 
 h_datag->Draw("same ep");
 
 
-h_sig_low_narrow->Draw("same hist ][");
-//h_sig_middle_narrow->Draw("same hist ][");
-h_sig_high_narrow->Draw("same hist ][");
 
-h_sig_low_wide->Draw("same hist ][");
-//h_sig_middle_wide->Draw("same hist ][");
-h_sig_high_wide->Draw("same hist ][");
+char alphaname[1024];
+if(alphabin==1) sprintf(alphaname, "0.10 < #alpha < 0.12");
+if(alphabin==2) sprintf(alphaname, "0.12 < #alpha < 0.14");
+if(alphabin==3) sprintf(alphaname, "0.14 < #alpha < 0.16");
+if(alphabin==4) sprintf(alphaname, "0.16 < #alpha < 0.18");
+if(alphabin==5) sprintf(alphaname, "0.18 < #alpha < 0.20");
+if(alphabin==6) sprintf(alphaname, "0.20 < #alpha < 0.22");
+if(alphabin==7) sprintf(alphaname, "0.22 < #alpha < 0.24");
+if(alphabin==8) sprintf(alphaname, "0.24 < #alpha < 0.26");
+if(alphabin==9) sprintf(alphaname, "0.26 < #alpha < 0.28");
+if(alphabin==10) sprintf(alphaname, "0.28 < #alpha < 0.30");
+if(alphabin==11) sprintf(alphaname, "0.30 < #alpha < 0.32");
+if(alphabin==12) sprintf(alphaname, "0.32 < #alpha < 0.34");
+if(alphabin==13) sprintf(alphaname, "#alpha > 0.34");
+if(alphabin==0) sprintf(alphaname, "#alpha > 0.10");
 
-
-TPaveText *pave3 = new TPaveText(0.67,0.45,0.91,0.61,"NDC");
-pave3->AddText("M_{#chi} / M_{S} = 0.25");
-pave3->AddText("0.22 < #alpha < 0.24");
+TPaveText *pave3 = new TPaveText(0.3,0.68,0.4,0.71,"NDC");
+//TPaveText *pave3 = new TPaveText(0.3,0.54,0.4,0.57,"NDC");
+pave3->AddText(alphaname);
 pave3->SetFillColor(0);
-pave3->SetBorderSize(1);
+pave3->SetBorderSize(0);
 pave3->SetTextFont(42);
-pave3->SetTextSize(0.045);
+pave3->SetTextSize(0.06);
 pave3->Draw("same");
 
-TLegend *leg = new TLegend(0.23,0.65,0.41,0.9);
-leg->AddEntry(h_datag, "Data ","pe");
+
+char leg_dijet[1024], leg_atlas[1024], leg_moddijet[1024];
+sprintf(leg_dijet, "Dijet-%dp fit", nPars);
+sprintf(leg_atlas, "PowExp-%dp fit", nPars);
+sprintf(leg_moddijet, "ModDijet-%dp fit", nPars);
+
+TLegend *leg = new TLegend(0.59,0.55,0.89,0.9);
+leg->AddEntry(h_datag, "Data","pe");
 leg->AddEntry(h_MC, "LO QCD MC","l");
-leg->AddEntry(Standard_Fit_atlas, "PowExp-3p fit","l");
-leg->AddEntry(Standard_Fit_moddijet, "ModDijet-3p fit","l");
-leg->AddEntry(Standard_Fit_dijet, "Dijet-3p fit","l");
-leg->SetTextSize(0.04);
+leg->AddEntry(Standard_Fit_dijet, leg_dijet,"l");
+leg->AddEntry(Standard_Fit_atlas, leg_atlas,"l");
+leg->AddEntry(Standard_Fit_moddijet, leg_moddijet,"l");
+leg->SetTextSize(0.06);
 leg->SetBorderSize(0);
 leg->Draw("same");
 
-TLegend *leg2 = new TLegend(0.5,0.65,0.75,0.9);
-leg2->AddEntry((TObject*)0,"Diquark: S #rightarrow #chi#chi #rightarrow (ug) (ug)","");
-leg2->AddEntry(h_sig_high_narrow,"M_{S} = 8.6 TeV, #Gamma / M_{S} = 0.43 %","l");
-leg2->AddEntry(h_sig_high_wide,"M_{S} = 8.6 TeV, #Gamma / M_{S} = 10 %","l");
-leg2->AddEntry(h_sig_low_narrow,"M_{S} = 2.2 TeV, #Gamma / M_{S} = 0.43 %","l");
-leg2->AddEntry(h_sig_low_wide,"M_{S} = 2.2 TeV, #Gamma / M_{S} = 10 %","l");
-leg2->SetTextSize(0.04);
-leg2->SetBorderSize(0);	
-leg2->Draw("same"); 
+
+char chi2name_atlas[1024], chi2name_moddijet[1024], chi2name_dijet[1024];
+sprintf(chi2name_dijet, "#chi^{2} / ndf = %.1f / %d, Prob. = %.2f", chi_square_Fit_dijet, NDF_Fit_dijet, TMath::Prob(chi_square_Fit_dijet, NDF_Fit_dijet));
+sprintf(chi2name_atlas, "#chi^{2} / ndf = %.1f / %d, Prob. = %.2f", chi_square_Fit_atlas, NDF_Fit_atlas, TMath::Prob(chi_square_Fit_atlas, NDF_Fit_atlas));
+sprintf(chi2name_moddijet, "#chi^{2} / ndf = %.1f / %d, Prob. = %.2f", chi_square_Fit_moddijet, NDF_Fit_moddijet, TMath::Prob(chi_square_Fit_moddijet, NDF_Fit_moddijet));
+
+TLegend *leg2 = new TLegend(0.22,0.05,0.42,0.3);
+leg2->AddEntry(Standard_Fit_dijet,  chi2name_dijet,"l");
+leg2->AddEntry(Standard_Fit_atlas,  chi2name_atlas,"l");
+leg2->AddEntry(Standard_Fit_moddijet,  chi2name_moddijet,"l");
+leg2->SetTextSize(0.05);
+leg2->SetTextFont(42);
+leg2->SetBorderSize(0);
+leg2->Draw("same");
+
   
 TLatex *l = new TLatex();     
 l->SetTextAlign(11);
 l->SetTextSize(0.055);
 l->SetNDC();
 l->SetTextFont(42);
-l->DrawLatex(0.18,0.953,"#bf{CMS} #scale[0.7]{#it{Preliminary}}");
-l->DrawLatex(0.68,0.953,"138 fb^{-1} (13 TeV)");
-	
+l->DrawLatex(0.685,0.953,"138 fb^{-1} (13 TeV)");
+l->SetTextSize(0.08);	
+l->DrawLatex(0.23,0.80,"#splitline{#bf{CMS}}{#scale[0.7]{#it{Preliminary}}}");	
 		
 c1->cd();
 
@@ -532,9 +421,10 @@ pull_Fit_atlas->GetYaxis()->SetLabelOffset(0.02);
 pull_Fit_atlas->GetXaxis()->SetTitleOffset(1.2);
 pull_Fit_atlas->GetYaxis()->SetTitleOffset(0.6);
 pull_Fit_atlas->GetYaxis()->SetNdivisions(210);
+pull_Fit_atlas->GetXaxis()->SetTickSize(0.06);
 pull_Fit_atlas->SetLineWidth(1);
 
-pull_Fit_dijet->GetXaxis()->SetTitle("Fourjet mass [TeV]");
+pull_Fit_dijet->GetXaxis()->SetTitle("Four-jet mass [TeV]");
 pull_Fit_dijet->GetXaxis()->SetNoExponent();
 pull_Fit_dijet->GetXaxis()->SetMoreLogLabels();
 pull_Fit_dijet->GetXaxis()->SetTitleSize(2*0.06); //2*0.06
@@ -578,26 +468,24 @@ pull_MC->SetLineWidth(1);
 
 	
 
-pull_Fit_atlas->SetYTitle("#frac{(Data-Fit)}{Uncertainty}");
-pull_Fit_atlas->SetFillColor(2);
-//pull_Fit_atlas->Draw("HIST");
-
-pull_Fit_dijet->SetYTitle("#frac{(Data-Fit)}{Uncertainty}");
-pull_Fit_dijet->SetFillColor(4);
-//pull_Fit_dijet->Draw("HIST same");
+pull_Fit_atlas->SetYTitle("#frac{Data #minus Fit}{Uncertainty}");
+pull_Fit_atlas->SetFillColor(kRed+1);
+pull_Fit_atlas->GetYaxis()->CenterTitle(1);
+pull_Fit_atlas->Draw("HIST");
 
 pull_Fit_moddijet->SetYTitle("#frac{(Data-Fit)}{Uncertainty}");
-pull_Fit_moddijet->SetFillColor(2);
-pull_Fit_moddijet->Draw("HIST");
+pull_Fit_moddijet->SetFillColor(kGreen+2);
+pull_Fit_moddijet->Draw("HIST same");
 
-pull_sig_low_narrow->Draw("HIST same");  
-//pull_sig_middle_narrow->Draw("l same");
-pull_sig_high_narrow->Draw("HIST same");
-
-pull_sig_low_wide->Draw("HIST same");  
-//pull_sig_middle_wide->Draw("l same");
-pull_sig_high_wide->Draw("HIST same");
+pull_Fit_dijet->SetYTitle("#frac{(Data-Fit)}{Uncertainty}");
+pull_Fit_dijet->SetFillColor(kBlue-3);
+pull_Fit_dijet->Draw("HIST same");
    
+/*pull_Fit_atlas->SetYTitle("#frac{Data #minus Fit}{Uncertainty}");
+pull_Fit_atlas->SetFillColor(kRed+1);
+pull_Fit_atlas->GetYaxis()->CenterTitle(1);
+pull_Fit_atlas->Draw("HIST same");   
+  */ 
 TLine *sk = new TLine(startit,0.,endit,0.);
 sk->Draw("same"); 
 
@@ -612,9 +500,21 @@ xLab->DrawLatex(5000, -3.8, "5");
 xLab->DrawLatex(6000, -3.8, "6");
 xLab->DrawLatex(7000, -3.8, "7");
 xLab->DrawLatex(8000, -3.8, "8");
+xLab->DrawLatex(9000, -3.8, "9");
 
+char cname1[1024], cname2[1024];
+if(alphabin!=0)
+{
+    sprintf(cname1, "output/Wide_Resonances_Run2_Final/plots/bkg_fits/BkgFits%dPars_alphabin%d.png", nPars, alphabin);
+    sprintf(cname2, "output/Wide_Resonances_Run2_Final/plots/bkg_fits/BkgFits%dPars_alphabin%d.pdf", nPars, alphabin);
+}
+else
+{
+    sprintf(cname1, "output/Wide_Resonances_Run2_Final/plots/bkg_fits/BkgFits%dPars_alphagt0p1.png", nPars);
+    sprintf(cname2, "output/Wide_Resonances_Run2_Final/plots/bkg_fits/BkgFits%dPars_alphagt0p1.pdf", nPars);
+}
 
-c1->SaveAs("output/Wide_Resonances_Run2_Final/plots/bkg_fits/BkgFitsWithSignals_alphabin7.png");
-c1->SaveAs("output/Wide_Resonances_Run2_Final/plots/bkg_fits/BkgFitsWithSignals_alphabin7.pdf");
+c1->SaveAs(cname1);
+c1->SaveAs(cname2);
 
 }

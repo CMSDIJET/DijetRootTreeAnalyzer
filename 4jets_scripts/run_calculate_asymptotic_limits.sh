@@ -1,9 +1,10 @@
 #Suu_masses=(2000 2100 2200 2300 2400 2500 2600 2700 2800 2900 3000 3100 3200 3300 3400 3500 3600 3700 3800 3900 4000 4100 4200 4300 4400 4500 4600 4700 4800 4900 5000 5100 5200 5300 5400 5500 5600 5700 5800 5900 6000 6100 6200 6300 6400 6500 6600 6700 6800 6900 7000 7100 7200 7300 7400 7500 7600 7700 7800 7900 8000 8100 8200 8300 8400 8500 8600 8700 8800 8900 9000 9100 9200 9300 9400 9500 9600 9700 9800 9900 10000)
 #Suu_masses=(2000 3000 4000 5000 6000 7000 8000 8400 8600 9000 10000)
 
-widths=('0p1')
+widths=('0p0043')
 #Suu_masses=(2100 2200 2300 2400 2500 2600 2700 2800 2900 3100 3200 3300 3400 3500 3600 3700 3800 3900 4100 4200 4300 4400 4500 4600 4700 4800 4900 5100 5200 5300 5400 5500 5600 5700 5800)
-Suu_masses=(5900 6100 6200 6300 6400 6500 6600 6700 6800 6900 7100 7200 7300 7400 7500 7600 7700 7800 7900 8100 8200 8300 8500 8700 8800 8900 9100 9200 9300 9400 9500 9600 9700 9800 9900)
+#Suu_masses=(5900 6100 6200 6300 6400 6500 6600 6700 6800 6900 7100 7200 7300 7400 7500 7600 7700 7800 7900 8100 8200 8300 8500 8700 8800 8900 9100 9200 9300 9400 9500 9600 9700 9800 9900)
+Suu_masses=(9100 9200 9300 9400 9500 9600 9700 9800 9900 10000)
 alpha_true_values=(0.25)
 
 
@@ -44,17 +45,18 @@ do
    	    
 	    #Local run	  
 	    #combine -M AsymptoticLimits output/Wide_Resonances_Run2_Final/datacards_alpha0p"$alphap"_refxsec0p01pb/card_combined_W-"$width"_"$Suu"_"$Chi".txt --setParameterRanges r=0,"$rmax" --saveWorkspace --cminDefaultMinimizerTolerance 0.00100 --cminDefaultMinimizerStrategy 2 --strictBounds -n _alpha0p"$alphap"_W-"$width"_"$Suu"_"$Chi"
+            combine -M AsymptoticLimits output/13slices_Envelope_3_func_plots_alpha0p"$alphap"/card_combined_"$Suu"_"$Chi".txt --setParameterRanges r=0,"$rmax" --saveWorkspace --cminDefaultMinimizerTolerance 0.00100 --cminDefaultMinimizerStrategy 2 --strictBounds -n _alpha0p"$alphap"_W-"$width"_"$Suu"_"$Chi"
 
 	    #mv higgsCombine_alpha0p"$alphap"_W-"$width"_"$Suu"_"$Chi".AsymptoticLimits.mH120.root output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha0p"$alphap"/limits/
 	    	  
 	    
 	    #Run with screens	  	  	  
-	    screen -S list_W-"$width"_"$Suu"_"$Chi" -dm bash -c "
-	        sleep 5; 
-	        cmsenv;
-                combine -M AsymptoticLimits output/Wide_Resonances_Run2_Final/datacards_alpha0p"$alphap"_refxsec0p01pb/card_combined_W-"$width"_"$Suu"_"$Chi".txt --setParameterRanges r=0,"$rmax" --saveWorkspace --cminDefaultMinimizerTolerance 0.00100 --cminDefaultMinimizerStrategy 2 --strictBounds -n _alpha0p"$alphap"_W-"$width"_"$Suu"_"$Chi";
-                mv higgsCombine_alpha0p"$alphap"_W-"$width"_"$Suu"_"$Chi".AsymptoticLimits.mH120.root output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha0p"$alphap"/limits/;
-                exec bash"
+	    #screen -S list_W-"$width"_"$Suu"_"$Chi" -dm bash -c "
+	    #    sleep 5; 
+	    #    cmsenv;
+            #    combine -M AsymptoticLimits output/Wide_Resonances_Run2_Final/datacards_alpha0p"$alphap"_refxsec0p01pb/card_combined_W-"$width"_"$Suu"_"$Chi".txt --setParameterRanges r=0,"$rmax" --saveWorkspace --cminDefaultMinimizerTolerance 0.00100 --cminDefaultMinimizerStrategy 2 --strictBounds -n _alpha0p"$alphap"_W-"$width"_"$Suu"_"$Chi";
+            #    mv higgsCombine_alpha0p"$alphap"_W-"$width"_"$Suu"_"$Chi".AsymptoticLimits.mH120.root output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha0p"$alphap"/limits/;
+            #    exec bash"
             
         	    
        done

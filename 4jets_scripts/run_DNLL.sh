@@ -3,8 +3,10 @@
 #widths=('0p0043')
 #widths=('0p015')
 #widths=('0p05')
-widths=('0p1')
-Suu_masses=(2200 3000 4000 5000 6000 7000 8000 8600 9000 10000)
+#widths=('0p1')
+widths=('0p0043' '0p015' '0p05' '0p1')
+#Suu_masses=(2200 3000 4000 5000 6000 7000 8000 8600 9000 10000)
+Suu_masses=(7000)
 alpha_true_values=(0.25)
 
 for element1 in "${widths[@]}"
@@ -25,7 +27,7 @@ do
    	    echo $Chi
    	    
    	    
-   	    if (( $Suu==2000 || $Suu==2200 || $Suu==3000 || $Suu==6000 || $Suu==7000))  
+   	    if (( $Suu==2000 || $Suu==2200 || $Suu==3000))  
    	    then 
    	        rmin=-0.498
    	        rmax=1.502
@@ -41,6 +43,14 @@ do
    	    then
    	        rmin=-0.00249
    	        rmax=0.00751
+   	    elif (( $Suu==6000 ))
+   	    then
+   	        rmin=-0.006972
+   	        rmax=0.021028
+   	    elif (( $Suu==7000 ))
+   	    then
+   	        rmin=-0.07968
+   	        rmax=0.24032        
    	    fi    
    	    
    	    

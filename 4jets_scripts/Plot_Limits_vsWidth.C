@@ -38,10 +38,10 @@ if (alpha_true==0.42) sprintf(alpha_true_name,"0p42");
 
 char fname_W0p015[1024], fname_W0p05[1024], fname_W0p1[1024], fname_W0p0043[1024];
 //sprintf(fname_W0p0043, "/afs/cern.ch/user/i/izisopou/public/EXO-21-010/EXO-21-010-Plotting-Scripts/Figure_011/Limits_alpha%s/limits_freq_gg_pfdijet2017_alpha%s.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p0043, "output/Narrow_Resonances_Run2/combine_rootfiles_alpha%s/limits/limits_freq_qq_pfdijetrun2_alpha%s_W-0p0043.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p015, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/limits/limits_freq_qq_pfdijetrun2_alpha%s_W-0p015.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p05, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/limits/limits_freq_qq_pfdijetrun2_alpha%s_W-0p05.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p1, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/limits/limits_freq_qq_pfdijetrun2_alpha%s_W-0p1.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p0043, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/limits/limits_freq_qq_pfdijetrun2_alpha%s_W-0p0043_AsymptPlusHNwithSavgolFilter.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p015, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/limits/limits_freq_qq_pfdijetrun2_alpha%s_W-0p015_AsymptPlusHNwithSavgolFilter.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p05, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/limits/limits_freq_qq_pfdijetrun2_alpha%s_W-0p05_AsymptPlusHNwithSavgolFilter.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p1, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/limits/limits_freq_qq_pfdijetrun2_alpha%s_W-0p1_AsymptPlusHNwithSavgolFilter.root", alpha_true_name, alpha_true_name);
 
 
 TFile *f_W0p0043 = new TFile(fname_W0p0043,"read");
@@ -72,7 +72,7 @@ c->SetTopMargin(0.09);
 c->SetLeftMargin(0.14);
 c->SetBottomMargin(0.12);
 
-auto frame = c->DrawFrame(2000,5e-6,9000,0.5);
+auto frame = c->DrawFrame(2000,1.01e-7,10000,5);
 frame->GetXaxis()->SetTitleSize(0.07);
 frame->GetXaxis()->SetTitleOffset(0.8);
 frame->GetXaxis()->SetTitle("Four-jet resonance mass [TeV]");
@@ -111,28 +111,28 @@ gObs_W0p1->SetMarkerSize(1.);
 
 gExp_W0p0043->SetLineColor(kBlack);
 gExp_W0p0043->SetLineWidth(3); 
-gExp_W0p0043->SetLineStyle(7); 
+gExp_W0p0043->SetLineStyle(kDashed); 
 gExp_W0p0043->SetMarkerColor(kBlack);
 gExp_W0p0043->SetMarkerStyle(kFullCircle);
 gExp_W0p0043->SetMarkerSize(1.2);
 
 gExp_W0p015->SetLineColor(kRed+1);
 gExp_W0p015->SetLineWidth(3); 
-gExp_W0p015->SetLineStyle(7); 
+gExp_W0p015->SetLineStyle(kDashed); 
 gExp_W0p015->SetMarkerColor(kRed+1);
 gExp_W0p015->SetMarkerStyle(kFullCircle);
 gExp_W0p015->SetMarkerSize(1.2);
 
 gExp_W0p05->SetLineColor(kBlue-3);
 gExp_W0p05->SetLineWidth(3);  
-gExp_W0p05->SetLineStyle(7);
+gExp_W0p05->SetLineStyle(kDashed);
 gExp_W0p05->SetMarkerColor(kBlue-3);
 gExp_W0p05->SetMarkerStyle(kFullCircle);
 gExp_W0p05->SetMarkerSize(1.2);
 
 gExp_W0p1->SetLineColor(kGreen+2);
 gExp_W0p1->SetLineWidth(3);  
-gExp_W0p1->SetLineStyle(7);
+gExp_W0p1->SetLineStyle(kDashed);
 gExp_W0p1->SetMarkerColor(kGreen+2);
 gExp_W0p1->SetMarkerStyle(kFullCircle);
 gExp_W0p1->SetMarkerSize(1.2);
@@ -156,7 +156,7 @@ for(int mass=2000; mass<=10000; mass=mass+1000)
 {
     sprintf(xLab_leg,"%.0f",mass/1000.);
     //xLab->DrawLatex(mass, 6.5e-7, xLab_leg);
-    xLab->DrawLatex(mass, 3.5e-6, xLab_leg);
+    xLab->DrawLatex(mass, 6e-8, xLab_leg);
 }
 
 
@@ -180,7 +180,8 @@ char alpha_leg[1024];
 sprintf(alpha_leg, "M_{X} / M_{Y} = %.2f", alpha_true);
 
 
-TLegend *leg = new TLegend(0.15,0.72,0.25,0.87);
+//TLegend *leg = new TLegend(0.15,0.72,0.25,0.87);
+TLegend *leg = new TLegend(0.67,0.52,0.77,0.62);
 leg->SetFillColor(0);
 leg->SetBorderSize(0);
 leg->SetTextSize(0.04);
@@ -189,10 +190,10 @@ leg->AddEntry((TObject*)0, alpha_leg, "");
 leg->Draw();
 
 
-TLegend *leg2 = new TLegend(0.49,0.62,0.80,0.82);
+TLegend *leg2 = new TLegend(0.53,0.64,0.83,0.84);
 leg2->SetFillColor(0);
 leg2->SetBorderSize(0);
-leg2->SetTextSize(0.04);
+leg2->SetTextSize(0.035);
 leg2->SetMargin(0.3);
 leg2->AddEntry(gExp_W0p0043, " ", "L");
 leg2->AddEntry(gExp_W0p015, " ", "L");
@@ -200,10 +201,10 @@ leg2->AddEntry(gExp_W0p05, " ", "L");
 leg2->AddEntry(gExp_W0p1, " ", "L");
 leg2->Draw();
 
-TLegend *leg3 = new TLegend(0.57,0.62,0.93,0.82);
+TLegend *leg3 = new TLegend(0.61,0.64,0.95,0.84);
 leg3->SetFillColor(0);
 leg3->SetBorderSize(0);
-leg3->SetTextSize(0.04);
+leg3->SetTextSize(0.035);
 leg3->SetMargin(0.4);
 leg3->AddEntry(gObs_W0p0043, "#Gamma / M_{Y} = 0.43 %", "LP");
 leg3->AddEntry(gObs_W0p015, "#Gamma / M_{Y} = 1.5 %", "LP");
@@ -211,8 +212,8 @@ leg3->AddEntry(gObs_W0p05, "#Gamma / M_{Y} = 5 %", "LP");
 leg3->AddEntry(gObs_W0p1, "#Gamma / M_{Y} = 10 %", "LP");
 leg3->Draw();
 
-/*
-TLegend *leg3 = new TLegend(0.57,0.62,0.93,0.87);
+
+/*TLegend *leg3 = new TLegend(0.57,0.62,0.93,0.87);
 leg3->SetFillColor(0);
 leg3->SetBorderSize(0);
 leg3->SetTextSize(0.04);
@@ -235,19 +236,60 @@ lat->SetTextFont(42);
 lat->SetTextSize(0.045);
 //lat->DrawLatex(5800, 3.5e-1,"Exp.   Obs.");
 //lat->DrawLatex(7650, 3.8e-1,"95% CL limits");
-lat->DrawLatex(5800, 2e-1,"Exp.   Obs.");
-lat->DrawLatex(7650, 2.1e-1,"95% CL limits");
+lat->DrawLatex(6700, 1.7,"Exp.   Obs.");
+lat->DrawLatex(8700, 1.8,"95% CL limits");
+
+
+double mass_W0p0043[9] = {2000, 3000, 4000, 6000, 7000, 8000, 8400, 9000, 10000};
+double xsec_W0p0043[9] = {0.432094, 0.0869226, 0.0184735, 0.000757826, 0.00012514, 1.63584e-05, 6.45745e-06, 1.43795e-06, 7.5923397e-08};
+
+double mass[11] = {2000, 3000, 4000, 5000, 6000, 7000, 8000, 8400, 8600, 9000, 10000};
+double xsec_W0p015[11] = {1.12787, 0.189822, 0.0351778, 0.00743033, 0.00132381, 0.000220182, 3.09952e-05, 1.33994e-05, 8.27853e-06, 3.56782e-06, 3.41433e-07};
+double xsec_W0p05[11] = {3.65687, 0.589889, 0.115526, 0.022472, 0.00433709, 0.000718856, 0.000107938, 4.80896e-05, 3.31358e-05, 1.42758e-05, 2.33132e-06};
+double xsec_W0p1[11] = {7.10395, 1.18592, 0.23197, 0.0450048, 0.00891541, 0.00161187, 0.000261153, 0.000122165, 8.71291e-05, 4.3674e-05, 8.36487e-06};
+
+TGraph *gr_xsec_W0p0043 = new TGraph(9, mass_W0p0043, xsec_W0p0043);
+TGraph *gr_xsec_W0p015 = new TGraph(11, mass, xsec_W0p015);
+TGraph *gr_xsec_W0p05 = new TGraph(11, mass, xsec_W0p05);
+TGraph *gr_xsec_W0p1 = new TGraph(11, mass, xsec_W0p1);
+
+gr_xsec_W0p0043->SetLineColor(kMagenta-8);
+gr_xsec_W0p015->SetLineColor(kMagenta-5);
+gr_xsec_W0p05->SetLineColor(kMagenta);
+gr_xsec_W0p1->SetLineColor(kMagenta-1);
+gr_xsec_W0p0043->SetLineWidth(2);
+gr_xsec_W0p015->SetLineWidth(2);
+gr_xsec_W0p05->SetLineWidth(2);
+gr_xsec_W0p1->SetLineWidth(2);
+
+gr_xsec_W0p0043->Draw("l same");
+gr_xsec_W0p015->Draw("l same");
+gr_xsec_W0p05->Draw("l same");
+gr_xsec_W0p1->Draw("l same");
+
+
+TLegend *leg4 = new TLegend(0.17,0.15,0.35,0.4);
+leg4->SetFillColor(0);
+leg4->SetBorderSize(0);
+leg4->SetTextSize(0.033);
+leg4->SetMargin(0.4);
+leg4->SetHeader("Diquark: S #rightarrow #chi#chi #rightarrow (ug)(ug)");
+leg4->AddEntry(gr_xsec_W0p0043, "y_{uu} = 0.4, y_{#chi} = 0.6 (#Gamma / M_{S} = 0.43 %)", "LP");
+leg4->AddEntry(gr_xsec_W0p015, "y_{uu} = 0.746, y_{#chi} = 1.12 (#Gamma / M_{S} = 1.5 %)", "LP");
+leg4->AddEntry(gr_xsec_W0p05, "y_{uu} = 1.364, y_{#chi} = 2.044 (#Gamma / M_{S} = 5 %)", "LP");
+leg4->AddEntry(gr_xsec_W0p1, "y_{uu} = 1.928, y_{#chi} = 2.892 (#Gamma / M_{S} = 10 %)", "LP");
+leg4->Draw();
 
 
 char cname1[1024], cname2[1024];
-sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/LimitVsMassVsWidth_alpha%s.png",alpha_true_name);
-sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/LimitVsMassVsWidth_alpha%s.pdf",alpha_true_name);
+sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/limits/AsymptPlusHNLimitVsMassVsWidth_alpha%s.png",alpha_true_name);
+sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/limits/AsymptPlusHNLimitVsMassVsWidth_alpha%s.pdf",alpha_true_name);
 
-//sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/ObsLimitVsMassVsWidth_alpha%s.png",alpha_true_name);
-//sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/ObsLimitVsMassVsWidth_alpha%s.pdf",alpha_true_name);
+//sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/limits/AsymptPlusHNObsLimitVsMassVsWidth_alpha%s.png",alpha_true_name);
+//sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/limits/AsymptPlusHNObsLimitVsMassVsWidth_alpha%s.pdf",alpha_true_name);
 
-//sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/ExpLimitVsMassVsWidth_alpha%s.png",alpha_true_name);
-//sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/ExpLimitVsMassVsWidth_alpha%s.pdf",alpha_true_name);
+//sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/limits/AsymptPlusHNExpLimitVsMassVsWidth_alpha%s.png",alpha_true_name);
+//sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/limits/AsymptPlusHNExpLimitVsMassVsWidth_alpha%s.pdf",alpha_true_name);
 
 c->SaveAs(cname1);
 c->SaveAs(cname2);

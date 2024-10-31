@@ -21,20 +21,20 @@
 
 void Plot_AcceptanceTimesEfficiency_vsWidth(){
 
-double mass_W0p0043[9]={2, 3, 4, 5, 6, 7, 8, 8.4, 9};
-double acc_W0p0043[9]={0.16034, 0.17764, 0.18121, 0.18676, 0.188747, 0.18957, 0.187456, 0.1819, 0.17098}; //acceptance
-double accEff_W0p0043[9]={0.14061, 0.17698, 0.18099, 0.18673, 0.188747, 0.18957, 0.187456, 0.1819 ,0.17098};  //acceptance x efficiency  
+double mass_W0p0043[10]={2, 3, 4, 5, 6, 7, 8, 8.4, 9, 10};
+double acc_W0p0043[10]={0.16034, 0.17764, 0.18121, 0.18676, 0.188747, 0.18957, 0.187456, 0.1819, 0.17098, 0.14751}; //acceptance
+double accEff_W0p0043[10]={0.14061, 0.17698, 0.18099, 0.18673, 0.188747, 0.18957, 0.187456, 0.1819 ,0.17098, 0.14751};  //acceptance x efficiency  
 
-double mass[10]={2, 3, 4, 5, 6, 7, 8, 8.4, 8.6, 9};
+double mass[11]={2, 3, 4, 5, 6, 7, 8, 8.4, 8.6, 9, 10};
 
-double acc_W0p015[10]={0.16579, 0.18209091, 0.18722, 0.19119, 0.18888, 0.1884, 0.1777, 0.16881, 0.16262, 0.15148}; //acceptance
-double accEff_W0p015[10]={0.14648, 0.18132323, 0.18709, 0.19115, 0.18887, 0.18839, 0.1777, 0.1688, 0.16262, 0.15148};  //acceptance x efficiency 
+double acc_W0p015[11]={0.16579, 0.18209091, 0.18722, 0.19119, 0.18888, 0.1884, 0.1777, 0.16881, 0.16262, 0.15148, 0.11812}; //acceptance
+double accEff_W0p015[11]={0.14648, 0.18132323, 0.18709, 0.19115, 0.18887, 0.18839, 0.1777, 0.1688, 0.16262, 0.15148, 0.11812};  //acceptance x efficiency 
 
-double acc_W0p05[10]={0.1666, 0.18126531, 0.18287, 0.18430303, 0.17789, 0.16761, 0.15112, 0.14023469, 0.13484, 0.12313}; //acceptance
-double accEff_W0p05[10]={0.14237, 0.17985714, 0.18256, 0.18418182, 0.17785, 0.16759, 0.15111, 0.14023469, 0.13484, 0.12313};  //acceptance x efficiency 
+double acc_W0p05[11]={0.1666, 0.18126531, 0.18287, 0.18430303, 0.17789, 0.16761, 0.15112, 0.14023469, 0.13484, 0.12313, 0.10356}; //acceptance
+double accEff_W0p05[11]={0.14237, 0.17985714, 0.18256, 0.18418182, 0.17785, 0.16759, 0.15111, 0.14023469, 0.13484, 0.12313, 0.10356};  //acceptance x efficiency 
 
-double acc_W0p1[10]={0.16834, 0.18286, 0.18479798, 0.18349, 0.17387, 0.1589, 0.13957143, 0.12922, 0.12315, 0.11349}; //acceptance
-double accEff_W0p1[10]={0.15048, 0.18145, 0.18438384, 0.18327, 0.17382, 0.15885, 0.13957143, 0.12921, 0.12314, 0.11349};  //acceptance x efficiency 
+double acc_W0p1[11]={0.16834, 0.18286, 0.18479798, 0.18349, 0.17387, 0.1589, 0.13957143, 0.12922, 0.12315, 0.11349, 0.097}; //acceptance
+double accEff_W0p1[11]={0.15048, 0.18145, 0.18438384, 0.18327, 0.17382, 0.15885, 0.13957143, 0.12921, 0.12314, 0.11349, 0.097};  //acceptance x efficiency 
 
 TCanvas *c = new TCanvas("c","",800,700);
 c->cd();
@@ -47,7 +47,7 @@ c->SetTopMargin(0.09);
 c->SetLeftMargin(0.14);
 c->SetBottomMargin(0.12);
 
-auto frame = c->DrawFrame(1.5,0.,9.5,0.25);
+auto frame = c->DrawFrame(1.5,0.,10.5,0.25);
 frame->GetXaxis()->SetTitleSize(0.07);
 frame->GetXaxis()->SetTitleOffset(0.8);
 frame->GetXaxis()->SetTitle("Diquark mass [TeV]");
@@ -59,17 +59,17 @@ frame->GetYaxis()->SetLabelSize(0.045);
 frame->GetYaxis()->SetLabelOffset(0.012);
 
 
-TGraph *gr_acc_W0p0043 = new TGraphAsymmErrors(9, mass_W0p0043, acc_W0p0043);
-TGraph *gr_accEff_W0p0043 = new TGraphAsymmErrors(9, mass_W0p0043, accEff_W0p0043);
+TGraph *gr_acc_W0p0043 = new TGraphAsymmErrors(10, mass_W0p0043, acc_W0p0043);
+TGraph *gr_accEff_W0p0043 = new TGraphAsymmErrors(10, mass_W0p0043, accEff_W0p0043);
 
-TGraph *gr_acc_W0p015 = new TGraphAsymmErrors(10, mass, acc_W0p015);
-TGraph *gr_accEff_W0p015 = new TGraphAsymmErrors(10, mass, accEff_W0p015);
+TGraph *gr_acc_W0p015 = new TGraphAsymmErrors(11, mass, acc_W0p015);
+TGraph *gr_accEff_W0p015 = new TGraphAsymmErrors(11, mass, accEff_W0p015);
 
-TGraph *gr_acc_W0p05 = new TGraphAsymmErrors(10, mass, acc_W0p05);
-TGraph *gr_accEff_W0p05 = new TGraphAsymmErrors(10, mass, accEff_W0p05);
+TGraph *gr_acc_W0p05 = new TGraphAsymmErrors(11, mass, acc_W0p05);
+TGraph *gr_accEff_W0p05 = new TGraphAsymmErrors(11, mass, accEff_W0p05);
 
-TGraph *gr_acc_W0p1 = new TGraphAsymmErrors(10, mass, acc_W0p1);
-TGraph *gr_accEff_W0p1 = new TGraphAsymmErrors(10, mass, accEff_W0p1);
+TGraph *gr_acc_W0p1 = new TGraphAsymmErrors(11, mass, acc_W0p1);
+TGraph *gr_accEff_W0p1 = new TGraphAsymmErrors(11, mass, accEff_W0p1);
 
 
 gr_accEff_W0p0043->SetMarkerColor(kBlack);
@@ -191,12 +191,17 @@ TLatex *lat = new TLatex();
 lat->SetTextAlign(22);
 lat->SetTextFont(42);
 lat->SetTextSize(0.045);
-lat->DrawLatex(5.05, 0.09,"eff = 1");
+//lat->DrawLatex(5.05, 0.09,"eff = 1");
+lat->DrawLatex(5.5, 0.09,"eff = 1");
 
-TLine *line1 = new TLine(4.5, 0.015, 4.5, 0.1);
-TLine *line2 = new TLine(5.6, 0.015, 5.6, 0.1);
-TLine *line3 = new TLine(4.5, 0.015, 5.6, 0.015);
-TLine *line4 = new TLine(4.5, 0.1, 5.6, 0.1);
+//TLine *line1 = new TLine(4.5, 0.015, 4.5, 0.1);
+//TLine *line2 = new TLine(5.6, 0.015, 5.6, 0.1);
+//TLine *line3 = new TLine(4.5, 0.015, 5.6, 0.015);
+//TLine *line4 = new TLine(4.5, 0.1, 5.6, 0.1);
+TLine *line1 = new TLine(4.9, 0.015, 4.9, 0.1);
+TLine *line2 = new TLine(6.2, 0.015, 6.2, 0.1);
+TLine *line3 = new TLine(4.9, 0.015, 6.2, 0.015);
+TLine *line4 = new TLine(4.9, 0.1, 6.2, 0.1);
 line1->SetLineWidth(1);
 line2->SetLineWidth(1);
 line3->SetLineWidth(1);
@@ -206,8 +211,8 @@ line2->Draw("same");
 line3->Draw("same");
 line4->Draw("same");
 
-c->SaveAs("output/Wide_Resonances_Run2_Final/plots/AcceptanceTimesEfficiencyVsMassVsWidth_alpha0p25.png");
-c->SaveAs("output/Wide_Resonances_Run2_Final/plots/AcceptanceTimesEfficiencyVsMassVsWidth_alpha0p25.pdf");
+c->SaveAs("output/Wide_Resonances_Run2_Final/plots/acceptances/AcceptanceTimesEfficiencyVsMassVsWidth_alpha0p25.png");
+c->SaveAs("output/Wide_Resonances_Run2_Final/plots/acceptances/AcceptanceTimesEfficiencyVsMassVsWidth_alpha0p25.pdf");
 
 }
 

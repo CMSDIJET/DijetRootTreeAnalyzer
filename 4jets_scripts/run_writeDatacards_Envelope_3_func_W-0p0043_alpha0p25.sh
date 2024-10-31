@@ -5,7 +5,7 @@
 bin_No=$1
 bin_No_final=$2
 
-Suu_masses=(2000 2200 3000 4000 5000 6000 7000 8000 8600 9000 10000)
+Suu_masses=(5200)
 
 alpha_true_values=(0.25)
 

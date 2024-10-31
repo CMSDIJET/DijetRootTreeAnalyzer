@@ -7,12 +7,12 @@ from optparse import OptionParser
 from scipy.signal import savgol_filter
 import numpy as np
 
-def getThyXsecDict(alphap):    
+def getThyXsecDict(width_name, alphap):    
     thyXsecDict = {}
     #xsecFiles = ['data/all_lowmass_lhc13TeV_1.txt','data/rsg_gg_lhc13TeV.txt','data/S8_13TeV_narrow_1.txt','data/string_total_13TeV_1.txt','data/axigluon_NLO_1.txt','data/dm_xsec_1.txt','data/Zprimebb_xsec.txt','data/dmbb_xsec.txt']
     #xsecFiles = ['data/all_lowmass_lhc13TeV_1.txt','data/rsg_gg_lhc13TeV.txt','data/S8_13TeV_narrow_1.txt','data/string_total_13TeV_1.txt','data/dm_xsec_1.txt','data/Zprimebb_xsec.txt','data/dmbb_xsec.txt']
     #xsecFiles = ['data/Diquark.txt']
-    xsecFiles = ['data/Diquark_0p%.0f.txt'%(alphap)]
+    xsecFiles = ['data/Diquark_W-%s_0p%.0f.txt'%(width_name, alphap)]
     
     
     print (xsecFiles)
@@ -435,7 +435,7 @@ if __name__ == '__main__':
         width_name = 'unknown'
     
     
-    thyXsecDict = getThyXsecDict(alphap) 
+    thyXsecDict = getThyXsecDict(width_name, alphap) 
     thyModels = thyXsecDict.keys()
 
     thyModelsToDraw = []
@@ -679,16 +679,20 @@ if __name__ == '__main__':
             #gr_expectedLimit2sigma[(Box,model)] = rt.TGraphAsymmErrors(nPoints, gluinoMassArray[(Box,model)], expectedLimit[(Box,model)], gluinoMassArray_er[(Box,model)], gluinoMassArray_er[(Box,model)], expectedLimit_minus2sigma_new[(Box,model)], expectedLimit_plus2sigma[(Box,model)]) # Jim
             #gr_expectedLimit2sigma[(Box,model)].SetLineColor(5)
             #gr_expectedLimit2sigma[(Box,model)].SetFillColor(5)
-            gr_expectedLimit2sigma[(Box,model)].SetLineColor(rt.kOrange)
-            gr_expectedLimit2sigma[(Box,model)].SetFillColor(rt.kOrange)
+            color2sigma = rt.TColor.GetColor('#85D1FBff')
+            #color2sigma = rt.TColor.GetColor('#F5BB54')            
+            gr_expectedLimit2sigma[(Box,model)].SetLineColor(color2sigma) #rt.kOrange
+            gr_expectedLimit2sigma[(Box,model)].SetFillColor(color2sigma) #rt.kOrange
             gr_expectedLimit2sigma[(Box,model)].SetFillStyle(1001)
 
             gr_expectedLimit1sigma[(Box,model)] = rt.TGraphAsymmErrors(nPoints, gluinoMassArray[(Box,model)], expectedLimit[(Box,model)], gluinoMassArray_er[(Box,model)], gluinoMassArray_er[(Box,model)], expectedLimit_minus1sigma[(Box,model)], expectedLimit_plus1sigma[(Box,model)])
 
             #gr_expectedLimit1sigma[(Box,model)].SetLineColor(rt.kGreen-7)
             #gr_expectedLimit1sigma[(Box,model)].SetFillColor(rt.kGreen-7)
-            gr_expectedLimit1sigma[(Box,model)].SetLineColor(rt.kGreen+1)
-            gr_expectedLimit1sigma[(Box,model)].SetFillColor(rt.kGreen+1)
+            color1sigma = rt.TColor.GetColor('#FFDF7Fff')
+            #color1sigma = rt.TColor.GetColor('#607641')
+            gr_expectedLimit1sigma[(Box,model)].SetLineColor(color1sigma) #rt.kGreen+1
+            gr_expectedLimit1sigma[(Box,model)].SetFillColor(color1sigma) #rt.kGreen+1
 
             if len(models)==1:
                 h_limit.Add(gr_expectedLimit2sigma[(Box,model)])
@@ -755,7 +759,7 @@ if __name__ == '__main__':
  
     l = rt.TLatex()
     l.SetTextAlign(11)
-    l.SetTextSize(0.07) #0.045 w/o Preliminary
+    l.SetTextSize(0.06) #0.075
     l.SetNDC()
     l.SetTextFont(62)
     #l.DrawLatex(0.17,0.92,"CMS")    
@@ -764,15 +768,15 @@ if __name__ == '__main__':
     elif len(Boxes)>1:
         l.DrawLatex(0.41,0.835,"CMS")
     else:
-        l.DrawLatex(0.23,0.78,"#splitline{CMS}{#scale[0.7]{#it{#bf{Preliminary}}}}") #for PAS - ilias
-        #l.DrawLatex(0.23,0.83,"CMS") #for PAPER - ilias
+        #l.DrawLatex(0.23,0.78,"#splitline{CMS}{#scale[0.7]{#it{#bf{Preliminary}}}}") #for PAS - ilias
+        l.DrawLatex(0.165,0.92,"CMS #scale[0.7]{#it{#bf{Preliminary}}}") 
         
     l.SetTextFont(52)
     #l.DrawLatex(0.28,0.92,"Preliminary")
     l.SetTextFont(42)
-    l.SetTextSize(0.035)
+    l.SetTextSize(0.045)
     #l.DrawLatex(0.65,0.92,"%.0f pb^{-1} (13 TeV)"%(options.lumi*1000))
-    l.DrawLatex(0.7,0.92,"%.0f fb^{-1} (13 TeV)"%(options.lumi)) #0.638,0.92 w/o Preliminary
+    l.DrawLatex(0.645,0.92,"%.0f fb^{-1} (13 TeV)"%(options.lumi)) #0.638,0.92 w/o Preliminary
     
     if options.model=="gg":
         if len(Boxes)>1:
@@ -852,11 +856,14 @@ if __name__ == '__main__':
         leg_width = rt.TLegend(0.65,0.36,0.92,0.46)
         leg_arxiv = rt.TLegend(0.15,0.10,0.45,0.20) 
     else:        
-        leg = rt.TLegend(0.55,0.6,0.92,0.79)
-        leg_SigProc = rt.TLegend(0.55,0.79,0.92,0.89)
-        leg_alpha = rt.TLegend(0.63,0.5,0.90,0.6)
-        leg_width = rt.TLegend(0.63,0.47,0.90,0.48)
-        leg_arxiv = rt.TLegend(0.27,0.18,0.57,0.28)
+        #leg = rt.TLegend(0.55,0.6,0.92,0.79)
+        leg = rt.TLegend(0.55,0.7,0.92,0.89)
+        #leg_SigProc = rt.TLegend(0.55,0.79,0.92,0.89)
+        leg_SigProc = rt.TLegend(0.645,0.66,0.915,0.66)
+        leg_alpha = rt.TLegend(0.645,0.61,0.915,0.61)
+        leg_width = rt.TLegend(0.645,0.56,0.915,0.56)
+        #leg_arxiv = rt.TLegend(0.27,0.18,0.57,0.28)
+        leg_arxiv = rt.TLegend(0.32,0.16,0.62,0.26)
     
     leg.SetTextFont(42)
     leg.SetFillColorAlpha(0,0)
@@ -876,12 +883,25 @@ if __name__ == '__main__':
     if not options.doSignificance:
         leg.SetHeader("95% CL limits")
         leg_SigProc.SetHeader("Y #rightarrow XX #rightarrow (jj)(jj)")
+        leg_SigProc.SetTextSize(0.035)
         leg_alpha.SetHeader("M_{X} / M_{Y} = %.2f"%(alphatrue))
         leg_alpha.SetTextSize(0.035)
-        leg_width.SetHeader("#Gamma / M_{Y} = %.2f %%"%(width*100.))
+        if(width_name=='0p0043'): 
+            leg_width.SetHeader("#Gamma / M_{Y} = %.2f %%"%(width*100.))
+        elif(width_name=='0p015'):
+            leg_width.SetHeader("#Gamma / M_{Y} = %.1f %%"%(width*100.))
+        else:
+             leg_width.SetHeader("#Gamma / M_{Y} = %.0f %%"%(width*100.))       
         leg_width.SetTextSize(0.035)
 	#leg_arxiv.SetHeader("#splitline{y_{uu}=0.4, y_{#chi}=0.6}{arXiv:1810.09429}")
-        leg_arxiv.SetHeader("y_{uu} = 0.4, y_{#chi} = 0.6")
+        if(width_name=='0p0043'): 
+            leg_arxiv.SetHeader("y_{uu} = 0.4, y_{#chi} = 0.6")
+        elif(width_name=='0p015'):
+            leg_arxiv.SetHeader("y_{uu} = 0.746, y_{#chi} = 1.12") 
+        elif(width_name=='0p05'):
+            leg_arxiv.SetHeader("y_{uu} = 1.364, y_{#chi} = 2.044") 
+        elif(width_name=='0p1'):
+            leg_arxiv.SetHeader("y_{uu} = 1.928, y_{#chi} = 2.892")           
         leg_arxiv.SetTextSize(0.035)
     if len(models)==1:
         if options.doSignificance:
@@ -925,7 +945,8 @@ if __name__ == '__main__':
         else:
             #legThyModel = rt.TLegend(0.2,0.17,0.55,0.23)
             #legThyModel = rt.TLegend(0.53,0.55,0.91,0.70)
-            legThyModel = rt.TLegend(0.2,0.18,0.55,0.4)
+            #legThyModel = rt.TLegend(0.2,0.18,0.55,0.4)
+            legThyModel = rt.TLegend(0.25,0.16,0.60,0.38)
         legThyModel.SetTextFont(42)
         #legThyModel.SetFontSize(10);
         legThyModel.SetFillColor(rt.kWhite)
@@ -1063,11 +1084,11 @@ if __name__ == '__main__':
                         graph.SetName('%s_%s_%s'%(limitType,model,Box.lower()))
                         graph.Write()
             else:
-                c.SaveAs(options.outDir+"/limits_freq_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+".png")
-                c.SaveAs(options.outDir+"/limits_freq_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+".pdf")
-                c.SaveAs(options.outDir+"/limits_freq_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+".C")
+                c.SaveAs(options.outDir+"/limits_freq_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+"_AsymptPlusHNwithoutSavgolFilter.png")
+                c.SaveAs(options.outDir+"/limits_freq_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+"_AsymptPlusHNwithoutSavgolFilter.pdf")
+                c.SaveAs(options.outDir+"/limits_freq_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+"_AsymptPlusHNwithoutSavgolFilter.C")
                 #c.SaveAs("Figure_011.pdf")
-                outFile = rt.TFile.Open(options.outDir+"/limits_freq_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+".root","recreate")
+                outFile = rt.TFile.Open(options.outDir+"/limits_freq_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+"_AsymptPlusHNwithoutSavgolFilter.root","recreate")
                 outFile.cd()
                 c.Write()
                 for thyModel in thyModelsToDraw: 

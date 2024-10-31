@@ -7,12 +7,12 @@ from optparse import OptionParser
 from scipy.signal import savgol_filter
 import numpy as np
 
-def getThyXsecDict(alphap):    
+def getThyXsecDict(width_name, alphap):    
     thyXsecDict = {}
     #xsecFiles = ['data/all_lowmass_lhc13TeV_1.txt','data/rsg_gg_lhc13TeV.txt','data/S8_13TeV_narrow_1.txt','data/string_total_13TeV_1.txt','data/axigluon_NLO_1.txt','data/dm_xsec_1.txt','data/Zprimebb_xsec.txt','data/dmbb_xsec.txt']
     #xsecFiles = ['data/all_lowmass_lhc13TeV_1.txt','data/rsg_gg_lhc13TeV.txt','data/S8_13TeV_narrow_1.txt','data/string_total_13TeV_1.txt','data/dm_xsec_1.txt','data/Zprimebb_xsec.txt','data/dmbb_xsec.txt']
     #xsecFiles = ['data/Diquark.txt']
-    xsecFiles = ['data/Diquark_0p%.0f.txt'%(alphap)]
+    xsecFiles = ['data/Diquark_W-%s_0p%.0f.txt'%(width_name, alphap)]
     
     
     print (xsecFiles)
@@ -432,7 +432,7 @@ if __name__ == '__main__':
     else:
         width_name = 'unknown'
     
-    thyXsecDict = getThyXsecDict(alphap) 
+    thyXsecDict = getThyXsecDict(width_name, alphap) 
     thyModels = thyXsecDict.keys()
 
     thyModelsToDraw = []
@@ -724,7 +724,7 @@ if __name__ == '__main__':
                 gr_observedLimit[(Box,model)].SetMarkerColor(rt.kBlue)
                 gr_observedLimit[(Box,model)].Draw("lp SAME")
                 
-                out_file = rt.TFile(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+".root","recreate")
+                out_file = rt.TFile(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+"_AsymptOnly.root","recreate")
                 out_file.cd()
                 gr_observedLimit[(Box,model)].Write()
             else:
@@ -994,9 +994,9 @@ if __name__ == '__main__':
     c.RedrawAxis() # request from David
     if options.doSignificance:
         #c.SaveAs(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+".pdf")
-        c.SaveAs(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+".pdf")
-        c.SaveAs(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+".png")  
-        c.SaveAs(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+".C")
+        c.SaveAs(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+"_AsymptOnly.pdf")
+        c.SaveAs(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+"_AsymptOnly.png")  
+        c.SaveAs(options.outDir+"/signif_"+options.model+"_"+options.box.lower()+"_alpha0p"+str(int(alphap))+"_W-"+width_name+"_AsymptOnly.C")
     else:
         if options.bayes:
             if options.noSys:

@@ -37,10 +37,10 @@ if (alpha_true==0.33) sprintf(alpha_true_name,"0p33");
 if (alpha_true==0.42) sprintf(alpha_true_name,"0p42");
 
 char fname_W0p015[1024], fname_W0p05[1024], fname_W0p1[1024], fname_W0p0043[1024];
-sprintf(fname_W0p0043, "output/Narrow_Resonances_Run2/combine_rootfiles_alpha%s/pvalues/pvalue_qq_pfdijetrun2_alpha%s_W-0p0043.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p015, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/pvalues/pvalue_qq_pfdijetrun2_alpha%s_W-0p015.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p05, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/pvalues/pvalue_qq_pfdijetrun2_alpha%s_W-0p05.root", alpha_true_name, alpha_true_name);
-sprintf(fname_W0p1, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/pvalues/pvalue_qq_pfdijetrun2_alpha%s_W-0p1.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p0043, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/pvalues/pvalue_qq_pfdijetrun2_alpha%s_W-0p0043_AsymptPlusHN.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p015, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/pvalues/pvalue_qq_pfdijetrun2_alpha%s_W-0p015_AsymptPlusHN.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p05, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/pvalues/pvalue_qq_pfdijetrun2_alpha%s_W-0p05_AsymptPlusHN.root", alpha_true_name, alpha_true_name);
+sprintf(fname_W0p1, "output/Wide_Resonances_Run2_Final/combine_rootfiles_alpha%s/pvalues/pvalue_qq_pfdijetrun2_alpha%s_W-0p1_AsymptPlusHN.root", alpha_true_name, alpha_true_name);
 
 
 TFile *f_W0p0043 = new TFile(fname_W0p0043,"read");
@@ -224,8 +224,8 @@ lsigma_leg->DrawLatex(6300, 3.1671242e-05, "4#sigma");
 
 
 char cname1[1024], cname2[1024];
-sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/PValueVsMassVsWidth_alpha%s.png",alpha_true_name);
-sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/PValueVsMassVsWidth_alpha%s.pdf",alpha_true_name);
+sprintf(cname1,"output/Wide_Resonances_Run2_Final/plots/significances/AsymptPlusHNPValueVsMassVsWidth_alpha%s.png",alpha_true_name);
+sprintf(cname2,"output/Wide_Resonances_Run2_Final/plots/significances/AsymptPlusHNPValueVsMassVsWidth_alpha%s.pdf",alpha_true_name);
 
 c->SaveAs(cname1);
 c->SaveAs(cname2);
