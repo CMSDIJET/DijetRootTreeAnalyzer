@@ -1,5 +1,5 @@
 COMP=g++
-FLAGS = -std=c++17 -Wno-attributes -O0 -g
+FLAGS = -std=c++20 -Wno-attributes -O0 -g
 FLAGS += -DSAVE_ALL_HISTOGRAMS 
 ROOTLIBS = `root-config --glibs --cflags` -lMinuit 
 scram = $(shell cd ${CMSSW_BASE}; scram tool tag $(1) $(2))
