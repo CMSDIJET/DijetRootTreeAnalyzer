@@ -1368,7 +1368,7 @@ void analysisClass::Loop()
      }
 */
 
-     //fillReducedSkimTree();
+     fillReducedSkimTree();
 
    } // End loop over events
 
