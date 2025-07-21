@@ -20,60 +20,21 @@ analysisClass::analysisClass(string * inputList, string * cutFile, string * tree
   {
     std::cout << "Reapplying JECs on the fly" << std::endl;
     std::cout << "Using IOV implementation for periodic JEC..." << std::endl;
-    
-    // Using IOV JEC now. Now that's 2016. See include/IOV.h for changing versions.
-    // Note that the IOV implementation can be used with just one JEC if wanted. Juska.
-    
-    /*
-   Ranges for 2016 run periods from DAS as of 4 Nov 16.
-   Periods with no certified luminosity are omitted.
-   B-v2: 273150 - 275376
-   C-v2: 276282 - 276279
-   D-v2: 276315 - 276653
-   E-v2: 276824 - 277420
-   F-v1: 277816 - 278808
-   G-v1: 278816 - 280385
-   H-v2: 282807 - 283885
-   List obtained with commands like this:
-   [juska@lxplus069 workdir]$ das_client.py --query='run dataset=/JetHT/Run2016H-PromptReco-v2/MINIAOD' --limit 0
-    */
-
-    
-    // IOV's updated for Summer16_V3 JEC intervals
-  /*  iov = new jec::IOV("AK4PFchs");
-    iov->add("BCD",1,276811,true);
-    iov->add("EF",276831,278801,true);
-    iov->add("G",278802,280385,true);
-    iov->add("H",280919,999999,true);*/
-
-/* iov = new jec::IOV("AK4PFchs");
-    iov->add("B",297046,299329,true);
-    iov->add("C",299368,302029,true);
-    iov->add("D",302030,303434,true);
-    iov->add("E",303824,304797,true);
-    iov->add("F",305040,999999,true);*/
-
- /*iov = new jec::IOV("AK4PFchs");
-    iov->add("B",297046,299329,true);
-    iov->add("C",299368,302029,true);
-    iov->add("DE",302030,304797,true);
-    iov->add("F",305040,999999,true);
-*/
-
 
     
     JetCorrector_data = new FactorizedJetCorrector(); // Will be filled later
            
-    std::string L1Path = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L1FastJet_AK4PFPuppi.txt";
-    std::string L2Path = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L2Relative_AK4PFPuppi.txt";
-    std::string L3Path = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L3Absolute_AK4PFPuppi.txt";
+    std::string L1Path = "data/Winter24/Winter24Run3_V1_MC_L1FastJet_AK4PFPuppi.txt";
+    std::string L2Path = "data/Winter24/Winter24Run3_V1_MC_L2Relative_AK4PUPPI.txt";
+    std::string L3Path = "data/Winter24/Winter24Run3_V1_MC_L3Absolute_AK4PFPuppi.txt";
 
-    std::string L1DATAPath = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L1FastJet_AK4PFPuppi.txt";
-    std::string L2DATAPath = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L2Relative_AK4PFPuppi.txt"; 
-    std::string L3DATAPath = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L3Absolute_AK4PFPuppi.txt";
-    std::string L2L3ResidualPath = "data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_L2L3Residual_AK4PFPuppi.txt";
-
-    unc = new JetCorrectionUncertainty("data/Winter23Prompt23_RunC_V2_DATA/Winter23Prompt23_RunC_V2_DATA_Uncertainty_AK4PFPuppi.txt");
+    std::string L1DATAPath = "data/Winter24/Winter24Run3_V1_MC_L1FastJet_AK4PFPuppi.txt";
+    std::string L2DATAPath = "data/Winter24/Winter24Run3_V1_MC_L2Relative_AK4PUPPI.txt";
+    std::string L3DATAPath = "data/Winter24/Winter24Run3_V1_MC_L3Absolute_AK4PFPuppi.txt";
+    std::string L2L3ResidualPath = "data/2024DATA_V4M_JECs/Prompt24_Run2024CS_V4M_DATA_L2L3Residual_AK4PFPuppi.txt";
+    //std::string L2L3ResidualPath = "";
+    
+    unc = new JetCorrectionUncertainty("data/Winter22Run3/Winter22Run3_V1_Uncertainty_AK4PFPuppi.txt");
 
 
  
@@ -138,6 +99,8 @@ void analysisClass::Loop()
    
      Long64_t ientry = LoadTree(jentry);
 
+    //if(ientry > 60656 && ientry < 110000) continue;
+    // if(ientry >= 8452 && ientry < 9152) continue;    
      if (ientry < 0) break;
      nb = fChain->GetEntry(jentry);   nbytes += nb;
      if(jentry < 10 || jentry%500000 == 0) std::cout << "analysisClass::Loop(): jentry = " << jentry << std::endl;   
@@ -185,6 +148,7 @@ void analysisClass::Loop()
 	 for(size_t j=0; j<no_jets_ak8; ++j)
 	 {
 	     JetCorrector->setJetEta(jetEtaAK8->at(j));
+	     JetCorrector->setJetPhi(jetPhiAK8->at(j));
 	     JetCorrector->setJetPt(jetPtAK8->at(j)/jetJecAK8->at(j)); //pTraw
 	     JetCorrector->setJetA(jetAreaAK8->at(j));
 	     JetCorrector->setRho(rho);
@@ -193,6 +157,7 @@ void analysisClass::Loop()
 
         
   	     JetCorrector_data->setJetEta(jetEtaAK8->at(j));
+  	     JetCorrector_data->setJetPhi(jetPhiAK8->at(j));
 	     JetCorrector_data->setJetPt(jetPtAK8->at(j)/jetJecAK8->at(j)); //pTraw
 	     JetCorrector_data->setJetA(jetAreaAK8->at(j));
 	     JetCorrector_data->setRho(rho);
@@ -260,10 +225,10 @@ void analysisClass::Loop()
      std::vector<int> *JetID = new std::vector<int>;
 
      for(size_t ijet=0; ijet<no_jets_ak8; ++ijet)
-     {
-	 int passJetID = ( jetNhfAK8->at(ijet)<0.99 && jetNemfAK8->at(ijet)<0.9 && chMultAK8->at(ijet)+neMultAK8->at(ijet)>1 && jetMufAK8->at(ijet)<0.8 && jetChfAK8->at(ijet)>0.01 && chMultAK8->at(ijet)>0 && jetCemfAK8->at(ijet)<0.8 );
-         JetID->push_back(passJetID);
-     }
+      {
+      int passJetID = ( jetNhfAK8->at(ijet)<0.99 && jetNemfAK8->at(ijet)<0.9 && chMultAK8->at(ijet)+neMultAK8->at(ijet)>1 && jetMufAK8->at(ijet)<0.7 && jetChfAK8->at(ijet)>0.01 && chMultAK8->at(ijet)>0 && jetCemfAK8->at(ijet)<0.8 );
+      JetID->push_back(passJetID);
+      }
 
 
      //#############################################################
@@ -410,6 +375,8 @@ void analysisClass::Loop()
        }//end of ijet loop:  different cases for the 1st combination
      } //end of combination loop
      //cout << comb_min<<" "<<ijet_min<<" "<<DDR_minimum << endl;
+     
+     
 
      for(int comb=0; comb<3; comb++){ //for 5jets loop: loop over 4 combinations: 1->2, 1->3, 1->4, 1->5
        for(int ijet=0; ijet<1; ijet++){//for 5jets loop: loop over 3 cases: i.e. for 1->2 combinations the cases are 3->4, 3->5, 4->5
@@ -476,13 +443,14 @@ void analysisClass::Loop()
            AK8jets.push_back(ak8j2);
            AK8jets.push_back(ak8j3);
            AK8jets.push_back(ak8j4);
+           
 
 	 }//end of if min
        }//end of ijet	
      }//end of comb
    }//end of 5jet system with pt>0
    
-
+     std::cout<<Number of generated events within the bin boundaries=<<a<<std::endl; 
      //== Fill Variables ==
 
      fillVariableWithValue("run",runNo);     
@@ -490,6 +458,7 @@ void analysisClass::Loop()
      fillVariableWithValue("lumi",lumi);     
      fillVariableWithValue("nVtx",nvtx);     
      fillVariableWithValue("metSig",metSig);
+     fillVariableWithValue("metphi",metphi);
      fillVariableWithValue("Nak4puppi",Nak8);
      fillVariableWithValue ("PassJSON", passJSON (runNo, lumi, isData));
 
