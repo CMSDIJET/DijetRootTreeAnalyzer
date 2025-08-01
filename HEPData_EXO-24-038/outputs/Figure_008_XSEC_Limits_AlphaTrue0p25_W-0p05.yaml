@@ -1,0 +1,1156 @@
+independent_variables:
+- header:
+    name: Four-jet resonance mass
+    units: TeV
+  values:
+  - value: 2.0
+  - value: 2.1
+  - value: 2.2
+  - value: 2.3
+  - value: 2.4
+  - value: 2.5
+  - value: 2.6
+  - value: 2.7
+  - value: 2.8
+  - value: 2.9
+  - value: 3.0
+  - value: 3.1
+  - value: 3.2
+  - value: 3.3
+  - value: 3.4
+  - value: 3.5
+  - value: 3.6
+  - value: 3.7
+  - value: 3.8
+  - value: 3.9
+  - value: 4.0
+  - value: 4.1
+  - value: 4.2
+  - value: 4.3
+  - value: 4.4
+  - value: 4.5
+  - value: 4.6
+  - value: 4.7
+  - value: 4.8
+  - value: 4.9
+  - value: 5.0
+  - value: 5.1
+  - value: 5.2
+  - value: 5.3
+  - value: 5.4
+  - value: 5.5
+  - value: 5.6
+  - value: 5.7
+  - value: 5.8
+  - value: 5.9
+  - value: 6.0
+  - value: 6.1
+  - value: 6.2
+  - value: 6.3
+  - value: 6.4
+  - value: 6.5
+  - value: 6.6
+  - value: 6.7
+  - value: 6.8
+  - value: 6.9
+  - value: 7.0
+  - value: 7.1
+  - value: 7.2
+  - value: 7.3
+  - value: 7.4
+  - value: 7.5
+  - value: 7.6
+  - value: 7.7
+  - value: 7.8
+  - value: 7.9
+  - value: 8.0
+  - value: 8.1
+  - value: 8.2
+  - value: 8.3
+  - value: 8.4
+  - value: 8.5
+  - value: 8.6
+  - value: 8.7
+  - value: 8.8
+  - value: 8.9
+  - value: 9.0
+  - value: 9.1
+  - value: 9.2
+  - value: 9.3
+  - value: 9.4
+  - value: 9.5
+  - value: 9.6
+  - value: 9.7
+  - value: 9.8
+  - value: 9.9
+  - value: 10.0
+dependent_variables:
+- header:
+    name: 95% CL observed limits on $\sigma\mathcal{B}\it{A}$
+    units: pb
+  values:
+  - value: 0.0097154618
+  - value: 0.0110168278
+  - value: 0.0103151106
+  - value: 0.0082890073
+  - value: 0.0050872619
+  - value: 0.0023277683
+  - value: 0.0010294666
+  - value: 0.0006236378
+  - value: 0.0005356539
+  - value: 0.0005457894
+  - value: 0.0005546225
+  - value: 0.0005872076
+  - value: 0.0006445683
+  - value: 0.0006993441
+  - value: 0.0007364124
+  - value: 0.0008024649
+  - value: 0.0009101950
+  - value: 0.0009824876
+  - value: 0.0010001349
+  - value: 0.0009405042
+  - value: 0.0008899427
+  - value: 0.0008506634
+  - value: 0.0007584930
+  - value: 0.0006359927
+  - value: 0.0004861919
+  - value: 0.0003504509
+  - value: 0.0002464078
+  - value: 0.0001880266
+  - value: 0.0001677150
+  - value: 0.0001695934
+  - value: 0.0001713364
+  - value: 0.0001689322
+  - value: 0.0001607393
+  - value: 0.0001420436
+  - value: 0.0001216165
+  - value: 0.0001007370
+  - value: 0.0000821211
+  - value: 0.0000679433
+  - value: 0.0000574250
+  - value: 0.0000501671
+  - value: 0.0000463416
+  - value: 0.0000411975
+  - value: 0.0000394813
+  - value: 0.0000366102
+  - value: 0.0000353842
+  - value: 0.0000338161
+  - value: 0.0000349375
+  - value: 0.0000343318
+  - value: 0.0000326248
+  - value: 0.0000322532
+  - value: 0.0000340166
+  - value: 0.0000364622
+  - value: 0.0000391573
+  - value: 0.0000427342
+  - value: 0.0000490942
+  - value: 0.0000511664
+  - value: 0.0000511471
+  - value: 0.0000530929
+  - value: 0.0000548013
+  - value: 0.0000557550
+  - value: 0.0000559032
+  - value: 0.0000569484
+  - value: 0.0000573278
+  - value: 0.0000577750
+  - value: 0.0000581276
+  - value: 0.0000584912
+  - value: 0.0000591233
+  - value: 0.0000591634
+  - value: 0.0000600039
+  - value: 0.0000602707
+  - value: 0.0000609876
+  - value: 0.0000615178
+  - value: 0.0000627721
+  - value: 0.0000638250
+  - value: 0.0000652446
+  - value: 0.0000662594
+  - value: 0.0000673541
+  - value: 0.0000690233
+  - value: 0.0000697960
+  - value: 0.0000703046
+  - value: 0.0000716414
+- header:
+    name: 95% CL expected limits on $\sigma\mathcal{B}\it{A}$
+    units: pb
+  values:
+  - value: 0.0052734375
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0024275046
+        minus: -0.0015057332
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0053357144
+        minus: -0.0024471038
+  - value: 0.0045820314
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0020791974
+        minus: -0.0012957654
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0045699440
+        minus: -0.0021163965
+  - value: 0.0039960939
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0017375961
+        minus: -0.0011448695
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0038607789
+        minus: -0.0018565166
+  - value: 0.0034804687
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0014321850
+        minus: -0.0010194675
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0032345235
+        minus: -0.0016334958
+  - value: 0.0029648438
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0012276040
+        minus: -0.0008508255
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0027526381
+        minus: -0.0013782103
+  - value: 0.0025097656
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0010576347
+        minus: -0.0007010682
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0023457243
+        minus: -0.0011523944
+  - value: 0.0021191406
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0009126986
+        minus: -0.0005756801
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0020010239
+        minus: -0.0009611426
+  - value: 0.0018212891
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0007639285
+        minus: -0.0004986241
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0016874381
+        minus: -0.0008302196
+  - value: 0.0015673828
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0006483854
+        minus: -0.0004345716
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0014356631
+        minus: -0.0007193677
+  - value: 0.0013720703
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0005485956
+        minus: -0.0003917384
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0012351009
+        minus: -0.0006390782
+  - value: 0.0011992188
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0004862761
+        minus: -0.0003387779
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0010876076
+        minus: -0.0005565635
+  - value: 0.0010734375
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0004240352
+        minus: -0.0003096021
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0009576088
+        minus: -0.0005034768
+  - value: 0.0009609375
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0003799676
+        minus: -0.0002773038
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0008603270
+        minus: -0.0004511864
+  - value: 0.0008671875
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0003411933
+        minus: -0.0002525336
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0007722171
+        minus: -0.0004079954
+  - value: 0.0007828125
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0003073624
+        minus: -0.0002286762
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0006971609
+        minus: -0.0003685213
+  - value: 0.0007027344
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0002823521
+        minus: -0.0002026226
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0006346252
+        minus: -0.0003286414
+  - value: 0.0006316406
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0002570022
+        minus: -0.0001817590
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0005756750
+        minus: -0.0002943483
+  - value: 0.0005660156
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0002333495
+        minus: -0.0001619555
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0005212319
+        minus: -0.0002629260
+  - value: 0.0005058594
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0002128296
+        minus: -0.0001430981
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0004721894
+        minus: -0.0002342272
+  - value: 0.0004566406
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0001883737
+        minus: -0.0001318367
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0004229448
+        minus: -0.0002149899
+  - value: 0.0004023438
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0001765429
+        minus: -0.0001115636
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0003873038
+        minus: -0.0001864483
+  - value: 0.0003632813
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0001552830
+        minus: -0.0001029617
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0003450281
+        minus: -0.0001707038
+  - value: 0.0003242188
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0001403685
+        minus: -0.0000911143
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0003104498
+        minus: -0.0001523307
+  - value: 0.0002929687
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0001237612
+        minus: -0.0000837822
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0002757824
+        minus: -0.0001391283
+  - value: 0.0002617187
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0001131412
+        minus: -0.0000737501
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0002490128
+        minus: -0.0001234617
+  - value: 0.0002393175
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000977441
+        minus: -0.0000699616
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0002192667
+        minus: -0.0001145792
+  - value: 0.0002149935
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000875357
+        minus: -0.0000620176
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0001971046
+        minus: -0.0001025684
+  - value: 0.0001949406
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000771624
+        minus: -0.0000565288
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0001758616
+        minus: -0.0000925393
+  - value: 0.0001756061
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000691764
+        minus: -0.0000504630
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0001581769
+        minus: -0.0000827227
+  - value: 0.0001556849
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000653123
+        minus: -0.0000417502
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0001469522
+        minus: -0.0000701824
+  - value: 0.0001401802
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000601348
+        minus: -0.0000367529
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0001346984
+        minus: -0.0000621751
+  - value: 0.0001298980
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000520095
+        minus: -0.0000361806
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0001215433
+        minus: -0.0000588999
+  - value: 0.0001201411
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000453223
+        minus: -0.0000342114
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0001088055
+        minus: -0.0000539784
+  - value: 0.0001074548
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000435809
+        minus: -0.0000288584
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0001019880
+        minus: -0.0000465443
+  - value: 0.0000978665
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000406152
+        minus: -0.0000259619
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000941286
+        minus: -0.0000416504
+  - value: 0.0000912086
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000365572
+        minus: -0.0000253903
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000857959
+        minus: -0.0000391333
+  - value: 0.0000836348
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000343946
+        minus: -0.0000232578
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000797976
+        minus: -0.0000354488
+  - value: 0.0000780626
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000307764
+        minus: -0.0000221523
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000732271
+        minus: -0.0000335467
+  - value: 0.0000710748
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000293800
+        minus: -0.0000189635
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000691629
+        minus: -0.0000295530
+  - value: 0.0000659109
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000271279
+        minus: -0.0000172294
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000645164
+        minus: -0.0000267512
+  - value: 0.0000621913
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000243876
+        minus: -0.0000164484
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000593610
+        minus: -0.0000255661
+  - value: 0.0000583973
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000226067
+        minus: -0.0000150195
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000556333
+        minus: -0.0000233945
+  - value: 0.0000548553
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000211973
+        minus: -0.0000136907
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000521774
+        minus: -0.0000215586
+  - value: 0.0000508744
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000205507
+        minus: -0.0000115663
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000498585
+        minus: -0.0000187584
+  - value: 0.0000487212
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000186903
+        minus: -0.0000108981
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000462359
+        minus: -0.0000175025
+  - value: 0.0000460133
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000180240
+        minus: -0.0000097037
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000438306
+        minus: -0.0000154956
+  - value: 0.0000439285
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000168155
+        minus: -0.0000089879
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000413256
+        minus: -0.0000141393
+  - value: 0.0000420638
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000157479
+        minus: -0.0000080133
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000391611
+        minus: -0.0000125501
+  - value: 0.0000396938
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000155666
+        minus: -0.0000065439
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000381773
+        minus: -0.0000109100
+  - value: 0.0000390837
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000137571
+        minus: -0.0000064513
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000356606
+        minus: -0.0000105696
+  - value: 0.0000370473
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000136744
+        minus: -0.0000047982
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000350156
+        minus: -0.0000083493
+  - value: 0.0000358392
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000128644
+        minus: -0.0000040169
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000338531
+        minus: -0.0000069664
+  - value: 0.0000354852
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000116269
+        minus: -0.0000036331
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000320466
+        minus: -0.0000062707
+  - value: 0.0000350861
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000106133
+        minus: -0.0000031214
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000305286
+        minus: -0.0000054332
+  - value: 0.0000350905
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000092835
+        minus: -0.0000029734
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000287307
+        minus: -0.0000050426
+  - value: 0.0000344896
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000086993
+        minus: -0.0000023077
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000277014
+        minus: -0.0000041671
+  - value: 0.0000340460
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000082003
+        minus: -0.0000019738
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000268037
+        minus: -0.0000036208
+  - value: 0.0000349698
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000063708
+        minus: -0.0000030722
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000246693
+        minus: -0.0000046483
+  - value: 0.0000343170
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000063033
+        minus: -0.0000027434
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000242794
+        minus: -0.0000044826
+  - value: 0.0000337634
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000063592
+        minus: -0.0000023990
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000240309
+        minus: -0.0000041994
+  - value: 0.0000337370
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000060656
+        minus: -0.0000025917
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000236041
+        minus: -0.0000046270
+  - value: 0.0000336969
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000059322
+        minus: -0.0000026328
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000233289
+        minus: -0.0000046196
+  - value: 0.0000342910
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000053332
+        minus: -0.0000033815
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000227417
+        minus: -0.0000054491
+  - value: 0.0000342187
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000054497
+        minus: -0.0000033713
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000228442
+        minus: -0.0000053829
+  - value: 0.0000340665
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000057870
+        minus: -0.0000029801
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000230001
+        minus: -0.0000048493
+  - value: 0.0000339788
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000060307
+        minus: -0.0000028909
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000232093
+        minus: -0.0000048049
+  - value: 0.0000339731
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000061951
+        minus: -0.0000027311
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000234011
+        minus: -0.0000046332
+  - value: 0.0000337754
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000067816
+        minus: -0.0000024506
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000237405
+        minus: -0.0000045270
+  - value: 0.0000342788
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000066960
+        minus: -0.0000028477
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000235910
+        minus: -0.0000050758
+  - value: 0.0000345222
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000070040
+        minus: -0.0000027914
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000239848
+        minus: -0.0000052017
+  - value: 0.0000343460
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000078229
+        minus: -0.0000021417
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000248249
+        minus: -0.0000046518
+  - value: 0.0000354904
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000073873
+        minus: -0.0000025448
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000246229
+        minus: -0.0000052441
+  - value: 0.0000360940
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000075898
+        minus: -0.0000023924
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000252280
+        minus: -0.0000051850
+  - value: 0.0000372293
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000074202
+        minus: -0.0000027327
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000255638
+        minus: -0.0000055561
+  - value: 0.0000382433
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000075529
+        minus: -0.0000026553
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000261262
+        minus: -0.0000058477
+  - value: 0.0000400275
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000068782
+        minus: -0.0000031809
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000260363
+        minus: -0.0000064804
+  - value: 0.0000405255
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000075688
+        minus: -0.0000024071
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000272890
+        minus: -0.0000057937
+  - value: 0.0000419896
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000073756
+        minus: -0.0000026533
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000275911
+        minus: -0.0000061158
+  - value: 0.0000437386
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000069833
+        minus: -0.0000033055
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000275829
+        minus: -0.0000068411
+  - value: 0.0000456142
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000065535
+        minus: -0.0000042726
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000273817
+        minus: -0.0000078873
+  - value: 0.0000462711
+    errors:
+    - label: "1 s.d."
+      asymerror:
+        plus: 0.0000069636
+        minus: -0.0000044727
+    - label: "2 s.d."
+      asymerror:
+        plus: 0.0000285178
+        minus: -0.0000077181
+- header:
+    name: $\mathrm{uu} \rightarrow \mathrm{S}_{\mathrm{uu}} \rightarrow \chi\chi \rightarrow (\mathrm{ug})(\mathrm{ug})$
+    units: pb
+  values:
+  - value: 3.1250200000
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.5853060000
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.1155260000
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0224720000
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0043370900
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0007188560
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0001079380
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0000480896
+  - value: '-'
+  - value: 0.0000331358
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0000142758
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0000023313
+- header:
+    name: $\mathrm{dd} \rightarrow \mathrm{S}_{\mathrm{dd}} \rightarrow \omega\omega \rightarrow (\mathrm{dg})(\mathrm{dg})$
+    units: pb
+  values:
+  - value: 0.7175648200
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0964795590
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0136795260
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0018720320
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0002670686
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0000337665
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0000045971
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0000019492
+  - value: '-'
+  - value: 0.0000013972
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0000006014
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: '-'
+  - value: 0.0000001029

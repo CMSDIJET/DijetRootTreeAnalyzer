@@ -1,0 +1,654 @@
+independent_variables:
+- header:
+    name: Four-jet mass
+    units: TeV
+  values:
+  - low: 1.530
+    high: 1.607
+  - low: 1.607
+    high: 1.687
+  - low: 1.687
+    high: 1.770
+  - low: 1.770
+    high: 1.856
+  - low: 1.856
+    high: 1.945
+  - low: 1.945
+    high: 2.037
+  - low: 2.037
+    high: 2.132
+  - low: 2.132
+    high: 2.231
+  - low: 2.231
+    high: 2.332
+  - low: 2.332
+    high: 2.438
+  - low: 2.438
+    high: 2.546
+  - low: 2.546
+    high: 2.659
+  - low: 2.659
+    high: 2.775
+  - low: 2.775
+    high: 2.895
+  - low: 2.895
+    high: 3.019
+  - low: 3.019
+    high: 3.147
+  - low: 3.147
+    high: 3.279
+  - low: 3.279
+    high: 3.416
+  - low: 3.416
+    high: 3.558
+  - low: 3.558
+    high: 3.704
+  - low: 3.704
+    high: 3.854
+  - low: 3.854
+    high: 4.010
+  - low: 4.010
+    high: 4.171
+  - low: 4.171
+    high: 4.337
+  - low: 4.337
+    high: 4.509
+  - low: 4.509
+    high: 4.686
+  - low: 4.686
+    high: 4.869
+  - low: 4.869
+    high: 5.058
+  - low: 5.058
+    high: 5.253
+  - low: 5.253
+    high: 5.455
+  - low: 5.455
+    high: 5.663
+  - low: 5.663
+    high: 5.877
+  - low: 5.877
+    high: 6.099
+  - low: 6.099
+    high: 6.328
+  - low: 6.328
+    high: 6.564
+  - low: 6.564
+    high: 6.808
+  - low: 6.808
+    high: 7.060
+  - low: 7.060
+    high: 7.320
+  - low: 7.320
+    high: 7.589
+  - low: 7.589
+    high: 7.866
+  - low: 7.866
+    high: 8.152
+  - low: 8.152
+    high: 8.447
+  - low: 8.447
+    high: 8.752
+  - low: 8.752
+    high: 9.067
+dependent_variables:
+- header:
+    name: Cross-section of data
+    units: pb/TeV
+  values:
+  - value: 6.9360653881
+    errors:
+      - asymerror:
+          plus: 0.0256810326
+          minus: -0.0255864734
+  - value: 5.1926780523
+    errors:
+      - asymerror:
+          plus: 0.0218105258
+          minus: -0.0217194901
+  - value: 3.9414927150
+    errors:
+      - asymerror:
+          plus: 0.0186653807
+          minus: -0.0185776122
+  - value: 2.9013148999
+    errors:
+      - asymerror:
+          plus: 0.0157430958
+          minus: -0.0156583602
+  - value: 2.1676574340
+    errors:
+      - asymerror:
+          plus: 0.0133863855
+          minus: -0.0133044758
+  - value: 1.6445746967
+    errors:
+      - asymerror:
+          plus: 0.0114772944
+          minus: -0.0113980243
+  - value: 1.2160342717
+    errors:
+      - asymerror:
+          plus: 0.0097219046
+          minus: -0.0096450995
+  - value: 0.8939687573
+    errors:
+      - asymerror:
+          plus: 0.0081747275
+          minus: -0.0081009842
+  - value: 0.6686046512
+    errors:
+      - asymerror:
+          plus: 0.0070084466
+          minus: -0.0069361163
+  - value: 0.4847932207
+    errors:
+      - asymerror:
+          plus: 0.0058341819
+          minus: -0.0057652113
+  - value: 0.3526728036
+    errors:
+      - asymerror:
+          plus: 0.0049392323
+          minus: -0.0048714743
+  - value: 0.2663871167
+    errors:
+      - asymerror:
+          plus: 0.0042038591
+          minus: -0.0041390437
+  - value: 0.1916474539
+    errors:
+      - asymerror:
+          plus: 0.0035281846
+          minus: -0.0034649658
+  - value: 0.1439559109
+    errors:
+      - asymerror:
+          plus: 0.0030137112
+          minus: -0.0029525260
+  - value: 0.1043229557
+    errors:
+      - asymerror:
+          plus: 0.0025318174
+          minus: -0.0024725123
+  - value: 0.0792605378
+    errors:
+      - asymerror:
+          plus: 0.0021786902
+          minus: -0.0021211513
+  - value: 0.0561024489
+    errors:
+      - asymerror:
+          plus: 0.0018131681
+          minus: -0.0017572470
+  - value: 0.0405809710
+    errors:
+      - asymerror:
+          plus: 0.0015209275
+          minus: -0.0014669190
+  - value: 0.0291721258
+    errors:
+      - asymerror:
+          plus: 0.0012738074
+          minus: -0.0012215537
+  - value: 0.0191641446
+    errors:
+      - asymerror:
+          plus: 0.0010273405
+          minus: -0.0009762919
+  - value: 0.0161821705
+    errors:
+      - asymerror:
+          plus: 0.0009348029
+          minus: -0.0008850245
+  - value: 0.0106682320
+    errors:
+      - asymerror:
+          plus: 0.0007526058
+          minus: -0.0007044766
+  - value: 0.0067257692
+    errors:
+      - asymerror:
+          plus: 0.0005973823
+          minus: -0.0005503891
+  - value: 0.0053411320
+    errors:
+      - asymerror:
+          plus: 0.0005286767
+          minus: -0.0004829098
+  - value: 0.0032111952
+    errors:
+      - asymerror:
+          plus: 0.0004122273
+          minus: -0.0003675445
+  - value: 0.0017655367
+    errors:
+      - asymerror:
+          plus: 0.0003123947
+          minus: -0.0002681958
+  - value: 0.0021047782
+    errors:
+      - asymerror:
+          plus: 0.0003306523
+          minus: -0.0002882040
+  - value: 0.0006921373
+    errors:
+      - asymerror:
+          plus: 0.0002046079
+          minus: -0.0001616127
+  - value: 0.0004844961
+    errors:
+      - asymerror:
+          plus: 0.0001750771
+          minus: -0.0001326299
+  - value: 0.0005036841
+    errors:
+      - asymerror:
+          plus: 0.0001737882
+          minus: -0.0001329930
+  - value: 0.0002445774
+    errors:
+      - asymerror:
+          plus: 0.0001317348
+          minus: -0.0000901971
+  - value: 0.0001358400
+    errors:
+      - asymerror:
+          plus: 0.0001074092
+          minus: -0.0000650119
+  - value: 0.0001636811
+    errors:
+      - asymerror:
+          plus: 0.0001107316
+          minus: -0.0000707012
+  - value: 0.0000317356
+    errors:
+      - asymerror:
+          plus: 0.0000729781
+          minus: -0.0000262533
+  - value: 0.0000000000
+    errors:
+      - asymerror:
+          plus: 0.0000554296
+          minus: -0.0000000000
+  - value: 0.0000595692
+    errors:
+      - asymerror:
+          plus: 0.0000785691
+          minus: -0.0000384766
+  - value: 0.0000000000
+    errors:
+      - asymerror:
+          plus: 0.0000519103
+          minus: -0.0000000000
+  - value: 0.0000000000
+    errors:
+      - asymerror:
+          plus: 0.0000503131
+          minus: -0.0000000000
+  - value: 0.0000000000
+    errors:
+      - asymerror:
+          plus: 0.0000486297
+          minus: -0.0000000000
+  - value: 0.0000000000
+    errors:
+      - asymerror:
+          plus: 0.0000472253
+          minus: -0.0000000000
+  - value: 0.0000508213
+    errors:
+      - asymerror:
+          plus: 0.0000670310
+          minus: -0.0000328262
+  - value: 0.0000000000
+    errors:
+      - asymerror:
+          plus: 0.0000443437
+          minus: -0.0000000000
+  - value: 0.0000000000
+    errors:
+      - asymerror:
+          plus: 0.0000428898
+          minus: -0.0000000000
+  - value: 0.0000000000
+    errors:
+      - asymerror:
+          plus: 0.0000415282
+          minus: -0.0000000000
+- header:
+    name: Cross-section of Dijet-3p fit
+    units: pb/TeV
+  values:
+  - value: 6.9180758901
+  - value: 5.2176416397
+  - value: 3.9167427611
+  - value: 2.9295557101
+  - value: 2.1839133540
+  - value: 1.6246788099
+  - value: 1.2066006494
+  - value: 0.8938018249
+  - value: 0.6613466770
+  - value: 0.4886000325
+  - value: 0.3602962228
+  - value: 0.2653310369
+  - value: 0.1948901719
+  - value: 0.1429389729
+  - value: 0.1045909312
+  - value: 0.0763218440
+  - value: 0.0555249509
+  - value: 0.0402200483
+  - value: 0.0289658226
+  - value: 0.0207523548
+  - value: 0.0147978869
+  - value: 0.0104738205
+  - value: 0.0073421409
+  - value: 0.0050998188
+  - value: 0.0035009695
+  - value: 0.0023727543
+  - value: 0.0015852123
+  - value: 0.0010409747
+  - value: 0.0006706131
+  - value: 0.0004222968
+  - value: 0.0002592985
+  - value: 0.0001549246
+  - value: 0.0000895850
+  - value: 0.0000498312
+  - value: 0.0000265832
+  - value: 0.0000135032
+  - value: 0.0000064806
+  - value: 0.0000029146
+  - value: 0.0000012154
+  - value: 0.0000004644
+  - value: 0.0000001605
+  - value: 0.0000000492
+  - value: 0.0000000131
+  - value: 0.0000000029
+- header:
+    name: Cross-section of PowExp-3p fit
+    units: pb/TeV
+  values:
+  - value: 6.9405015780
+  - value: 5.2106620384
+  - value: 3.9037298223
+  - value: 2.9194944712
+  - value: 2.1788967525
+  - value: 1.6239564351
+  - value: 1.2086188799
+  - value: 0.8971019858
+  - value: 0.6648576452
+  - value: 0.4916767175
+  - value: 0.3626386846
+  - value: 0.2668766642
+  - value: 0.1957157886
+  - value: 0.1431927423
+  - value: 0.1044371137
+  - value: 0.0759135206
+  - value: 0.0549889225
+  - value: 0.0396515268
+  - value: 0.0284300303
+  - value: 0.0202884060
+  - value: 0.0144237704
+  - value: 0.0101929315
+  - value: 0.0071481660
+  - value: 0.0049802327
+  - value: 0.0034408754
+  - value: 0.0023568781
+  - value: 0.0015995028
+  - value: 0.0010735561
+  - value: 0.0007120706
+  - value: 0.0004657142
+  - value: 0.0003000598
+  - value: 0.0001903574
+  - value: 0.0001185265
+  - value: 0.0000721844
+  - value: 0.0000429785
+  - value: 0.0000249244
+  - value: 0.0000140301
+  - value: 0.0000076403
+  - value: 0.0000040079
+  - value: 0.0000020168
+  - value: 0.0000009696
+  - value: 0.0000004426
+  - value: 0.0000001905
+  - value: 0.0000000768
+- header:
+    name: Cross-section of ModDijet-3p fit
+    units: pb/TeV
+  values:
+  - value: 6.9417399017
+  - value: 5.2101426402
+  - value: 3.9027813964
+  - value: 2.9187217535
+  - value: 2.1784949853
+  - value: 1.6239128469
+  - value: 1.2088355892
+  - value: 0.8974641864
+  - value: 0.6652650681
+  - value: 0.4920570851
+  - value: 0.3629485993
+  - value: 0.2670969744
+  - value: 0.1958451050
+  - value: 0.1432416297
+  - value: 0.1044220080
+  - value: 0.0758528972
+  - value: 0.0549004780
+  - value: 0.0395504215
+  - value: 0.0283281961
+  - value: 0.0201943795
+  - value: 0.0143428239
+  - value: 0.0101276874
+  - value: 0.0070991966
+  - value: 0.0049465301
+  - value: 0.0034205193
+  - value: 0.0023474238
+  - value: 0.0015983623
+  - value: 0.0010782781
+  - value: 0.0007204849
+  - value: 0.0004760313
+  - value: 0.0003109017
+  - value: 0.0002007445
+  - value: 0.0001278382
+  - value: 0.0000800891
+  - value: 0.0000493798
+  - value: 0.0000298826
+  - value: 0.0000177081
+  - value: 0.0000102523
+  - value: 0.0000057809
+  - value: 0.0000031646
+  - value: 0.0000016763
+  - value: 0.0000008543
+  - value: 0.0000004161
+  - value: 0.0000001920
+- header:
+    name: Cross-section of signal with $M_{\mathrm{S}}$ = 8.6 TeV, $M_{\mathrm{\chi}}$ = 2.15 TeV, $\Gamma/M_{\mathrm{S}}$ = 1.5%
+    units: pb/TeV
+  values:
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000353
+  - value: 0.0000000341
+  - value: 0.0000000000
+  - value: 0.0000000318
+  - value: 0.0000000000
+  - value: 0.0000000888
+  - value: 0.0000000580
+  - value: 0.0000001935
+  - value: 0.0000002170
+  - value: 0.0000001296
+  - value: 0.0000002273
+  - value: 0.0000006348
+  - value: 0.0000004016
+  - value: 0.0000005951
+  - value: 0.0000007768
+  - value: 0.0000010264
+  - value: 0.0000009903
+  - value: 0.0000012441
+  - value: 0.0000017383
+  - value: 0.0000022348
+  - value: 0.0000024747
+  - value: 0.0000027002
+  - value: 0.0000025038
+  - value: 0.0000026152
+  - value: 0.0000027215
+  - value: 0.0000027281
+  - value: 0.0000023287
+  - value: 0.0000025526
+  - value: 0.0000038452
+  - value: 0.0000041207
+  - value: 0.0000048828
+  - value: 0.0000050533
+  - value: 0.0000059090
+  - value: 0.0000071921
+  - value: 0.0000084634
+  - value: 0.0000107383
+  - value: 0.0000138859
+  - value: 0.0000199682
+  - value: 0.0000284873
+  - value: 0.0000273401
+  - value: 0.0000135725
+  - value: 0.0000021577
+- header:
+    name: Cross-section of signal with $M_{\mathrm{S}}$ = 8.6 TeV, $M_{\mathrm{\chi}}$ = 2.15 TeV, $\Gamma/M_{\mathrm{S}}$ = 10%
+    units: pb/TeV
+  values:
+  - value: 0.0000000674
+  - value: 0.0000000000
+  - value: 0.0000000625
+  - value: 0.0000000603
+  - value: 0.0000000583
+  - value: 0.0000001128
+  - value: 0.0000002731
+  - value: 0.0000002096
+  - value: 0.0000005650
+  - value: 0.0000003426
+  - value: 0.0000006245
+  - value: 0.0000004132
+  - value: 0.0000010287
+  - value: 0.0000015564
+  - value: 0.0000023012
+  - value: 0.0000021077
+  - value: 0.0000035766
+  - value: 0.0000047715
+  - value: 0.0000052246
+  - value: 0.0000055079
+  - value: 0.0000080242
+  - value: 0.0000097442
+  - value: 0.0000097961
+  - value: 0.0000109387
+  - value: 0.0000101348
+  - value: 0.0000093209
+  - value: 0.0000085617
+  - value: 0.0000086193
+  - value: 0.0000086734
+  - value: 0.0000101963
+  - value: 0.0000098773
+  - value: 0.0000109580
+  - value: 0.0000128066
+  - value: 0.0000120753
+  - value: 0.0000147288
+  - value: 0.0000142884
+  - value: 0.0000147819
+  - value: 0.0000157637
+  - value: 0.0000151592
+  - value: 0.0000158639
+  - value: 0.0000144032
+  - value: 0.0000112906
+  - value: 0.0000059875
+  - value: 0.0000024705
+- header:
+    name: Cross-section of signal with $M_{\mathrm{S}}$ = 3.6 TeV, $M_{\mathrm{\chi}}$ = 1.0 TeV, $\Gamma/M_{\mathrm{S}}$ = 1.5%
+    units: pb/TeV
+  values:
+  - value: 0.0000087467
+  - value: 0.0000076557
+  - value: 0.0000111826
+  - value: 0.0000182722
+  - value: 0.0000241302
+  - value: 0.0000261526
+  - value: 0.0000417809
+  - value: 0.0000550927
+  - value: 0.0000739380
+  - value: 0.0001026630
+  - value: 0.0001483607
+  - value: 0.0002169275
+  - value: 0.0003125154
+  - value: 0.0004644346
+  - value: 0.0007336860
+  - value: 0.0010621252
+  - value: 0.0015808577
+  - value: 0.0020704604
+  - value: 0.0019133903
+  - value: 0.0008164647
+  - value: 0.0002073449
+  - value: 0.0000704262
+  - value: 0.0000370445
+  - value: 0.0000186226
+  - value: 0.0000124935
+  - value: 0.0000066778
+  - value: 0.0000043612
+  - value: 0.0000034884
+  - value: 0.0000017120
+  - value: 0.0000011354
+  - value: 0.0000000000
+  - value: 0.0000000746
+  - value: 0.0000004449
+  - value: 0.0000000044
+  - value: 0.0000002843
+  - value: 0.0000000000
+  - value: 0.0000000001
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+- header:
+    name: Cross-section of signal with $M_{\mathrm{S}}$ = 3.6 TeV, $M_{\mathrm{\chi}}$ = 1.0 TeV, $\Gamma/M_{\mathrm{S}}$ = 10%
+    units: pb/TeV
+  values:
+  - value: 0.0000428627
+  - value: 0.0000454038
+  - value: 0.0000695999
+  - value: 0.0000813042
+  - value: 0.0000876288
+  - value: 0.0001231206
+  - value: 0.0001471532
+  - value: 0.0001903487
+  - value: 0.0002212901
+  - value: 0.0002802965
+  - value: 0.0003825642
+  - value: 0.0004739423
+  - value: 0.0006978301
+  - value: 0.0009754554
+  - value: 0.0013488829
+  - value: 0.0017972653
+  - value: 0.0022204341
+  - value: 0.0025004298
+  - value: 0.0021763361
+  - value: 0.0014313830
+  - value: 0.0007470831
+  - value: 0.0003825708
+  - value: 0.0001985837
+  - value: 0.0001173413
+  - value: 0.0000732939
+  - value: 0.0000387896
+  - value: 0.0000268668
+  - value: 0.0000194397
+  - value: 0.0000154543
+  - value: 0.0000053802
+  - value: 0.0000042557
+  - value: 0.0000023759
+  - value: 0.0000005034
+  - value: 0.0000010203
+  - value: 0.0000002572
+  - value: 0.0000005788
+  - value: 0.0000001071
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000
+  - value: 0.0000000000

@@ -1,0 +1,1166 @@
+independent_variables:
+- header:
+    name: Four-jet mass
+    units: TeV
+  values:
+  - low: 0.001
+    high: 0.003
+  - low: 0.003
+    high: 0.006
+  - low: 0.006
+    high: 0.01
+  - low: 0.01
+    high: 0.016
+  - low: 0.016
+    high: 0.023
+  - low: 0.023
+    high: 0.031
+  - low: 0.031
+    high: 0.04
+  - low: 0.04
+    high: 0.05
+  - low: 0.05
+    high: 0.061
+  - low: 0.061
+    high: 0.074
+  - low: 0.074
+    high: 0.088
+  - low: 0.088
+    high: 0.103
+  - low: 0.103
+    high: 0.119
+  - low: 0.119
+    high: 0.137
+  - low: 0.137
+    high: 0.156
+  - low: 0.156
+    high: 0.176
+  - low: 0.176
+    high: 0.197
+  - low: 0.197
+    high: 0.22
+  - low: 0.22
+    high: 0.244
+  - low: 0.244
+    high: 0.27
+  - low: 0.27
+    high: 0.296
+  - low: 0.296
+    high: 0.325
+  - low: 0.325
+    high: 0.354
+  - low: 0.354
+    high: 0.386
+  - low: 0.386
+    high: 0.419
+  - low: 0.419
+    high: 0.453
+  - low: 0.453
+    high: 0.489
+  - low: 0.489
+    high: 0.526
+  - low: 0.526
+    high: 0.565
+  - low: 0.565
+    high: 0.606
+  - low: 0.606
+    high: 0.649
+  - low: 0.649
+    high: 0.693
+  - low: 0.693
+    high: 0.74
+  - low: 0.74
+    high: 0.788
+  - low: 0.788
+    high: 0.838
+  - low: 0.838
+    high: 0.89
+  - low: 0.89
+    high: 0.944
+  - low: 0.944
+    high: 1
+  - low: 1
+    high: 1.058
+  - low: 1.058
+    high: 1.118
+  - low: 1.118
+    high: 1.181
+  - low: 1.181
+    high: 1.246
+  - low: 1.246
+    high: 1.313
+  - low: 1.313
+    high: 1.383
+  - low: 1.383
+    high: 1.455
+  - low: 1.455
+    high: 1.53
+  - low: 1.53
+    high: 1.607
+  - low: 1.607
+    high: 1.687
+  - low: 1.687
+    high: 1.77
+  - low: 1.77
+    high: 1.856
+  - low: 1.856
+    high: 1.945
+  - low: 1.945
+    high: 2.037
+  - low: 2.037
+    high: 2.132
+  - low: 2.132
+    high: 2.231
+  - low: 2.231
+    high: 2.332
+  - low: 2.332
+    high: 2.438
+  - low: 2.438
+    high: 2.546
+  - low: 2.546
+    high: 2.659
+  - low: 2.659
+    high: 2.775
+  - low: 2.775
+    high: 2.895
+  - low: 2.895
+    high: 3.019
+  - low: 3.019
+    high: 3.147
+  - low: 3.147
+    high: 3.279
+  - low: 3.279
+    high: 3.416
+  - low: 3.416
+    high: 3.558
+  - low: 3.558
+    high: 3.704
+  - low: 3.704
+    high: 3.854
+  - low: 3.854
+    high: 4.01
+  - low: 4.01
+    high: 4.171
+  - low: 4.171
+    high: 4.337
+  - low: 4.337
+    high: 4.509
+  - low: 4.509
+    high: 4.686
+  - low: 4.686
+    high: 4.869
+  - low: 4.869
+    high: 5.058
+  - low: 5.058
+    high: 5.253
+  - low: 5.253
+    high: 5.455
+  - low: 5.455
+    high: 5.663
+  - low: 5.663
+    high: 5.877
+  - low: 5.877
+    high: 6.099
+  - low: 6.099
+    high: 6.328
+  - low: 6.328
+    high: 6.564
+  - low: 6.564
+    high: 6.808
+  - low: 6.808
+    high: 7.06
+  - low: 7.06
+    high: 7.32
+  - low: 7.32
+    high: 7.589
+  - low: 7.589
+    high: 7.866
+  - low: 7.866
+    high: 8.152
+  - low: 8.152
+    high: 8.447
+  - low: 8.447
+    high: 8.752
+  - low: 8.752
+    high: 9.067
+  - low: 9.067
+    high: 9.391
+  - low: 9.391
+    high: 9.726
+  - low: 9.726
+    high: 10.072
+  - low: 10.072
+    high: 10.43
+  - low: 10.43
+    high: 10.798
+  - low: 10.798
+    high: 11.179
+  - low: 11.179
+    high: 11.571
+  - low: 11.571
+    high: 11.977
+  - low: 11.977
+    high: 12.395
+  - low: 12.395
+    high: 12.827
+  - low: 12.827
+    high: 13.272
+  - low: 13.272
+    high: 13.732
+  - low: 13.732
+    high: 14
+dependent_variables:
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 2 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 2\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.0027991
+  - value: 0.00534663
+  - value: 0.00937173
+  - value: 0.013478
+  - value: 0.0103511
+  - value: 0.0229684
+  - value: 0.0248483
+  - value: 0.0313569
+  - value: 0.0384627
+  - value: 0.0445672
+  - value: 0.0521596
+  - value: 0.0771737
+  - value: 0.109529
+  - value: 0.170053
+  - value: 0.292522
+  - value: 0.405762
+  - value: 0.627629
+  - value: 1.02055
+  - value: 1.48001
+  - value: 2.27007
+  - value: 2.64102
+  - value: 1.64976
+  - value: 0.477698
+  - value: 0.124095
+  - value: 0.0624048
+  - value: 0.0345466
+  - value: 0.022186
+  - value: 0.0117543
+  - value: 0.00884642
+  - value: 0.00718825
+  - value: 0.00235619
+  - value: 0.00473835
+  - value: 0.00148518
+  - value: 0.001103
+  - value: 0.000513345
+  - value: 0.000971203
+  - value: 0.000460048
+  - value: 0.00063801
+  - value: 0.000199666
+  - value: 0
+  - value: 0.000174944
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 5 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 2\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.00229258
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.00175525
+  - value: 0.00161764
+  - value: 0.0015347
+  - value: 0.00426527
+  - value: 0.00264167
+  - value: 0.00861204
+  - value: 0.00114875
+  - value: 0.00322515
+  - value: 0.00504113
+  - value: 0.00835559
+  - value: 0.0151639
+  - value: 0.0137671
+  - value: 0.0132619
+  - value: 0.0185277
+  - value: 0.024344
+  - value: 0.0195886
+  - value: 0.0343233
+  - value: 0.0249918
+  - value: 0.0402113
+  - value: 0.073205
+  - value: 0.0875447
+  - value: 0.133185
+  - value: 0.170661
+  - value: 0.249765
+  - value: 0.347527
+  - value: 0.502908
+  - value: 0.741558
+  - value: 1.04297
+  - value: 1.23899
+  - value: 0.729039
+  - value: 0.188326
+  - value: 0.0370178
+  - value: 0.0128295
+  - value: 0.00516596
+  - value: 0.00332331
+  - value: 0.00156162
+  - value: 0.000816866
+  - value: 0.000611343
+  - value: 0.000143286
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 8 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 2\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.00227031
+  - value: 0.00211468
+  - value: 0
+  - value: 0.00184785
+  - value: 0
+  - value: 0.00478732
+  - value: 0.0030664
+  - value: 0.00974378
+  - value: 0.0107271
+  - value: 0.00612427
+  - value: 0.0104609
+  - value: 0.0282392
+  - value: 0.0172921
+  - value: 0.0248196
+  - value: 0.0314168
+  - value: 0.0399983
+  - value: 0.0372311
+  - value: 0.0454912
+  - value: 0.0618655
+  - value: 0.0764784
+  - value: 0.0820594
+  - value: 0.0868393
+  - value: 0.0777144
+  - value: 0.0788773
+  - value: 0.0793941
+  - value: 0.0770602
+  - value: 0.0637535
+  - value: 0.0674608
+  - value: 0.0986909
+  - value: 0.102797
+  - value: 0.117419
+  - value: 0.117806
+  - value: 0.133667
+  - value: 0.157358
+  - value: 0.179296
+  - value: 0.220489
+  - value: 0.275579
+  - value: 0.384843
+  - value: 0.531753
+  - value: 0.49477
+  - value: 0.237566
+  - value: 0.0365686
+  - value: 0.00476762
+  - value: 0.00139364
+  - value: 0.000391932
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.000203563
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 2 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 5\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.00305919
+  - value: 0.00834371
+  - value: 0.010625
+  - value: 0.00698394
+  - value: 0.00892796
+  - value: 0.02057
+  - value: 0.030429
+  - value: 0.0229261
+  - value: 0.0262373
+  - value: 0.0382172
+  - value: 0.0499966
+  - value: 0.0673747
+  - value: 0.119282
+  - value: 0.190166
+  - value: 0.22774
+  - value: 0.308511
+  - value: 0.526593
+  - value: 0.757195
+  - value: 0.998771
+  - value: 1.50341
+  - value: 2.0449
+  - value: 2.20996
+  - value: 1.49342
+  - value: 0.617671
+  - value: 0.245556
+  - value: 0.115443
+  - value: 0.0544641
+  - value: 0.0295394
+  - value: 0.0205394
+  - value: 0.0171977
+  - value: 0.0107136
+  - value: 0.00802681
+  - value: 0.00627747
+  - value: 0.00383681
+  - value: 0.00109596
+  - value: 0.00127517
+  - value: 0.000965004
+  - value: 0.000685668
+  - value: 0.000633938
+  - value: 0.000595175
+  - value: 0.00037324
+  - value: 0.000173827
+  - value: 0.000164145
+  - value: 0.000153558
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 5 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 5\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.00208068
+  - value: 0.00381231
+  - value: 0.00360345
+  - value: 0.00830236
+  - value: 0.00315067
+  - value: 0.0029188
+  - value: 0.0135581
+  - value: 0.0113658
+  - value: 0.0106125
+  - value: 0.0132422
+  - value: 0.013454
+  - value: 0.0304953
+  - value: 0.0210591
+  - value: 0.0274319
+  - value: 0.0320307
+  - value: 0.0402309
+  - value: 0.0430358
+  - value: 0.0551328
+  - value: 0.0492035
+  - value: 0.0632786
+  - value: 0.0900566
+  - value: 0.110973
+  - value: 0.140352
+  - value: 0.176147
+  - value: 0.250731
+  - value: 0.305121
+  - value: 0.40249
+  - value: 0.54334
+  - value: 0.713203
+  - value: 0.924207
+  - value: 0.943805
+  - value: 0.576814
+  - value: 0.228438
+  - value: 0.0732489
+  - value: 0.0239635
+  - value: 0.0140726
+  - value: 0.00549599
+  - value: 0.0023154
+  - value: 0.00184469
+  - value: 0.00062753
+  - value: 0.000441239
+  - value: 0.000138168
+  - value: 0.000129077
+  - value: 0.000121729
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 8 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 5\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.00489346
+  - value: 0
+  - value: 0.00212795
+  - value: 0.00398287
+  - value: 0.00186765
+  - value: 0.0068791
+  - value: 0.00495702
+  - value: 0.0105009
+  - value: 0.015896
+  - value: 0.0171604
+  - value: 0.0212949
+  - value: 0.0386272
+  - value: 0.0405602
+  - value: 0.0545253
+  - value: 0.0754551
+  - value: 0.0951934
+  - value: 0.096131
+  - value: 0.139962
+  - value: 0.159566
+  - value: 0.156531
+  - value: 0.174921
+  - value: 0.180446
+  - value: 0.174914
+  - value: 0.14365
+  - value: 0.133379
+  - value: 0.129763
+  - value: 0.138745
+  - value: 0.13797
+  - value: 0.137917
+  - value: 0.150903
+  - value: 0.172372
+  - value: 0.175495
+  - value: 0.175831
+  - value: 0.187705
+  - value: 0.203846
+  - value: 0.208699
+  - value: 0.224318
+  - value: 0.253067
+  - value: 0.27984
+  - value: 0.220996
+  - value: 0.105273
+  - value: 0.0273493
+  - value: 0.00545923
+  - value: 0.000600776
+  - value: 0.000281592
+  - value: 0.000131515
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 2 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 10\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.00451416
+  - value: 0
+  - value: 0
+  - value: 0.00343088
+  - value: 0
+  - value: 0
+  - value: 0.00808631
+  - value: 0.0118116
+  - value: 0.00905966
+  - value: 0.0104367
+  - value: 0.0231584
+  - value: 0.0250539
+  - value: 0.0349444
+  - value: 0.0310248
+  - value: 0.0333396
+  - value: 0.0486469
+  - value: 0.0728719
+  - value: 0.13601
+  - value: 0.18211
+  - value: 0.258704
+  - value: 0.353457
+  - value: 0.576494
+  - value: 0.855323
+  - value: 1.25441
+  - value: 1.84788
+  - value: 2.09565
+  - value: 1.64184
+  - value: 0.96388
+  - value: 0.452567
+  - value: 0.231223
+  - value: 0.129577
+  - value: 0.0751617
+  - value: 0.0449542
+  - value: 0.0337394
+  - value: 0.0286285
+  - value: 0.0169692
+  - value: 0.0108291
+  - value: 0.0101828
+  - value: 0.00528259
+  - value: 0.00336435
+  - value: 0.00220329
+  - value: 0.00231927
+  - value: 0.00171544
+  - value: 0.00100659
+  - value: 0.000189373
+  - value: 0.000352783
+  - value: 0.000333133
+  - value: 0.000155823
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 5 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 10\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.00440338
+  - value: 0.00621662
+  - value: 0.00379679
+  - value: 0.00897197
+  - value: 0.00992228
+  - value: 0.00627569
+  - value: 0.0101742
+  - value: 0.0121526
+  - value: 0.0100618
+  - value: 0.0152667
+  - value: 0.0219805
+  - value: 0.0195834
+  - value: 0.0313203
+  - value: 0.0200615
+  - value: 0.0413943
+  - value: 0.0350904
+  - value: 0.0393387
+  - value: 0.0421693
+  - value: 0.0620142
+  - value: 0.0617077
+  - value: 0.0834603
+  - value: 0.102503
+  - value: 0.12192
+  - value: 0.141626
+  - value: 0.195067
+  - value: 0.265834
+  - value: 0.288589
+  - value: 0.39834
+  - value: 0.516823
+  - value: 0.659677
+  - value: 0.789801
+  - value: 0.795802
+  - value: 0.592174
+  - value: 0.323648
+  - value: 0.14613
+  - value: 0.0537522
+  - value: 0.030265
+  - value: 0.012646
+  - value: 0.00567625
+  - value: 0.00367436
+  - value: 0.00171868
+  - value: 0.00146481
+  - value: 0.000550422
+  - value: 0
+  - value: 0.000242467
+  - value: 0.000113724
+  - value: 0.00010689
+  - value: 9.99961e-05
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+- header:
+    name: Normalized yield/TeV for $M_{\mathrm{S}}$ = 8 TeV, $\alpha_{\mathrm{true}}$ = 0.25 and $\Gamma/M_{\mathrm{S}}$ = 10\%
+  values:
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0.002974
+  - value: 0
+  - value: 0.00255957
+  - value: 0.00238411
+  - value: 0.00222609
+  - value: 0.00416655
+  - value: 0.00976889
+  - value: 0.00719635
+  - value: 0.019014
+  - value: 0.0109852
+  - value: 0.0196525
+  - value: 0.0124282
+  - value: 0.0301394
+  - value: 0.0440821
+  - value: 0.0630727
+  - value: 0.0559636
+  - value: 0.0920907
+  - value: 0.118373
+  - value: 0.125049
+  - value: 0.128218
+  - value: 0.181814
+  - value: 0.212296
+  - value: 0.206797
+  - value: 0.223962
+  - value: 0.200265
+  - value: 0.178979
+  - value: 0.159011
+  - value: 0.154999
+  - value: 0.151172
+  - value: 0.171558
+  - value: 0.161395
+  - value: 0.174034
+  - value: 0.196064
+  - value: 0.179217
+  - value: 0.212116
+  - value: 0.199027
+  - value: 0.199364
+  - value: 0.206064
+  - value: 0.191532
+  - value: 0.194646
+  - value: 0.171163
+  - value: 0.130081
+  - value: 0.0667214
+  - value: 0.0266559
+  - value: 0.00655084
+  - value: 0.00188545
+  - value: 0.000441867
+  - value: 0.000412741
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
+  - value: 0
