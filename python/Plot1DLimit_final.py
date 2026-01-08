@@ -633,24 +633,24 @@ if __name__ == '__main__':
 
 
             #smooth limit errors
-            #expectedLimit_minus2sigma_new = savgol_filter(np.subtract(expectedLimit[(Box,model)],expectedLimit_minus2sigma[(Box,model)]), 13, 3) # window size 51, polynomial order 3
-            #expectedLimit_plus2sigma_new = savgol_filter(np.add(expectedLimit[(Box,model)],expectedLimit_plus2sigma[(Box,model)]), 13, 3) # window size 51, polynomial order 3
-            #expectedLimit_minus1sigma_new = savgol_filter(np.subtract(expectedLimit[(Box,model)],expectedLimit_minus1sigma[(Box,model)]), 13, 3) # window size 51, polynomial order 3
-            #expectedLimit_plus1sigma_new = savgol_filter(np.add(expectedLimit[(Box,model)],expectedLimit_plus1sigma[(Box,model)]), 13, 3) # window size 51, polynomial order 3
+            expectedLimit_minus2sigma_new = savgol_filter(np.subtract(expectedLimit[(Box,model)],expectedLimit_minus2sigma[(Box,model)]), 13, 3) # window size 51, polynomial order 3
+            expectedLimit_plus2sigma_new = savgol_filter(np.add(expectedLimit[(Box,model)],expectedLimit_plus2sigma[(Box,model)]), 13, 3) # window size 51, polynomial order 3
+            expectedLimit_minus1sigma_new = savgol_filter(np.subtract(expectedLimit[(Box,model)],expectedLimit_minus1sigma[(Box,model)]), 13, 3) # window size 51, polynomial order 3
+            expectedLimit_plus1sigma_new = savgol_filter(np.add(expectedLimit[(Box,model)],expectedLimit_plus1sigma[(Box,model)]), 13, 3) # window size 51, polynomial order 3
 
 
 
-            #for i in range(0, nPoints-1, 1):
+            for i in range(0, nPoints-1, 1):
                   #expectedLimit_minus2sigma[(Box,model)][i] = expectedLimit_minus2sigma_new[i]
                   #expectedLimit_plus2sigma[(Box,model)][i] = expectedLimit_plus2sigma_new[i]
                   #expectedLimit_minus1sigma[(Box,model)][i] = expectedLimit_minus1sigma_new[i]
                   #expectedLimit_plus1sigma[(Box,model)][i] = expectedLimit_plus1sigma_new[i]
                   
                   #smooth limit errors
-                  #expectedLimit_minus2sigma[(Box,model)][i] = expectedLimit[(Box,model)][i] - expectedLimit_minus2sigma_new[i]
-                  #expectedLimit_plus2sigma[(Box,model)][i] = expectedLimit_plus2sigma_new[i] - expectedLimit[(Box,model)][i] 
-                  #expectedLimit_minus1sigma[(Box,model)][i] = expectedLimit[(Box,model)][i] - expectedLimit_minus1sigma_new[i]
-                  #expectedLimit_plus1sigma[(Box,model)][i] = expectedLimit_plus1sigma_new[i] - expectedLimit[(Box,model)][i] 
+                  expectedLimit_minus2sigma[(Box,model)][i] = expectedLimit[(Box,model)][i] - expectedLimit_minus2sigma_new[i]
+                  expectedLimit_plus2sigma[(Box,model)][i] = expectedLimit_plus2sigma_new[i] - expectedLimit[(Box,model)][i] 
+                  expectedLimit_minus1sigma[(Box,model)][i] = expectedLimit[(Box,model)][i] - expectedLimit_minus1sigma_new[i]
+                  expectedLimit_plus1sigma[(Box,model)][i] = expectedLimit_plus1sigma_new[i] - expectedLimit[(Box,model)][i] 
 
 
 
